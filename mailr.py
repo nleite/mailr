@@ -89,7 +89,7 @@ class Mail(object):
         fh = open(self.path, 'r')
         nbytes = int(fh.readline().strip())
         self.content = email.message_from_string(fh.read( nbytes))
-        dic = dict(dic.items())
+        dic = dict(self.content.items())
         i=1
         parts = []
         for part in self.content.walk():
@@ -134,11 +134,7 @@ def load_data( mongo, mailbox, databasename='test', collectionname='mails'):
     #import ipdb;ipdb.set_trace()
     for mail in mailbox.next():
         d = mail.parse()
-        try:
-            collection.save(d)
-        except InvalidStringData:
-            import ipdb;ipdb.set_trace()
-            dir(d)
+        collection.save(d)
 
 
 def main():
