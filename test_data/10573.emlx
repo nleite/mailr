@@ -1,0 +1,282 @@
+11371     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp243352oef;
+        Thu, 6 Sep 2012 18:02:23 -0700 (PDT)
+Received: by 10.50.236.100 with SMTP id ut4mr5812335igc.13.1346979742985;
+        Thu, 06 Sep 2012 18:02:22 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKfshLCuGBCcj6WCBRoEMhr3Gw@googlegroups.com>
+Received: from mail-iy0-f192.google.com (mail-iy0-f192.google.com [209.85.210.192])
+        by mx.google.com with ESMTPS id c5si5891793igj.23.2012.09.06.18.02.22
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:02:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKfshLCuGBCcj6WCBRoEMhr3Gw@googlegroups.com designates 209.85.210.192 as permitted sender) client-ip=209.85.210.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKfshLCuGBCcj6WCBRoEMhr3Gw@googlegroups.com designates 209.85.210.192 as permitted sender) smtp.mail=mongodb-user+bncCKfshLCuGBCcj6WCBRoEMhr3Gw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iagf6 with SMTP id f6sf1733855iag.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:02:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=jkD70i2B1wQHqul0ga9WG+CuNKbB2qOZ3bTxi0AZ4cY=;
+        b=wHFmV5xxKQ6RpO7ZHF1EhRpr6qBuJEuTYWg8e+UwolM4nMCjZ05GhT0MP3HhYHy/K4
+         iHWZQRKF+Y2C9TNad+v7+ACecXZlTnH8RfUIAlYKKpGR91il5GGu3PTFqZAZ1Q5XWlLX
+         EmDLaFxR/CP2QGEpv95LWjyQRNbUWNfgjGCnpPs8p9LD/0TDm73tim6j2p919b9s6pET
+         4oVcmVvvLS9xzw2E9Qq1EQ8SJbHQ4+T5yz4GKwzmJ8I1f+TOggd1UWJ0lHoLBjenuqIC
+         81iKQT55l7aYEQPW7q9N6o6go0ilNJ1kmCOgxtl8551xksEpwVB97ueagK6npKml9svK
+         iThw==
+Received: by 10.68.134.129 with SMTP id pk1mr1037567pbb.13.1346979742377;
+        Thu, 06 Sep 2012 18:02:22 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.210.197 with SMTP id mw5ls234399pbc.7.gmail; Thu, 06 Sep
+ 2012 18:02:20 -0700 (PDT)
+Received: by 10.68.211.6 with SMTP id my6mr1027148pbc.15.1346979740082;
+        Thu, 06 Sep 2012 18:02:20 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:02:19 -0700 (PDT)
+From: Xuguang <xzhan.cisco@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <119e194f-dfdf-46aa-a66c-38f63ccf6629@googlegroups.com>
+In-Reply-To: <abc6a9b3-1d7c-451d-acb2-5d3a6922eb85@v22g2000vbu.googlegroups.com>
+References: <c00fa5a7-decf-4662-8a21-f0c27d67a1f2@googlegroups.com> <48691e93-9925-4211-811c-c2c29e597bbd@googlegroups.com>
+ <abc6a9b3-1d7c-451d-acb2-5d3a6922eb85@v22g2000vbu.googlegroups.com>
+Subject: [mongodb-user] Re: In RollBack Status ,what's the behaviour of MongoS
+ old PRi MongoD and New MongoD
+MIME-Version: 1.0
+X-Original-Sender: xzhan.cisco@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ xzhan.cisco@gmail.com designates internal as permitted sender)
+ smtp.mail=xzhan.cisco@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_148_492182.1346979739687"
+
+------=_Part_148_492182.1346979739687
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+thanks Kristina, i still confuse this part  "rollback is less likely if you=
+=20
+kill the primary, but still possible. "  can you make clear?
+
+and other questions, let's talked about the Kill impact, when application=
+=20
+insert with no-stop model, so still possible exist the data only cache in=
+=20
+the memory ,have not writeinto the disk
+even the journal file have not create, I think it will cause the data lost,=
+=20
+right?
+
+=E5=9C=A8 2012=E5=B9=B49=E6=9C=887=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=94UTC+8=
+=E4=B8=8A=E5=8D=885=E6=97=B642=E5=88=8615=E7=A7=92=EF=BC=8CKristina Chodoro=
+w=E5=86=99=E9=81=93=EF=BC=9A
+>
+> The rollback files will contain data that 117 had written that was not=20
+> replicated before the failover.=20
+>
+> It takes a couple seconds for the primary to realize that it cannot=20
+> reach the other members and step down, so it will get more=20
+> unreplicated writes if you shut off the network vs. kill it.  Thus,=20
+> rollback is less likely if you kill the primary, but still possible.=20
+> Either way, you shouldn't be able to lose any data.=20
+>
+>
+> On Sep 5, 11:28 pm, Xuguang <xzhan.ci...@gmail.com> wrote:=20
+> > attach the Doc=20
+> >=20
+> > =E5=9C=A8 2012=E5=B9=B49=E6=9C=886=E6=97=A5=E6=98=9F=E6=9C=9F=E5=9B=9BU=
+TC+8=E4=B8=8A=E5=8D=8811=E6=97=B617=E5=88=8615=E7=A7=92=EF=BC=8CXuguang=E5=
+=86=99=E9=81=93=EF=BC=9A=20
+> >=20
+> > > check the env:=20
+> > > set 117 priority 2 118 and 119 priority 1=20
+> >=20
+> > <https://lh4.googleusercontent.com/-gaWyACu10VE/UEgYXR0GwSI/AAAAAAAAAC.=
+..>=20
+>
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> > > when we partition the network with command :=20
+> > > separate 117 server from replica set:=20
+> > >         execute commands on 117 server:=20
+> > >             iptables -t filter -p tcp -A OUTPUT -d 10.224.56.119  -j=
+=20
+> > > REJECT=20
+> > >             iptables -t filter -p tcp -A OUTPUT -d 10.224.56.118  -j=
+=20
+> > > REJECT=20
+> > >         (118 and 119 can communicate with each other, but cannot=20
+> > > communicate with 117)=20
+> > > then we continue do the insert action and connect with Monogs,and=20
+> release=20
+> > > the connnection with iptables -F=20
+> >=20
+> > > so we can find the old PRI will at the Rollback status. and find it=
+=20
+> will=20
+> > > exist a bson file in the rollback dir.=20
+> >=20
+> > > this bson file will be the data which the old pri have not sync to th=
+e=20
+> new=20
+> > > PRI and secondary? if we not block the connetion cause the=20
+> > > new vote for the PIR, we use the Pkill to shut down the Old=20
+> PRI,whether we=20
+> > > will lost the data ? as it have not chance to sync data to other=20
+> nodes,=20
+> > > right?=20
+> >=20
+> > > so the questions: what's the behaviour of the Mongos and old/new PRI=
+=20
+> node?=20
+> >=20
+> >=20
+> >=20
+> >  Capture.PNG=20
+> > 106KViewDownload=20
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_148_492182.1346979739687
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+thanks Kristina, i still confuse this part&nbsp; "rollback is less likely i=
+f you kill the primary, but still possible.
+"&nbsp; can you make clear?<br><br>and other questions, let's talked about =
+the Kill impact, when application insert with no-stop model, so still possi=
+ble exist the data only cache in the memory ,have not writeinto the disk<br=
+>even the <tt>journal file have not create, I think it will cause the data =
+lost, right?</tt><br><br>=E5=9C=A8 2012=E5=B9=B49=E6=9C=887=E6=97=A5=E6=98=
+=9F=E6=9C=9F=E4=BA=94UTC+8=E4=B8=8A=E5=8D=885=E6=97=B642=E5=88=8615=E7=A7=
+=92=EF=BC=8CKristina Chodorow=E5=86=99=E9=81=93=EF=BC=9A<blockquote class=
+=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #cc=
+c solid;padding-left: 1ex;">The rollback files will contain data that 117 h=
+ad written that was not
+<br>replicated before the failover.
+<br>
+<br>It takes a couple seconds for the primary to realize that it cannot
+<br>reach the other members and step down, so it will get more
+<br>unreplicated writes if you shut off the network vs. kill it. &nbsp;Thus=
+,
+<br>rollback is less likely if you kill the primary, but still possible.
+<br>Either way, you shouldn't be able to lose any data.
+<br>
+<br>
+<br>On Sep 5, 11:28&nbsp;pm, Xuguang &lt;<a>xzhan.ci...@gmail.com</a>&gt; w=
+rote:
+<br>&gt; attach the Doc
+<br>&gt;
+<br>&gt; =E5=9C=A8 2012=E5=B9=B49=E6=9C=886=E6=97=A5=E6=98=9F=E6=9C=9F=E5=
+=9B=9BUTC+8=E4=B8=8A=E5=8D=8811=E6=97=B617=E5=88=8615=E7=A7=92=EF=BC=8C<wbr=
+>Xuguang=E5=86=99=E9=81=93=EF=BC=9A
+<br>&gt;
+<br>&gt; &gt; check the env:
+<br>&gt; &gt; set 117 priority 2 118 and 119 priority 1
+<br>&gt;
+<br>&gt; &lt;<a href=3D"https://lh4.googleusercontent.com/-gaWyACu10VE/UEgY=
+XR0GwSI/AAAAAAAAAC.." target=3D"_blank">https://lh4.<wbr>googleusercontent.=
+com/-<wbr>gaWyACu10VE/UEgYXR0GwSI/<wbr>AAAAAAAAAC..</a>.&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt; &gt; when we partition the network with command :
+<br>&gt; &gt; separate 117 server from replica set:
+<br>&gt; &gt; &nbsp; &nbsp; &nbsp; &nbsp; execute commands on 117 server:
+<br>&gt; &gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; iptables -t filter =
+-p tcp -A OUTPUT -d 10.224.56.119 &nbsp;-j
+<br>&gt; &gt; REJECT
+<br>&gt; &gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; iptables -t filter =
+-p tcp -A OUTPUT -d 10.224.56.118 &nbsp;-j
+<br>&gt; &gt; REJECT
+<br>&gt; &gt; &nbsp; &nbsp; &nbsp; &nbsp; (118 and 119 can communicate with=
+ each other, but cannot
+<br>&gt; &gt; communicate with 117)
+<br>&gt; &gt; then we continue do the insert action and connect with Monogs=
+,and release
+<br>&gt; &gt; the connnection with iptables -F
+<br>&gt;
+<br>&gt; &gt; so we can find the old PRI will at the Rollback status. and f=
+ind it will
+<br>&gt; &gt; exist a bson file in the rollback dir.
+<br>&gt;
+<br>&gt; &gt; this bson file will be the data which the old pri have not sy=
+nc to the new
+<br>&gt; &gt; PRI and secondary? if we not block the connetion cause the
+<br>&gt; &gt; new vote for the PIR, we use the Pkill to shut down the Old P=
+RI,whether we
+<br>&gt; &gt; will lost the data ? as it have not chance to sync data to ot=
+her nodes,
+<br>&gt; &gt; right?
+<br>&gt;
+<br>&gt; &gt; so the questions: what's the behaviour of the Mongos and old/=
+new PRI node?
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt; &nbsp;Capture.PNG
+<br>&gt; 106KViewDownload
+<br></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_148_492182.1346979739687--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346979739</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1897</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: In RollBack Status ,what's the behaviour of MongoS old PRi MongoD and New MongoD</string>
+</dict>
+</plist>

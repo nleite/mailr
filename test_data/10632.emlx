@@ -1,0 +1,136 @@
+6691      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp260779oef;
+        Fri, 7 Sep 2012 04:54:01 -0700 (PDT)
+Received: by 10.182.76.161 with SMTP id l1mr5601773obw.72.1347018841115;
+        Fri, 07 Sep 2012 04:54:01 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLOd2LnyHxDVwKeCBRoETY9SPw@googlegroups.com>
+Received: from mail-ob0-f192.google.com (mail-ob0-f192.google.com [209.85.214.192])
+        by mx.google.com with ESMTPS id s9si6236401oea.14.2012.09.07.04.54.00
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 04:54:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLOd2LnyHxDVwKeCBRoETY9SPw@googlegroups.com designates 209.85.214.192 as permitted sender) client-ip=209.85.214.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLOd2LnyHxDVwKeCBRoETY9SPw@googlegroups.com designates 209.85.214.192 as permitted sender) smtp.mail=mongodb-user+bncCLOd2LnyHxDVwKeCBRoETY9SPw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by obbwc18 with SMTP id wc18sf1674121obb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 04:54:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:from
+         :date:message-id:subject:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=0L0QDYXIZDN8+MJZD37YO3lR5In7GdX/lho3iun0Y74=;
+        b=p+uy254cLBCSwCpIwrGd32elH9PO8oOfNvt9cO7aeUn0sX29ypGXxJijk52Mslsa5l
+         Nom34blXrijibcIkjAjbYEb16C4jZxcEg+KJo8kGoucew2YU/Ofw0NAX+nRp0qBZGkP+
+         MkmrSrEo6ndSssglP0sdAdMb5fNzhdxqZJzScrKruVz9oi81jn4aFn66e+dlCMJ5oKvD
+         jkCJpcOpOcYmy+LjRUaRAaXH38QWB8bT/+ABmG/9Dof86hPWmDP/SSYV5LCfaLqCJd3K
+         L1c3bnXdGsK4jw/K14EZPz4jx0HPmZtMWH1LpJ8AeQAMRs5Qwnrxfwx1e1a4Cuez01Tu
+         WiAA==
+Received: by 10.68.189.228 with SMTP id gl4mr1288419pbc.4.1347018839794;
+        Fri, 07 Sep 2012 04:53:59 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.136.233 with SMTP id qd9ls1502903pbb.4.gmail; Fri, 07 Sep
+ 2012 04:53:57 -0700 (PDT)
+Received: by 10.66.74.10 with SMTP id p10mr1127926pav.17.1347018837634;
+        Fri, 07 Sep 2012 04:53:57 -0700 (PDT)
+Received: by 10.66.74.10 with SMTP id p10mr1127925pav.17.1347018837621;
+        Fri, 07 Sep 2012 04:53:57 -0700 (PDT)
+Received: from mail-pz0-f52.google.com (mail-pz0-f52.google.com [209.85.210.52])
+        by gmr-mx.google.com with ESMTPS id vw9si2253761pbc.2.2012.09.07.04.53.57
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 04:53:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of scotthernandez@gmail.com designates 209.85.210.52 as permitted sender) client-ip=209.85.210.52;
+Received: by mail-pz0-f52.google.com with SMTP id f10so2038271dak.39
+        for <mongodb-user@googlegroups.com>; Fri, 07 Sep 2012 04:53:57 -0700 (PDT)
+Received: by 10.68.228.1 with SMTP id se1mr9585389pbc.110.1347018837425; Fri,
+ 07 Sep 2012 04:53:57 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.68.241.136 with HTTP; Fri, 7 Sep 2012 04:53:37 -0700 (PDT)
+In-Reply-To: <CAMH6+azWa5azps_EphBLpw+id-GEd+0E-=KJ-hz9oMsad7a9Ag@mail.gmail.com>
+References: <CAMH6+azWa5azps_EphBLpw+id-GEd+0E-=KJ-hz9oMsad7a9Ag@mail.gmail.com>
+From: Scott Hernandez <scotthernandez@gmail.com>
+Date: Fri, 7 Sep 2012 07:53:37 -0400
+Message-ID: <CALOM=qjsfS9Lvtce2YFZjOKd_Jetw3KZp_RSSL5CX_A8X1xNsA@mail.gmail.com>
+Subject: Re: [mongodb-user] Per-Field Symmetric Encryption within Java
+To: mongodb-user@googlegroups.com
+X-Original-Sender: scotthernandez@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of scotthernandez@gmail.com designates 209.85.210.52 as permitted
+ sender) smtp.mail=scotthernandez@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=ISO-8859-1
+
+You can add an annotation in Morphia to make this pretty transparent
+to the application, or use the lifecycle methods so your java objects
+never know it is happening. I would imagine it working much like
+@Serialized.
+
+The more important ramifications are that in the database you will not
+be able to search on these fields (except for exact matches possibly)
+since the data in encrypted.
+
+On Fri, Sep 7, 2012 at 6:09 AM, James Green <james.mk.green@gmail.com> wrote:
+> Hi,
+>
+> Our app currently works in Glassfish 3 and uses Morphia. We have not yet hit
+> production. I now have a requirement to encrypt selected fields of some of
+> my entity models.
+>
+> An encryption key will exist on a per-customer basis.
+>
+> Where do I look for doing this stuff? I've only been doing "Java" really
+> this year so I have a vague awareness of Java having an encryption API. I
+> see Spring Security and Jasypt exist too.
+>
+> Ideally, something that operates almost transparently would be great. At
+> least, apart from setting the key, there ought to be minimal code needed.
+> Perhaps something in place of Morphia if that opens possibilities.
+>
+> Thanks for any advice given.
+>
+> James
+>
+> --
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongodb-user@googlegroups.com
+> To unsubscribe from this group, send email to
+> mongodb-user+unsubscribe@googlegroups.com
+> See also the IRC channel -- freenode.net#mongodb
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347018817</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1956</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Per-Field Symmetric Encryption within Java</string>
+</dict>
+</plist>

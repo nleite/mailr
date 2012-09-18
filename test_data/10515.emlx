@@ -1,0 +1,187 @@
+8367      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp229111oef;
+        Thu, 6 Sep 2012 11:15:20 -0700 (PDT)
+Received: by 10.60.26.103 with SMTP id k7mr3341569oeg.122.1346955320161;
+        Thu, 06 Sep 2012 11:15:20 -0700 (PDT)
+Return-Path: <mongodb-user+bncCMHdgKvoDRC00KOCBRoEsehdDw@googlegroups.com>
+Received: from mail-ob0-f192.google.com (mail-ob0-f192.google.com [209.85.214.192])
+        by mx.google.com with ESMTPS id lv9si3692632obc.51.2012.09.06.11.15.19
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:15:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCMHdgKvoDRC00KOCBRoEsehdDw@googlegroups.com designates 209.85.214.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCMHdgKvoDRC00KOCBRoEsehdDw@googlegroups.com designates 209.85.214.192 as permitted sender) smtp.mail=mongodb-user+bncCMHdgKvoDRC00KOCBRoEsehdDw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-ob0-f192.google.com with SMTP id wc18sf1129865obb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:15:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=STDBQ+FwoJ8bxOxQ4wj7MC+MhXMcnqOaRaEa/sovGv0=;
+        b=mnPBFV+k2CYxTbM02NQb/DOKLhcEMrNQ5uSXBcBqi1K2jPw29qQAmBFG5aS7SjZxg+
+         Lnz3BGs80XSwghRB7neeC4I6dSkQrubNahb7CQ3C9R2Fmk1RuJuiDY7EpgUascfFelQc
+         E1OuJApX333/5Hdk5fJZVweqnLsBhAb5WtkA3mnz8BrgUGvVLQgFCMqr2pUnew0qqXiY
+         YoVkljZGEjygClE+xR3QCZR6c3MOvu6zkEO1n3NdIX29Gl7hgziEijdx6tpaJ3cBStNR
+         2qlplrwcYCgJ2PDYhh+gWF2LGgNB5G6Gsp5aojho8hz6x1lV0Zoy1vonOferFJJikj7d
+         Lk+g==
+Received: by 10.52.75.36 with SMTP id z4mr568790vdv.14.1346955319402;
+        Thu, 06 Sep 2012 11:15:19 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.28.170 with SMTP id c10ls288068vdh.0.gmail; Thu, 06 Sep
+ 2012 11:15:16 -0700 (PDT)
+Received: by 10.52.91.47 with SMTP id cb15mr570755vdb.11.1346955316720;
+        Thu, 06 Sep 2012 11:15:16 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:15:15 -0700 (PDT)
+From: Paul <pscalany@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <40b49134-0d3d-4675-83aa-faddaf14a020@googlegroups.com>
+In-Reply-To: <CAJCJWG3s7m8az36GSXXDu-6ZwnNieuFC0oxyjcnZU16yxCZb-Q@mail.gmail.com>
+References: <c5b0aedf-0f6f-4d2a-a5a5-84a31631a338@googlegroups.com>
+ <CAJCJWG3s7m8az36GSXXDu-6ZwnNieuFC0oxyjcnZU16yxCZb-Q@mail.gmail.com>
+Subject: Re: [mongodb-user] Mongo C# driver CopyDatabase Exception
+MIME-Version: 1.0
+X-Original-Sender: pscalany@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ pscalany@gmail.com designates internal as permitted sender)
+ smtp.mail=pscalany@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_44_26502956.1346955316144"
+
+------=_Part_44_26502956.1346955316144
+Content-Type: text/plain; charset=ISO-8859-1
+
+Thank you, I will keep an eye on the ticket. 
+
+On Wednesday, September 5, 2012 1:57:57 PM UTC-4, Robert Stam wrote:
+>
+> Sorry. It's not implemented. I've created a JIRA ticket for this:
+>
+> https://jira.mongodb.org/browse/CSHARP-554 
+>
+> On Wed, Sep 5, 2012 at 1:03 PM, Paul <psca...@gmail.com <javascript:>>wrote:
+>
+>> Hi I am trying to use the C# CopyDatabasse(string from, string to) 
+>> function and I am getting the following exception"
+>>
+>> "A first chance exception of type 'System.NotImplementedException' 
+>> occurred in MongoDB.Driver.dll
+>> An unhandled exception of type 'System.NotImplementedException' occurred 
+>> in MongoDB.Driver.dll
+>>
+>> Additional information: The method or operation is not implemented."
+>>
+>> Can it be that I am doing something wrong or is is it just not 
+>> implemented? 
+>>
+>> If it's not implemented is there another way to rename a Mongo Database 
+>> from C#? 
+>>
+>> Thanks, 
+>>
+>> Paul
+>>
+>> -- 
+>> You received this message because you are subscribed to the Google
+>> Groups "mongodb-user" group.
+>> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> To unsubscribe from this group, send email to
+>> mongodb-user...@googlegroups.com <javascript:>
+>> See also the IRC channel -- freenode.net#mongodb
+>>
+>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_44_26502956.1346955316144
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Thank you, I will keep an eye on the ticket. <br><br>On Wednesday, Septembe=
+r 5, 2012 1:57:57 PM UTC-4, Robert Stam wrote:<blockquote class=3D"gmail_qu=
+ote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padd=
+ing-left: 1ex;">Sorry. It's not implemented. I've created a JIRA ticket for=
+ this:<div><br></div><div><a href=3D"https://jira.mongodb.org/browse/CSHARP=
+-554" target=3D"_blank">https://jira.mongodb.org/<wbr>browse/CSHARP-554</a>=
+&nbsp;<br><br><div class=3D"gmail_quote">
+On Wed, Sep 5, 2012 at 1:03 PM, Paul <span dir=3D"ltr">&lt;<a href=3D"javas=
+cript:" target=3D"_blank" gdf-obfuscated-mailto=3D"e6TJo7vL4r0J">psca...@gm=
+ail.com</a>&gt;</span> wrote:<br><blockquote class=3D"gmail_quote" style=3D=
+"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+Hi I am trying to use the C# CopyDatabasse(string from, string to) function=
+ and I am getting the following exception"<br><br>"A first chance exception=
+ of type 'System.<wbr>NotImplementedException' occurred in MongoDB.Driver.d=
+ll<br>
+An unhandled exception of type 'System.<wbr>NotImplementedException' occurr=
+ed in MongoDB.Driver.dll<br><br>Additional information: The method or opera=
+tion is not implemented."<br><br>Can it be that I am doing something wrong =
+or is is it just not implemented? <br>
+<br>If it's not implemented is there another way to rename a Mongo Database=
+ from C#? <br><br>Thanks, <br><br>Paul<span><font color=3D"#888888"><br>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br>
+To post to this group, send email to <a href=3D"javascript:" target=3D"_bla=
+nk" gdf-obfuscated-mailto=3D"e6TJo7vL4r0J">mongod...@googlegroups.com</a><b=
+r>
+To unsubscribe from this group, send email to<br>
+<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"e6TJo7vL=
+4r0J">mongodb-user...@<wbr>googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</font></span></blockquote></div><br></div>
+</blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_44_26502956.1346955316144--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346955315</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1839</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Mongo C# driver CopyDatabase Exception</string>
+</dict>
+</plist>

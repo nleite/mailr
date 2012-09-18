@@ -1,0 +1,186 @@
+8629      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp239600oef;
+        Thu, 6 Sep 2012 15:57:42 -0700 (PDT)
+Received: by 10.236.115.138 with SMTP id e10mr3350081yhh.79.1346972262103;
+        Thu, 06 Sep 2012 15:57:42 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJr2rp3pBBDj1KSCBRoEp9ce1A@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id w42si3190244yhd.57.2012.09.06.15.57.41
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 15:57:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJr2rp3pBBDj1KSCBRoEp9ce1A@googlegroups.com designates 209.85.213.192 as permitted sender) client-ip=209.85.213.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJr2rp3pBBDj1KSCBRoEp9ce1A@googlegroups.com designates 209.85.213.192 as permitted sender) smtp.mail=mongodb-user+bncCJr2rp3pBBDj1KSCBRoEp9ce1A@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yenl1 with SMTP id l1sf1710838yen.29
+        for <multiple recipients>; Thu, 06 Sep 2012 15:57:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=Dqs3mbSoJ7C+l7CWo0HmYcY5X0CfVVEkHlbr3Zrg9T4=;
+        b=Y8hR4JyWItVdvD9ho4TjPYF1WUBTwCMU2rgBQlkIn/rF2G7395cubCLfh5IsLBCYz0
+         Jf3Qe3W8Q7HpNtezR8eYeMd7K10tpc7Fcy+brHi66mRtZctVEXOo6+mG7yZn9WlT0DuQ
+         Mt57e/+LJ/0zWTdEJk7yaK0DFXdI7IWV6SM/4IIOhDso99ifb/poNVlVEryyI4IYRNcV
+         iKM8bB5e6+sjpg7fMZuDLdnCpJUusSzaS5XyjkaKKA4r1gPf+cptteiQUPrsjiddVvLE
+         wLv+1s2Gu0ijaDPuHsruq8/rTjOmdWJQ6hkEt+1DiuG6+lfl3XlUjoywsyEbZQkudHSx
+         dHog==
+Received: by 10.68.233.104 with SMTP id tv8mr1015532pbc.5.1346972261463;
+        Thu, 06 Sep 2012 15:57:41 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.141.133 with SMTP id ro5ls95718pbb.1.gmail; Thu, 06 Sep
+ 2012 15:57:39 -0700 (PDT)
+Received: by 10.68.190.65 with SMTP id go1mr1013980pbc.6.1346972259172;
+        Thu, 06 Sep 2012 15:57:39 -0700 (PDT)
+Date: Thu, 6 Sep 2012 15:57:38 -0700 (PDT)
+From: Thomas Weidman <tweidman.ispot@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <90cd43d8-2612-4a1f-ae20-f3c8e9b96812@googlegroups.com>
+In-Reply-To: <0f9c3a34-6a07-4234-b3f9-da1b57a88826@googlegroups.com>
+References: <43dbc088-4060-414d-a206-480aa390162d@googlegroups.com>
+ <0f9c3a34-6a07-4234-b3f9-da1b57a88826@googlegroups.com>
+Subject: [mongodb-user] Re: Mongo Benchmark/Profile
+MIME-Version: 1.0
+X-Original-Sender: tweidman.ispot@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ tweidman.ispot@gmail.com designates internal as permitted sender)
+ smtp.mail=tweidman.ispot@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_57_2591415.1346972258624"
+
+------=_Part_57_2591415.1346972258624
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi David,
+
+When I run scons I get this error:
+
+scons: Reading SConscript files ...
+Checking for C library mongoclient... yes
+Checking for C library boost_thread_mt... no
+Checking for C library boost_thread... yes
+Checking for C library boost_filesystem_mt... no
+Checking for C library boost_filesystem... yes
+Checking for C library boost_program_options_mt... no
+Checking for C library boost_program_options... yes
+Checking for C library boost_system_mt... no
+Checking for C library boost_system... no
+Error: can't find library: boost_system
+
+Thomas
+
+On Wednesday, September 5, 2012 11:59:13 PM UTC-7, David Hows wrote:
+>
+> Hi Thomas,
+>
+> What specifically is causing you issues?
+>
+> Cheers,
+>
+> David
+>
+> On Thursday, September 6, 2012 6:09:11 AM UTC+10, Thomas Weidman wrote:
+>>
+>> Hello,
+>>
+>> I'm new to Mongo and have a RHEL 5 Linux system that I want to compare 
+>> running MongoDB using two methods of storage.  First using 
+>> a virtual machine file system that is using a NFS share like a local drive 
+>> and a second test using the NFS directly as a mount point and not a "local" 
+>> drive.  The end goal is to compare performance and reliability of both 
+>> methods and identify any potential issues.
+>>
+>> I'm using Mongo 2.2.0 binary and have been trying to get mongo-perf tool 
+>> https://github.com/mongodb/mongo-perf working with it and have not had 
+>> any success.  Any input or guidance would be appreciated.
+>>
+>> Thanks,
+>> Thomas
+>>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_57_2591415.1346972258624
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi David,<div><br></div><div>When I run scons I get this error:</div><div><=
+br></div><div><div>scons: Reading SConscript files ...<br></div><div>Checki=
+ng for C library mongoclient... yes</div><div>Checking for C library boost_=
+thread_mt... no</div><div>Checking for C library boost_thread... yes</div><=
+div>Checking for C library boost_filesystem_mt... no</div><div>Checking for=
+ C library boost_filesystem... yes</div><div>Checking for C library boost_p=
+rogram_options_mt... no</div><div>Checking for C library boost_program_opti=
+ons... yes</div><div>Checking for C library boost_system_mt... no</div><div=
+>Checking for C library boost_system... no</div><div>Error: can't find libr=
+ary: boost_system</div></div><div><br></div><div>Thomas<br><br>On Wednesday=
+, September 5, 2012 11:59:13 PM UTC-7, David Hows wrote:<blockquote class=
+=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #cc=
+c solid;padding-left: 1ex;">Hi&nbsp;Thomas,<div><br></div><div>What specifi=
+cally is causing you issues?</div><div><br></div><div>Cheers,</div><div><br=
+></div><div>David<br><br>On Thursday, September 6, 2012 6:09:11 AM UTC+10, =
+Thomas Weidman wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0;ma=
+rgin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">Hello,<div><br=
+></div><div>I'm new to Mongo and have a RHEL 5 Linux system that I want to =
+compare running MongoDB using two methods of storage. &nbsp;First using a&n=
+bsp;virtual&nbsp;machine file system that is using a NFS share like a local=
+ drive and a second test using the NFS directly as a mount point and not a =
+"local" drive. &nbsp;The end goal is to compare performance and&nbsp;reliab=
+ility&nbsp;of both methods and identify any potential issues.</div><div><br=
+></div><div>I'm using Mongo 2.2.0 binary and have been trying to get mongo-=
+perf tool&nbsp;<a href=3D"https://github.com/mongodb/mongo-perf" target=3D"=
+_blank">https://github.com/<wbr>mongodb/mongo-perf</a>&nbsp;working with it=
+ and have not had any success. &nbsp;Any input or guidance would be appreci=
+ated.</div><div><br></div><div>Thanks,</div><div>Thomas</div></blockquote><=
+/div></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_57_2591415.1346972258624--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346972258</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1882</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Mongo Benchmark/Profile</string>
+</dict>
+</plist>

@@ -1,0 +1,127 @@
+5877      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp270020oef;
+        Fri, 7 Sep 2012 08:53:46 -0700 (PDT)
+Received: by 10.60.29.165 with SMTP id l5mr6737306oeh.105.1347033226898;
+        Fri, 07 Sep 2012 08:53:46 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOOlmOb_CRCHsaiCBRoEOh_q3g@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id im8si7300027obb.94.2012.09.07.08.53.46
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 08:53:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOOlmOb_CRCHsaiCBRoEOh_q3g@googlegroups.com designates 209.85.223.192 as permitted sender) client-ip=209.85.223.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOOlmOb_CRCHsaiCBRoEOh_q3g@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCOOlmOb_CRCHsaiCBRoEOh_q3g@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iebc12 with SMTP id c12sf1589210ieb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 08:53:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=lJeIdHcambSFG8PqL+RQBGgGIK9eVExlDwBO27WayZg=;
+        b=zDFbo5lTPfU7PZLXqznhqLKOyCL3HX9xgLZaN07LGpefOvA9yLbvJJbP2lwPEUYv3t
+         V7U6ZFAVvEGnT5Zn9A5emQcm+mm5HN6I0Rp5k+tmA9eVZCrXT7wn2efsO5LSQu8VPZO3
+         SoD6fNvg9RcZkiuPVAcQjdImYsQ3mjJRUNec1CXKu/WHDfORge1VqsXNZMPDt71xMnnL
+         vXsVR/pk5TYdZrrT89ZIcxyBslCKrmKzyrw2yOYX4dN4ufxVBnsImId2vrkqFNH65VdH
+         eaPSjtEznMjh/rAO/9nfRz5ZABz5RSuPqrMutq4vtphg/VoSawP6l9Mn4moEm+6+37KT
+         qGsw==
+Received: by 10.224.42.20 with SMTP id q20mr1373172qae.12.1347033226113;
+        Fri, 07 Sep 2012 08:53:46 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.229.106.74 with SMTP id w10ls563005qco.6.gmail; Fri, 07 Sep
+ 2012 08:53:43 -0700 (PDT)
+Received: by 10.224.27.14 with SMTP id g14mr2955056qac.1.1347033223502;
+        Fri, 07 Sep 2012 08:53:43 -0700 (PDT)
+Received: by 10.224.86.211 with SMTP id t19msqal;
+        Fri, 7 Sep 2012 08:32:25 -0700 (PDT)
+Received: by 10.52.30.133 with SMTP id s5mr1038892vdh.10.1347031945221;
+        Fri, 07 Sep 2012 08:32:25 -0700 (PDT)
+Date: Fri, 7 Sep 2012 08:32:24 -0700 (PDT)
+From: Kay <kay.kim@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <2fff0c9f-aa13-4d7c-9325-6c8dc8483588@googlegroups.com>
+In-Reply-To: <2e0d59e3-819d-470a-a89b-33104a7f102a@googlegroups.com>
+References: <2e0d59e3-819d-470a-a89b-33104a7f102a@googlegroups.com>
+Subject: [mongodb-user] Re: Parallel across one box
+MIME-Version: 1.0
+X-Original-Sender: kay.kim@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_837_6376296.1347031944845"
+
+------=_Part_837_6376296.1347031944845
+Content-Type: text/plain; charset=ISO-8859-1
+
+Yes.  MongoDB can work concurrently.  MongoDB is almost never processor 
+intensive.  Read/Write locks become more contentious than CPU.  
+
+On Thursday, September 6, 2012 2:32:40 PM UTC-4, Damian wrote:
+>
+> Will MongoDB be able to work concurrently on number of core on a single 
+> box? 
+> If yes how does it scale if there are more than say 4 cores? I can imagine 
+> one needs to implement lockfree methods.
+>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_837_6376296.1347031944845
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Yes. &nbsp;MongoDB can work concurrently. &nbsp;MongoDB is almost never pro=
+cessor intensive. &nbsp;Read/Write locks become more contentious than CPU. =
+&nbsp;<br><br>On Thursday, September 6, 2012 2:32:40 PM UTC-4, Damian wrote=
+:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;bo=
+rder-left: 1px #ccc solid;padding-left: 1ex;">Will MongoDB be able to work =
+concurrently on number of core on a single box?&nbsp;<div>If yes how does i=
+t scale if there are more than say 4 cores? I can imagine one needs to impl=
+ement lockfree methods.</div><div><br></div></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_837_6376296.1347031944845--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347031944</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1976</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Parallel across one box</string>
+</dict>
+</plist>

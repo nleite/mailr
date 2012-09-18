@@ -1,0 +1,173 @@
+8357      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp246363oef;
+        Thu, 6 Sep 2012 20:15:36 -0700 (PDT)
+Received: by 10.236.114.200 with SMTP id c48mr3695978yhh.118.1346987736266;
+        Thu, 06 Sep 2012 20:15:36 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIacspacFxDVzaWCBRoEzglyjg@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id c29si3621033yhe.39.2012.09.06.20.15.35
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 20:15:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIacspacFxDVzaWCBRoEzglyjg@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIacspacFxDVzaWCBRoEzglyjg@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCIacspacFxDVzaWCBRoEzglyjg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf1774568yhn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 20:15:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=lrWKoMNytIzwDAqhRgIEYad+bZ4s4g1pI9Nh2LwGFPs=;
+        b=FU84yz9uoeq4gB3+6nmsQOjeNiZO854WXdAmVw0qBK/IxvY7jRbFqc3Hjs4UWBIwdb
+         c0UBDwIkwl1rPbkUn8qEmSdMj0s+S7Wu5UJUnzUdjoH5eTAzqYCKWUK+08nzow7k+0M1
+         vUuT5blvyk/lTuk0cJPsKUZY8lObxAUqrG/8fqj5iSd+RukzbazieyGiuPtV/4mFD1xK
+         H1Vkt/r3MBmcbRAbYCkX3I0zyKime2A3K1HU3hPYfrL3iHzbuSYHjDa8SQauT6NbGObt
+         /giLms0ZRLKw2+37JsV3dcPBOXCvMfozTWRQf5dU2g5RBDvcF/DOh4n7RFVKoZJd5KQq
+         g2aA==
+Received: by 10.224.180.198 with SMTP id bv6mr1054061qab.14.1346987735427;
+        Thu, 06 Sep 2012 20:15:35 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.224.218.135 with SMTP id hq7ls227677qab.4.gmail; Thu, 06 Sep
+ 2012 20:15:33 -0700 (PDT)
+Received: by 10.224.207.72 with SMTP id fx8mr2347037qab.2.1346987733242;
+        Thu, 06 Sep 2012 20:15:33 -0700 (PDT)
+Received: by 10.224.18.193 with SMTP id x1msqaa;
+        Thu, 6 Sep 2012 16:13:38 -0700 (PDT)
+Received: by 10.236.181.234 with SMTP id l70mr524571yhm.5.1346973217753;
+        Thu, 06 Sep 2012 16:13:37 -0700 (PDT)
+Date: Thu, 6 Sep 2012 16:13:37 -0700 (PDT)
+From: Mike O'Brien <mikeo@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <54b43329-059d-4183-be24-7c348e5555ae@googlegroups.com>
+In-Reply-To: <dd36bf0a-87b6-4756-9afd-486d5ea14cac@googlegroups.com>
+References: <dd36bf0a-87b6-4756-9afd-486d5ea14cac@googlegroups.com>
+Subject: [mongodb-user] Re: java.lang.ClassNotFoundException: com.mongodb.hadoop.streaming.MongoStreamJob
+MIME-Version: 1.0
+X-Original-Sender: mikeo@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_177_21431630.1346973217144"
+
+------=_Part_177_21431630.1346973217144
+Content-Type: text/plain; charset=ISO-8859-1
+
+Stelios  -
+Try changing your build.sbt file setting for the hadoop Release setting to 
+"0.23" and rebuild everything, then run it again. Details 
+here: http://api.mongodb.org/hadoop/Building+the+Adapter.html
+
+On Thursday, September 6, 2012 4:31:30 PM UTC-4, Stelios Doudalis wrote:
+>
+> HI all,
+>
+> I am new to map reduce. 
+>
+> I have install hadoop 0.23 .
+>
+> Inside /usr/local/hadoop/share/hadoop/tools/lib
+> I can find hadoop-streaming-0.23.1.jar
+>
+> When I run 
+> hadoop jar mongo-hadoop-streaming-assembly-1.1.0-SNAPSHOT.jar -mapper 
+> /home/hduser/jobs/examples/word_count/mapper.py  -reduce 
+> /home/hduser/jobs/examples/word_count/reducer.py -inputURI mongodb://
+> 130.33.51.8:27017/tweets\-english.tweetsNewTest<http://130.33.51.8:27017/tweets%5C-english.tweetsNewTest>  
+> -outputURI mongodb://130.33.51.8:27017/tweets\-english.hadoopRes<http://130.33.51.8:27017/tweets%5C-english.hadoopRes>
+>
+> I get :
+>
+> Exception in thread "main" java.io.IOException: Error opening job jar: 
+> mongo-hadoop-streaming-assembly-1.1.0-SNAPSHOT.jar
+>     at org.apache.hadoop.util.RunJar.main(RunJar.java:130)
+> Caused by: java.util.zip.ZipException: error in opening zip file
+>     at java.util.zip.ZipFile.open(Native Method)
+>     at java.util.zip.ZipFile.<init>(ZipFile.java:127)
+>     at java.util.jar.JarFile.<init>(JarFile.java:135)
+>     at java.util.jar.JarFile.<init>(JarFile.java:72)
+>     at org.apache.hadoop.util.RunJar.main(RunJar.java:128)
+>
+>
+> Any ideas?
+> Thanks
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_177_21431630.1346973217144
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Stelios &nbsp;-<div>Try changing your build.sbt file setting for the hadoop=
+ Release setting to "0.23" and rebuild everything, then run it again. Detai=
+ls here:&nbsp;http://api.mongodb.org/hadoop/Building+the+Adapter.html<br><b=
+r>On Thursday, September 6, 2012 4:31:30 PM UTC-4, Stelios Doudalis wrote:<=
+blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;bord=
+er-left: 1px #ccc solid;padding-left: 1ex;">HI all,<br><br>I am new to map =
+reduce. <br><br>I have install hadoop 0.23 .<br><br>Inside /usr/local/hadoo=
+p/share/<wbr>hadoop/tools/lib<br>I can find hadoop-streaming-0.23.1.jar<br>=
+<br>When I run <br>hadoop jar mongo-hadoop-streaming-<wbr>assembly-1.1.0-SN=
+APSHOT.jar -mapper /home/hduser/jobs/examples/<wbr>word_count/mapper.py&nbs=
+p; -reduce /home/hduser/jobs/examples/<wbr>word_count/reducer.py -inputURI =
+mongodb://<a href=3D"http://130.33.51.8:27017/tweets%5C-english.tweetsNewTe=
+st" target=3D"_blank">130.33.51.8:27017/<wbr>tweets\-english.tweetsNewTest<=
+/a>&nbsp; -outputURI mongodb://<a href=3D"http://130.33.51.8:27017/tweets%5=
+C-english.hadoopRes" target=3D"_blank">130.33.51.8:27017/<wbr>tweets\-engli=
+sh.hadoopRes</a><br><br>I get :<br><br>Exception in thread "main" java.io.I=
+OException: Error opening job jar: mongo-hadoop-streaming-<wbr>assembly-1.1=
+.0-SNAPSHOT.jar<br>&nbsp;&nbsp;&nbsp; at org.apache.hadoop.util.RunJar.<wbr=
+>main(RunJar.java:130)<br>Caused by: java.util.zip.ZipException: error in o=
+pening zip file<br>&nbsp;&nbsp;&nbsp; at java.util.zip.ZipFile.open(<wbr>Na=
+tive Method)<br>&nbsp;&nbsp;&nbsp; at java.util.zip.ZipFile.&lt;init&gt;(<w=
+br>ZipFile.java:127)<br>&nbsp;&nbsp;&nbsp; at java.util.jar.JarFile.&lt;ini=
+t&gt;(<wbr>JarFile.java:135)<br>&nbsp;&nbsp;&nbsp; at java.util.jar.JarFile=
+.&lt;init&gt;(<wbr>JarFile.java:72)<br>&nbsp;&nbsp;&nbsp; at org.apache.had=
+oop.util.RunJar.<wbr>main(RunJar.java:128)<br><br><br>Any ideas?<br>Thanks<=
+br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_177_21431630.1346973217144--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346973217</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1906</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: java.lang.ClassNotFoundException: com.mongodb.hadoop.streaming.MongoStreamJob</string>
+</dict>
+</plist>

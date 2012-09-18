@@ -1,0 +1,153 @@
+6749      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp241893oef;
+        Thu, 6 Sep 2012 17:13:14 -0700 (PDT)
+Received: by 10.236.147.5 with SMTP id s5mr3466716yhj.87.1346976794170;
+        Thu, 06 Sep 2012 17:13:14 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOLsq7WDCRCX-KSCBRoE7VCctw@googlegroups.com>
+Received: from mail-gg0-f192.google.com (mail-gg0-f192.google.com [209.85.161.192])
+        by mx.google.com with ESMTPS id d45si3348244yhe.1.2012.09.06.17.13.13
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 17:13:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOLsq7WDCRCX-KSCBRoE7VCctw@googlegroups.com designates 209.85.161.192 as permitted sender) client-ip=209.85.161.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOLsq7WDCRCX-KSCBRoE7VCctw@googlegroups.com designates 209.85.161.192 as permitted sender) smtp.mail=mongodb-user+bncCOLsq7WDCRCX-KSCBRoE7VCctw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ggnh1 with SMTP id h1sf1720471ggn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 17:13:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=ZX/O5ryfhA4O14lr3IkDWHpvQnwSoe5YhuZWxEZgcJs=;
+        b=lGsgST3lWjHPvdmrfxe3Sew+mKkpAvpbIky1TpD9e8k9Esnf9SWJOsWwdwK/oMlHNK
+         XsaKL96N3qSAsmT/j6oIr5q8eaTMT+hQ97BFc+SRioFkG4/yd8r6z1qmocwJFS+zFEpM
+         85036ERg6QT5C7CLP5FDLXM3w/AGRaE8VTPsOm4knJOaUUgXboR7CSGwLil5Jr903Nib
+         dUJR5ywsWEkOIk0tjEb19cDoqOe2cMe4TCNlcNz1vIBkMdzqTUko0gJWgtp+fEJE3sY4
+         9KXWpppMkrreMCcyCPFjFB/cEthvXoqE/+KDzleLYbtWGaMU0ZUZOWOmsa6EU1+vs5KI
+         5qUw==
+Received: by 10.68.211.6 with SMTP id my6mr1014982pbc.15.1346976793389;
+        Thu, 06 Sep 2012 17:13:13 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.136.233 with SMTP id qd9ls163374pbb.4.gmail; Thu, 06 Sep
+ 2012 17:13:11 -0700 (PDT)
+Received: by 10.68.225.234 with SMTP id rn10mr1014652pbc.3.1346976791297;
+        Thu, 06 Sep 2012 17:13:11 -0700 (PDT)
+Date: Thu, 6 Sep 2012 17:13:10 -0700 (PDT)
+From: David Hows <david.hows@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <dd707e31-7b76-4f6e-8f50-7c3a04d680c9@googlegroups.com>
+In-Reply-To: <5592f4ef-ba2b-4f7c-be34-b3bc2a203aab@googlegroups.com>
+References: <43dbc088-4060-414d-a206-480aa390162d@googlegroups.com>
+ <0f9c3a34-6a07-4234-b3f9-da1b57a88826@googlegroups.com>
+ <90cd43d8-2612-4a1f-ae20-f3c8e9b96812@googlegroups.com>
+ <c5350bdd-1a13-4c4a-838d-e8e301438051@googlegroups.com>
+ <5592f4ef-ba2b-4f7c-be34-b3bc2a203aab@googlegroups.com>
+Subject: [mongodb-user] Re: Mongo Benchmark/Profile
+MIME-Version: 1.0
+X-Original-Sender: david.hows@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ david.hows@10gen.com designates internal as permitted sender)
+ smtp.mail=david.hows@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_93_15597248.1346976790714"
+
+------=_Part_93_15597248.1346976790714
+Content-Type: text/plain; charset=ISO-8859-1
+
+Thomas,
+
+Quick run through of the output shows that the version of boost you have in 
+your OS doesnt contain the boost_system library.
+
+It also appears that its is version 1.33.1 which is from 2006. 
+
+Please try running the following to install the current versions of the 
+libraries
+sudo yum install libboost-devel libboost-static-devel 
+
+If these dont provide any help you will need to download and compile 
+libboost from source.
+
+Cheers,
+
+David
+
+On Friday, September 7, 2012 9:54:22 AM UTC+10, Thomas Weidman wrote:
+>
+> Hi David,
+>
+> The attached file contains the result of the find search.
+>
+> Thanks,
+> Thomas
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_93_15597248.1346976790714
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Thomas,<div><br></div><div>Quick run through of the output shows that the v=
+ersion of boost you have in your OS doesnt contain the boost_system library=
+.</div><div><br></div><div>It also appears that its is version 1.33.1 which=
+ is from 2006.&nbsp;</div><div><br></div><div>Please try running the follow=
+ing to install the current versions of the libraries</div><div>sudo yum ins=
+tall libboost-devel libboost-static-devel&nbsp;</div><div><br></div><div>If=
+ these dont provide any help you will need to download and compile libboost=
+ from source.</div><div><br></div><div>Cheers,</div><div><br></div><div>Dav=
+id<br><br>On Friday, September 7, 2012 9:54:22 AM UTC+10, Thomas Weidman wr=
+ote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex=
+;border-left: 1px #ccc solid;padding-left: 1ex;">Hi David,<div><br></div><d=
+iv>The attached file contains the result of the find search.</div><div><br>=
+</div><div>Thanks,</div><div>Thomas</div></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_93_15597248.1346976790714--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346976790</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1892</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Mongo Benchmark/Profile</string>
+</dict>
+</plist>

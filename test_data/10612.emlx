@@ -1,0 +1,223 @@
+11862     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp251913oef;
+        Thu, 6 Sep 2012 23:57:56 -0700 (PDT)
+Received: by 10.100.244.7 with SMTP id r7mr1307801anh.23.1347001076340;
+        Thu, 06 Sep 2012 23:57:56 -0700 (PDT)
+Return-Path: <mongodb-user+bncCO27qoANEPG1poIFGgTGwf8o@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id w42si3962109yhd.70.2012.09.06.23.57.55
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 23:57:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCO27qoANEPG1poIFGgTGwf8o@googlegroups.com designates 209.85.160.192 as permitted sender) client-ip=209.85.160.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCO27qoANEPG1poIFGgTGwf8o@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCO27qoANEPG1poIFGgTGwf8o@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ghrr20 with SMTP id r20sf1902498ghr.29
+        for <multiple recipients>; Thu, 06 Sep 2012 23:57:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=NmqY8Ia/lqxFYZELDUP4QI5j4+m+CGm/sKyKH+Cf63w=;
+        b=Q6/pkD3Su612e88w/qsH/BGmlg5AP8bupTT1WUUr52w86yFWHSGiJuCjL+meT1t7Jp
+         zfGAp8sZTyn3l/vvV/ymMPeeD4MIhU6AMTeB9dvWG6obBQStvbcvm1J7U9VCnjc22K0X
+         CfQINql++5Qw3InkMIK03tUPRpGLsVsWzTGTcSzBDkpSn6Wg+Yg6MS201TS+f8eG7GlT
+         D0XUU5ovdRalKnuQHp+kX6duQGTuPH8wlpvTKufqXKsECiERaZ+Sb3/h4nURQJ0IcQ2+
+         GsKFcMRckjxXeSPmvfe5InC79qvSX8WgzcIzWROBFIfONVoAhif2r6C3VTvYoouSLUwD
+         tY/Q==
+Received: by 10.68.134.129 with SMTP id pk1mr1150261pbb.13.1347001075360;
+        Thu, 06 Sep 2012 23:57:55 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.210.197 with SMTP id mw5ls925369pbc.7.gmail; Thu, 06 Sep
+ 2012 23:57:53 -0700 (PDT)
+Received: by 10.68.237.163 with SMTP id vd3mr1153328pbc.9.1347001073421;
+        Thu, 06 Sep 2012 23:57:53 -0700 (PDT)
+Date: Thu, 6 Sep 2012 23:57:52 -0700 (PDT)
+From: sarvesh <satelin2002@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <068a3119-8130-4702-88ce-acff53eef824@googlegroups.com>
+In-Reply-To: <ecdfd7e9-a4f3-4c3b-94c7-901a329edc84@googlegroups.com>
+References: <cec51513-deda-448b-9ca3-5e8259b6526e@googlegroups.com>
+ <ecdfd7e9-a4f3-4c3b-94c7-901a329edc84@googlegroups.com>
+Subject: [mongodb-user] Re: mongodb logs continuos queries
+MIME-Version: 1.0
+X-Original-Sender: satelin2002@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ satelin2002@gmail.com designates internal as permitted sender)
+ smtp.mail=satelin2002@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_393_17741754.1347001072752"
+
+------=_Part_393_17741754.1347001072752
+Content-Type: text/plain; charset=ISO-8859-1
+
+ack:1 reslen:2786 0ms
+Thu Sep  6 19:16:32 [conn163260] run command admin.$cmd { features: 1 }
+Thu Sep  6 19:16:32 [conn163260] command admin.$cmd command: { features: 1 
+} ntoreturn:1 reslen:69 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20ba325b432662b1000018') } ntoreturn:1 idhack:1 reslen:2897 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bac05b432667a300001b') } ntoreturn:1 idhack:1 reslen:2917 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bae55b43260768000017') } ntoreturn:1 idhack:1 reslen:2810 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bb235b43267b45000017') } ntoreturn:1 idhack:1 reslen:2856 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bb985b432662b100001b') } ntoreturn:1 idhack:1 reslen:2835 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bbc15b432662b100001c') } ntoreturn:1 idhack:1 reslen:2916 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bcb55b43260d20000003') } ntoreturn:1 idhack:1 reslen:2881 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20be9e5b4326076800001f') } ntoreturn:1 idhack:1 reslen:2844 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bec35b432617cb000003') } ntoreturn:1 idhack:1 reslen:2832 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: 
+ObjectId('4f20bf915b4326019c000004') } ntoreturn:1 idhack:1 reslen:2780 0ms
+Thu Sep  6 19:16:32 [conn163340] query vyumixdb.vid
+
+
+I see a starting log which mentions admin. 
+No I am not using either of the two you have mentioned. The queries are 
+causing the machine to hang after sometime.
+
+On Thursday, September 6, 2012 11:48:56 PM UTC-7, Stephen Steneker wrote:
+>
+> I tailed the mongodb logs and it seems like this is constantly happening
+>>
+>> Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+>> ObjectId('4f9d31f5f6dbe1557100006d') } ntoreturn:1 idhack:1 reslen:2649 0ms
+>> Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+>> ObjectId('4f9d31fbf6dbe15571000071') } ntoreturn:1 idhack:1 reslen:2725 0ms
+>> Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+>> ObjectId('4f9d31fef6dbe15571000073') } ntoreturn:1 idhack:1 reslen:2599 0ms
+>> ...
+>> I am not sure what this states but there is nothing querying the database 
+>> so constantly. 
+>>
+>
+> Hi,
+>
+> The queries are all for different ObjectIds and at the same second.
+>
+> A few possible ideas which might trigger more queries than you expect:
+>
+>  - are you using DBRefs in your application (where a single query might 
+> trigger multiple related queries)?
+>
+>  - are you using an admin UI to view your database?
+>
+> I would try correlating this query activity with your application activity.
+>
+> Cheers,
+> Stephen
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_393_17741754.1347001072752
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div>ack:1 reslen:2786 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163260] =
+run command admin.$cmd { features: 1 }</div><div>Thu Sep &nbsp;6 19:16:32 [=
+conn163260] command admin.$cmd command: { features: 1 } ntoreturn:1 reslen:=
+69 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163340] query vyumixdb.video=
+s query: { _id: ObjectId('4f20ba325b432662b1000018') } ntoreturn:1 idhack:1=
+ reslen:2897 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163340] query vyum=
+ixdb.videos query: { _id: ObjectId('4f20bac05b432667a300001b') } ntoreturn:=
+1 idhack:1 reslen:2917 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163340] =
+query vyumixdb.videos query: { _id: ObjectId('4f20bae55b43260768000017') } =
+ntoreturn:1 idhack:1 reslen:2810 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [co=
+nn163340] query vyumixdb.videos query: { _id: ObjectId('4f20bb235b43267b450=
+00017') } ntoreturn:1 idhack:1 reslen:2856 0ms</div><div>Thu Sep &nbsp;6 19=
+:16:32 [conn163340] query vyumixdb.videos query: { _id: ObjectId('4f20bb985=
+b432662b100001b') } ntoreturn:1 idhack:1 reslen:2835 0ms</div><div>Thu Sep =
+&nbsp;6 19:16:32 [conn163340] query vyumixdb.videos query: { _id: ObjectId(=
+'4f20bbc15b432662b100001c') } ntoreturn:1 idhack:1 reslen:2916 0ms</div><di=
+v>Thu Sep &nbsp;6 19:16:32 [conn163340] query vyumixdb.videos query: { _id:=
+ ObjectId('4f20bcb55b43260d20000003') } ntoreturn:1 idhack:1 reslen:2881 0m=
+s</div><div>Thu Sep &nbsp;6 19:16:32 [conn163340] query vyumixdb.videos que=
+ry: { _id: ObjectId('4f20be9e5b4326076800001f') } ntoreturn:1 idhack:1 resl=
+en:2844 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163340] query vyumixdb.=
+videos query: { _id: ObjectId('4f20bec35b432617cb000003') } ntoreturn:1 idh=
+ack:1 reslen:2832 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163340] query=
+ vyumixdb.videos query: { _id: ObjectId('4f20bf915b4326019c000004') } ntore=
+turn:1 idhack:1 reslen:2780 0ms</div><div>Thu Sep &nbsp;6 19:16:32 [conn163=
+340] query vyumixdb.vid</div><div><br></div><div><br></div><div>I see a sta=
+rting log which mentions admin.&nbsp;</div><div>No I am not using either of=
+ the two you have mentioned. The queries are causing the machine to hang af=
+ter sometime.</div><br>On Thursday, September 6, 2012 11:48:56 PM UTC-7, St=
+ephen Steneker wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;m=
+argin-left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;"><blockquo=
+te class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">I tailed the mongodb logs and it seems like =
+this is constantly happening<div><br></div><div><div>Thu Sep &nbsp;6 23:26:=
+05 [conn164573] query vyumixdb.videos query: { _id: ObjectId('<wbr>4f9d31f5=
+f6dbe1557100006d') } ntoreturn:1 idhack:1 reslen:2649 0ms</div><div>Thu Sep=
+ &nbsp;6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: ObjectId=
+('<wbr>4f9d31fbf6dbe15571000071') } ntoreturn:1 idhack:1 reslen:2725 0ms</d=
+iv><div>Thu Sep &nbsp;6 23:26:05 [conn164573] query vyumixdb.videos query: =
+{ _id: ObjectId('<wbr>4f9d31fef6dbe15571000073') } ntoreturn:1 idhack:1 res=
+len:2599 0ms</div><div>...</div></div><div>I am not sure what this states b=
+ut there is nothing querying the database so constantly.&nbsp;</div></block=
+quote><div><br></div><div>Hi,</div><div><br></div><div>The queries are all =
+for different ObjectIds and at the same second.</div><div><br></div><div>A =
+few possible ideas which might trigger more queries than you expect:</div><=
+div><br></div><div>&nbsp;- are you using DBRefs in your application (where =
+a single query might trigger multiple related queries)?</div><div><br></div=
+><div>&nbsp;- are you using an admin UI to view your database?</div><div><b=
+r></div><div>I would try correlating this query activity with your applicat=
+ion activity.</div><div><br></div><div>Cheers,</div><div>Stephen</div></blo=
+ckquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_393_17741754.1347001072752--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347001072</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1936</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongodb logs continuos queries</string>
+</dict>
+</plist>

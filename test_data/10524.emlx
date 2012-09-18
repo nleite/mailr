@@ -1,0 +1,115 @@
+5242      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230046oef;
+        Thu, 6 Sep 2012 11:40:50 -0700 (PDT)
+Received: by 10.236.161.165 with SMTP id w25mr2878320yhk.22.1346956849877;
+        Thu, 06 Sep 2012 11:40:49 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id w42si2639322yhd.83.2012.09.06.11.40.49
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:40:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com designates 209.85.213.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com designates 209.85.213.192 as permitted sender) smtp.mail=mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-yx0-f192.google.com with SMTP id l1sf1575584yen.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:40:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=arZpd9e8u5+o4KaDv2/iC4VZiHC47mRV50ADOpwxH64=;
+        b=CIzCZPh8ixVlRc/Zp8J9gDhTUfH0dvjdbG9OOt6W/dBF2ClHnsWz1h8zwLL3cM8Qw7
+         /DD7DUFeUPgcD5V/RUcATAhO31MLiavFcDyYQ+EGBOsvZVglDTuBoBoiGza5U0cvqTHL
+         Lcs/s4KccyWj/Q570dLZ3E0jpifTR5u6p4sMSr3/hmA+R6ArBI2XX1KnAYKL7gUhiFVZ
+         +JW4YXYjvHP7+RQlMyCfRVhqbqv9Yb6HFixVKHtPZfX47/CbpWQxvy3Fr3xgzdUpb3sQ
+         CYtzBcrkt2QTMZ3hCrfNgJBZjbudDmrwWJP4vRQ+pVUygIY0TYul8TRXHVCK3KW2Zcw0
+         AvcA==
+Received: by 10.50.77.200 with SMTP id u8mr10436764igw.3.1346956847676;
+        Thu, 06 Sep 2012 11:40:47 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.55.155 with SMTP id u27ls2462626ibg.8.gmail; Thu, 06 Sep
+ 2012 11:40:42 -0700 (PDT)
+Received: by 10.50.173.42 with SMTP id bh10mr1599463igc.1.1346956842520;
+        Thu, 06 Sep 2012 11:40:42 -0700 (PDT)
+Received: by 10.50.57.75 with SMTP id g11msigq;
+        Thu, 6 Sep 2012 07:42:30 -0700 (PDT)
+Received: by 10.68.189.228 with SMTP id gl4mr547070pbc.4.1346942550569;
+        Thu, 06 Sep 2012 07:42:30 -0700 (PDT)
+Date: Thu, 6 Sep 2012 07:42:30 -0700 (PDT)
+From: Munir <mghamraw@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <6f130bed-a938-45f0-80a4-7a32ee750290@googlegroups.com>
+Subject: [mongodb-user] mongodb package for SLES11
+MIME-Version: 1.0
+X-Original-Sender: mghamraw@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_209_22921940.1346942550066"
+
+------=_Part_209_22921940.1346942550066
+Content-Type: text/plain; charset=ISO-8859-1
+
+I am looking for a package of mongodb for SUSE SLES11 where it installs for 
+me the init script along with everything else. I was able to see packages 
+for ubuntu, but i am wondering if there is a package somewhere for SLES11? 
+Any help is appreciated.
+Thanks.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_209_22921940.1346942550066
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I am looking for a package of mongodb for SUSE SLES11 where it installs for=
+ me the init script along with everything else. I was able to see packages =
+for ubuntu, but i am wondering if there is a package somewhere for SLES11? =
+Any help is appreciated.<div>Thanks.</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_209_22921940.1346942550066--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346942550</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1848</string>
+	<key>subject</key>
+	<string>[mongodb-user] mongodb package for SLES11</string>
+</dict>
+</plist>

@@ -6,11 +6,13 @@ from os import path
 import email
 import base64
 import quopri
+import re
 from optparse import OptionParser
 import sys
 from bson.errors import InvalidStringData
 from bs4 import BeautifulSoup as BS
 from HTMLParser import HTMLParseError
+from pymongo import Connection
 
 CHARSET = 'charset'
 CONTENT_TYPE = 'Content-Type'
@@ -31,12 +33,12 @@ def process_charset(part):
     content_type = part.get(CONTENT_TYPE,'')
     charset = 'utf-8'
     if CHARSET in content_type:
+        #import ipdb;ipdb.set_trace()
         pos = content_type.index(CHARSET)
-        #exclude the initial position of the '"' char
-        b = content_type.index('"', pos) + 1
-        #get the position of char '"' after begin position
-        e = content_type.index('"', b)
-        charset = content_type[b:e]
+        #exclude the initial position of the '=' char
+        b = content_type.index('=', pos)
+        charset = content_type[b:]
+        charset = re.findall('[a-zA-Z0-9\-]+', charset)[0]
     return charset
 
 def fetch_text(part):
@@ -142,12 +144,12 @@ def load_data( mongo, mailbox, databasename='test', collectionname='mails'):
 def main():
 
     optparser = OptionParser()
-    optparse.add_option('-m', '--host', dest='host', help='database host machine', default='localhost')
-    optparse.add_option('-d', '--databasename', dest='databasename', help='database name', default='test')
-    optparse.add_option('-c', '--collectionname', dest='collectionname', help='collection name', default='mails')
-    optparse.add_option('-f', '--mailfolder', dest='collectionname', help='collection name', default='mails')
+    optparser.add_option('-m', '--host', dest='host', help='database host machine', default='localhost')
+    optparser.add_option('-d', '--databasename', dest='databasename', help='database name', default='test')
+    optparser.add_option('-c', '--collectionname', dest='collectionname', help='collection name', default='mails')
+    optparser.add_option('-f', '--mailfolder', dest='dir', help='collection name', default='mails')
 
-    (options, args) = optparse.parse()
+    (options, args) = optparser.parse_args()
     #Initiate mongodb connection
     mongo = Connection(options.host)
     #Load mailbox dir

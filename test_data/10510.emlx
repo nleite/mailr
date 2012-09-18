@@ -1,0 +1,1357 @@
+65695     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp228601oef;
+        Thu, 6 Sep 2012 11:03:53 -0700 (PDT)
+Received: by 10.50.219.230 with SMTP id pr6mr3935452igc.29.1346954632869;
+        Thu, 06 Sep 2012 11:03:52 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIvi0JinFRCFy6OCBRoEUXzt2w@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id c5si4443340igj.23.2012.09.06.11.03.52
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:03:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIvi0JinFRCFy6OCBRoEUXzt2w@googlegroups.com designates 209.85.223.192 as permitted sender) client-ip=209.85.223.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIvi0JinFRCFy6OCBRoEUXzt2w@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCIvi0JinFRCFy6OCBRoEUXzt2w@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iebc12 with SMTP id c12sf1031948ieb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:03:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=fpf3jah84tqOFoO/Eg3Ya6NeM55kd1NQ/y1uzL+FozE=;
+        b=G4PrH8iHxs2u3cQnMmv6LCd5CBHrPfpyZGJYfZ/eO4il5tdYRbrs5sgaGLxg0Y7Btd
+         OGfNjqNAQAEz1VEqi5lcTtDeTDyA02f1yIekZj3TKOFnVBaqGL4lNPsDNLJmBoeX31CQ
+         8p2VjVf9lKbIUnY5IZQXtIfHd0qKGY9Q/X9iiJOqqhiP4wNteSy3vo+w+6h7fAoHB2cF
+         om1Co9pFEcCbF43Bk3X6Hqe4jZJZkTVgpXWS0Ot0yVbSETJWIPxcq295YwtPhm5cCRbW
+         SCQCp+rnRYe9QltX9+YaO6xMRurX5Yk1W9DvuLir5xJwZztGlOSjQkRlwAiS5lJBWjsP
+         t7Jg==
+Received: by 10.236.74.161 with SMTP id x21mr461667yhd.13.1346954632139;
+        Thu, 06 Sep 2012 11:03:52 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.154.232 with SMTP id h68ls1659023yhk.2.gmail; Thu, 06 Sep
+ 2012 11:03:49 -0700 (PDT)
+Received: by 10.236.109.233 with SMTP id s69mr454526yhg.11.1346954629341;
+        Thu, 06 Sep 2012 11:03:49 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:03:47 -0700 (PDT)
+From: mongodba <ravindran.oracle@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <77862a2b-5f99-4d9f-9553-f32d4d7d27c6@googlegroups.com>
+In-Reply-To: <BANLkTi=jfjhdhO+55SvPKdpT+yY5_FW6Kg@mail.gmail.com>
+References: <BANLkTi=ngE2vuC9mVDHffKHZt6EVV_6RDA@mail.gmail.com>
+ <27688643.444.1305784845591.JavaMail.geo-discussion-forums@prcm34>
+ <BANLkTinRnbODVAAyaf4RrbeCOm+wWpjShg@mail.gmail.com>
+ <BANLkTikmcombar9dLOgG4nx0932hHqwutg@mail.gmail.com>
+ <BANLkTimQod55VRY36iBzwdWTmW-VHpKNUw@mail.gmail.com>
+ <BANLkTin1V+rYd5f55MvXUQ6mQ=YPK2pxYg@mail.gmail.com>
+ <BANLkTimhXDxRpWAzPwqjAKHM0ff2gMRLUQ@mail.gmail.com>
+ <BANLkTikbk-XBJ_6=o1y9FKt-CzVgR4Hr7g@mail.gmail.com>
+ <BANLkTi=dQ3693Zs9D-GvxwZieHx9qXQ5Xg@mail.gmail.com>
+ <BANLkTimr+yi6h3TRQLqoDAUFMetTrAgxhQ@mail.gmail.com>
+ <BANLkTi=Vi13uMg64ocu9XDJ83Y6pT4GUOA@mail.gmail.com>
+ <BANLkTi=jfjhdhO+55SvPKdpT+yY5_FW6Kg@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: Flush calculation
+MIME-Version: 1.0
+X-Original-Sender: ravindran.oracle@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ ravindran.oracle@gmail.com designates internal as permitted sender)
+ smtp.mail=ravindran.oracle@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_41_28358702.1346954628128"
+
+------=_Part_41_28358702.1346954628128
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi I too see alert from nagios for avg flush times
+
+here is my env details
+
+I am running mongo on 3 phy boxes as 1 primary & 4 secondary (which is 
+primary on one single box & one read & one write on other two boxes)
+
+PRIMARY> db.serverStatus().backgroundFlushing
+{
+        "flushes" : 805,
+        "total_ms" : 94237,
+       * "average_ms" : 117.06459627329193,*
+        "last_ms" : 2,
+        "last_finished" : ISODate("2012-09-06T18:04:14.650Z")
+}
+
+iostat
+==== 
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.12    0.00    0.00    0.00    0.00   99.88
+
+Device:         rrqm/s   wrqm/s   r/s   w/s   rsec/s   wsec/s avgrq-sz 
+avgqu-sz   await  svctm  %util
+cciss/c0d0        0.00     0.00  0.00  4.50     0.00    40.50     9.00     
+0.00    0.00   0.00   0.00
+cciss/c0d0p1
+               0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+cciss/c0d0p2
+               0.00     0.00  0.00  4.50     0.00    40.50     9.00     
+0.00    0.00   0.00   0.00
+dm-0              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+dm-1              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+dm-2              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+dm-3              0.00     0.00  0.00  4.50     0.00    40.50     9.00     
+0.00    0.00   0.00   0.00
+dm-4              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+dm-5              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+dm-6              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+dm-7              0.00     0.00  0.00  0.00     0.00     0.00     0.00     
+0.00    0.00   0.00   0.00
+
+
+How to resolve this avg flush time lag ?
+
+
+Thx!
+
+
+On Thursday, May 19, 2011 3:55:10 AM UTC-4, Sudhakar wrote:
+>
+> Yea that I need to do (testing in the staging)
+> And need to check regarding faster hard drives.
+>
+> Let me know if anything which I need to take case for to reduce Flush 
+> average time.
+>
+> On Thu, May 19, 2011 at 12:56 PM, Eliot Horowitz <elioth...@gmail.com<javascript:>
+> > wrote:
+>
+>> I'm not sure where that anything over 200ms is critical, but that is
+>> definitely not correct.
+>>
+>> A 600ms average flush time can be totally fine for your application.
+>>
+>> I wouldn't make any changes without trying various options in a
+>> staging environment while simulating production load.
+>>
+>> On Thu, May 19, 2011 at 3:06 AM, Avise Sudhakar Rao
+>> <avisesud...@gmail.com <javascript:>> wrote:
+>> > Below is the inline comments
+>> >
+>> > On Thu, May 19, 2011 at 12:26 PM, Eliot Horowitz <elioth...@gmail.com<javascript:>
+>> >
+>> > wrote:
+>> >>
+>> >> Why do you think it should be < 200?
+>> >> Its based off of how much data you are writing, how many indexes you
+>> >> have, etc...
+>> >>
+>> > I saw in one of the article that "average_ms" if greater then 200 then 
+>> that
+>> > means its critical. and yes writes are more then what should I consider.
+>> >
+>> >>
+>> >> Are you seeing performance problems?
+>> >>
+>> > I didn't see performance problem as of now, but want to be alert and to 
+>> be
+>> > prepared with the solution if problem comes because "average_ms" is 
+>> keep on
+>> > increasing as currently it is 625.345...
+>> >
+>> >>
+>> >> Lowering syncdelay might decrease the avg flush time, but increase 
+>> overall
+>> >> io.
+>> >>
+>> > So what is your suggestion?
+>> > reduce syncdelay to 30secs instead of default 60 secs
+>> >
+>> >> By adding io capacity I mean adding more or faster hard drives.
+>> >>
+>> >> I would highly highly recommend getting a staging system where you can
+>> >> test production load with various config settings.
+>> >> As you say, hard to run experiments in production, but without
+>> >> understand all the nuances of your application, would be hard for
+>> >> anyone to tell you exactly what to do.
+>> >>
+>> >> On Thu, May 19, 2011 at 2:49 AM, Avise Sudhakar Rao
+>> >> <avisesud...@gmail.com <javascript:>> wrote:
+>> >> > - "average_ms" is always more then 600, which I think should be less
+>> >> > then
+>> >> > 200.
+>> >> > - Yes writes are too high (more information I had provided in the 
+>> above
+>> >> > conversation).
+>> >> > - As its the production server, I can't do experiment. If I get any
+>> >> > perfect
+>> >> > solution from your end (like syncdelay should be something this much)
+>> >> > then I
+>> >> > can stick with that and do the necessary changes in the production
+>> >> > server by
+>> >> > announcing the downtime to our customer.
+>> >> > - What is adding io capacity? do you mean increasing RAM?
+>> >> >
+>> >> > On Thu, May 19, 2011 at 12:11 PM, Eliot Horowitz
+>> >> > <elioth...@gmail.com <javascript:>>
+>> >> > wrote:
+>> >> >>
+>> >> >> What's wrong with the avg flush time computed by the server?
+>> >> >>
+>> >> >> If flush time starts getting too high, it probably means your io 
+>> load
+>> >> >> is too high.
+>> >> >> The options there are playing with syncdelay, adding io capacity, or
+>> >> >> moving to sharding.
+>> >> >>
+>> >> >> On Thu, May 19, 2011 at 2:38 AM, Avise Sudhakar Rao
+>> >> >> <avisesud...@gmail.com <javascript:>> wrote:
+>> >> >> > FYI..
+>> >> >> > I required the below information:-
+>> >> >> > 1) Correct "Mongodb Flush Average" Calculation
+>> >> >> >    a) In my above first two email conversation I had provided two
+>> >> >> > calculation and I'm not sure which one is correct and also not 
+>> sure
+>> >> >> > if
+>> >> >> > non
+>> >> >> > of the once is correct then what is correct calculation?
+>> >> >> > 2) If flush average increase then what is the solution to control 
+>> it?
+>> >> >> >
+>> >> >> > Currently, by default the flush to disk is every 60 seconds in the
+>> >> >> > MongoDB
+>> >> >> > server.
+>> >> >> > I provided most of the required information in this email and just
+>> >> >> > want
+>> >> >> > your
+>> >> >> > feedback and solution on it.
+>> >> >> >
+>> >> >> > Let me know, if I'm unclear on any part.
+>> >> >> >
+>> >> >> > Thanks,
+>> >> >> > Sudhakar
+>> >> >> >
+>> >> >> > On Thu, May 19, 2011 at 12:02 PM, Eliot Horowitz
+>> >> >> > <elioth...@gmail.com <javascript:>>
+>> >> >> > wrote:
+>> >> >> >>
+>> >> >> >> What exactly are you trying to figure out?
+>> >> >> >> If you're looking for monitoring levels, alerting on flush time 
+>> over
+>> >> >> >> 1
+>> >> >> >> second would be reasonable.
+>> >> >> >>
+>> >> >> >> On Thu, May 19, 2011 at 2:07 AM, Avise Sudhakar Rao
+>> >> >> >> <avisesud...@gmail.com <javascript:>> wrote:
+>> >> >> >> >
+>> >> >> >> > monit:PRIMARY> db.serverStatus()
+>> >> >> >> > {
+>> >> >> >> >         "host" : "mdb51",
+>> >> >> >> >         "version" : "1.8.1",
+>> >> >> >> >         "process" : "mongod",
+>> >> >> >> >         "uptime" : 3522711,
+>> >> >> >> >         "uptimeEstimate" : 3426536,
+>> >> >> >> >         "localTime" : ISODate("2011-05-19T06:03:10.189Z"),
+>> >> >> >> >         "globalLock" : {
+>> >> >> >> >                 "totalTime" : 3522710384978,
+>> >> >> >> >                 "lockTime" : 16337707216,
+>> >> >> >> >                 "ratio" : 0.004637822991543494,
+>> >> >> >> >                 "currentQueue" : {
+>> >> >> >> >                         "total" : 0,
+>> >> >> >> >                         "readers" : 0,
+>> >> >> >> >                         "writers" : 0
+>> >> >> >> >                 },
+>> >> >> >> >                 "activeClients" : {
+>> >> >> >> >                         "total" : 2,
+>> >> >> >> >                         "readers" : 2,
+>> >> >> >> >                         "writers" : 0
+>> >> >> >> >                 }
+>> >> >> >> >         },
+>> >> >> >> >         "mem" : {
+>> >> >> >> >                 "bits" : 64,
+>> >> >> >> >                 "resident" : 5178,
+>> >> >> >> >                 "virtual" : 19438,
+>> >> >> >> >                 "supported" : true,
+>> >> >> >> >                 "mapped" : 7405
+>> >> >> >> >         },
+>> >> >> >> >         "connections" : {
+>> >> >> >> >                 "current" : 422,
+>> >> >> >> >                 "available" : 15578
+>> >> >> >> >         },
+>> >> >> >> >         "extra_info" : {
+>> >> >> >> >                 "note" : "fields vary by platform",
+>> >> >> >> >                 "heap_usage_bytes" : 3121216,
+>> >> >> >> >                 "page_faults" : 121305
+>> >> >> >> >         },
+>> >> >> >> >         "indexCounters" : {
+>> >> >> >> >                 "btree" : {
+>> >> >> >> >                         "accesses" : 22327,
+>> >> >> >> >                         "hits" : 22327,
+>> >> >> >> >                         "misses" : 0,
+>> >> >> >> >                         "resets" : 0,
+>> >> >> >> >                         "missRatio" : 0
+>> >> >> >> >                 }
+>> >> >> >> >         },
+>> >> >> >> >         "backgroundFlushing" : {
+>> >> >> >> >                 "flushes" : 58711,
+>> >> >> >> >                 "total_ms" : 36701585,
+>> >> >> >> >                 "average_ms" : 625.1228049258231,
+>> >> >> >> >                 "last_ms" : 550,
+>> >> >> >> >                 "last_finished" :
+>> >> >> >> > ISODate("2011-05-19T06:02:56.890Z")
+>> >> >> >> >         },
+>> >> >> >> >         "cursors" : {
+>> >> >> >> >                 "totalOpen" : 2,
+>> >> >> >> >                 "clientCursors_size" : 2,
+>> >> >> >> >                 "timedOut" : 10
+>> >> >> >> >         },
+>> >> >> >> >         "network" : {
+>> >> >> >> >                 "bytesIn" : 944750923505,
+>> >> >> >> >                 "bytesOut" : NumberLong("3717489967388"),
+>> >> >> >> >                 "numRequests" : 281202295
+>> >> >> >> >         },
+>> >> >> >> >         "repl" : {
+>> >> >> >> >                 "setName" : "monit",
+>> >> >> >> >                 "ismaster" : true,
+>> >> >> >> >                 "secondary" : false,
+>> >> >> >> >                 "hosts" : [
+>> >> >> >> >                         "172.25.122.181:27017",
+>> >> >> >> >                         "172.25.122.182:27017"
+>> >> >> >> >                 ],
+>> >> >> >> >                 "arbiters" : [
+>> >> >> >> >                         "172.25.122.20:27017"
+>> >> >> >> >                 ]
+>> >> >> >> >         },
+>> >> >> >> >         "opcounters" : {
+>> >> >> >> >                 "insert" : 419346,
+>> >> >> >> >                 "query" : 179572184,
+>> >> >> >> >                 "update" : 48236067,
+>> >> >> >> >                 "delete" : 6515,
+>> >> >> >> >                 "getmore" : 47411432,
+>> >> >> >> >                 "command" : 5556715
+>> >> >> >> >         },
+>> >> >> >> >         "asserts" : {
+>> >> >> >> >                 "regular" : 0,
+>> >> >> >> >                 "warning" : 0,
+>> >> >> >> >                 "msg" : 0,
+>> >> >> >> >                 "user" : 303,
+>> >> >> >> >                 "rollovers" : 0
+>> >> >> >> >         },
+>> >> >> >> >         "writeBacksQueued" : false,
+>> >> >> >> >         "dur" : {
+>> >> >> >> >                 "commits" : 20,
+>> >> >> >> >                 "journaledMB" : 1.998848,
+>> >> >> >> >                 "writeToDataFilesMB" : 0,
+>> >> >> >> >                 "commitsInWriteLock" : 0,
+>> >> >> >> >                 "earlyCommits" : 0,
+>> >> >> >> >                 "timeMs" : {
+>> >> >> >> >                         "dt" : 3057,
+>> >> >> >> >                         "prepLogBuffer" : 8,
+>> >> >> >> >                         "writeToJournal" : 18,
+>> >> >> >> >                         "writeToDataFiles" : 5,
+>> >> >> >> >                         "remapPrivateView" : 2
+>> >> >> >> >                 }
+>> >> >> >> >         },
+>> >> >> >> >         "ok" : 1
+>> >> >> >> > }
+>> >> >> >> >
+>> >> >> >> >
+>> >> >> >> > On Thu, May 19, 2011 at 11:35 AM, Avise Sudhakar Rao
+>> >> >> >> > <avisesud...@gmail.com <javascript:>> wrote:
+>> >> >> >> >>
+>> >> >> >> >> Below is the information:-
+>> >> >> >> >> root#] ll
+>> >> >> >> >> total 8762432
+>> >> >> >> >> drwxr-xr-x 3 mongodb mongodb       4096 2011-04-15 06:58 ./
+>> >> >> >> >> drwxr-xr-x 4 mongodb mongodb       4096 2011-03-11 13:00 ../
+>> >> >> >> >> -rw------- 1 mongodb nogroup   67108864 2011-03-17 13:46
+>> >> >> >> >> config_db.0
+>> >> >> >> >> -rw------- 1 mongodb nogroup  134217728 2011-03-15 15:02
+>> >> >> >> >> config_db.1
+>> >> >> >> >> -rw------- 1 mongodb nogroup   16777216 2011-03-17 13:46
+>> >> >> >> >> config_db.ns
+>> >> >> >> >> drwxr-xr-x 2 mongodb nogroup       4096 2011-05-19 05:35 
+>> journal/
+>> >> >> >> >> -rw------- 1 mongodb nogroup   67108864 2011-03-14 09:16 
+>> local.0
+>> >> >> >> >> -rw------- 1 mongodb nogroup  134217728 2011-03-11 13:01 
+>> local.1
+>> >> >> >> >> -rw------- 1 mongodb nogroup 2146435072 2011-05-19 05:59 
+>> local.2
+>> >> >> >> >> -rw------- 1 mongodb nogroup 2146435072 2011-05-19 05:59 
+>> local.3
+>> >> >> >> >> -rw------- 1 mongodb nogroup 2146435072 2011-05-19 05:59 
+>> local.4
+>> >> >> >> >> -rw------- 1 mongodb nogroup   16777216 2011-05-19 05:59 
+>> local.ns
+>> >> >> >> >> -rwxr-xr-x 1 mongodb nogroup          5 2011-04-08 11:31
+>> >> >> >> >> mongod.lock*
+>> >> >> >> >> -rw------- 1 mongodb nogroup   67108864 2011-05-19 05:59
+>> >> >> >> >> monitoring_db.0
+>> >> >> >> >> -rw------- 1 mongodb nogroup  134217728 2011-05-19 05:59
+>> >> >> >> >> monitoring_db.1
+>> >> >> >> >> -rw------- 1 mongodb nogroup  268435456 2011-05-19 05:59
+>> >> >> >> >> monitoring_db.2
+>> >> >> >> >> -rw------- 1 mongodb nogroup  536870912 2011-05-19 05:59
+>> >> >> >> >> monitoring_db.3
+>> >> >> >> >> -rw------- 1 mongodb nogroup 1073741824 2011-04-15 06:58
+>> >> >> >> >> monitoring_db.4
+>> >> >> >> >> -rw------- 1 mongodb nogroup   16777216 2011-05-19 05:59
+>> >> >> >> >> monitoring_db.ns
+>> >> >> >> >> root#] du -sh *
+>> >> >> >> >> 65M     config_db.0
+>> >> >> >> >> 128M    config_db.1
+>> >> >> >> >> 17M     config_db.ns
+>> >> >> >> >> 1.9G    journal
+>> >> >> >> >> 64M     local.0
+>> >> >> >> >> 128M    local.1
+>> >> >> >> >> 2.0G    local.2
+>> >> >> >> >> 2.0G    local.3
+>> >> >> >> >> 2.0G    local.4
+>> >> >> >> >> 17M     local.ns
+>> >> >> >> >> 4.0K    mongod.lock
+>> >> >> >> >> 65M     monitoring_db.0
+>> >> >> >> >> 129M    monitoring_db.1
+>> >> >> >> >> 257M    monitoring_db.2
+>> >> >> >> >> 513M    monitoring_db.3
+>> >> >> >> >> 1.1G    monitoring_db.4
+>> >> >> >> >> 17M     monitoring_db.ns
+>> >> >> >> >> root#]
+>> >> >> >> >>
+>> >> >> >> >>
+>> >> >> >> >> On Thu, May 19, 2011 at 11:30 AM, Nat <nat....@gmail.com<javascript:>
+>> >
+>> >> >> >> >> wrote:
+>> >> >> >> >>>
+>> >> >> >> >>> - Flush time is the time it takes to flush all files to disk.
+>> >> >> >> >>> last_ms
+>> >> >> >> >>> and average_ms already provide you with the latest and 
+>> average
+>> >> >> >> >>> time
+>> >> >> >> >>> to
+>> >> >> >> >>> flush
+>> >> >> >> >>> the data to disk. If you reduce the syncdelay, it means that 
+>> it
+>> >> >> >> >>> will
+>> >> >> >> >>> potentially have fewer data to flush back to disk thus 
+>> reducing
+>> >> >> >> >>> the
+>> >> >> >> >>> average
+>> >> >> >> >>> flush time. However, the total flush time can go higher.
+>> >> >> >> >>> - Higher flush time figure means that certain query/update
+>> >> >> >> >>> operation
+>> >> >> >> >>> can
+>> >> >> >> >>> take longer than normal.
+>> >> >> >> >>> - Your mongostat shows 19GB mapped while your database stat
+>> >> >> >> >>> shows
+>> >> >> >> >>> only
+>> >> >> >> >>> 2GB data files. Can you list your database and journal files?
+>> >> >> >> >>>
+>> >> >> >> >>> --
+>> >> >> >> >>> You received this message because you are subscribed to the
+>> >> >> >> >>> Google
+>> >> >> >> >>> Groups
+>> >> >> >> >>> "mongodb-user" group.
+>> >> >> >> >>> To post to this group, send email to
+>> >> >> >> >>> mongod...@googlegroups.com <javascript:>.
+>> >> >> >> >>> To unsubscribe from this group, send email to
+>> >> >> >> >>> mongodb-user...@googlegroups.com <javascript:>.
+>> >> >> >> >>> For more options, visit this group at
+>> >> >> >> >>> http://groups.google.com/group/mongodb-user?hl=en.
+>> >> >> >> >>
+>> >> >> >> >
+>> >> >> >> > --
+>> >> >> >> > You received this message because you are subscribed to the 
+>> Google
+>> >> >> >> > Groups
+>> >> >> >> > "mongodb-user" group.
+>> >> >> >> > To post to this group, send email to
+>> >> >> >> > mongod...@googlegroups.com <javascript:>.
+>> >> >> >> > To unsubscribe from this group, send email to
+>> >> >> >> > mongodb-user...@googlegroups.com <javascript:>.
+>> >> >> >> > For more options, visit this group at
+>> >> >> >> > http://groups.google.com/group/mongodb-user?hl=en.
+>> >> >> >> >
+>> >> >> >>
+>> >> >> >> --
+>> >> >> >> You received this message because you are subscribed to the 
+>> Google
+>> >> >> >> Groups
+>> >> >> >> "mongodb-user" group.
+>> >> >> >> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> >> >> >> To unsubscribe from this group, send email to
+>> >> >> >> mongodb-user...@googlegroups.com <javascript:>.
+>> >> >> >> For more options, visit this group at
+>> >> >> >> http://groups.google.com/group/mongodb-user?hl=en.
+>> >> >> >>
+>> >> >> >
+>> >> >> > --
+>> >> >> > You received this message because you are subscribed to the Google
+>> >> >> > Groups
+>> >> >> > "mongodb-user" group.
+>> >> >> > To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> >> >> > To unsubscribe from this group, send email to
+>> >> >> > mongodb-user...@googlegroups.com <javascript:>.
+>> >> >> > For more options, visit this group at
+>> >> >> > http://groups.google.com/group/mongodb-user?hl=en.
+>> >> >> >
+>> >> >>
+>> >> >> --
+>> >> >> You received this message because you are subscribed to the Google
+>> >> >> Groups
+>> >> >> "mongodb-user" group.
+>> >> >> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> >> >> To unsubscribe from this group, send email to
+>> >> >> mongodb-user...@googlegroups.com <javascript:>.
+>> >> >> For more options, visit this group at
+>> >> >> http://groups.google.com/group/mongodb-user?hl=en.
+>> >> >>
+>> >> >
+>> >> > --
+>> >> > You received this message because you are subscribed to the Google
+>> >> > Groups
+>> >> > "mongodb-user" group.
+>> >> > To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> >> > To unsubscribe from this group, send email to
+>> >> > mongodb-user...@googlegroups.com <javascript:>.
+>> >> > For more options, visit this group at
+>> >> > http://groups.google.com/group/mongodb-user?hl=en.
+>> >> >
+>> >>
+>> >> --
+>> >> You received this message because you are subscribed to the Google 
+>> Groups
+>> >> "mongodb-user" group.
+>> >> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> >> To unsubscribe from this group, send email to
+>> >> mongodb-user...@googlegroups.com <javascript:>.
+>> >> For more options, visit this group at
+>> >> http://groups.google.com/group/mongodb-user?hl=en.
+>> >>
+>> >
+>> > --
+>> > You received this message because you are subscribed to the Google 
+>> Groups
+>> > "mongodb-user" group.
+>> > To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> > To unsubscribe from this group, send email to
+>> > mongodb-user...@googlegroups.com <javascript:>.
+>> > For more options, visit this group at
+>> > http://groups.google.com/group/mongodb-user?hl=en.
+>> >
+>>
+>> --
+>> You received this message because you are subscribed to the Google Groups 
+>> "mongodb-user" group.
+>> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> .
+>> To unsubscribe from this group, send email to 
+>> mongodb-user...@googlegroups.com <javascript:>.
+>> For more options, visit this group at 
+>> http://groups.google.com/group/mongodb-user?hl=en.
+>>
+>>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_41_28358702.1346954628128
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi I too see alert from nagios for avg flush times<div><br></div><div>here =
+is my env details</div><div><br></div><div>I am running mongo on 3 phy boxe=
+s as 1 primary &amp; 4 secondary (which is primary on one single box &amp; =
+one read &amp; one write on other two boxes)</div><div><br></div><div><div>=
+PRIMARY&gt; db.serverStatus().backgroundFlushing</div><div>{</div><div>&nbs=
+p; &nbsp; &nbsp; &nbsp; "flushes" : 805,</div><div>&nbsp; &nbsp; &nbsp; &nb=
+sp; "total_ms" : 94237,</div><div>&nbsp; &nbsp; &nbsp; &nbsp;<b> "average_m=
+s" : 117.06459627329193,</b></div><div>&nbsp; &nbsp; &nbsp; &nbsp; "last_ms=
+" : 2,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "last_finished" : ISODate("201=
+2-09-06T18:04:14.650Z")</div><div>}</div><div><br></div><div>iostat</div><d=
+iv>=3D=3D=3D=3D&nbsp;</div><div><br></div><div><div>avg-cpu: &nbsp;%user &n=
+bsp; %nice %system %iowait &nbsp;%steal &nbsp; %idle</div><div>&nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp;0.12 &nbsp; &nbsp;0.00 &nbsp; &nbsp;0.00 &nbsp=
+; &nbsp;0.00 &nbsp; &nbsp;0.00 &nbsp; 99.88</div><div><br></div><div>Device=
+: &nbsp; &nbsp; &nbsp; &nbsp; rrqm/s &nbsp; wrqm/s &nbsp; r/s &nbsp; w/s &n=
+bsp; rsec/s &nbsp; wsec/s avgrq-sz avgqu-sz &nbsp; await &nbsp;svctm &nbsp;=
+%util</div><div>cciss/c0d0 &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.=
+00 &nbsp;0.00 &nbsp;4.50 &nbsp; &nbsp; 0.00 &nbsp; &nbsp;40.50 &nbsp; &nbsp=
+; 9.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><d=
+iv>cciss/c0d0p1</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.00 &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbs=
+p; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbs=
+p; 0.00 &nbsp; 0.00</div><div>cciss/c0d0p2</div><div>&nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.00 &nbsp;4=
+.50 &nbsp; &nbsp; 0.00 &nbsp; &nbsp;40.50 &nbsp; &nbsp; 9.00 &nbsp; &nbsp; =
+0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-0 &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.00 &nbsp=
+;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp=
+; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-1 &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.00 &nb=
+sp;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nb=
+sp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-2 &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.00 &=
+nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &=
+nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-3 &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.00=
+ &nbsp;4.50 &nbsp; &nbsp; 0.00 &nbsp; &nbsp;40.50 &nbsp; &nbsp; 9.00 &nbsp;=
+ &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-4 &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;0.=
+00 &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbs=
+p; &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-5 &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp;=
+0.00 &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &n=
+bsp; &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-6 &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbs=
+p;0.00 &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 =
+&nbsp; &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div>dm-7=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0.00 &nbsp; &nbsp; 0.00 &n=
+bsp;0.00 &nbsp;0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.00 &nbsp; &nbsp; 0.0=
+0 &nbsp; &nbsp; 0.00 &nbsp; &nbsp;0.00 &nbsp; 0.00 &nbsp; 0.00</div><div><b=
+r></div></div><div><br></div><div>How to resolve this avg flush time lag ?<=
+/div><div><br></div><div><br></div><div>Thx!</div><div><br></div><br>On Thu=
+rsday, May 19, 2011 3:55:10 AM UTC-4, Sudhakar wrote:<blockquote class=3D"g=
+mail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc sol=
+id;padding-left: 1ex;">Yea that I need to do (testing in the staging)<br>An=
+d need to check regarding faster hard drives.<br><br>Let me know if anythin=
+g which I need to take case for to reduce Flush average time.<br><br><div c=
+lass=3D"gmail_quote">On Thu, May 19, 2011 at 12:56 PM, Eliot Horowitz <span=
+ dir=3D"ltr">&lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-m=
+ailto=3D"ay9DVJJkMzIJ">elioth...@gmail.com</a>&gt;</span> wrote:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0pt 0pt 0pt 0.8ex;border-=
+left:1px solid rgb(204,204,204);padding-left:1ex">I'm not sure where that a=
+nything over 200ms is critical, but that is<br>
+definitely not correct.<br>
+<br>
+A 600ms average flush time can be totally fine for your application.<br>
+<br>
+I wouldn't make any changes without trying various options in a<br>
+staging environment while simulating production load.<br>
+<br>
+On Thu, May 19, 2011 at 3:06 AM, Avise Sudhakar Rao<br>
+<div><div></div><div>&lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfu=
+scated-mailto=3D"ay9DVJJkMzIJ">avisesud...@gmail.com</a>&gt; wrote:<br>
+&gt; Below is the inline comments<br>
+&gt;<br>
+&gt; On Thu, May 19, 2011 at 12:26 PM, Eliot Horowitz &lt;<a href=3D"javasc=
+ript:" target=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">elioth...@g=
+mail.com</a>&gt;<br>
+&gt; wrote:<br>
+&gt;&gt;<br>
+&gt;&gt; Why do you think it should be &lt; 200?<br>
+&gt;&gt; Its based off of how much data you are writing, how many indexes y=
+ou<br>
+&gt;&gt; have, etc...<br>
+&gt;&gt;<br>
+&gt; I saw in one of the article that "average_ms" if greater then 200 then=
+ that<br>
+&gt; means its critical. and yes writes are more then what should I conside=
+r.<br>
+&gt;<br>
+&gt;&gt;<br>
+&gt;&gt; Are you seeing performance problems?<br>
+&gt;&gt;<br>
+&gt; I didn't see performance problem as of now, but want to be alert and t=
+o be<br>
+&gt; prepared with the solution if problem comes because "average_ms" is ke=
+ep on<br>
+&gt; increasing as currently it is 625.345...<br>
+&gt;<br>
+&gt;&gt;<br>
+&gt;&gt; Lowering syncdelay might decrease the avg flush time, but increase=
+ overall<br>
+&gt;&gt; io.<br>
+&gt;&gt;<br>
+&gt; So what is your suggestion?<br>
+&gt; reduce syncdelay to 30secs instead of default 60 secs<br>
+&gt;<br>
+&gt;&gt; By adding io capacity I mean adding more or faster hard drives.<br=
+>
+&gt;&gt;<br>
+&gt;&gt; I would highly highly recommend getting a staging system where you=
+ can<br>
+&gt;&gt; test production load with various config settings.<br>
+&gt;&gt; As you say, hard to run experiments in production, but without<br>
+&gt;&gt; understand all the nuances of your application, would be hard for<=
+br>
+&gt;&gt; anyone to tell you exactly what to do.<br>
+&gt;&gt;<br>
+&gt;&gt; On Thu, May 19, 2011 at 2:49 AM, Avise Sudhakar Rao<br>
+&gt;&gt; &lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailt=
+o=3D"ay9DVJJkMzIJ">avisesud...@gmail.com</a>&gt; wrote:<br>
+&gt;&gt; &gt; - "average_ms" is always more then 600, which I think should =
+be less<br>
+&gt;&gt; &gt; then<br>
+&gt;&gt; &gt; 200.<br>
+&gt;&gt; &gt; - Yes writes are too high (more information I had provided in=
+ the above<br>
+&gt;&gt; &gt; conversation).<br>
+&gt;&gt; &gt; - As its the production server, I can't do experiment. If I g=
+et any<br>
+&gt;&gt; &gt; perfect<br>
+&gt;&gt; &gt; solution from your end (like syncdelay should be something th=
+is much)<br>
+&gt;&gt; &gt; then I<br>
+&gt;&gt; &gt; can stick with that and do the necessary changes in the produ=
+ction<br>
+&gt;&gt; &gt; server by<br>
+&gt;&gt; &gt; announcing the downtime to our customer.<br>
+&gt;&gt; &gt; - What is adding io capacity? do you mean increasing RAM?<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; On Thu, May 19, 2011 at 12:11 PM, Eliot Horowitz<br>
+&gt;&gt; &gt; &lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-=
+mailto=3D"ay9DVJJkMzIJ">elioth...@gmail.com</a>&gt;<br>
+&gt;&gt; &gt; wrote:<br>
+&gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; What's wrong with the avg flush time computed by the serv=
+er?<br>
+&gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; If flush time starts getting too high, it probably means =
+your io load<br>
+&gt;&gt; &gt;&gt; is too high.<br>
+&gt;&gt; &gt;&gt; The options there are playing with syncdelay, adding io c=
+apacity, or<br>
+&gt;&gt; &gt;&gt; moving to sharding.<br>
+&gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; On Thu, May 19, 2011 at 2:38 AM, Avise Sudhakar Rao<br>
+&gt;&gt; &gt;&gt; &lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfusca=
+ted-mailto=3D"ay9DVJJkMzIJ">avisesud...@gmail.com</a>&gt; wrote:<br>
+&gt;&gt; &gt;&gt; &gt; FYI..<br>
+&gt;&gt; &gt;&gt; &gt; I required the below information:-<br>
+&gt;&gt; &gt;&gt; &gt; 1) Correct "Mongodb Flush Average" Calculation<br>
+&gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp; a) In my above first two email conversa=
+tion I had provided two<br>
+&gt;&gt; &gt;&gt; &gt; calculation and I'm not sure which one is correct an=
+d also not sure<br>
+&gt;&gt; &gt;&gt; &gt; if<br>
+&gt;&gt; &gt;&gt; &gt; non<br>
+&gt;&gt; &gt;&gt; &gt; of the once is correct then what is correct calculat=
+ion?<br>
+&gt;&gt; &gt;&gt; &gt; 2) If flush average increase then what is the soluti=
+on to control it?<br>
+&gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt; Currently, by default the flush to disk is every 60 =
+seconds in the<br>
+&gt;&gt; &gt;&gt; &gt; MongoDB<br>
+&gt;&gt; &gt;&gt; &gt; server.<br>
+&gt;&gt; &gt;&gt; &gt; I provided most of the required information in this =
+email and just<br>
+&gt;&gt; &gt;&gt; &gt; want<br>
+&gt;&gt; &gt;&gt; &gt; your<br>
+&gt;&gt; &gt;&gt; &gt; feedback and solution on it.<br>
+&gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt; Let me know, if I'm unclear on any part.<br>
+&gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt; Thanks,<br>
+&gt;&gt; &gt;&gt; &gt; Sudhakar<br>
+&gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt; On Thu, May 19, 2011 at 12:02 PM, Eliot Horowitz<br>
+&gt;&gt; &gt;&gt; &gt; &lt;<a href=3D"javascript:" target=3D"_blank" gdf-ob=
+fuscated-mailto=3D"ay9DVJJkMzIJ">elioth...@gmail.com</a>&gt;<br>
+&gt;&gt; &gt;&gt; &gt; wrote:<br>
+&gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; What exactly are you trying to figure out?<br>
+&gt;&gt; &gt;&gt; &gt;&gt; If you're looking for monitoring levels, alertin=
+g on flush time over<br>
+&gt;&gt; &gt;&gt; &gt;&gt; 1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; second would be reasonable.<br>
+&gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; On Thu, May 19, 2011 at 2:07 AM, Avise Sudhakar =
+Rao<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &lt;<a href=3D"javascript:" target=3D"_blank" gd=
+f-obfuscated-mailto=3D"ay9DVJJkMzIJ">avisesud...@gmail.com</a>&gt; wrote:<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; monit:PRIMARY&gt; db.serverStatus()<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"host" : "mdb51",<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"version" : "1.8.1",<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"process" : "mongod",<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"uptime" : 3522711,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"uptimeEstimate" : 3426536,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"localTime" : ISODate("2011-05-19T06:03:10.<wbr>189Z"),<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"globalLock" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "totalTime" : 3522710384978=
+,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "lockTime" : 16337707216,<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "ratio" : 0.004637822991543=
+494,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "currentQueue" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "total" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "readers" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "writers" : 0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "activeClients" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "total" : 2,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "readers" : 2,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "writers" : 0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"mem" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "bits" : 64,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "resident" : 5178,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "virtual" : 19438,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "supported" : true,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "mapped" : 7405<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"connections" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "current" : 422,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "available" : 15578<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"extra_info" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "note" : "fields vary by pl=
+atform",<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "heap_usage_bytes" : 312121=
+6,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "page_faults" : 121305<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"indexCounters" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "btree" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "accesses" : 22327,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "hits" : 22327,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "misses" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "resets" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "missRatio" : 0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"backgroundFlushing" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "flushes" : 58711,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "total_ms" : 36701585,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "average_ms" : 625.12280492=
+58231,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "last_ms" : 550,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "last_finished" :<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; ISODate("2011-05-19T06:02:56.<wbr>890Z")<br=
+>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"cursors" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "totalOpen" : 2,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "clientCursors_size" : 2,<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "timedOut" : 10<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"network" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "bytesIn" : 944750923505,<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "bytesOut" : NumberLong("37=
+17489967388"),<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "numRequests" : 281202295<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"repl" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "setName" : "monit",<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "ismaster" : true,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "secondary" : false,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "hosts" : [<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "<a href=3D"http://172.25.122.181:27017" target=3D"_bl=
+ank">172.25.122.181:27017</a>",<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "<a href=3D"http://172.25.122.182:27017" target=3D"_bl=
+ank">172.25.122.182:27017</a>"<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "arbiters" : [<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "<a href=3D"http://172.25.122.20:27017" target=3D"_bla=
+nk">172.25.122.20:27017</a>"<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"opcounters" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "insert" : 419346,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "query" : 179572184,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "update" : 48236067,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "delete" : 6515,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "getmore" : 47411432,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "command" : 5556715<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"asserts" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "regular" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "warning" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "msg" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "user" : 303,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "rollovers" : 0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"writeBacksQueued" : false,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"dur" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "commits" : 20,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "journaledMB" : 1.998848,<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "writeToDataFilesMB" : 0,<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "commitsInWriteLock" : 0,<b=
+r>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "earlyCommits" : 0,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "timeMs" : {<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "dt" : 3057,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "prepLogBuffer" : 8,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "writeToJournal" : 18,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "writeToDataFiles" : 5,<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; "remapPrivateView" : 2<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+},<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+"ok" : 1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; }<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; On Thu, May 19, 2011 at 11:35 AM, Avise Sud=
+hakar Rao<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; &lt;<a href=3D"javascript:" target=3D"_blan=
+k" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">avisesud...@gmail.com</a>&gt; wro=
+te:<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; Below is the information:-<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; root#] ll<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; total 8762432<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; drwxr-xr-x 3 mongodb mongodb&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp; 4096 2011-04-15 06:58 ./<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; drwxr-xr-x 4 mongodb mongodb&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp; 4096 2011-03-11 13:00 ../<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp;&nbsp=
+; 67108864 2011-03-17 13:46<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; config_db.0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp; 1342=
+17728 2011-03-15 15:02<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; config_db.1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp;&nbsp=
+; 16777216 2011-03-17 13:46<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; config_db.ns<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; drwxr-xr-x 2 mongodb nogroup&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp; 4096 2011-05-19 05:35 journal/<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp;&nbsp=
+; 67108864 2011-03-14 09:16 local.0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp; 1342=
+17728 2011-03-11 13:01 local.1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup 2146435072=
+ 2011-05-19 05:59 local.2<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup 2146435072=
+ 2011-05-19 05:59 local.3<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup 2146435072=
+ 2011-05-19 05:59 local.4<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp;&nbsp=
+; 16777216 2011-05-19 05:59 local.ns<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rwxr-xr-x 1 mongodb nogroup&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5 2011-04-08 11:31<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; mongod.lock*<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp;&nbsp=
+; 67108864 2011-05-19 05:59<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; monitoring_db.0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp; 1342=
+17728 2011-05-19 05:59<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; monitoring_db.1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp; 2684=
+35456 2011-05-19 05:59<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; monitoring_db.2<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp; 5368=
+70912 2011-05-19 05:59<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; monitoring_db.3<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup 1073741824=
+ 2011-04-15 06:58<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; monitoring_db.4<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; -rw------- 1 mongodb nogroup&nbsp;&nbsp=
+; 16777216 2011-05-19 05:59<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; monitoring_db.ns<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; root#] du -sh *<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 65M&nbsp;&nbsp;&nbsp;&nbsp; config_db.0=
+<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 128M&nbsp;&nbsp;&nbsp; config_db.1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 17M&nbsp;&nbsp;&nbsp;&nbsp; config_db.n=
+s<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 1.9G&nbsp;&nbsp;&nbsp; journal<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 64M&nbsp;&nbsp;&nbsp;&nbsp; local.0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 128M&nbsp;&nbsp;&nbsp; local.1<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 2.0G&nbsp;&nbsp;&nbsp; local.2<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 2.0G&nbsp;&nbsp;&nbsp; local.3<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 2.0G&nbsp;&nbsp;&nbsp; local.4<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 17M&nbsp;&nbsp;&nbsp;&nbsp; local.ns<br=
+>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 4.0K&nbsp;&nbsp;&nbsp; mongod.lock<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 65M&nbsp;&nbsp;&nbsp;&nbsp; monitoring_=
+db.0<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 129M&nbsp;&nbsp;&nbsp; monitoring_db.1<=
+br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 257M&nbsp;&nbsp;&nbsp; monitoring_db.2<=
+br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 513M&nbsp;&nbsp;&nbsp; monitoring_db.3<=
+br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 1.1G&nbsp;&nbsp;&nbsp; monitoring_db.4<=
+br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; 17M&nbsp;&nbsp;&nbsp;&nbsp; monitoring_=
+db.ns<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; root#]<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; On Thu, May 19, 2011 at 11:30 AM, Nat &=
+lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"ay9DV=
+JJkMzIJ">nat....@gmail.com</a>&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt; wrote:<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; - Flush time is the time it takes t=
+o flush all files to disk.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; last_ms<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; and&nbsp;average_ms already provide=
+ you with the latest and average<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; time<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; to<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; flush<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; the data to disk. If you reduce the=
+ syncdelay, it means that it<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; will<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; potentially have fewer data to flus=
+h back to disk thus reducing<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; the<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; average<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; flush time. However, the total flus=
+h time can go higher.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; - Higher flush time figure means th=
+at certain query/update<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; operation<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; can<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; take longer than normal.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; - Your mongostat shows 19GB mapped =
+while your database stat<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; shows<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; only<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; 2GB data files. Can you list your d=
+atabase and journal files?<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; --<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; You received this message because y=
+ou are subscribed to the<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; Google<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; Groups<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; "mongodb-user" group.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; To post to this group, send email t=
+o<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; <a href=3D"javascript:" target=3D"_=
+blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@googlegroups.com</a=
+>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; To unsubscribe from this group, sen=
+d email to<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; <a href=3D"javascript:" target=3D"_=
+blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegr=
+oups.com</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; For more options, visit this group =
+at<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;&gt; <a href=3D"http://groups.google.com=
+/group/mongodb-user?hl=3Den" target=3D"_blank">http://groups.google.com/<wb=
+r>group/mongodb-user?hl=3Den</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; --<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; You received this message because you are s=
+ubscribed to the Google<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; Groups<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; "mongodb-user" group.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; To post to this group, send email to<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; <a href=3D"javascript:" target=3D"_blank" g=
+df-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@googlegroups.com</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; To unsubscribe from this group, send email =
+to<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; <a href=3D"javascript:" target=3D"_blank" g=
+df-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com=
+</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; For more options, visit this group at<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt; <a href=3D"http://groups.google.com/group/m=
+ongodb-user?hl=3Den" target=3D"_blank">http://groups.google.com/<wbr>group/=
+mongodb-user?hl=3Den</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;&gt; --<br>
+&gt;&gt; &gt;&gt; &gt;&gt; You received this message because you are subscr=
+ibed to the Google<br>
+&gt;&gt; &gt;&gt; &gt;&gt; Groups<br>
+&gt;&gt; &gt;&gt; &gt;&gt; "mongodb-user" group.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; To post to this group, send email to <a href=3D"=
+javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongo=
+d...@googlegroups.com</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt; To unsubscribe from this group, send email to<br=
+>
+&gt;&gt; &gt;&gt; &gt;&gt; <a href=3D"javascript:" target=3D"_blank" gdf-ob=
+fuscated-mailto=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com</a>.=
+<br>
+&gt;&gt; &gt;&gt; &gt;&gt; For more options, visit this group at<br>
+&gt;&gt; &gt;&gt; &gt;&gt; <a href=3D"http://groups.google.com/group/mongod=
+b-user?hl=3Den" target=3D"_blank">http://groups.google.com/<wbr>group/mongo=
+db-user?hl=3Den</a>.<br>
+&gt;&gt; &gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt; &gt; --<br>
+&gt;&gt; &gt;&gt; &gt; You received this message because you are subscribed=
+ to the Google<br>
+&gt;&gt; &gt;&gt; &gt; Groups<br>
+&gt;&gt; &gt;&gt; &gt; "mongodb-user" group.<br>
+&gt;&gt; &gt;&gt; &gt; To post to this group, send email to <a href=3D"java=
+script:" target=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...=
+@googlegroups.com</a>.<br>
+&gt;&gt; &gt;&gt; &gt; To unsubscribe from this group, send email to<br>
+&gt;&gt; &gt;&gt; &gt; <a href=3D"javascript:" target=3D"_blank" gdf-obfusc=
+ated-mailto=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com</a>.<br>
+&gt;&gt; &gt;&gt; &gt; For more options, visit this group at<br>
+&gt;&gt; &gt;&gt; &gt; <a href=3D"http://groups.google.com/group/mongodb-us=
+er?hl=3Den" target=3D"_blank">http://groups.google.com/<wbr>group/mongodb-u=
+ser?hl=3Den</a>.<br>
+&gt;&gt; &gt;&gt; &gt;<br>
+&gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;&gt; --<br>
+&gt;&gt; &gt;&gt; You received this message because you are subscribed to t=
+he Google<br>
+&gt;&gt; &gt;&gt; Groups<br>
+&gt;&gt; &gt;&gt; "mongodb-user" group.<br>
+&gt;&gt; &gt;&gt; To post to this group, send email to <a href=3D"javascrip=
+t:" target=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@goog=
+legroups.com</a>.<br>
+&gt;&gt; &gt;&gt; To unsubscribe from this group, send email to<br>
+&gt;&gt; &gt;&gt; <a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-=
+mailto=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com</a>.<br>
+&gt;&gt; &gt;&gt; For more options, visit this group at<br>
+&gt;&gt; &gt;&gt; <a href=3D"http://groups.google.com/group/mongodb-user?hl=
+=3Den" target=3D"_blank">http://groups.google.com/<wbr>group/mongodb-user?h=
+l=3Den</a>.<br>
+&gt;&gt; &gt;&gt;<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; --<br>
+&gt;&gt; &gt; You received this message because you are subscribed to the G=
+oogle<br>
+&gt;&gt; &gt; Groups<br>
+&gt;&gt; &gt; "mongodb-user" group.<br>
+&gt;&gt; &gt; To post to this group, send email to <a href=3D"javascript:" =
+target=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@googlegr=
+oups.com</a>.<br>
+&gt;&gt; &gt; To unsubscribe from this group, send email to<br>
+&gt;&gt; &gt; <a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mail=
+to=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com</a>.<br>
+&gt;&gt; &gt; For more options, visit this group at<br>
+&gt;&gt; &gt; <a href=3D"http://groups.google.com/group/mongodb-user?hl=3De=
+n" target=3D"_blank">http://groups.google.com/<wbr>group/mongodb-user?hl=3D=
+en</a>.<br>
+&gt;&gt; &gt;<br>
+&gt;&gt;<br>
+&gt;&gt; --<br>
+&gt;&gt; You received this message because you are subscribed to the Google=
+ Groups<br>
+&gt;&gt; "mongodb-user" group.<br>
+&gt;&gt; To post to this group, send email to <a href=3D"javascript:" targe=
+t=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@googlegroups.=
+com</a>.<br>
+&gt;&gt; To unsubscribe from this group, send email to<br>
+&gt;&gt; <a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D=
+"ay9DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com</a>.<br>
+&gt;&gt; For more options, visit this group at<br>
+&gt;&gt; <a href=3D"http://groups.google.com/group/mongodb-user?hl=3Den" ta=
+rget=3D"_blank">http://groups.google.com/<wbr>group/mongodb-user?hl=3Den</a=
+>.<br>
+&gt;&gt;<br>
+&gt;<br>
+&gt; --<br>
+&gt; You received this message because you are subscribed to the Google Gro=
+ups<br>
+&gt; "mongodb-user" group.<br>
+&gt; To post to this group, send email to <a href=3D"javascript:" target=3D=
+"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@googlegroups.com<=
+/a>.<br>
+&gt; To unsubscribe from this group, send email to<br>
+&gt; <a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"ay9=
+DVJJkMzIJ">mongodb-user...@<wbr>googlegroups.com</a>.<br>
+&gt; For more options, visit this group at<br>
+&gt; <a href=3D"http://groups.google.com/group/mongodb-user?hl=3Den" target=
+=3D"_blank">http://groups.google.com/<wbr>group/mongodb-user?hl=3Den</a>.<b=
+r>
+&gt;<br>
+<br>
+--<br>
+You received this message because you are subscribed to the Google Groups "=
+mongodb-user" group.<br>
+To post to this group, send email to <a href=3D"javascript:" target=3D"_bla=
+nk" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongod...@googlegroups.com</a>.<=
+br>
+To unsubscribe from this group, send email to <a href=3D"javascript:" targe=
+t=3D"_blank" gdf-obfuscated-mailto=3D"ay9DVJJkMzIJ">mongodb-user...@<wbr>go=
+oglegroups.com</a>.<br>
+For more options, visit this group at <a href=3D"http://groups.google.com/g=
+roup/mongodb-user?hl=3Den" target=3D"_blank">http://groups.google.com/<wbr>=
+group/mongodb-user?hl=3Den</a>.<br>
+<br>
+</div></div></blockquote></div><br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_41_28358702.1346954628128--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346954627</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1834</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: Flush calculation</string>
+</dict>
+</plist>

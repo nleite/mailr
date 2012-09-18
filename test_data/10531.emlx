@@ -1,0 +1,213 @@
+10597     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230074oef;
+        Thu, 6 Sep 2012 11:41:23 -0700 (PDT)
+Received: by 10.68.217.100 with SMTP id ox4mr5759792pbc.87.1346956883131;
+        Thu, 06 Sep 2012 11:41:23 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOb61Jf4ChDO3KOCBRoEXOt6Sg@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id gk6si4959842pbc.335.2012.09.06.11.41.22
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:41:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOb61Jf4ChDO3KOCBRoEXOt6Sg@googlegroups.com designates 209.85.160.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOb61Jf4ChDO3KOCBRoEXOt6Sg@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCOb61Jf4ChDO3KOCBRoEXOt6Sg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-pb0-f64.google.com with SMTP id ro12sf1632987pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:41:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=ZXfnFy7rWGlsfY8mklUd9PgvbboNujDGjIXAnDdYCms=;
+        b=Qt2kflYhsGXZYEQsoRmHSRKW133oFdVOP5v/napJI3ecdF483B1aGl70M15pfyjaOi
+         bHe9+eucMJNeuoZge96Lb3x8VxiWpcgzN+JYEmHoKqqnvXEna8qyC42PcKxV+werdxQf
+         E/SQg6hftqK1J4UFRCu64hGgrkTmas7XOMnTxMIyHFRjfcGIr9S+Gq0m5HTCR5pg7iZm
+         k6OG8RTZ9wdt7O98DhQSHi6nxhHgjws3WPQZKwuR02XRlj8FgpBcm+oaPYGe6mNOF9tI
+         5Ji++1bN97OMwAt8Winxx6yYSf+MYH6ES6g3U/GFLTLofbjFcAtK1MIHx4QP6BMCAieQ
+         Cp2g==
+Received: by 10.50.46.131 with SMTP id v3mr1882298igm.1.1346956882346;
+        Thu, 06 Sep 2012 11:41:22 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.4.209 with SMTP id 17ls2506281ibs.6.gmail; Thu, 06 Sep
+ 2012 11:41:18 -0700 (PDT)
+Received: by 10.50.17.133 with SMTP id o5mr11486147igd.2.1346956878081;
+        Thu, 06 Sep 2012 11:41:18 -0700 (PDT)
+Received: by 10.50.100.229 with SMTP id fb5msigb;
+        Thu, 6 Sep 2012 11:37:36 -0700 (PDT)
+Received: by 10.68.237.163 with SMTP id vd3mr826968pbc.9.1346956656521;
+        Thu, 06 Sep 2012 11:37:36 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:37:35 -0700 (PDT)
+From: Andrew Emil <andrew.emil@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <8e3bab36-9591-4c92-8307-d70e448a6e56@googlegroups.com>
+In-Reply-To: <3746adc7-9fc4-44ff-8d78-b14b3187053b@googlegroups.com>
+References: <3746adc7-9fc4-44ff-8d78-b14b3187053b@googlegroups.com>
+Subject: [mongodb-user] Re: content of a collection from a specific document
+ (in natural order)
+MIME-Version: 1.0
+X-Original-Sender: andrew.emil@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_506_22586892.1346956655876"
+
+------=_Part_506_22586892.1346956655876
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi David,
+
+As you noted, skipping(in combination with limit and an index of some kind) 
+is one possible solution for pagination: It allows you to skip past the 
+first n documents (those on previous pages, presumably) to get those 
+documents that are needed for the current page.  Personally this solution 
+seems very good to me, it seems like a very good usage of skip from what I 
+can tell.
+
+Just to clarify what you are asking: You would like to do a range query on 
+OIDs, getting all documents with an OID less than (or greater than) a 
+specific OID (corresponding to the start document).  The results of this 
+query should then be sorted in natural order.
+
+It is important to note that unless this is a capped collection the natural 
+ordering is not necessarily the same as the insertion order.  This 
+guarantee is only provided for capped collections.  See 
+http://www.mongodb.org/display/DOCS/Sorting+and+Natural+Order for some more 
+info.  
+
+Another important note is that natural ordering is not the same as the OID 
+ordering.  Thus if you want pagination based on OIDs you do not want to be 
+sorting/ordering your results based on the natural ordering of the 
+documents.
+
+That being said, if I understood your problem correctly, here are the steps 
+to a possible solution:
+
+1) Get the OID for the "start" document
+
+2) Do a query using the $lt (or $gt (see 
+http://docs.mongodb.org/manual/reference/operators/#_S_lt for more info)) 
+operators to find the relevant OIDs in this collection
+
+3) Do a sort on the results of 2) using the natural ordering 
+
+4 (optional)) Use the limit (see 
+http://www.mongodb.org/display/DOCS/Advanced+Queries#AdvancedQueries-%7B%7Blimit%28%29%7D%7D 
+for more info) to get the next n results, where n is the number of results 
+your want on your page
+
+Hopefully this will help point you in the right direction.  If you have any 
+more questions feel free to ask!
+
+-Andrew
+
+On Wednesday, August 22, 2012 8:19:07 AM UTC-7, David Graf wrote:
+>
+> Hello
+>
+> I am trying to implement pagination with OIDs in mongodb. I know, paging 
+> can be implemented with skip. But skipping is not always a good solution. 
+> Especially when documents are inserted or deleted. So, I would like to 
+> implement pagination with references (OIDs) to nodes. So, I would like to 
+> get all documents form a collections starting from a specific document. 
+> (everything ordered in natural order, of course). Is this possible to do?
+>
+> In my opinion, it should be possible. But I don't find anything in the API 
+> documentation.
+>
+> Best
+> David
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_506_22586892.1346956655876
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div>Hi David,</div><div><br></div><div>As you noted, skipping(in combinati=
+on with limit and an index of some kind) is one possible solution for pagin=
+ation: It allows you to skip past the first n documents (those on previous =
+pages, presumably) to get those documents that are needed for the current p=
+age. &nbsp;Personally this solution seems very good to me, it seems like a =
+very good usage of skip from what I can tell.</div><div><br></div><div>Just=
+ to clarify what you are asking: You would like to do a range query on OIDs=
+, getting all documents with an OID less than (or greater than) a specific =
+OID (corresponding to the start document). &nbsp;The results of this query =
+should then be sorted in natural order.</div><div><br></div><div>It is impo=
+rtant to note that unless this is a capped collection the natural ordering =
+is not necessarily the same as the insertion order. &nbsp;This guarantee is=
+ only provided for capped collections. &nbsp;See http://www.mongodb.org/dis=
+play/DOCS/Sorting+and+Natural+Order for some more info. &nbsp;</div><div><b=
+r></div><div>Another important note is that natural ordering is not the sam=
+e as the OID ordering. &nbsp;Thus if you want pagination based on OIDs you =
+do not want to be sorting/ordering your results based on the natural orderi=
+ng of the documents.</div><div><br></div><div>That being said, if I underst=
+ood your problem correctly, here are the steps to a possible solution:</div=
+><div><br></div><div>1) Get the OID for the "start" document</div><div><br>=
+</div><div>2) Do a query using the $lt (or $gt (see http://docs.mongodb.org=
+/manual/reference/operators/#_S_lt for more info)) operators to find the re=
+levant OIDs in this collection</div><div><br></div><div>3) Do a sort on the=
+ results of 2) using the natural ordering&nbsp;</div><div><br></div><div>4 =
+(optional)) Use the limit (see http://www.mongodb.org/display/DOCS/Advanced=
++Queries#AdvancedQueries-%7B%7Blimit%28%29%7D%7D for more info) to get the =
+next n results, where n is the number of results your want on your page</di=
+v><div><br></div><div>Hopefully this will help point you in the right direc=
+tion. &nbsp;If you have any more questions feel free to ask!</div><div><br>=
+</div><div>-Andrew</div><br>On Wednesday, August 22, 2012 8:19:07 AM UTC-7,=
+ David Graf wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;marg=
+in-left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">Hello<div><b=
+r></div><div>I am trying to implement&nbsp;pagination&nbsp;with OIDs in mon=
+godb. I know, paging can be implemented with skip. But skipping is not alwa=
+ys a good solution. Especially when documents are inserted or deleted. So, =
+I would like to implement pagination with references (OIDs) to nodes. So, I=
+ would like to get all documents form a collections starting from a specifi=
+c document. (everything ordered in natural order, of course). Is this possi=
+ble to do?</div><div><br></div><div>In my opinion, it should be possible. B=
+ut I don't find anything in the API documentation.</div><div><br></div><div=
+>Best</div><div>David</div></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_506_22586892.1346956655876--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346956655</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1855</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: content of a collection from a specific document (in natural order)</string>
+</dict>
+</plist>

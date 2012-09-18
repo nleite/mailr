@@ -1,0 +1,222 @@
+9605      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp269108oef;
+        Fri, 7 Sep 2012 08:32:42 -0700 (PDT)
+Received: by 10.66.73.9 with SMTP id h9mr8586640pav.76.1347031962066;
+        Fri, 07 Sep 2012 08:32:42 -0700 (PDT)
+Return-Path: <mongodb-user+bncCPes4cSDBxCXp6iCBRoE2tbK5g@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id qs7si9114076pbc.312.2012.09.07.08.32.41
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 08:32:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCPes4cSDBxCXp6iCBRoE2tbK5g@googlegroups.com designates 209.85.160.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCPes4cSDBxCXp6iCBRoE2tbK5g@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCPes4cSDBxCXp6iCBRoE2tbK5g@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-pb0-f64.google.com with SMTP id ro12sf2347215pbb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 08:32:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=IvYXRFzFP1xq1cyMsudOKDZh/lww3GfC2kVB7ojjgt0=;
+        b=gWJNWbaMIyE6opYVrzMFbXd2jHXGoU+9ib5nNRL2zsvlIQgWhytCr9/y4HKoiokohH
+         LywMzkVGGyjQD58EWfZooyAu2zYN4frSuJCGQK3dE4pjHq2jWIBJ2NayJhjJjifm3gJr
+         9OJ0JA19DcpNGPCfqT6bsQyimHarAeqhhU/8dSdZI6PGV+jILbX2JWlMbF+xfFWbjCwm
+         Xqi4jH2FEQvmN9+oaWrJ3O5V7LBkH1J5oLay+JfE/C2CoboHGbBHZiGgQnbTFd/bBal+
+         upPApZnTa4i/DhvGiFoPixblwIxE1B15438qIkCq5zHxKo/tAUTwz9xGIeiWY14LxPOI
+         rkTw==
+Received: by 10.52.23.145 with SMTP id m17mr1012107vdf.0.1347031961096;
+        Fri, 07 Sep 2012 08:32:41 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.156.112 with SMTP id wd16ls623083vdb.6.gmail; Fri, 07 Sep
+ 2012 08:32:38 -0700 (PDT)
+Received: by 10.52.29.131 with SMTP id k3mr232217vdh.5.1347031958792;
+        Fri, 07 Sep 2012 08:32:38 -0700 (PDT)
+Date: Fri, 7 Sep 2012 08:32:38 -0700 (PDT)
+From: Stephen Lee <stephen.lee@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <4c3da32f-c7e2-45b6-9646-8ec6532ceaff@googlegroups.com>
+In-Reply-To: <82666d21-f987-45fd-ac05-6826c5bc0c1b@googlegroups.com>
+References: <b593fe14-6bea-4f68-87a2-bf3eff0fa915@googlegroups.com>
+ <82666d21-f987-45fd-ac05-6826c5bc0c1b@googlegroups.com>
+Subject: [mongodb-user] Re: Execute a Java Script file
+MIME-Version: 1.0
+X-Original-Sender: stephen.lee@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ stephen.lee@10gen.com designates internal as permitted sender)
+ smtp.mail=stephen.lee@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_151_27202512.1347031958480"
+
+------=_Part_151_27202512.1347031958480
+Content-Type: text/plain; charset=ISO-8859-1
+
+When you paste the Javascript into the mongo console, the interpretter 
+throws a syntax error on the for loop line because the opening { is on a 
+different line.  If you run it as a script, the parser handles the 
+Javascript correctly.
+
+In general, I can't reproduce your error.  When you did a db.mycol.count(), 
+did you first "use mydb" to ensure that you're referencing mydb.mycol?
+
+On Thursday, September 6, 2012 5:17:59 PM UTC-4, Tim wrote:
+>
+> I executed:
+> mongo hostip:port/mydb --quiet /data/insert.js
+> and it worked without the function and the time measure part.
+> Do you have an idea how I could measure the time that is needed to execute 
+> that .js?
+>
+> Is it possible to run a .js file from the mongos shell?
+>
+>
+> Am Donnerstag, 6. September 2012 21:39:07 UTC+2 schrieb Tim:
+>>
+>> Hello,
+>> I developed a Java Script function, that inserts data and measures the 
+>> time. (Tried it with and without the "function()")
+>>
+>> function f() {
+>>
+>> var doc= '';
+>> var start = new Date().getTime();
+>>
+>> for (i=0; i<1000000; i++)
+>> { 
+>> doc = { a: '13', b:i}  
+>> db.mycol.insert(doc);
+>> }
+>> var end = new Date().getTime();
+>> var time = end - start;
+>> alert('Execution time: ' + time);
+>> }
+>>
+>>
+>>
+>> I tried to execute via the mongos shell like 
+>>
+>>
+>> If a line contains open '(' or '{' characters, the shell will request 
+>> more input before evaluating:
+>>  
+>> > function f() {
+>> ... x = 1;
+>> ... }
+>> >
+>>  
+>>
+>> from
+>>
+>> http://www.mongodb.org/display/DOCS/Overview+-+The+MongoDB+Interactive+Shell#Overview-TheMongoDBInteractiveShell-SomeNotesonDatatypesintheShell
+>>
+>> but it failed.
+>>
+>> From http://www.mongodb.org/display/DOCS/Scripting+the+shell
+>> I read:
+>>
+>>
+>> ./mongo server:27017/dbname --quiet my_commands.js
+>>
+>>
+>> I'm not quite sure if I missed something, but is there a folder where I have to store the .js file?
+>> Or how do you execute a .js file?
+>>
+>>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_151_27202512.1347031958480
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+When you paste the Javascript into the mongo console, the interpretter thro=
+ws a syntax error on the for loop line because the opening { is on a differ=
+ent line. &nbsp;If you run it as a script, the parser handles the Javascrip=
+t correctly.<div><br></div><div>In general, I can't reproduce your error. &=
+nbsp;When you did a db.mycol.count(), did you first "use mydb" to ensure th=
+at you're referencing mydb.mycol?<br><br>On Thursday, September 6, 2012 5:1=
+7:59 PM UTC-4, Tim wrote:<blockquote class=3D"gmail_quote" style=3D"margin:=
+ 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">I exe=
+cuted:<br>mongo hostip:port/mydb --quiet /data/insert.js<br>and it worked w=
+ithout the function and the time measure part.<br>Do you have an idea how I=
+ could measure the time that is needed to execute that .js?<br><br>Is it po=
+ssible to run a .js file from the mongos shell?<br><br><br>Am Donnerstag, 6=
+. September 2012 21:39:07 UTC+2 schrieb Tim:<blockquote class=3D"gmail_quot=
+e" style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-l=
+eft:1ex">Hello,<br>I developed a Java Script function, that inserts data an=
+d measures the time. (Tried it with and without the "function()")<br><br>fu=
+nction f() {<br><br>var doc=3D '';<br>var start =3D new Date().getTime();<b=
+r><br>for (i=3D0; i&lt;1000000; i++)<br>{ <br>doc =3D { a: '13', b:i}&nbsp;=
+ <br>db.mycol.insert(doc);<br>}<br>var end =3D new Date().getTime();<br>var=
+ time =3D end - start;<br>alert('Execution time: ' + time);<br>}<br><br><br=
+><br>I tried to execute via the mongos shell like <br><br><br><p style=3D"m=
+argin-left:40px">If a line contains open '(' or '{' characters, the shell w=
+ill request more input before evaluating:</p>
+
+<div style=3D"border-width:1px"><div>
+<pre style=3D"margin-left:40px">&gt; function f() {
+... x =3D 1;
+... }
+&gt;<br>&nbsp;</pre>
+</div></div>from<br><a href=3D"http://www.mongodb.org/display/DOCS/Overview=
++-+The+MongoDB+Interactive+Shell#Overview-TheMongoDBInteractiveShell-SomeNo=
+tesonDatatypesintheShell" target=3D"_blank">http://www.mongodb.org/<wbr>dis=
+play/DOCS/Overview+-+The+<wbr>MongoDB+Interactive+Shell#<wbr>Overview-<wbr>=
+TheMongoDBInteractiveShell-<wbr>SomeNotesonDatatypesintheShell</a><br><br>b=
+ut it failed.<br><br>From <a href=3D"http://www.mongodb.org/display/DOCS/Sc=
+ripting+the+shell" target=3D"_blank">http://www.mongodb.org/<wbr>display/DO=
+CS/Scripting+the+<wbr>shell</a><br>I read:<br><pre><br>./mongo server:27017=
+/dbname --quiet my_commands.js<br></pre><pre><br>I'm not quite sure if I mi=
+ssed something, but is there a folder where I have to store the .js file?<b=
+r>Or how do you execute a .js file?<br></pre></blockquote></blockquote></di=
+v>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_151_27202512.1347031958480--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347031958</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1974</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Execute a Java Script file</string>
+</dict>
+</plist>

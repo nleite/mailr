@@ -1,0 +1,684 @@
+25068     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp252784oef;
+        Fri, 7 Sep 2012 00:22:53 -0700 (PDT)
+Received: by 10.68.212.161 with SMTP id nl1mr9002567pbc.84.1347002572542;
+        Fri, 07 Sep 2012 00:22:52 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOLsq7WDCRDJwaaCBRoE3pZ7fA@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id px5si7596233pbb.112.2012.09.07.00.22.52
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 00:22:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOLsq7WDCRDJwaaCBRoE3pZ7fA@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOLsq7WDCRDJwaaCBRoE3pZ7fA@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCOLsq7WDCRDJwaaCBRoE3pZ7fA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1976049pbb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 00:22:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=LGItreYhBoEjioMpOFnt4Q7wX7OTca4ikDtjYhRc7Lw=;
+        b=bbVT5H6GhDrrXwtwTAdOkmWJcYas+Xrb7L1vi2zxlTsep1Q8E4bGITFzSRPtKH7y3x
+         TJPwRRihYfmx7qYPCBGKTiYO4d9usiUDtEGKDoFDxY+xsLhjA+A0aFnX9fBHVogZBVcX
+         qxrKSLpeg0VR5YHR3Joi1Y/BVVmQznsFpzdjkhAMJNAEjTkQHEkpY1TOSH52MKNhKgYb
+         D8pFE1aJHVI2yvMB0lr2ZOZbUd9ixuL1CAB4fuaN2Dk6+To3Unwo/mfW0lIGAyx+cQN/
+         +VRZCswSQlzDZI0q+hl00iwr+7XFSmq0pKqkkgM2QpaX8J/NSSqkayESMcbj9HBiq3Jl
+         1Ong==
+Received: by 10.68.125.193 with SMTP id ms1mr1172142pbb.2.1347002571920;
+        Fri, 07 Sep 2012 00:22:51 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.141.133 with SMTP id ro5ls1410785pbb.1.gmail; Fri, 07 Sep
+ 2012 00:22:49 -0700 (PDT)
+Received: by 10.68.136.7 with SMTP id pw7mr1178942pbb.1.1347002569791;
+        Fri, 07 Sep 2012 00:22:49 -0700 (PDT)
+Date: Fri, 7 Sep 2012 00:22:49 -0700 (PDT)
+From: David Hows <david.hows@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <e1c5aea4-0e32-4f7e-b387-c2782ab6f49b@googlegroups.com>
+In-Reply-To: <70663453-341e-4647-ba59-db64301c438c@d9g2000vbf.googlegroups.com>
+References: <5bd33a8b-c7ed-4216-9567-1f9a5e4fed04@z4g2000vby.googlegroups.com>
+ <e0b39e6a-980e-41ae-b0a8-a774247fb1f0@v22g2000vbu.googlegroups.com>
+ <CAMNCBP6k182ULpLBU49hLrWkqjwQM2umn4EkR1_LeMDhqBBtMA@mail.gmail.com>
+ <13068984-6a79-4849-a129-157f88c85fa0@m3g2000vby.googlegroups.com>
+ <58750060-eb7e-4b60-a47b-589c832f1623@googlegroups.com> <a8a77983-3ec8-450c-bdc1-44aa1dfdfbbf@c4g2000vbe.googlegroups.com>
+ <f67d44de-80dc-4c31-805f-08a89b8409d1@googlegroups.com> <99ac9df5-ef06-47b0-92ed-f22c982b89ed@ft6g2000vbb.googlegroups.com>
+ <fb2049e0-cc22-4a83-9e9c-dfd37b98e583@googlegroups.com> <64e6cc47-71f0-4616-b3f4-bf27fd281a01@d9g2000vbf.googlegroups.com>
+ <c11a7df6-677c-44b7-9294-8db3d61c0400@13g2000vbf.googlegroups.com> <814ee85b-bf3f-4fc9-9d14-716ef0aa2fe5@googlegroups.com>
+ <70663453-341e-4647-ba59-db64301c438c@d9g2000vbf.googlegroups.com>
+Subject: [mongodb-user] Re: mongo iowait
+MIME-Version: 1.0
+X-Original-Sender: david.hows@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ david.hows@10gen.com designates internal as permitted sender)
+ smtp.mail=david.hows@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_428_1261389.1347002569046"
+
+------=_Part_428_1261389.1347002569046
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Yes. Its available for free at http://mms.10gen.com=20
+
+10Gen recommends everyone install MMS
+
+On Friday, September 7, 2012 5:06:52 PM UTC+10, tetlika wrote:
+>
+> is it free?=20
+>
+> On 7 =D0=92=D0=B5=D1=80, 10:05, David Hows <david.h...@10gen.com> wrote:=
+=20
+> > Have you considered installing MMS? Available for free athttp://
+> mms.10gen.com=20
+> >=20
+> > The MMS agent can collect a lot of these internals and give some good=
+=20
+> > insights into what is going on internally within mongo.=20
+> >=20
+> > If your worried about these kind of spikes causing performance issues i=
+t=20
+> > would be best to install and see what data you can gather from MMS to=
+=20
+> > compare with the data from your EC2 instance.=20
+> >=20
+> > Cheers,=20
+> >=20
+> > David=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> > On Friday, September 7, 2012 4:27:09 PM UTC+10, tetlika wrote:=20
+> >=20
+> > > btw, never saw it will go more than 60, while node have 70 and just=
+=20
+> > > mongod is on it=20
+> >=20
+> > > On 7 =D0=92=D0=B5=D1=80, 09:24, tetlika <tetl...@gmail.com> wrote:=20
+> > > > ok, but it happens on  when res is near 50 GB, while nodes have=20
+> almost=20
+> > > > 20gb still  free=20
+> >=20
+> > > > On 7 =D0=92=D0=B5=D1=80, 09:20, David Hows <david.h...@10gen.com> w=
+rote:=20
+> >=20
+> > > > > Hi Tetlika,=20
+> >=20
+> > > > > Perhaps i am being unclear. If the amount of data currently held=
+=20
+> in=20
+> > > > > resident memory is high and suddenly you need to access data whic=
+h=20
+> is=20
+> > > not=20
+> > > > > in memory you will need to perform some juggling. To do this you=
+=20
+> will=20
+> > > need=20
+> > > > > to write data that is in memory out to disk in order to create=20
+> free=20
+> > > space=20
+> > > > > into which you can load the desired data.=20
+> >=20
+> > > > > If your amount of data resident in memory is lower its likely tha=
+t=20
+> you=20
+> > > will=20
+> > > > > not need to perfore these swaps to hold the new data, as there is=
+=20
+> > > enough=20
+> > > > > available space to hold it.=20
+> >=20
+> > > > > Hope that clears things up,=20
+> >=20
+> > > > > David=20
+> >=20
+> > > > > On Friday, September 7, 2012 3:55:05 PM UTC+10, tetlika wrote:=20
+> >=20
+> > > > > > but why we dont see such spikes while res is low and actively=
+=20
+> paging=20
+> > > > > > into memory (for example when slave becomes master)?=20
+> >=20
+> > > > > > On 7 =D0=92=D0=B5=D1=80, 08:47, David Hows <david.h...@10gen.co=
+m> wrote:=20
+> > > > > > > Hi Tetlika,=20
+> >=20
+> > > > > > > This very much sounds as if your system is paging at the time=
+=20
+> you=20
+> > > are=20
+> > > > > > > seeing these spikes.=20
+> >=20
+> > > > > > > The spike in resident memory correlating with a spike in I/O=
+=20
+> Wait=20
+> > > sounds=20
+> > > > > > > like your instance is trying to pull paged files from disk=20
+> into=20
+> > > memory.=20
+> >=20
+> > > > > > > In MMS we capture this metric explicitly.=20
+> >=20
+> > > > > > > Common solutions here are to look at faster disks or increase=
+=20
+> the=20
+> > > amount=20
+> > > > > > of=20
+> > > > > > > ram available to your server.=20
+> >=20
+> > > > > > > Cheers,=20
+> >=20
+> > > > > > > David=20
+> >=20
+> > > > > > > On Friday, September 7, 2012 3:27:48 PM UTC+10, tetlika wrote=
+:=20
+> >=20
+> > > > > > > > we are on rightscale and iowait is collected by default in=
+=20
+> > > reflected=20
+> > > > > > > > in plots, also during that periods I see queues in mongosta=
+t=20
+> > > > > > > > yes there are long queries in log, but they are regular=20
+> queries=20
+> > > which=20
+> > > > > > > > are starting executing more longer during iowait periods an=
+d=20
+> are=20
+> > > > > > > > dropped into log, we already investigated that=20
+> > > > > > > > also after stepDown the things are back to normal on new=20
+> master=20
+> > > and=20
+> > > > > > > > old one=20
+> > > > > > > > the problem is always when we have high res value, we didnt=
+=20
+> > > faced=20
+> > > > > > > > unexpected iowaits while the res is low=20
+> >=20
+> > > > > > > > we are on 2.0.6=20
+> >=20
+> > > > > > > > On 7 =D0=92=D0=B5=D1=80, 08:16, David Hows <david.h...@10ge=
+n.com> wrote:=20
+> > > > > > > > > Hi Tetlika,=20
+> >=20
+> > > > > > > > > How are you collecting the iowait metric when these issue=
+s=20
+> > > occur?=20
+> >=20
+> > > > > > > > > Are there any mentions of long running queries or yields=
+=20
+> in=20
+> > > your=20
+> > > > > > mongod=20
+> > > > > > > > > logs when this occurs?=20
+> >=20
+> > > > > > > > > If the res value increases and you see a spike in iowait=
+=20
+> it=20
+> > > sounds=20
+> > > > > > like=20
+> > > > > > > > you=20
+> > > > > > > > > would be pagefaulting.=20
+> >=20
+> > > > > > > > > Do you have MMS installed? If so can you provide a link t=
+o=20
+> > > your=20
+> > > > > > > > dashboard?=20
+> > > > > > > > > And which version of the DB are you running?=20
+> >=20
+> > > > > > > > > Cheers,=20
+> >=20
+> > > > > > > > > David=20
+> >=20
+> > > > > > > > > On Friday, September 7, 2012 2:58:48 PM UTC+10, tetlika=
+=20
+> wrote:=20
+> >=20
+> > > > > > > > > > thanks, nice video=20
+> >=20
+> > > > > > > > > > but looks in our specific case there are no random ebs=
+=20
+> io=20
+> > > problems=20
+> >=20
+> > > > > > > > > > On 7 =D0=92=D0=B5=D1=80, 00:34, Samuel Garc=C3=ADa Mart=
+=C3=ADnez <=20
+> > > samuelgmarti...@gmail.com>=20
+> >=20
+> > > > > > > > > > wrote:=20
+> > > > > > > > > > > Maybe is not resident size related. This can give you=
+=20
+> a=20
+> > > hint:=20
+> >=20
+> > >http://www.10gen.com/presentations/MongoNYC-2012/MongoDB-at-foursquare=
+=20
+> >=20
+> > > > > > > > > > > On Thu, Sep 6, 2012 at 4:49 PM, tetlika <
+> tetl...@gmail.com>=20
+> >=20
+> > > > > > wrote:=20
+> > > > > > > > > > > > forgot to say that it is not happening every time=
+=20
+> the=20
+> > > res is=20
+> > > > > > > > reached=20
+> > > > > > > > > > > > to that value, the shard can "live" for weeks with=
+=20
+> that=20
+> > > res=20
+> > > > > > but=20
+> > > > > > > > than=20
+> > > > > > > > > > > > suddenly starts that behavior, sometimes the shard=
+=20
+> > > "lives"=20
+> > > > > > just a=20
+> > > > > > > > > > > > couple of days with that res, and than starts=20
+> iowaiting=20
+> >=20
+> > > > > > > > > > > > On 6 =D0=92=D0=B5=D1=80, 17:44, tetlika <tetl...@gm=
+ail.com> wrote:=20
+> > > > > > > > > > > > > hi!=20
+> >=20
+> > > > > > > > > > > > > we are on amazon ec2 m2.4xlarge instances and on=
+=20
+> > > sharding=20
+> > > > > > with=20
+> > > > > > > > mongo=20
+> > > > > > > > > > > > > 2.0.6, with 4x disks in RAID0, index size on ever=
+y=20
+> > > shard is=20
+> > > > > > less=20
+> > > > > > > > > > than=20
+> > > > > > > > > > > > > 50Gb=20
+> >=20
+> > > > > > > > > > > > > m2.4xlarge are 69GB of RAM=20
+> >=20
+> > > > > > > > > > > > > we've noticed such weird behavior of mongod:=20
+> >=20
+> > > > > > > > > > > > > 1) as soon as "res" value is around 55-60Gb on an=
+y=20
+> of=20
+> > > our=20
+> > > > > > > > shards, we=20
+> > > > > > > > > > > > > are monitoring high unexplainable iowait on that=
+=20
+> shard=20
+> > > > > > master,=20
+> > > > > > > > > > > > > application slows down extremely=20
+> >=20
+> > > > > > > > > > > > > 2) we are doing stepdown and things are normal=20
+> again=20
+> > > until=20
+> > > > > > the=20
+> > > > > > > > res=20
+> > > > > > > > > > > > > reaches the value of 55-60Gb (after month or so)=
+=20
+> >=20
+> > > > > > > > > > > > > such behavior looks very weird, any thoughts what=
+=20
+> it=20
+> > > can be?=20
+> >=20
+> > > > > > > > > > > > > thanks=20
+> >=20
+> > > > > > > > > > > > --=20
+> > > > > > > > > > > > You received this message because you are subscribe=
+d=20
+> to=20
+> > > the=20
+> > > > > > Google=20
+> > > > > > > > > > > > Groups "mongodb-user" group.=20
+> > > > > > > > > > > > To post to this group, send email to=20
+> > > > > > mongod...@googlegroups.com<javascript:>=20
+> >=20
+> > > > > > > > > > > > To unsubscribe from this group, send email to=20
+> > > > > > > > > > > > mongodb-user...@googlegroups.com <javascript:>=20
+> > > > > > > > > > > > See also the IRC channel -- freenode.net#mongodb=20
+> >=20
+> > > > > > > > > > > --=20
+> > > > > > > > > > > Un saludo,=20
+> > > > > > > > > > > Samuel Garc=C3=ADa.=20
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_428_1261389.1347002569046
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Yes. Its available for free at&nbsp;http://<a href=3D"http://mms.10gen.com/=
+" target=3D"_blank">mms.10gen.com</a>&nbsp;<div><br></div><div>10Gen recomm=
+ends everyone install MMS<br><br>On Friday, September 7, 2012 5:06:52 PM UT=
+C+10, tetlika wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;ma=
+rgin-left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">is it free=
+?
+<br>
+<br>On 7 =D0=92=D0=B5=D1=80, 10:05, David Hows &lt;<a>david.h...@10gen.com<=
+/a>&gt; wrote:
+<br>&gt; Have you considered installing MMS? Available for free athttp://<a=
+ href=3D"http://mms.10gen.com" target=3D"_blank">mms.10gen.com</a>
+<br>&gt;
+<br>&gt; The MMS agent can collect a lot of these internals and give some g=
+ood
+<br>&gt; insights into what is going on internally within mongo.
+<br>&gt;
+<br>&gt; If your worried about these kind of spikes causing performance iss=
+ues it
+<br>&gt; would be best to install and see what data you can gather from MMS=
+ to
+<br>&gt; compare with the data from your EC2 instance.
+<br>&gt;
+<br>&gt; Cheers,
+<br>&gt;
+<br>&gt; David
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt; On Friday, September 7, 2012 4:27:09 PM UTC+10, tetlika wrote:
+<br>&gt;
+<br>&gt; &gt; btw, never saw it will go more than 60, while node have 70 an=
+d just
+<br>&gt; &gt; mongod is on it
+<br>&gt;
+<br>&gt; &gt; On 7 =D0=92=D0=B5=D1=80, 09:24, tetlika &lt;<a>tetl...@gmail.=
+com</a>&gt; wrote:
+<br>&gt; &gt; &gt; ok, but it happens on &nbsp;when res is near 50 GB, whil=
+e nodes have almost
+<br>&gt; &gt; &gt; 20gb still &nbsp;free
+<br>&gt;
+<br>&gt; &gt; &gt; On 7 =D0=92=D0=B5=D1=80, 09:20, David Hows &lt;<a>david.=
+h...@10gen.com</a>&gt; wrote:
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; Hi Tetlika,
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; Perhaps i am being unclear. If the amount of data c=
+urrently held in
+<br>&gt; &gt; &gt; &gt; resident memory is high and suddenly you need to ac=
+cess data which is
+<br>&gt; &gt; not
+<br>&gt; &gt; &gt; &gt; in memory you will need to perform some juggling. T=
+o do this you will
+<br>&gt; &gt; need
+<br>&gt; &gt; &gt; &gt; to write data that is in memory out to disk in orde=
+r to create free
+<br>&gt; &gt; space
+<br>&gt; &gt; &gt; &gt; into which you can load the desired data.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; If your amount of data resident in memory is lower =
+its likely that you
+<br>&gt; &gt; will
+<br>&gt; &gt; &gt; &gt; not need to perfore these swaps to hold the new dat=
+a, as there is
+<br>&gt; &gt; enough
+<br>&gt; &gt; &gt; &gt; available space to hold it.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; Hope that clears things up,
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; David
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; On Friday, September 7, 2012 3:55:05 PM UTC+10, tet=
+lika wrote:
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; but why we dont see such spikes while res is l=
+ow and actively paging
+<br>&gt; &gt; &gt; &gt; &gt; into memory (for example when slave becomes ma=
+ster)?
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; On 7 =D0=92=D0=B5=D1=80, 08:47, David Hows &lt=
+;<a>david.h...@10gen.com</a>&gt; wrote:
+<br>&gt; &gt; &gt; &gt; &gt; &gt; Hi Tetlika,
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; This very much sounds as if your system i=
+s paging at the time you
+<br>&gt; &gt; are
+<br>&gt; &gt; &gt; &gt; &gt; &gt; seeing these spikes.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; The spike in resident memory correlating =
+with a spike in I/O Wait
+<br>&gt; &gt; sounds
+<br>&gt; &gt; &gt; &gt; &gt; &gt; like your instance is trying to pull page=
+d files from disk into
+<br>&gt; &gt; memory.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; In MMS we capture this metric explicitly.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; Common solutions here are to look at fast=
+er disks or increase the
+<br>&gt; &gt; amount
+<br>&gt; &gt; &gt; &gt; &gt; of
+<br>&gt; &gt; &gt; &gt; &gt; &gt; ram available to your server.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; Cheers,
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; David
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; On Friday, September 7, 2012 3:27:48 PM U=
+TC+10, tetlika wrote:
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; we are on rightscale and iowait is c=
+ollected by default in
+<br>&gt; &gt; reflected
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; in plots, also during that periods I=
+ see queues in mongostat
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; yes there are long queries in log, b=
+ut they are regular queries
+<br>&gt; &gt; which
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; are starting executing more longer d=
+uring iowait periods and are
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; dropped into log, we already investi=
+gated that
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; also after stepDown the things are b=
+ack to normal on new master
+<br>&gt; &gt; and
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; old one
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; the problem is always when we have h=
+igh res value, we didnt
+<br>&gt; &gt; faced
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; unexpected iowaits while the res is =
+low
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; we are on 2.0.6
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; On 7 =D0=92=D0=B5=D1=80, 08:16, Davi=
+d Hows &lt;<a>david.h...@10gen.com</a>&gt; wrote:
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Hi Tetlika,
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; How are you collecting the iowa=
+it metric when these issues
+<br>&gt; &gt; occur?
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Are there any mentions of long =
+running queries or yields in
+<br>&gt; &gt; your
+<br>&gt; &gt; &gt; &gt; &gt; mongod
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; logs when this occurs?
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; If the res value increases and =
+you see a spike in iowait it
+<br>&gt; &gt; sounds
+<br>&gt; &gt; &gt; &gt; &gt; like
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; you
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; would be pagefaulting.
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Do you have MMS installed? If s=
+o can you provide a link to
+<br>&gt; &gt; your
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; dashboard?
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; And which version of the DB are=
+ you running?
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Cheers,
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; David
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; On Friday, September 7, 2012 2:=
+58:48 PM UTC+10, tetlika wrote:
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; thanks, nice video
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; but looks in our specific =
+case there are no random ebs io
+<br>&gt; &gt; problems
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; On 7 =D0=92=D0=B5=D1=80, 0=
+0:34, Samuel Garc=C3=ADa Mart=C3=ADnez &lt;
+<br>&gt; &gt; <a>samuelgmarti...@gmail.com</a>&gt;
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; wrote:
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Maybe is not resident=
+ size related. This can give you a
+<br>&gt; &gt; hint:
+<br>&gt;
+<br>&gt; &gt;<a href=3D"http://www.10gen.com/presentations/MongoNYC-2012/Mo=
+ngoDB-at-foursquare" target=3D"_blank">http://www.10gen.com/<wbr>presentati=
+ons/MongoNYC-2012/<wbr>MongoDB-at-foursquare</a>
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; On Thu, Sep 6, 2012 a=
+t 4:49 PM, tetlika &lt;<a>tetl...@gmail.com</a>&gt;
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; wrote:
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; forgot to say th=
+at it is not happening every time the
+<br>&gt; &gt; res is
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; reached
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; to that value, t=
+he shard can "live" for weeks with that
+<br>&gt; &gt; res
+<br>&gt; &gt; &gt; &gt; &gt; but
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; than
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; suddenly starts =
+that behavior, sometimes the shard
+<br>&gt; &gt; "lives"
+<br>&gt; &gt; &gt; &gt; &gt; just a
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; couple of days w=
+ith that res, and than starts iowaiting
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; On 6 =D0=92=D0=
+=B5=D1=80, 17:44, tetlika &lt;<a>tetl...@gmail.com</a>&gt; wrote:
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; hi!
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; we are on a=
+mazon ec2 m2.4xlarge instances and on
+<br>&gt; &gt; sharding
+<br>&gt; &gt; &gt; &gt; &gt; with
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; mongo
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; 2.0.6, with=
+ 4x disks in RAID0, index size on every
+<br>&gt; &gt; shard is
+<br>&gt; &gt; &gt; &gt; &gt; less
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; than
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; 50Gb
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; m2.4xlarge =
+are 69GB of RAM
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; we've notic=
+ed such weird behavior of mongod:
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; 1) as soon =
+as "res" value is around 55-60Gb on any of
+<br>&gt; &gt; our
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; shards, we
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; are monitor=
+ing high unexplainable iowait on that shard
+<br>&gt; &gt; &gt; &gt; &gt; master,
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; application=
+ slows down extremely
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; 2) we are d=
+oing stepdown and things are normal again
+<br>&gt; &gt; until
+<br>&gt; &gt; &gt; &gt; &gt; the
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; res
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; reaches the=
+ value of 55-60Gb (after month or so)
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; such behavi=
+or looks very weird, any thoughts what it
+<br>&gt; &gt; can be?
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; thanks
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; --
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; You received thi=
+s message because you are subscribed to
+<br>&gt; &gt; the
+<br>&gt; &gt; &gt; &gt; &gt; Google
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Groups "mongodb-=
+user" group.
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; To post to this =
+group, send email to
+<br>&gt; &gt; &gt; &gt; &gt; <a>mongod...@googlegroups.com</a>&lt;<wbr>java=
+script:&gt;
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; To unsubscribe f=
+rom this group, send email to
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; <a>mongodb-user.=
+..@googlegroups.<wbr>com</a> &lt;javascript:&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; See also the IRC=
+ channel -- <a href=3D"http://freenode.net#mongodb" target=3D"_blank">freen=
+ode.net#mongodb</a>
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; --
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Un saludo,
+<br>&gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Samuel Garc=C3=ADa.
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_428_1261389.1347002569046--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347002569</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1943</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo iowait</string>
+</dict>
+</plist>

@@ -1,0 +1,107 @@
+4802      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230058oef;
+        Thu, 6 Sep 2012 11:41:04 -0700 (PDT)
+Received: by 10.68.239.135 with SMTP id vs7mr5828423pbc.38.1346956864195;
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id iw4si5029969pbc.111.2012.09.06.11.41.03
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com designates 209.85.210.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-pz0-f64.google.com with SMTP id z9sf1578689dad.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=ar8iAAPCGOKJF+V78BqHdFeH6CYJ4kNM+gzMTeMDIL4=;
+        b=e2zf7aKsxG22Zg7ixtMu9Cfovn1JVadih18kkWXoN1ML+Ru0dHE6JT2+tysQkHkvNy
+         KgFZ3/Z/uGN+PZnU4/PVuUmZnVRVlkj6M4IGfoo3ZELO9n+uHlkrdM/xvZkKZ78/jKKv
+         Du6ZgEfZ78fOE2i+62FtwbV1s2R+I9znd/jwP1h20iyF1C/mCDD4su8OEPoPoTnWXEXz
+         d3K2gsYfiIBAhe/StJGPKqtlW6sgbY31FDbZ3Io65V+QPDfZNRM1NU1aUM7mVWjex89G
+         S5I4DhohzOcGRdN46r2mBk7girsIsNwt7oSQqY2RMTckpn3sVFQRJYXNh/MOitlOy6ik
+         MnQQ==
+Received: by 10.224.53.12 with SMTP id k12mr587196qag.2.1346956863204;
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.224.138.79 with SMTP id z15ls2182938qat.7.gmail; Thu, 06 Sep
+ 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.27.14 with SMTP id g14mr1751876qac.1.1346956860720;
+        Thu, 06 Sep 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.18.193 with SMTP id x1msqaa;
+        Thu, 6 Sep 2012 11:29:06 -0700 (PDT)
+Received: by 10.52.23.145 with SMTP id m17mr574266vdf.0.1346956145984;
+        Thu, 06 Sep 2012 11:29:05 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:29:05 -0700 (PDT)
+From: Damian <lars@schouw.me>
+To: mongodb-user@googlegroups.com
+Message-Id: <c183f668-67cb-4f6d-817e-8bf6d0ec08f6@googlegroups.com>
+Subject: [mongodb-user] rebuild of indices
+MIME-Version: 1.0
+X-Original-Sender: lars@schouw.me
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_368_4125499.1346956145699"
+
+------=_Part_368_4125499.1346956145699
+Content-Type: text/plain; charset=ISO-8859-1
+
+Do I need to rebuild exiting indicies to rebalance the b-tree sometimes?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_368_4125499.1346956145699
+Content-Type: text/html; charset=ISO-8859-1
+
+Do I need to rebuild exiting indicies to rebalance&nbsp;the b-tree sometimes?<div><br></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_368_4125499.1346956145699--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346956145</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1852</string>
+	<key>subject</key>
+	<string>[mongodb-user] rebuild of indices</string>
+</dict>
+</plist>

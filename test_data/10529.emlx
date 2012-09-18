@@ -1,0 +1,107 @@
+4765      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230060oef;
+        Thu, 6 Sep 2012 11:41:05 -0700 (PDT)
+Received: by 10.224.42.9 with SMTP id q9mr5283383qae.27.1346956864682;
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com>
+Received: from mail-qa0-f64.google.com (mail-qa0-f64.google.com [209.85.216.64])
+        by mx.google.com with ESMTPS id gm6si2989867qab.79.2012.09.06.11.41.04
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com designates 209.85.216.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com designates 209.85.216.64 as permitted sender) smtp.mail=mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-qa0-f64.google.com with SMTP id g24sf1630580qab.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=RFzIIMIgnCwxAARFXKtC4XH6cUGhLGlOogdiAMrBFtc=;
+        b=G45U9zhDS3/AqBWJ8BVlK9bmk8Z2GSR4eQrGURHzV9yVyWFuYpeiNWt+lOuhI5thWe
+         YpyjpQWgp6RP/Eh7vIKmMyhWRbsqKReLOKZZ15tSTP1SatepqPyUb/jN7the1mfrcJK7
+         R8I01FBeAg4/al1Y7sLEUbXGQp3PK7rKqsvtmr9RJ6A62eF8gL52xrzaTT53C4br7rFD
+         eIofJPwFJRTLHYKuAQR2/TFe1455Tde16sLVXzj4i6wkeptLXZh73PLCKDkbFcadLs5I
+         M8x1G/2GDkXqL1Hm22FUjELi136YcQJlKf6/PTQGn1b9cip3fR4L8kRVL5/0Xnd/zLtD
+         gozA==
+Received: by 10.224.180.198 with SMTP id bv6mr835914qab.14.1346956864449;
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.229.175.169 with SMTP id ba41ls1285544qcb.5.gmail; Thu, 06 Sep
+ 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.27.14 with SMTP id g14mr1751877qac.1.1346956860724;
+        Thu, 06 Sep 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.172.134 with SMTP id l6msqaz;
+        Thu, 6 Sep 2012 11:35:07 -0700 (PDT)
+Received: by 10.52.156.115 with SMTP id wd19mr585313vdb.2.1346956507096;
+        Thu, 06 Sep 2012 11:35:07 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:35:06 -0700 (PDT)
+From: Damian <lars@schouw.me>
+To: mongodb-user@googlegroups.com
+Message-Id: <2be95fff-24fc-4019-bf38-d42c94832821@googlegroups.com>
+Subject: [mongodb-user] VBA driver
+MIME-Version: 1.0
+X-Original-Sender: lars@schouw.me
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1803_2502234.1346956506824"
+
+------=_Part_1803_2502234.1346956506824
+Content-Type: text/plain; charset=ISO-8859-1
+
+Are there any plans for a Visual Basic For Applications driver?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_1803_2502234.1346956506824
+Content-Type: text/html; charset=ISO-8859-1
+
+Are there any plans for a Visual Basic For Applications driver?
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_1803_2502234.1346956506824--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346956506</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1853</string>
+	<key>subject</key>
+	<string>[mongodb-user] VBA driver</string>
+</dict>
+</plist>

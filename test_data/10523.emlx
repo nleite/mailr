@@ -1,0 +1,125 @@
+6206      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230044oef;
+        Thu, 6 Sep 2012 11:40:48 -0700 (PDT)
+Received: by 10.52.70.72 with SMTP id k8mr2986547vdu.55.1346956847474;
+        Thu, 06 Sep 2012 11:40:47 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com>
+Received: from mail-vb0-f64.google.com (mail-vb0-f64.google.com [209.85.212.64])
+        by mx.google.com with ESMTPS id de5si2639832vdc.100.2012.09.06.11.40.46
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:40:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com designates 209.85.212.64 as permitted sender) client-ip=209.85.212.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com designates 209.85.212.64 as permitted sender) smtp.mail=mongodb-user+bncCIu1kbuEFxCq3KOCBRoE7tpcBQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by vbbff1 with SMTP id ff1sf1571426vbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:40:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:date:message-id:subject:from
+         :to:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=4zJynEBEjjOkxlx9KBHkPeml8lbPB6FC76gy4ouNT5Y=;
+        b=lwMM2RHUu6jBClWN1Lm7xfrD49DXtiZJTJnglEwQFjGiAMSBmYbLedtF0FQQrBcVQ8
+         OD+UOxtj0z0KbWK3FBW8I5E3r1pVjWMtOwEl3kdZ42MD5AWFI25CviPLVKEs+4LrNqxa
+         Bj9tKXFkNI5sGjZXS3B2opUGAoLpRcehWW2dCVx6+/Xo46U4cAiFjRNKGuUrEmGmmc+t
+         av7z/F/LUTF2vN2IOYfv5qNznR7O3aTN2VUNxcVTsExGSIPMQvg3ou59bMjKhOPxFQLg
+         FaxBem/lQ8nFGWlWqySb11DjaRXDBi3ZSTYYdVYBH64W8I01JCPgyQwhRh0buja3VzzO
+         YBPA==
+Received: by 10.50.203.38 with SMTP id kn6mr1901273igc.1.1346956846603;
+        Thu, 06 Sep 2012 11:40:46 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.74.223 with SMTP id v31ls2511993ibj.0.gmail; Thu, 06 Sep
+ 2012 11:40:42 -0700 (PDT)
+Received: by 10.50.214.2 with SMTP id nw2mr1600106igc.2.1346956842519;
+        Thu, 06 Sep 2012 11:40:42 -0700 (PDT)
+Received: by 10.50.57.75 with SMTP id g11msigq;
+        Thu, 6 Sep 2012 08:19:00 -0700 (PDT)
+Received: by 10.50.161.167 with SMTP id xt7mr11167557igb.0.1346944740499;
+        Thu, 06 Sep 2012 08:19:00 -0700 (PDT)
+Received: by 10.50.161.167 with SMTP id xt7mr11167556igb.0.1346944740487;
+        Thu, 06 Sep 2012 08:19:00 -0700 (PDT)
+Received: from mail-ob0-f182.google.com (mail-ob0-f182.google.com [209.85.214.182])
+        by gmr-mx.google.com with ESMTPS id dd6si893959igc.0.2012.09.06.08.19.00
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 08:19:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mghamraw@gmail.com designates 209.85.214.182 as permitted sender) client-ip=209.85.214.182;
+Received: by mail-ob0-f182.google.com with SMTP id un3so4755346obb.27
+        for <mongodb-user@googlegroups.com>; Thu, 06 Sep 2012 08:19:00 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.60.12.234 with SMTP id b10mr2592016oec.72.1346944740347; Thu,
+ 06 Sep 2012 08:19:00 -0700 (PDT)
+Received: by 10.60.45.129 with HTTP; Thu, 6 Sep 2012 08:19:00 -0700 (PDT)
+Date: Thu, 6 Sep 2012 08:19:00 -0700
+Message-ID: <CACiVjZSCM923OY3p3CUpj8SaT72HEKKO0CRgGH_GrU3ZJJv_ag@mail.gmail.com>
+Subject: [mongodb-user] SUSE SLES11 MongoDB package
+From: Munir <mghamraw@gmail.com>
+To: mongodb-user@googlegroups.com
+X-Original-Sender: mghamraw@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of mghamraw@gmail.com designates 209.85.214.182 as permitted sender)
+ smtp.mail=mghamraw@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=e89a8ff1c14cc7cd9c04c90a02c6
+
+--e89a8ff1c14cc7cd9c04c90a02c6
+Content-Type: text/plain; charset=ISO-8859-1
+
+I am looking for a package for SUSE SLES11 for mongodb that will install
+for me the init script along with everything else. I was able to find a
+package for ubuntu, but not for for SUSE.Any feedback is appreciated.
+Thanks.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--e89a8ff1c14cc7cd9c04c90a02c6
+Content-Type: text/html; charset=ISO-8859-1
+
+I am looking for a package for SUSE SLES11 for mongodb that will install for me the init script along with everything else. I was able to find a package for ubuntu, but not for for SUSE.Any feedback is appreciated.<div>Thanks.</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--e89a8ff1c14cc7cd9c04c90a02c6--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346944740</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1847</string>
+	<key>subject</key>
+	<string>[mongodb-user] SUSE SLES11 MongoDB package</string>
+</dict>
+</plist>

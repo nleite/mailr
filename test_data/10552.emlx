@@ -1,0 +1,226 @@
+9918      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp236820oef;
+        Thu, 6 Sep 2012 14:33:56 -0700 (PDT)
+Received: by 10.66.84.229 with SMTP id c5mr5248074paz.12.1346967236448;
+        Thu, 06 Sep 2012 14:33:56 -0700 (PDT)
+Return-Path: <mongodb-user+bncCP6wo-OwBhDAraSCBRoEeXy8DA@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id rt1si5549791pbc.315.2012.09.06.14.33.55
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 14:33:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCP6wo-OwBhDAraSCBRoEeXy8DA@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCP6wo-OwBhDAraSCBRoEeXy8DA@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCP6wo-OwBhDAraSCBRoEeXy8DA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1735114pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 14:33:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=g4YE+m4UL1zMwdZutDAvPl423hA1ynpIhz/1QnBLeno=;
+        b=B93vnkn5q8khB+FsmTkiuu4W2t5yoHe0Yo1WycV/U/spFSxUhssOkOls1cCM8o7i/6
+         Ak9eJJlYFgGL70R6E7LM9l+1tyjU7qcgclfIH+8vKNZ+puevnkuC4y6AWVysZAiR1E1r
+         H4pZUY+E7qQS3i1VI4p6X1qjYSMTK8uVMPkpMzlSep40RebQAXPIhKmxVPl3fG3pYElS
+         pbhyBuDc/R+fszRBJ6N23oH9F5xdCpOHfKlTGmgNYOU9D7iMsJviXXu7BOb8eIZaze08
+         /MezkSygyWjI351ETuPK3HavtnKroruBOZcYX/V9XG5rd+CyWtWd37Zp5gUz/DIijJc+
+         Gdhg==
+Received: by 10.224.44.136 with SMTP id a8mr981603qaf.10.1346967235402;
+        Thu, 06 Sep 2012 14:33:55 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.229.106.201 with SMTP id y9ls5846qco.8.gmail; Thu, 06 Sep 2012
+ 14:33:52 -0700 (PDT)
+Received: by 10.224.189.75 with SMTP id dd11mr2035609qab.6.1346967232684;
+        Thu, 06 Sep 2012 14:33:52 -0700 (PDT)
+Received: by 10.224.189.75 with SMTP id dd11mr2035607qab.6.1346967232665;
+        Thu, 06 Sep 2012 14:33:52 -0700 (PDT)
+Received: from mail-qc0-f175.google.com (mail-qc0-f175.google.com [209.85.216.175])
+        by gmr-mx.google.com with ESMTPS id t29si414303qcz.1.2012.09.06.14.33.52
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 14:33:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of samuelgmartinez@gmail.com designates 209.85.216.175 as permitted sender) client-ip=209.85.216.175;
+Received: by qcad10 with SMTP id d10so1202076qca.20
+        for <mongodb-user@googlegroups.com>; Thu, 06 Sep 2012 14:33:52 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.224.222.143 with SMTP id ig15mr5604296qab.25.1346967232445;
+ Thu, 06 Sep 2012 14:33:52 -0700 (PDT)
+Received: by 10.49.128.6 with HTTP; Thu, 6 Sep 2012 14:33:52 -0700 (PDT)
+In-Reply-To: <e0b39e6a-980e-41ae-b0a8-a774247fb1f0@v22g2000vbu.googlegroups.com>
+References: <5bd33a8b-c7ed-4216-9567-1f9a5e4fed04@z4g2000vby.googlegroups.com>
+	<e0b39e6a-980e-41ae-b0a8-a774247fb1f0@v22g2000vbu.googlegroups.com>
+Date: Thu, 6 Sep 2012 23:33:52 +0200
+Message-ID: <CAMNCBP6k182ULpLBU49hLrWkqjwQM2umn4EkR1_LeMDhqBBtMA@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: mongo iowait
+From: =?ISO-8859-1?Q?Samuel_Garc=EDa_Mart=EDnez?= <samuelgmartinez@gmail.com>
+To: mongodb-user@googlegroups.com
+X-Original-Sender: samuelgmartinez@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of samuelgmartinez@gmail.com designates 209.85.216.175 as permitted
+ sender) smtp.mail=samuelgmartinez@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=20cf3074b42a69fe4d04c90f3f94
+
+--20cf3074b42a69fe4d04c90f3f94
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Maybe is not resident size related. This can give you a hint:
+http://www.10gen.com/presentations/MongoNYC-2012/MongoDB-at-foursquare
+
+On Thu, Sep 6, 2012 at 4:49 PM, tetlika <tetlika@gmail.com> wrote:
+
+> forgot to say that it is not happening every time the res is reached
+> to that value, the shard can "live" for weeks with that res but than
+> suddenly starts that behavior, sometimes the shard "lives" just a
+> couple of days with that res, and than starts iowaiting
+>
+>
+>
+>
+> On 6 =D0=92=D0=B5=D1=80, 17:44, tetlika <tetl...@gmail.com> wrote:
+> > hi!
+> >
+> > we are on amazon ec2 m2.4xlarge instances and on sharding with mongo
+> > 2.0.6, with 4x disks in RAID0, index size on every shard is less than
+> > 50Gb
+> >
+> > m2.4xlarge are 69GB of RAM
+> >
+> > we've noticed such weird behavior of mongod:
+> >
+> > 1) as soon as "res" value is around 55-60Gb on any of our shards, we
+> > are monitoring high unexplainable iowait on that shard master,
+> > application slows down extremely
+> >
+> > 2) we are doing stepdown and things are normal again until the res
+> > reaches the value of 55-60Gb (after month or so)
+> >
+> > such behavior looks very weird, any thoughts what it can be?
+> >
+> > thanks
+>
+> --
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongodb-user@googlegroups.com
+> To unsubscribe from this group, send email to
+> mongodb-user+unsubscribe@googlegroups.com
+> See also the IRC channel -- freenode.net#mongodb
+>
+
+
+
+--=20
+Un saludo,
+Samuel Garc=C3=ADa.
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--20cf3074b42a69fe4d04c90f3f94
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Maybe is not resident size related. This can give you a hint: <a href=3D"ht=
+tp://www.10gen.com/presentations/MongoNYC-2012/MongoDB-at-foursquare">http:=
+//www.10gen.com/presentations/MongoNYC-2012/MongoDB-at-foursquare</a><br><b=
+r>
+<div class=3D"gmail_quote">On Thu, Sep 6, 2012 at 4:49 PM, tetlika <span di=
+r=3D"ltr">&lt;<a href=3D"mailto:tetlika@gmail.com" target=3D"_blank">tetlik=
+a@gmail.com</a>&gt;</span> wrote:<br><blockquote class=3D"gmail_quote" styl=
+e=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+forgot to say that it is not happening every time the res is reached<br>
+to that value, the shard can &quot;live&quot; for weeks with that res but t=
+han<br>
+suddenly starts that behavior, sometimes the shard &quot;lives&quot; just a=
+<br>
+couple of days with that res, and than starts iowaiting<br>
+<div class=3D"HOEnZb"><div class=3D"h5"><br>
+<br>
+<br>
+<br>
+On 6 =D0=92=D0=B5=D1=80, 17:44, tetlika &lt;<a href=3D"mailto:tetl...@gmail=
+.com">tetl...@gmail.com</a>&gt; wrote:<br>
+&gt; hi!<br>
+&gt;<br>
+&gt; we are on amazon ec2 m2.4xlarge instances and on sharding with mongo<b=
+r>
+&gt; 2.0.6, with 4x disks in RAID0, index size on every shard is less than<=
+br>
+&gt; 50Gb<br>
+&gt;<br>
+&gt; m2.4xlarge are 69GB of RAM<br>
+&gt;<br>
+&gt; we&#39;ve noticed such weird behavior of mongod:<br>
+&gt;<br>
+&gt; 1) as soon as &quot;res&quot; value is around 55-60Gb on any of our sh=
+ards, we<br>
+&gt; are monitoring high unexplainable iowait on that shard master,<br>
+&gt; application slows down extremely<br>
+&gt;<br>
+&gt; 2) we are doing stepdown and things are normal again until the res<br>
+&gt; reaches the value of 55-60Gb (after month or so)<br>
+&gt;<br>
+&gt; such behavior looks very weird, any thoughts what it can be?<br>
+&gt;<br>
+&gt; thanks<br>
+<br>
+--<br>
+You received this message because you are subscribed to the Google<br>
+Groups &quot;mongodb-user&quot; group.<br>
+To post to this group, send email to <a href=3D"mailto:mongodb-user@googleg=
+roups.com">mongodb-user@googlegroups.com</a><br>
+To unsubscribe from this group, send email to<br>
+<a href=3D"mailto:mongodb-user%2Bunsubscribe@googlegroups.com">mongodb-user=
++unsubscribe@googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br><br clear=3D"all"><div><br></div>-- <br>=
+Un saludo,<div>Samuel Garc=C3=ADa.</div><br>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--20cf3074b42a69fe4d04c90f3f94--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346967232</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1876</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: mongo iowait</string>
+</dict>
+</plist>

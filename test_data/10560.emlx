@@ -1,0 +1,260 @@
+15743     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp239840oef;
+        Thu, 6 Sep 2012 16:04:53 -0700 (PDT)
+Received: by 10.236.155.71 with SMTP id i47mr3448636yhk.72.1346972693483;
+        Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLrsq8G2DxCS2KSCBRoEfmSnPQ@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id j49si3186948yhl.107.2012.09.06.16.04.53
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLrsq8G2DxCS2KSCBRoEfmSnPQ@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLrsq8G2DxCS2KSCBRoEfmSnPQ@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCLrsq8G2DxCS2KSCBRoEfmSnPQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf1720470yhn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=RobDhE2H9vBfpuIZVu2PU6o7eJYcCYXpcf3q2r9l5l0=;
+        b=enOjBVmpmwAAxLUTeWM4W/ozjjylVuy5k5jNOCLDiUERZNfCl19nKsyjZKwzK4511x
+         g0zEH8YmpcXkf1pICU1Va8MXHYL/UwofhFpEiynigMwzmcJjLyYgHKG+n2KKQoiUpd7j
+         N+E+4ff+T8rmO+2OSFmBcxDHQA6fM4kMSUShZpXQBRuklbUl762PV9U1tUMl5r4Y5s4G
+         iwV28murF0KHUAOcitk7DiVtTgz6et8YTwRWR4DK5/ePAXhC/iLqwnr+KDSxIEqR2iRU
+         oUrrqM0cuVzXlC4rOenY38f3zcgXhKW9HHndQJ/ctGoRJvID7oSnL4fHZXo4SuYC3VPC
+         EGMA==
+Received: by 10.50.185.137 with SMTP id fc9mr10857425igc.0.1346972692751;
+        Thu, 06 Sep 2012 16:04:52 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.50.214.34 with SMTP id nx2ls30534igc.1.gmail; Thu, 06 Sep 2012
+ 16:04:50 -0700 (PDT)
+Received: by 10.50.163.106 with SMTP id yh10mr2023021igb.0.1346972690716;
+        Thu, 06 Sep 2012 16:04:50 -0700 (PDT)
+Received: by 10.50.57.75 with SMTP id g11msigq;
+        Thu, 6 Sep 2012 15:37:40 -0700 (PDT)
+Received: by 10.68.232.9 with SMTP id tk9mr1020300pbc.0.1346971060372;
+        Thu, 06 Sep 2012 15:37:40 -0700 (PDT)
+Date: Thu, 6 Sep 2012 15:37:39 -0700 (PDT)
+From: David Taylor <davidseantaylor@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <785750a6-76a2-46d8-8c13-0fc6e0df1ac3@googlegroups.com>
+Subject: [mongodb-user] Replica Set with Virtual IP Addresses
+MIME-Version: 1.0
+X-Original-Sender: davidseantaylor@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_26_28906009.1346971059522"
+
+------=_Part_26_28906009.1346971059522
+Content-Type: text/plain; charset=ISO-8859-1
+
+We have configured a replica set behind a firewall, using Virtual IPs to 
+map hostnames, made available to our app (and Mongo Java driver), from the 
+VIP names to actual Mongo server hostnames in another subnet. This 
+protected subnet is where all of our replica sets are running. So our app 
+connects via the VIP hostnames, configured in the mongo driver as a replica 
+set list of hostnames and ports.
+
+The exceptions we are seeing are listed below. If we take the firewall out, 
+and connect directly to the mongo servers, we do not see these errors. I 
+believe the servers actually communicate back to the driver with their 
+hostnames, when the driver makes calls to the mongo servers to determine 
+things like "are you the master". I have seen (in a debugger) the driver 
+receiving back subnet hostnames, not the VIP addresses. The replica set is 
+configured to use all protected, subnet hostnames so they can communicate 
+together.
+
+If anyone has experience with this kind of virtual IP configuration with 
+replica sets and could recommend a solution, much appreciated. Thanks,
+
+Exceptions, lots of these:
+
+WARNING: Server seen down: mongodb1-prod-i2:80
+
+and also:
+
+Caused by: com.mongodb.MongoException: Rare case where master=null, 
+probably all servers are down
+        at com.mongodb.DBTCPConnector$MyPort.get(DBTCPConnector.java:366)
+        at com.mongodb.DBTCPConnector.call(DBTCPConnector.java:212)
+        at com.mongodb.DBApiLayer$MyCollection.__find(DBApiLayer.java:305)
+        at com.mongodb.DB.getCollectionNames(DB.java:284)
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_26_28906009.1346971059522
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-=
+size: 13px; font-style: normal; font-variant: normal; font-weight: normal; =
+letter-spacing: normal; line-height: normal; orphans: 2; text-align: start;=
+ text-indent: 0px; text-transform: none; white-space: normal; widows: 2; wo=
+rd-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width:=
+ 0px; background-color: rgb(255, 255, 255); ">We have configured a replica =
+set behind a firewall, using Virtual IPs to map hostnames, made available t=
+o our app (and Mongo Java driver), from the VIP names to actual Mongo serve=
+r hostnames in another subnet. This protected subnet is where all of our re=
+plica sets are running. So our app connects via the VIP hostnames, configur=
+ed in the mongo driver as a replica set list of hostnames and ports.</div><=
+div style=3D"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-s=
+ize: 13px; font-style: normal; font-variant: normal; font-weight: normal; l=
+etter-spacing: normal; line-height: normal; orphans: 2; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; widows: 2; wor=
+d-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: =
+0px; background-color: rgb(255, 255, 255); "><br></div><div style=3D"color:=
+ rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-sty=
+le: normal; font-variant: normal; font-weight: normal; letter-spacing: norm=
+al; line-height: normal; orphans: 2; text-align: start; text-indent: 0px; t=
+ext-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -we=
+bkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; background-col=
+or: rgb(255, 255, 255); ">The exceptions we are seeing are listed below. If=
+ we take the firewall out, and connect directly to the mongo servers, we do=
+ not see these errors. I believe the servers actually communicate back to t=
+he driver with their hostnames, when the driver makes calls to the mongo se=
+rvers to determine things like "are you the master". I have seen (in a debu=
+gger) the driver receiving back subnet hostnames, not the VIP addresses. Th=
+e replica set is configured to use all protected, subnet hostnames so they =
+can communicate together.</div><div style=3D"color: rgb(34, 34, 34); font-f=
+amily: arial, sans-serif; font-size: 13px; font-style: normal; font-variant=
+: normal; font-weight: normal; letter-spacing: normal; line-height: normal;=
+ orphans: 2; text-align: start; text-indent: 0px; text-transform: none; whi=
+te-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: a=
+uto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); =
+"><br></div><div style=3D"color: rgb(34, 34, 34); font-family: arial, sans-=
+serif; font-size: 13px; font-style: normal; font-variant: normal; font-weig=
+ht: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-a=
+lign: start; text-indent: 0px; text-transform: none; white-space: normal; w=
+idows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-s=
+troke-width: 0px; background-color: rgb(255, 255, 255); ">If anyone has exp=
+erience with this kind of virtual IP configuration with replica sets and co=
+uld recommend a solution, much appreciated. Thanks,</div><div style=3D"colo=
+r: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; font-s=
+tyle: normal; font-variant: normal; font-weight: normal; letter-spacing: no=
+rmal; line-height: normal; orphans: 2; text-align: start; text-indent: 0px;=
+ text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -=
+webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; background-c=
+olor: rgb(255, 255, 255); "><br></div><div style=3D"color: rgb(34, 34, 34);=
+ font-family: arial, sans-serif; font-size: 13px; font-style: normal; font-=
+variant: normal; font-weight: normal; letter-spacing: normal; line-height: =
+normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: no=
+ne; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-ad=
+just: auto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255,=
+ 255); ">Exceptions, lots of these:</div><div style=3D"color: rgb(34, 34, 3=
+4); font-family: arial, sans-serif; font-size: 13px; font-style: normal; fo=
+nt-variant: normal; font-weight: normal; letter-spacing: normal; line-heigh=
+t: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform:=
+ none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size=
+-adjust: auto; -webkit-text-stroke-width: 0px; background-color: rgb(255, 2=
+55, 255); "><br></div><div style=3D"color: rgb(34, 34, 34); font-family: ar=
+ial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal;=
+ font-weight: normal; letter-spacing: normal; line-height: normal; orphans:=
+ 2; text-align: start; text-indent: 0px; text-transform: none; white-space:=
+ normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -web=
+kit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); ">WARNING=
+: Server seen down: mongodb1-prod-i2:80</div><div style=3D"color: rgb(34, 3=
+4, 34); font-family: arial, sans-serif; font-size: 13px; font-style: normal=
+; font-variant: normal; font-weight: normal; letter-spacing: normal; line-h=
+eight: normal; orphans: 2; text-align: start; text-indent: 0px; text-transf=
+orm: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-=
+size-adjust: auto; -webkit-text-stroke-width: 0px; background-color: rgb(25=
+5, 255, 255); "><br></div><div style=3D"color: rgb(34, 34, 34); font-family=
+: arial, sans-serif; font-size: 13px; font-style: normal; font-variant: nor=
+mal; font-weight: normal; letter-spacing: normal; line-height: normal; orph=
+ans: 2; text-align: start; text-indent: 0px; text-transform: none; white-sp=
+ace: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); ">and=
+ also:</div><div style=3D"color: rgb(34, 34, 34); font-family: arial, sans-=
+serif; font-size: 13px; font-style: normal; font-variant: normal; font-weig=
+ht: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-a=
+lign: start; text-indent: 0px; text-transform: none; white-space: normal; w=
+idows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-s=
+troke-width: 0px; background-color: rgb(255, 255, 255); "><br></div><div st=
+yle=3D"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 1=
+3px; font-style: normal; font-variant: normal; font-weight: normal; letter-=
+spacing: normal; line-height: normal; orphans: 2; text-align: start; text-i=
+ndent: 0px; text-transform: none; white-space: normal; widows: 2; word-spac=
+ing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; b=
+ackground-color: rgb(255, 255, 255); "><div style=3D"color: rgb(80, 0, 80);=
+ font-size: 13px; font-family: arial, sans-serif; ">Caused by: com.mongodb.=
+MongoException: Rare case where master=3Dnull, probably all servers are dow=
+n<br></div><span style=3D"color: rgb(34, 34, 34); font-size: 13px; font-fam=
+ily: arial, sans-serif; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at com=
+.mongodb.DBTCPConnector$</span><span style=3D"color: rgb(34, 34, 34); font-=
+size: 13px; font-family: arial, sans-serif; ">MyP<wbr>ort.get(DBTCPConnecto=
+r.</span><span style=3D"color: rgb(34, 34, 34); font-size: 13px; font-famil=
+y: arial, sans-serif; ">java:<wbr>366)</span><br style=3D"color: rgb(34, 34=
+, 34); font-size: 13px; font-family: arial, sans-serif; "><span style=3D"co=
+lor: rgb(34, 34, 34); font-size: 13px; font-family: arial, sans-serif; ">&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at com.mongodb.DBTCPConnector.</sp=
+an><span style=3D"color: rgb(34, 34, 34); font-size: 13px; font-family: ari=
+al, sans-serif; ">cal<wbr>l(DBTCPConnector.java:212)</span><br style=3D"col=
+or: rgb(34, 34, 34); font-size: 13px; font-family: arial, sans-serif; "><sp=
+an style=3D"color: rgb(34, 34, 34); font-size: 13px; font-family: arial, sa=
+ns-serif; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at com.mongodb.DBApi=
+Layer$</span><span style=3D"color: rgb(34, 34, 34); font-size: 13px; font-f=
+amily: arial, sans-serif; ">MyColle<wbr>ction.__find(</span><span style=3D"=
+color: rgb(34, 34, 34); font-size: 13px; font-family: arial, sans-serif; ">=
+DBApiLayer.java:<wbr>305)</span><br style=3D"color: rgb(34, 34, 34); font-s=
+ize: 13px; font-family: arial, sans-serif; "><span style=3D"color: rgb(34, =
+34, 34); font-size: 13px; font-family: arial, sans-serif; ">&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp; at com.mongodb.DB.</span><span style=3D"color: =
+rgb(34, 34, 34); font-size: 13px; font-family: arial, sans-serif; ">getColl=
+ectionNa<wbr>mes(DB.java:</span><span style=3D"color: rgb(34, 34, 34); font=
+-size: 13px; font-family: arial, sans-serif; ">284)</span></div><div style=
+=3D"color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px=
+; font-style: normal; font-variant: normal; font-weight: normal; letter-spa=
+cing: normal; line-height: normal; orphans: 2; text-align: start; text-inde=
+nt: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing=
+: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; back=
+ground-color: rgb(255, 255, 255); "><span style=3D"color: rgb(34, 34, 34); =
+font-size: 13px; font-family: arial, sans-serif; "><br></span></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_26_28906009.1346971059522--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346971059</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1884</string>
+	<key>subject</key>
+	<string>[mongodb-user] Replica Set with Virtual IP Addresses</string>
+</dict>
+</plist>

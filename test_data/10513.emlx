@@ -1,0 +1,312 @@
+13448     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp228708oef;
+        Thu, 6 Sep 2012 11:06:14 -0700 (PDT)
+Received: by 10.100.84.18 with SMTP id h18mr843653anb.57.1346954774169;
+        Thu, 06 Sep 2012 11:06:14 -0700 (PDT)
+Return-Path: <mongodb-user+bncCPLm5MHcDRCTzKOCBRoENMOytA@googlegroups.com>
+Received: from mail-gg0-f192.google.com (mail-gg0-f192.google.com [209.85.161.192])
+        by mx.google.com with ESMTPS id h6si2567593yhk.60.2012.09.06.11.06.13
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:06:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCPLm5MHcDRCTzKOCBRoENMOytA@googlegroups.com designates 209.85.161.192 as permitted sender) client-ip=209.85.161.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCPLm5MHcDRCTzKOCBRoENMOytA@googlegroups.com designates 209.85.161.192 as permitted sender) smtp.mail=mongodb-user+bncCPLm5MHcDRCTzKOCBRoENMOytA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ggnh1 with SMTP id h1sf1549719ggn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:06:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=N/Vy7F81KK+g4iL61LTeADRZmRVqKN6x68dup4aebvk=;
+        b=abGHEy404upFRN9bk5mAH8j72MB+lxTqLgKBObbjd+ZuZEXfSRudAjuG3CHteBAahi
+         kJeHh/ejD4J27xxenzyreeLwx6PWBJ1SCyW0FKTaUaqqkYGssf0tXvyFMJZGUyyc0W0X
+         8VAHRAvYEMvFwUM7i1KpPuglbhFbFzloTCshqHlRFUGu665gmxU1SnC4ZKdTGj74lE6U
+         1rfVrWQvqyJ+H4iU8kV0itLWu0tHsWbzQyzZ4HxcxdQlOOeiTn4wII+qQ8nniDfiZa3V
+         eaBoT+A7lyacUqXNAXaRxBUzliqwGjPdp2GVA5pxvBUocdIqv4kvJiAEclan0E828ma4
+         vQKw==
+Received: by 10.50.95.202 with SMTP id dm10mr1780842igb.2.1346954773501;
+        Thu, 06 Sep 2012 11:06:13 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.50.34.170 with SMTP id a10ls2815332igj.1.canary; Thu, 06 Sep
+ 2012 11:06:11 -0700 (PDT)
+Received: by 10.42.115.129 with SMTP id k1mr1351128icq.28.1346954771150;
+        Thu, 06 Sep 2012 11:06:11 -0700 (PDT)
+Received: by 10.42.115.129 with SMTP id k1mr1351127icq.28.1346954771129;
+        Thu, 06 Sep 2012 11:06:11 -0700 (PDT)
+Received: from mail-ob0-f174.google.com (mail-ob0-f174.google.com [209.85.214.174])
+        by gmr-mx.google.com with ESMTPS id wo9si1042903igc.1.2012.09.06.11.06.11
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:06:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of amarshiva93@gmail.com designates 209.85.214.174 as permitted sender) client-ip=209.85.214.174;
+Received: by mail-ob0-f174.google.com with SMTP id uo13so3512836obb.33
+        for <mongodb-user@googlegroups.com>; Thu, 06 Sep 2012 11:06:11 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.60.172.199 with SMTP id be7mr3199498oec.93.1346954770918; Thu,
+ 06 Sep 2012 11:06:10 -0700 (PDT)
+Received: by 10.182.60.104 with HTTP; Thu, 6 Sep 2012 11:06:10 -0700 (PDT)
+In-Reply-To: <c23e2e90-7835-49af-96d6-8680f0586ed1@k20g2000vbk.googlegroups.com>
+References: <b76751fc-4285-4b32-828e-b57651913d80@googlegroups.com>
+	<c23e2e90-7835-49af-96d6-8680f0586ed1@k20g2000vbk.googlegroups.com>
+Date: Thu, 6 Sep 2012 23:36:10 +0530
+Message-ID: <CAA+eV4maMaTuirruprhKHFWW6a2d=M1W=Gnkyc85RF+M2dPGcA@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: Clone Database
+From: amar shiva <amarshiva93@gmail.com>
+To: mongodb-user@googlegroups.com
+X-Original-Sender: amarshiva93@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of amarshiva93@gmail.com designates 209.85.214.174 as permitted
+ sender) smtp.mail=amarshiva93@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=bcaec54c5382a62e3804c90c5863
+
+--bcaec54c5382a62e3804c90c5863
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Jenna,
+
+Thanks for your reply. I think I didn't specify the db name along with the
+host. Is it right..??
+*Before Clone Command*
+> show dbs
+Amar    (empty)
+admin   0.078125GB
+drs     0.078125GB
+mydatabase      0.078125GB
+nature  0.078125GB
+rise    0.078125GB
+simrise 0.078125GB
+
+*Clone Command:*
+> db.cloneDatabase("127.0.0.1","admin");
+{ "ok" : 1 }
+
+*After Clone Command:*
+> show dbs
+Amar    (empty)
+admin   0.078125GB
+drs     0.078125GB
+mydatabase      0.078125GB
+nature  0.078125GB
+rise    0.078125GB
+simrise 0.078125GB
+
+I didn't find any cloned database here(In this list). Could you please help
+me where can I find the cloned database.
+Please note that I also need to implement this part in JAVA as well. Is
+there any method in Mongo....??? Jenn Could you please help me on this......
+
+Thanks & Regards,
+Amar
+
+On 6 September 2012 22:14, Jenna deBoisblanc <jenna.deboisblanc@10gen.com>wrote:
+
+> Hello Amar,
+>
+> Can you tell us which database you're attempting to copy from
+> "localhost" (which is the server/process that contains the database
+> you're attempting to copy)? Could you also post the output of "show
+> dbs" followed by the clone command, and after cloning the database,
+> "show dbs" an additional time?
+>
+> You may want to consider the db.copyDatabase() command if you haven't
+> already:
+> http://www.mongodb.org/display/DOCS/Copy+Database+Commands
+>
+> On Sep 6, 9:14 am, Amar <amarshiv...@gmail.com> wrote:
+> > Hi All,
+> >
+> > How can I clone the database in *JAVA.* I am unable to find the method
+> name
+> > in Mongo JAVA API. I tried in Mongo Shell but I am getting followng
+> error.
+> >
+> > db.cloneDatabase("localhost");
+> >
+> >       "errmsg" : "exception: E11000 duplicate key error index:
+> > Amar.system.users.$_id_  dup key: { :
+> ObjectId('50484211319a7b08dec09449')}",
+> >
+> >       "code" : 11000,
+> >       "ok" : 0
+> >
+> > How can I resolve this...??????
+> >
+> > And My Second question is If the clone was successful where Can I find
+> the
+> > cloned database. Is there any parameters to accept like *source and
+> target *in
+> > the command itself......??????
+> >
+> > Or otherwise Could you please send any sample java code snippet for Clone
+> > Database.
+> >
+> > Thanks & Regards,
+> > Amar
+>
+> --
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongodb-user@googlegroups.com
+> To unsubscribe from this group, send email to
+> mongodb-user+unsubscribe@googlegroups.com
+> See also the IRC channel -- freenode.net#mongodb
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--bcaec54c5382a62e3804c90c5863
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Jenna,<br><br>Thanks for your reply. I think I didn&#39;t specify the db=
+ name along with the host. Is it right..??<br><b>Before Clone Command</b><b=
+r><span style=3D"color:rgb(255,0,0)">&gt; show dbs</span><br style=3D"color=
+:rgb(255,0,0)">
+<span style=3D"color:rgb(255,0,0)">Amar=A0=A0=A0 (empty)</span><br style=3D=
+"color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,0)">admin=A0=A0 0.07812=
+5GB</span><br style=3D"color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,0=
+)">drs=A0=A0=A0=A0 0.078125GB</span><br style=3D"color:rgb(255,0,0)">
+<span style=3D"color:rgb(255,0,0)">mydatabase=A0=A0=A0=A0=A0 0.078125GB</sp=
+an><br style=3D"color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,0)">natu=
+re=A0 0.078125GB</span><br style=3D"color:rgb(255,0,0)"><span style=3D"colo=
+r:rgb(255,0,0)">rise=A0=A0=A0 0.078125GB</span><br style=3D"color:rgb(255,0=
+,0)">
+<span style=3D"color:rgb(255,0,0)">simrise 0.078125GB</span><br><br><b>Clon=
+e Command:</b><br><span style=3D"color:rgb(255,0,0)">&gt; db.cloneDatabase(=
+&quot;127.0.0.1&quot;,&quot;admin&quot;);</span><br style=3D"color:rgb(255,=
+0,0)">
+<span style=3D"color:rgb(255,0,0)">{ &quot;ok&quot; : 1 }</span><br><br><b>=
+After Clone Command:</b><br><span style=3D"color:rgb(255,0,0)">&gt; show db=
+s</span><br style=3D"color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,0)"=
+>Amar=A0=A0=A0 (empty)</span><br style=3D"color:rgb(255,0,0)">
+<span style=3D"color:rgb(255,0,0)">admin=A0=A0 0.078125GB</span><br style=
+=3D"color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,0)">drs=A0=A0=A0=A0 =
+0.078125GB</span><br style=3D"color:rgb(255,0,0)"><span style=3D"color:rgb(=
+255,0,0)">mydatabase=A0=A0=A0=A0=A0 0.078125GB</span><br style=3D"color:rgb=
+(255,0,0)">
+<span style=3D"color:rgb(255,0,0)">nature=A0 0.078125GB</span><br style=3D"=
+color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,0)">rise=A0=A0=A0 0.0781=
+25GB</span><br style=3D"color:rgb(255,0,0)"><span style=3D"color:rgb(255,0,=
+0)">simrise 0.078125GB</span><br>
+<br>I didn&#39;t find any cloned database here(In this list). Could you ple=
+ase help me where can I find the cloned database. <br>Please note that I al=
+so need to implement this part in JAVA as well. Is there any method in Mong=
+o....??? Jenn Could you please help me on this......<br>
+<br>Thanks &amp; Regards,<br>Amar<br><br><div class=3D"gmail_quote">On 6 Se=
+ptember 2012 22:14, Jenna deBoisblanc <span dir=3D"ltr">&lt;<a href=3D"mail=
+to:jenna.deboisblanc@10gen.com" target=3D"_blank">jenna.deboisblanc@10gen.c=
+om</a>&gt;</span> wrote:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hello Amar,<br>
+<br>
+Can you tell us which database you&#39;re attempting to copy from<br>
+&quot;localhost&quot; (which is the server/process that contains the databa=
+se<br>
+you&#39;re attempting to copy)? Could you also post the output of &quot;sho=
+w<br>
+dbs&quot; followed by the clone command, and after cloning the database,<br=
+>
+&quot;show dbs&quot; an additional time?<br>
+<br>
+You may want to consider the db.copyDatabase() command if you haven&#39;t<b=
+r>
+already:<br>
+<a href=3D"http://www.mongodb.org/display/DOCS/Copy+Database+Commands" targ=
+et=3D"_blank">http://www.mongodb.org/display/DOCS/Copy+Database+Commands</a=
+><br>
+<div class=3D"im"><br>
+On Sep 6, 9:14=A0am, Amar &lt;<a href=3D"mailto:amarshiv...@gmail.com">amar=
+shiv...@gmail.com</a>&gt; wrote:<br>
+&gt; Hi All,<br>
+&gt;<br>
+</div>&gt; How can I clone the database in *JAVA.* I am unable to find the =
+method name<br>
+<div class=3D"im">&gt; in Mongo JAVA API. I tried in Mongo Shell but I am g=
+etting followng error.<br>
+&gt;<br>
+&gt; db.cloneDatabase(&quot;localhost&quot;);<br>
+&gt;<br>
+&gt; =A0 =A0 =A0 &quot;errmsg&quot; : &quot;exception: E11000 duplicate key=
+ error index:<br>
+&gt; Amar.system.users.$_id_ =A0dup key: { : ObjectId(&#39;50484211319a7b08=
+dec09449&#39;)}&quot;,<br>
+&gt;<br>
+&gt; =A0 =A0 =A0 &quot;code&quot; : 11000,<br>
+&gt; =A0 =A0 =A0 &quot;ok&quot; : 0<br>
+&gt;<br>
+&gt; How can I resolve this...??????<br>
+&gt;<br>
+&gt; And My Second question is If the clone was successful where Can I find=
+ the<br>
+</div>&gt; cloned database. Is there any parameters to accept like *source =
+and target *in<br>
+<div class=3D"HOEnZb"><div class=3D"h5">&gt; the command itself......??????=
+<br>
+&gt;<br>
+&gt; Or otherwise Could you please send any sample java code snippet for Cl=
+one<br>
+&gt; Database.<br>
+&gt;<br>
+&gt; Thanks &amp; Regards,<br>
+&gt; Amar<br>
+<br>
+--<br>
+You received this message because you are subscribed to the Google<br>
+Groups &quot;mongodb-user&quot; group.<br>
+To post to this group, send email to <a href=3D"mailto:mongodb-user@googleg=
+roups.com">mongodb-user@googlegroups.com</a><br>
+To unsubscribe from this group, send email to<br>
+<a href=3D"mailto:mongodb-user%2Bunsubscribe@googlegroups.com">mongodb-user=
++unsubscribe@googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--bcaec54c5382a62e3804c90c5863--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346954770</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1837</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: Clone Database</string>
+</dict>
+</plist>

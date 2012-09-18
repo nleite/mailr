@@ -1,0 +1,126 @@
+5492      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp246364oef;
+        Thu, 6 Sep 2012 20:15:36 -0700 (PDT)
+Received: by 10.224.176.18 with SMTP id bc18mr6076420qab.63.1346987736352;
+        Thu, 06 Sep 2012 20:15:36 -0700 (PDT)
+Return-Path: <mongodb-user+bncCMnrr72sFRDVzaWCBRoEA9dsSw@googlegroups.com>
+Received: from mail-qa0-f64.google.com (mail-qa0-f64.google.com [209.85.216.64])
+        by mx.google.com with ESMTPS id l17si1626135qct.191.2012.09.06.20.15.36
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 20:15:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCMnrr72sFRDVzaWCBRoEA9dsSw@googlegroups.com designates 209.85.216.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCMnrr72sFRDVzaWCBRoEA9dsSw@googlegroups.com designates 209.85.216.64 as permitted sender) smtp.mail=mongodb-user+bncCMnrr72sFRDVzaWCBRoEA9dsSw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-qa0-f64.google.com with SMTP id g24sf1825451qab.29
+        for <multiple recipients>; Thu, 06 Sep 2012 20:15:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=lezuGb1UP2+Jxy7XsMTPVyFEZ5NWbSNp0eP/KL3qYtA=;
+        b=KXVCetbunu9M3/NfRIqmW+teQRTGO+ii3wliQwgs+tguBn0SMAY9EcafhOu7VH8Cth
+         VJRHyfVVhbPd6Zs+gF7PgV0iF2izCuN0B4jqirCCdplD4yNWjCFvgUNEh3Aal567oXgj
+         H/Rki31M9i7AV85IZIXijht6jfwOVu5GiKpkBsWtRh9Lm8/2yjbG2rL7ayEIfJm8yP75
+         7V2y/1GrIv/WAEVhMD0brh+9wNdwmqM/J5Iq1b4Dete5hdJIHsI6n1sG0jLdyXZSu+Hh
+         rXBfjVAUK8PPgBof+0hiKCCvxIdE6yj8DJeqg4dfa2tD7827eHrFybyDPEZrEQFMp2xS
+         DvLg==
+Received: by 10.50.40.165 with SMTP id y5mr10377538igk.1.1346987735750;
+        Thu, 06 Sep 2012 20:15:35 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.2.13 with SMTP id 13ls217743ibh.1.gmail; Thu, 06 Sep 2012
+ 20:15:33 -0700 (PDT)
+Received: by 10.43.61.141 with SMTP id ww13mr1973753icb.6.1346987733128;
+        Thu, 06 Sep 2012 20:15:33 -0700 (PDT)
+Received: by 10.50.100.229 with SMTP id fb5msigb;
+        Thu, 6 Sep 2012 19:22:49 -0700 (PDT)
+Received: by 10.68.136.7 with SMTP id pw7mr1066695pbb.1.1346984569375;
+        Thu, 06 Sep 2012 19:22:49 -0700 (PDT)
+Date: Thu, 6 Sep 2012 19:22:49 -0700 (PDT)
+From: arin <arin@jeraff.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <2567ebcb-cf3d-491f-ba1a-7fa9e89a6f1d@googlegroups.com>
+Subject: [mongodb-user] explanation of locks(micros)
+MIME-Version: 1.0
+X-Original-Sender: arin@jeraff.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_66_10294889.1346984569015"
+
+------=_Part_66_10294889.1346984569015
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hey all,
+
+Quick question about the mongodb logs:
+
+does locks(micros) w:270 mean that this operation caused a write lock for 
+270micros?
+or does it mean it waited for a write lock for 270 micros.
+
+More or less I'm trying to identify which one my queries are the cause(s) 
+of write locks and was hoping for some guideance.
+
+Thanks,
+Arin
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_66_10294889.1346984569015
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hey all,<div><br></div><div>Quick question about the mongodb logs:</div><di=
+v><br></div><div>does&nbsp;locks(micros) w:270 mean that this operation cau=
+sed a write lock for 270micros?</div><div>or does it mean it waited for a w=
+rite lock for 270 micros.</div><div><br></div><div>More or less I'm trying =
+to identify which one my queries are the cause(s) of write locks and was ho=
+ping for some guideance.</div><div><br></div><div>Thanks,</div><div>Arin</d=
+iv>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_66_10294889.1346984569015--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346984569</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1907</string>
+	<key>subject</key>
+	<string>[mongodb-user] explanation of locks(micros)</string>
+</dict>
+</plist>

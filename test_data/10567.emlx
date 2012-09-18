@@ -1,0 +1,517 @@
+20180     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp241334oef;
+        Thu, 6 Sep 2012 16:55:40 -0700 (PDT)
+Received: by 10.236.145.198 with SMTP id p46mr3478120yhj.49.1346975740818;
+        Thu, 06 Sep 2012 16:55:40 -0700 (PDT)
+Return-Path: <mongodb-user+bncCI3doLe4EhD676SCBRoEk0_ohw@googlegroups.com>
+Received: from mail-gg0-f192.google.com (mail-gg0-f192.google.com [209.85.161.192])
+        by mx.google.com with ESMTPS id c29si3300416yhe.52.2012.09.06.16.55.40
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 16:55:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCI3doLe4EhD676SCBRoEk0_ohw@googlegroups.com designates 209.85.212.47 as permitted sender) client-ip=209.85.212.47;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCI3doLe4EhD676SCBRoEk0_ohw@googlegroups.com designates 209.85.212.47 as permitted sender) smtp.mail=mongodb-user+bncCI3doLe4EhD676SCBRoEk0_ohw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-gg0-f192.google.com with SMTP id h1sf1715690ggn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 16:55:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type
+         :content-transfer-encoding;
+        bh=ZCTJlOXm87OlUdG5sUcamnBlzblpry1RRH8bxz7JqJM=;
+        b=W6Dt1RHQZFyifnuC98d6fOU1CH/B/6WoLDeYQ3rDgQxtuIHZZmzBGc8KYAbpcbnJs7
+         jpnvWxSWexCU39+htfd6NhwGL91cXc1mK65zicemjZrmPL6Y6HlEYRxc/ZfWjHjyEwas
+         pbCAVJVLzTo88G2Ai876QJq0tnO3hw2RRl3/VNAWf9a0E0+a7Ta05cfPEWxWZ/mPb80C
+         yyZrd82iaXXSKWiw3/5lOQABq4SBG8TbTcnNrGrGnEWQf3oxKbQew7aKpNW0Gej6SW/c
+         bN6fuvAq97DMLfznoynZaCqGuQTzKpjNZt1NAvHSw497hLRKSinb0Scbgi/jRN1cdOyf
+         QU/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-gm-message-state:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type
+         :content-transfer-encoding;
+        bh=ZCTJlOXm87OlUdG5sUcamnBlzblpry1RRH8bxz7JqJM=;
+        b=KqHZtzTQZEuwB1I/XICBcrvZzHEo+EstT+L2O0cveqdfUv1k6+UIrjLTmRr2WdLcTs
+         hyvinf32ZIyHqgrYayXAkFcZC78c8aD74MVf0qWqNCD3lMmufJAGx6P0FXlMxCXotmiO
+         gNrQdT1Ym78JuDx38R0i+qzguhE1butKLaVWwlAbb+//etVvtz1+8iXekLpNkRYlYAi0
+         3vS+ZLK2XTarvxMALdobIgk9/SYxfiNa7YYt1WEALeo9Hf+wSY00TuY3yR1rrBkd7+tq
+         CIwFpXix0zsZ0NYNTmeL8elnnXZPlxB+M+GM7BMsIFvaR3DbFju4cUGrbjPbuo6EGKJV
+         8nog==
+Received: by 10.52.75.36 with SMTP id z4mr758179vdv.14.1346975740407;
+        Thu, 06 Sep 2012 16:55:40 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.149.129 with SMTP id t1ls34323vcv.0.gmail; Thu, 06 Sep
+ 2012 16:55:38 -0700 (PDT)
+Received: by 10.58.58.206 with SMTP id t14mr1485762veq.16.1346975738620;
+        Thu, 06 Sep 2012 16:55:38 -0700 (PDT)
+Received: by 10.58.58.206 with SMTP id t14mr1485761veq.16.1346975738607;
+        Thu, 06 Sep 2012 16:55:38 -0700 (PDT)
+Received: from mail-vb0-f47.google.com (mail-vb0-f47.google.com [209.85.212.47])
+        by gmr-mx.google.com with ESMTPS id r14si769082vdu.1.2012.09.06.16.55.38
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 16:55:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bernie@10gen.com designates 209.85.212.47 as permitted sender) client-ip=209.85.212.47;
+Received: by vbbfr13 with SMTP id fr13so2439093vbb.34
+        for <mongodb-user@googlegroups.com>; Thu, 06 Sep 2012 16:55:38 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.52.24.146 with SMTP id u18mr3967713vdf.19.1346975738440; Thu,
+ 06 Sep 2012 16:55:38 -0700 (PDT)
+Received: by 10.59.8.6 with HTTP; Thu, 6 Sep 2012 16:55:38 -0700 (PDT)
+In-Reply-To: <CAO+R_P_MET-BFERcJZnv=JPZSOvX9bBbT4BW4adw+xUWw+Piog@mail.gmail.com>
+References: <CAO+R_P8=wzh5kbPU2-Hv=2i_sdYp6Jm+phxh+qLSN8n1VqTi_w@mail.gmail.com>
+	<CAO+R_P_FfM8Fx=6OjQRHFue07fuqxdLHc+OEkBQtnVPhERYf6g@mail.gmail.com>
+	<d0d1eb71-33d7-4004-b4c9-90c4e76fe6ef@googlegroups.com>
+	<CAO+R_P9VpVUVLPMe=yCLk7EaLuC5YgfZmxJTjBTckro4BUQQ+Q@mail.gmail.com>
+	<916848a6-8582-4bf6-8f29-dabc638163e9@googlegroups.com>
+	<CAO+R_P84Chiamc03DBKWfbcP8Y3e3HMzHOYBt4rC-EEOLKrQ+w@mail.gmail.com>
+	<CAFqwGEy1ueEUzH_+xA8qQTPSWGiZy51oqGwmD2J4LKS3bPGkKQ@mail.gmail.com>
+	<CAO+R_P_MET-BFERcJZnv=JPZSOvX9bBbT4BW4adw+xUWw+Piog@mail.gmail.com>
+Date: Thu, 6 Sep 2012 16:55:38 -0700
+Message-ID: <CAFqwGEzzRFUHA1LVrSu-KcShi_FNr10fhTPWTw4ooep5bUxYpQ@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: [pymongo-motor] OperationFailure on insert
+From: Bernie Hackett <bernie@10gen.com>
+To: mongodb-user@googlegroups.com
+X-Gm-Message-State: ALoCoQk516lkAezkDUpN0OEnBiKI3EuBWS9VzPjzNH3OM8EGttTMOI0jRtmv7VCtPpuWRnSN1JEl
+X-Original-Sender: bernie@10gen.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of bernie@10gen.com designates 209.85.212.47 as permitted sender) smtp.mail=bernie@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Ah, I think I understand your problem then. You're hitting this issue
+which is fixed in PyMongo 2.3:
+
+https://jira.mongodb.org/browse/PYTHON-371
+
+You may need to pull the latest source for motor to get that change.
+
+On Thu, Sep 6, 2012 at 4:40 PM, Jorge Puente Sarr=EDn
+<puentesarrin@gmail.com> wrote:
+> Hi Bernie/Jesse,
+>
+> I'm sure, I'm using MongoDB version 2.2 on MongoLab, Can I send you a
+> private message with URI?
+>
+> Traceback:
+>>>> c.db.bar.insert({'foo': ' bar'}, safe=3DTrue)
+> Traceback (most recent call last):
+>   File "<stdin>", line 1, in <module>
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", li=
+ne
+> 306, in insert
+>     continue_on_error, self.__uuid_subtype), safe)
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/connection.py", li=
+ne
+> 745, in _send_message
+>     rv =3D self.__check_response_to_last_error(response)
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/connection.py", li=
+ne
+> 681, in __check_response_to_last_error
+>     helpers._check_command_response(error, self.disconnect)
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/helpers.py", line
+> 129, in _check_command_response
+>     raise OperationFailure(msg % response["errmsg"])
+> pymongo.errors.OperationFailure: need to login
+>>>> c.db.bar.find_one()
+> {u'_id': ObjectId('504932f87fffaf3e21aee2da'), u'foo': u' bar'}
+>>>> c.db.logout()
+>>>> c.db.bar.find_one()
+> Traceback (most recent call last):
+>   File "<stdin>", line 1, in <module>
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", li=
+ne
+> 514, in find_one
+>     for result in self.find(spec_or_id, *args, **kwargs).limit(-1):
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/cursor.py", line 7=
+49,
+> in next
+>     if len(self.__data) or self._refresh():
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/cursor.py", line 7=
+00,
+> in _refresh
+>     self.__uuid_subtype))
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/cursor.py", line 6=
+57,
+> in __send_message
+>     self.__tz_aware)
+>   File "/usr/local/lib/python2.7/dist-packages/pymongo/helpers.py", line
+> 102, in _unpack_response
+>     error_object["$err"])
+> pymongo.errors.OperationFailure: database error: unauthorized db:db
+> ns:db.bar lock type:0 client:190.41.238.178
+>
+> Regards.
+>
+>
+> 2012/9/6 Bernie Hackett <bernie@10gen.com>
+>>
+>> Are you sure you're using the correct credentials? I can't reproduce
+>> the problem:
+>>
+>> >>> c =3D pymongo.Connection('mongodb://user:pass@localhost:27017/foo')
+>> >>> c.foo.bar.insert({'foo': ' bar'}, safe=3DTrue)
+>> ObjectId('50492fdb430ee6c7d3c1435f')
+>> >>> c.foo.bar.find_one()
+>> {u'_id': ObjectId('50492fdb430ee6c7d3c1435f'), u'foo': u' bar'}
+>>
+>> # Calling logout then find_one here to show that we were actually
+>> authenticated.
+>> >>> c.foo.logout()
+>> >>> c.foo.bar.find_one()
+>> Traceback (most recent call last):
+>>   File "<stdin>", line 1, in <module>
+>>   File "pymongo/collection.py", line 516, in find_one
+>>     for result in self.find(spec_or_id, *args, **kwargs).limit(-1):
+>>   File "pymongo/cursor.py", line 778, in next
+>>     if len(self.__data) or self._refresh():
+>>   File "pymongo/cursor.py", line 729, in _refresh
+>>     self.__uuid_subtype))
+>>   File "pymongo/cursor.py", line 686, in __send_message
+>>     self.__uuid_subtype)
+>>   File "pymongo/helpers.py", line 104, in _unpack_response
+>>     error_object["$err"])
+>> pymongo.errors.OperationFailure: database error: unauthorized db:foo
+>> ns:foo.bar lock type:0 client:127.0.0.1
+>>
+>> On Thu, Sep 6, 2012 at 3:23 PM, Jorge Puente Sarr=EDn
+>> <puentesarrin@gmail.com> wrote:
+>> > No, that's not working.
+>> >
+>> > Traceback (most recent call last):
+>> >   File "<stdin>", line 1, in <module>
+>> >   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py",
+>> > line
+>> > 306, in insert
+>> >     continue_on_error, self.__uuid_subtype), safe)
+>> >   File "/usr/local/lib/python2.7/dist-packages/pymongo/connection.py",
+>> > line
+>> > 745, in _send_message
+>> >     rv =3D self.__check_response_to_last_error(response)
+>> >   File "/usr/local/lib/python2.7/dist-packages/pymongo/connection.py",
+>> > line
+>> > 681, in __check_response_to_last_error
+>> >     helpers._check_command_response(error, self.disconnect)
+>> >   File "/usr/local/lib/python2.7/dist-packages/pymongo/helpers.py", li=
+ne
+>> > 129, in _check_command_response
+>> >     raise OperationFailure(msg % response["errmsg"])
+>> > pymongo.errors.OperationFailure: need to login
+>> >
+>> > Then, what's the best way for work with a MongoDB Uri and authenticate=
+?
+>> >
+>> > def connect(user, pass):
+>> >      yield motor.Op(db.authenticate, user, pass)
+>> >
+>> >
+>> >
+>> > 2012/9/6 A. Jesse Jiryu Davis <jesse@10gen.com>
+>> >
+>> >> I see. Does that work with a regular PyMongo Connection?:
+>> >>
+>> >> db =3D
+>> >>
+>> >> pymongo.Connection('mongodb://user:pass@xxxxx.mongolab.com:xxxxx/dbna=
+me?safe=3Dtrue').dbname
+>> >> db.my_collection.insert({}, safe=3DTrue)
+>> >>
+>> >>
+>> >> On Thursday, September 6, 2012 6:02:36 PM UTC-4, Jorge Puente Sarr=ED=
+n
+>> >> wrote:
+>> >>>
+>> >>> Hi Jesse,
+>> >>>
+>> >>> I have tried to run your snippet and I think that the problem is
+>> >>> Connection, because for create it, I'm using a Uri such as:
+>> >>>
+>> >>> db =3D
+>> >>>
+>> >>> motor.MotorConnection('mongodb://user:pass@xxxxx.mongolab.com:xxxxx/=
+dbname?safe=3Dtrue').open_sync().dbname
+>> >>>
+>> >>> This is the traceback,
+>> >>>
+>> >>> ERROR:root:Exception in callback
+>> >>> <tornado.stack_context._StackContextWrapper object at 0x7fc5af09bd08=
+>
+>> >>> Traceback (most recent call last):
+>> >>>   File "/usr/local/lib/python2.7/dist-packages/tornado/ioloop.py",
+>> >>> line
+>> >>> 421, in _run_callback
+>> >>>     callback()
+>> >>>   File
+>> >>> "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py",
+>> >>> line 229, in wrapped
+>> >>>     callback(*args, **kwargs)
+>> >>>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+>> >>> 382,
+>> >>> in inner
+>> >>>     self.set_result(key, result)
+>> >>>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+>> >>> 315,
+>> >>> in set_result
+>> >>>     self.run()
+>> >>>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+>> >>> 343,
+>> >>> in run
+>> >>>     yielded =3D self.gen.throw(*exc_info)
+>> >>>   File "<stdin>", line 4, in go
+>> >>>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+>> >>> 335,
+>> >>> in run
+>> >>>     next =3D self.yield_point.get_result()
+>> >>>   File "/usr/local/lib/python2.7/dist-packages/motor/__init__.py",
+>> >>> line
+>> >>> 1365, in get_result
+>> >>>     raise error
+>> >>> OperationFailure: db assertion failure, assertion: 'unauthorized
+>> >>> db:my_database ns:my_database lock type:1 client:190.41.238.178',
+>> >>> assertionCode: 10057
+>> >>>
+>> >>> Does PyMongo invoke to authenticate method when a uri have a
+>> >>> user/password? Or Does PyMongo ignored it, when uri have a db name?
+>> >>>
+>> >>> 2012/9/6 A. Jesse Jiryu Davis <je...@10gen.com>
+>> >>>>
+>> >>>> In that case it seems that you are, perhaps, logged in as a read-on=
+ly
+>> >>>> user, and you're mistaken that your document was correctly inserted=
+?
+>> >>>> Try
+>> >>>> this:
+>> >>>>
+>> >>>> import datetime
+>> >>>> from tornado.ioloop import IOLoop
+>> >>>> from tornado import gen
+>> >>>> import motor
+>> >>>>
+>> >>>> db =3D motor.MotorConnection().open_sync().my_database
+>> >>>> loop =3D IOLoop.instance()
+>> >>>>
+>> >>>> @gen.engine
+>> >>>> def go():
+>> >>>>     print 'dropping my_collection'
+>> >>>>     yield motor.Op(db.drop_collection, 'my_collection')
+>> >>>>     count =3D yield motor.Op(db.my_collection.count)
+>> >>>>     print 'count is', count
+>> >>>>
+>> >>>>     content =3D {'title': 'title',
+>> >>>>                'content': 'content',
+>> >>>>                'slug': 'slug',
+>> >>>>                'date': datetime.datetime.now()}
+>> >>>>     yield motor.Op(db.my_collection.insert, content)
+>> >>>>     count =3D yield motor.Op(db.my_collection.count)
+>> >>>>     print 'count is', count
+>> >>>>     loop.stop()
+>> >>>>
+>> >>>> go()
+>> >>>> loop.start()
+>> >>>>
+>> >>>> Replace "my_database" with the database you're using, and run this
+>> >>>> script, please. Be aware that this script drops a collection called
+>> >>>> "my_collection."
+>> >>>>
+>> >>>> On Thursday, September 6, 2012 3:57:53 PM UTC-4, Jorge Puente Sarr=
+=EDn
+>> >>>> wrote:
+>> >>>>>
+>> >>>>> I have reviewed the DB and the document is inserted correctly, but=
+ I
+>> >>>>> don't understand why raise this exception.
+>> >>>>>
+>> >>>>> Regards.
+>> >>>>>
+>> >>>>> 2012/9/6 Jorge Puente Sarr=EDn <puente...@gmail.com>
+>> >>>>>
+>> >>>>>> Hi, I'm following the Motor examples, but my code raise a excepti=
+on
+>> >>>>>> when insert a document using yield operator and motor Op/Task.
+>> >>>>>>
+>> >>>>>> Here my code:
+>> >>>>>>
+>> >>>>>> class ContentHandler(MotorSampleHandler):
+>> >>>>>>
+>> >>>>>>     @tornado.web.asynchronous
+>> >>>>>>     @tornado.gen.engine
+>> >>>>>>     def post(self):
+>> >>>>>>         title =3D self.get_argument('title')
+>> >>>>>>         slug =3D stringhelper.get_slug(title)
+>> >>>>>>         content =3D {'title': title,
+>> >>>>>>             'content': self.get_argument('content'),
+>> >>>>>>             'slug': slug,
+>> >>>>>>             'date': datetime.datetime.now()}
+>> >>>>>>         yield motor.Op(self.db.contents.insert, content)
+>> >>>>>>         self.redirect('/%s' % slug)
+>> >>>>>>
+>> >>>>>> This is the traceback:
+>> >>>>>>
+>> >>>>>>     Traceback (most recent call last):
+>> >>>>>>       File "/usr/local/lib/python2.7/dist-packages/tornado/web.py=
+",
+>> >>>>>> line 1000, in _stack_context_handle_exception
+>> >>>>>>         raise_exc_info((type, value, traceback))
+>> >>>>>>       File
+>> >>>>>> "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py"=
+,
+>> >>>>>> line 256,
+>> >>>>>> in _nested
+>> >>>>>>         yield vars
+>> >>>>>>       File
+>> >>>>>> "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py"=
+,
+>> >>>>>> line 226,
+>> >>>>>> in wrapped
+>> >>>>>>         callback(*args, **kwargs)
+>> >>>>>>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py=
+",
+>> >>>>>> line 382, in inner
+>> >>>>>>         self.set_result(key, result)
+>> >>>>>>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py=
+",
+>> >>>>>> line 315, in set_result
+>> >>>>>>         self.run()
+>> >>>>>>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py=
+",
+>> >>>>>> line 343, in run
+>> >>>>>>         yielded =3D self.gen.throw(*exc_info)
+>> >>>>>>       File
+>> >>>>>>
+>> >>>>>> "/home/puentesarrin/projects/motor-sample/motor-sample/handlers.p=
+y", line
+>> >>>>>> 111, in post
+>> >>>>>>         yield motor.Op(self.db.contents.insert, content)
+>> >>>>>>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py=
+",
+>> >>>>>> line 335, in run
+>> >>>>>>         next =3D self.yield_point.get_result()
+>> >>>>>>       File
+>> >>>>>> "/usr/local/lib/python2.7/dist-packages/motor/__init__.py",
+>> >>>>>> line 1365, in get_result
+>> >>>>>>         raise error
+>> >>>>>>     OperationFailure: need to login
+>> >>>>>>
+>> >>>>>> I think that it's not about instance PyMongo Connection because,
+>> >>>>>> all
+>> >>>>>> of queries (find/find_one) results is ok.
+>> >>>>>>
+>> >>>>>> Python version: 2.7.3
+>> >>>>>> Tornado version: 2.3
+>> >>>>>> PyMongo version: 2.2
+>> >>>>>>
+>> >>>>>> --
+>> >>>>>> Atte.
+>> >>>>>> Jorge Puente Sarr=EDn.
+>> >>>>>
+>> >>>>>
+>> >>>>>
+>> >>>>>
+>> >>>>> --
+>> >>>>> Atte.
+>> >>>>> Jorge Puente Sarr=EDn.
+>> >>>>
+>> >>>> --
+>> >>>> You received this message because you are subscribed to the Google
+>> >>>> Groups "mongodb-user" group.
+>> >>>> To post to this group, send email to mongod...@googlegroups.com
+>> >>>>
+>> >>>> To unsubscribe from this group, send email to
+>> >>>> mongodb-user...@googlegroups.com
+>> >>>>
+>> >>>> See also the IRC channel -- freenode.net#mongodb
+>> >>>
+>> >>>
+>> >>>
+>> >>>
+>> >>> --
+>> >>> Atte.
+>> >>> Jorge Puente Sarr=EDn.
+>> >>
+>> >> --
+>> >> You received this message because you are subscribed to the Google
+>> >> Groups "mongodb-user" group.
+>> >> To post to this group, send email to mongodb-user@googlegroups.com
+>> >> To unsubscribe from this group, send email to
+>> >> mongodb-user+unsubscribe@googlegroups.com
+>> >> See also the IRC channel -- freenode.net#mongodb
+>> >
+>> >
+>> >
+>> >
+>> > --
+>> > Atte.
+>> > Jorge Puente Sarr=EDn.
+>> >
+>> > --
+>> > You received this message because you are subscribed to the Google
+>> > Groups "mongodb-user" group.
+>> > To post to this group, send email to mongodb-user@googlegroups.com
+>> > To unsubscribe from this group, send email to
+>> > mongodb-user+unsubscribe@googlegroups.com
+>> > See also the IRC channel -- freenode.net#mongodb
+>>
+>> --
+>> You received this message because you are subscribed to the Google
+>> Groups "mongodb-user" group.
+>> To post to this group, send email to mongodb-user@googlegroups.com
+>> To unsubscribe from this group, send email to
+>> mongodb-user+unsubscribe@googlegroups.com
+>> See also the IRC channel -- freenode.net#mongodb
+>
+>
+>
+>
+> --
+> Atte.
+> Jorge Puente Sarr=EDn.
+>
+> --
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongodb-user@googlegroups.com
+> To unsubscribe from this group, send email to
+> mongodb-user+unsubscribe@googlegroups.com
+> See also the IRC channel -- freenode.net#mongodb
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346975738</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1891</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: [pymongo-motor] OperationFailure on insert</string>
+</dict>
+</plist>

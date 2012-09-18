@@ -1,0 +1,481 @@
+23276     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp252511oef;
+        Fri, 7 Sep 2012 00:14:02 -0700 (PDT)
+Received: by 10.112.83.8 with SMTP id m8mr1773272lby.115.1347002041912;
+        Fri, 07 Sep 2012 00:14:01 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIrJs4CRBxC1vaaCBRoEKI8-1Q@googlegroups.com>
+Received: from mail-lb0-f192.google.com (mail-lb0-f192.google.com [209.85.217.192])
+        by mx.google.com with ESMTPS id bf7si6912082lbb.23.2012.09.07.00.14.00
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 00:14:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIrJs4CRBxC1vaaCBRoEKI8-1Q@googlegroups.com designates 209.85.217.192 as permitted sender) client-ip=209.85.217.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIrJs4CRBxC1vaaCBRoEKI8-1Q@googlegroups.com designates 209.85.217.192 as permitted sender) smtp.mail=mongodb-user+bncCIrJs4CRBxC1vaaCBRoEKI8-1Q@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by lbbgm13 with SMTP id gm13sf755557lbb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 00:14:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=sJQVMyu5jh6VABNsk9kEqVBuZ4tz9e0vArB28PMj40U=;
+        b=joRm8ab94FOIvQypuD5R+Jtt+0G/CAlE1VnSYFgvjGYqtHTKhrrJ6JWuYnqoXKGmY4
+         2HFurbkeEHfG1E4pLhJnPKCXFZ12c1YlEI57w6kzx9hIN30Wg/O9kUFeA3SNaE2n6qzU
+         HqSv2qcTqpd9Xi2lHD6eGEFYrU95zoRdVB0HVguBmr0SQI8eK6bPOEJ6H2xJDHVjWzRb
+         CYo1S760yO9ngElniM9KgR/Zx9v2cuVUyhdXQXl7SOzzXHzEeWDXu1dyqclqWMz57nnA
+         bwtxGvvFZ3kNaunoR5wDYhuz8PtCcLTiVygqy+801NJt9xLIfdwFqyZSHXBjURZbeqHQ
+         1Hfg==
+Received: by 10.216.53.136 with SMTP id g8mr172410wec.15.1347002039780;
+        Fri, 07 Sep 2012 00:13:59 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.14.172.194 with SMTP id t42ls58136eel.0.gmail; Fri, 07 Sep
+ 2012 00:13:56 -0700 (PDT)
+Received: by 10.14.214.69 with SMTP id b45mr4522652eep.2.1347002036931;
+        Fri, 07 Sep 2012 00:13:56 -0700 (PDT)
+Received: by 10.14.214.69 with SMTP id b45mr4522650eep.2.1347002036906;
+        Fri, 07 Sep 2012 00:13:56 -0700 (PDT)
+Received: from mail-ey0-f176.google.com (mail-ey0-f176.google.com [209.85.215.176])
+        by gmr-mx.google.com with ESMTPS id d5si5711519eep.0.2012.09.07.00.13.56
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 00:13:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of guido.amabili@gmail.com designates 209.85.215.176 as permitted sender) client-ip=209.85.215.176;
+Received: by eabd1 with SMTP id d1so913985eab.35
+        for <mongodb-user@googlegroups.com>; Fri, 07 Sep 2012 00:13:56 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.14.211.3 with SMTP id v3mr6301770eeo.43.1347002036740; Fri, 07
+ Sep 2012 00:13:56 -0700 (PDT)
+Received: by 10.14.101.139 with HTTP; Fri, 7 Sep 2012 00:13:56 -0700 (PDT)
+In-Reply-To: <d19f1b7d-ecaf-4a69-89f2-29c6b0012361@googlegroups.com>
+References: <CAF0aBdwr61TnnED4NiF0agY-Fdqfg0Hcpv3jkH7MZpP6cDM92A@mail.gmail.com>
+	<d19f1b7d-ecaf-4a69-89f2-29c6b0012361@googlegroups.com>
+Date: Fri, 7 Sep 2012 09:13:56 +0200
+Message-ID: <CAF0aBdy1zPuJjEGGEcXD9NTN7-QRqbEBs3x8XW50R8=xonuSPg@mail.gmail.com>
+Subject: Re: [mongodb-user] query doesn't return expected results with limit
+ and sort
+From: Guido Amabili <guido.amabili@gmail.com>
+To: mongodb-user@googlegroups.com
+X-Original-Sender: guido.amabili@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of guido.amabili@gmail.com designates 209.85.215.176 as permitted
+ sender) smtp.mail=guido.amabili@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=047d7b621e92e962bf04c9175959
+
+--047d7b621e92e962bf04c9175959
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Thomas and Scott,
+
+Well I sort of skipped the problem. My requirement was to return a limited
+set of a collection of documents and I did it programmatically with a loop
+and removed the limit function from the query to keep the order of the
+returned documents.
+
+I thought the  limit function wouldn't modify the result set and suspected
+a bug in my application code.
+
+Here are the queries and the returned documents for each. Only showing id
+and title field. You will find the documents of the collection below with
+all the fields. The collection "initiatives" has 2d index:
+db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$maxDistance" :
+0.1} , "date_close" : { "$gte" : ISODate( "2012-
+(
+"2012-08-30T15:10:49.157Z")}},{title:1}).sort({"up_vote":-1,"down_vote":-1,=
+"date_init":1}).limit(4);
+
+{ "_id" : ObjectId("5044a6f244ae11666e2a23c8"), "title" : "Test Development
+#1" }
+{ "_id" : ObjectId("5044e81444ae11666e2a23e2"), "title" : "Tuiles bon
+march=E9" }
+{ "_id" : ObjectId("5044f5d044ae11666e2a23e4"), "title" : "Talange" }
+{ "_id" : ObjectId("5045f98344ae76f13d3ac90b"), "title" : "Hello World!" }
+
+db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$maxDistance" :
+0.1} , "date_close" : { "$gte" : ISODate( "2012-
+(
+"2012-08-30T15:10:49.157Z")}},{title:1}).sort({"up_vote":-1,"down_vote":-1,=
+"date_init":1}).limit(2);
+
+{ "_id" : ObjectId("5044e81444ae11666e2a23e2"), "title" : "Tuiles bon
+march=E9" }
+{ "_id" : ObjectId("5044f5d044ae11666e2a23e4"), "title" : "Talange" }
+
+Running explain for each query gives:
+// limit 4
+{
+    "cursor" : "GeoSearchCursor",
+    "nscanned" : 4,
+    "nscannedObjects" : 4,
+    "n" : 4,
+    "scanAndOrder" : true,
+    "millis" : 0,
+    "nYields" : 0,
+    "nChunkSkips" : 0,
+    "isMultiKey" : false,
+    "indexOnly" : false,
+    "indexBounds" : {
+
+    }
+}
+
+// limit 2
+
+{
+    "cursor" : "GeoSearchCursor",
+    "nscanned" : 2,
+    "nscannedObjects" : 2,
+    "n" : 2,
+    "scanAndOrder" : true,
+    "millis" : 0,
+    "nYields" : 0,
+    "nChunkSkips" : 0,
+    "isMultiKey" : false,
+    "indexOnly" : false,
+    "indexBounds" : {
+
+    }
+}
+
+
+
+
+
+I exported 4 documents below with the tool mongoexport.
+
+{ "_id" : { "$oid" : "5044a6f244ae11666e2a23c8" }, "title" : "Test
+Development #1", "date_close" : { "$date" : 1346851202150 }, "description"
+: "Most people think of QR codes as a convenient way to share URL-type
+links.\nShall we use QR codes to share links to initiatives ?", "date_init"
+: { "$date" : 1346676466924 }, "gps" : { "lat" : 49.22999833333333, "lon" :
+6.169998333333333 }, "down_vote" : 3, "uuid" :
+"87ab0059-fcf1-4602-8e1a-0054b7bd0167", "initiar_ut" :
+"d0f3c9e3-1532-49bf-8baf-6dd17ec3b419", "floor_value" : 100, "up_vote" : 1 =
+}
+{ "_id" : { "$oid" : "5044e81444ae11666e2a23e2" }, "title" : "Tuiles bon
+march=E9", "date_close" : { "$date" : 1349285140914 }, "description" :
+"Test'", "date_init" : { "$date" : 1346693140914 }, "gps" : { "lat" :
+49.23251027, "lon" : 6.17820406 }, "down_vote" : 0, "uuid" :
+"b672e332-b4df-4505-b58a-c94ae6f49b26", "initiar_ut" :
+"8dd93b88-4eb3-419e-8efb-fca23b677009", "floor_value" : 100, "up_vote" : 1 =
+}
+{ "_id" : { "$oid" : "5044f5d044ae11666e2a23e4" }, "title" : "Talange",
+"date_close" : { "$date" : 1349288656329 }, "description" : "rue des
+Primeveres", "date_init" : { "$date" : 1346696656329 }, "gps" : { "lat" :
+49.23259016, "lon" : 6.17833873 }, "down_vote" : 0, "uuid" :
+"3f917a47-d270-4cf9-bcc1-5df76f62659d", "initiar_ut" :
+"8dd93b88-4eb3-419e-8efb-fca23b677009", "floor_value" : 100, "up_vote" : 1 =
+}
+{ "_id" : { "$oid" : "5045f98344ae76f13d3ac90b" }, "title" : "Hello
+World!", "date_close" : { "$date" : 1349355139776 }, "description" : "This
+is a typical description.", "date_init" : { "$date" : 1346763139776 },
+"gps" : { "lat" : 49.22999833333333, "lon" : 6.169998333333333 },
+"down_vote" : 1, "uuid" : "fa4c82bb-e93d-4861-90bd-dc088783e277",
+"initiar_ut" : "d0f3c9e3-1532-49bf-8baf-6dd17ec3b419", "floor_value" : 100,
+"up_vote" : 0 }
+
+
+
+2012/9/7 Thomas Rueckstiess <Thomas.Rueckstiess@10gen.com>
+
+> Hi Guido,
+>
+> were you able to solve this problem? If you require more help, could you
+> provide some sample documents including all the fields, like Scott
+> suggested, so we can try to reproduce the behavior?
+>
+> Thanks,
+> Thomas
+>
+>
+> On Saturday, September 1, 2012 8:55:39 PM UTC+10, GuidoLx wrote:
+>>
+>> Hello,
+>>
+>> I have a database which contains a collection of documents I would like
+>> to retrieve in a sorted and paginated way.
+>>
+>> The sort of the documents should be based on three fieds: up_vote:-1,
+>> down_vote:-1, date_init:1.
+>>
+>> Running the following query in the shells returns an array of 7 document=
+s:
+>>
+>>
+>> db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$maxDistance"
+>> : 0.1} , "date_close" : { "$gte" : ISODate( "2012-08-30T15:10:49.157Z")}=
+},
+>> **{title:1}).sort({"up_vote":-1,**"down_vote":-1,"date_init":1})**
+>> .limit(7);
+>>
+>> Result:
+>>
+>> { "_id" : ObjectId("**503ce7c644aefc5be7646ddf"), "title" : "tuiles" }
+>> { "_id" : ObjectId("**503fadd644ae2f535f25a689"), "title" : "Juve" }
+>> { "_id" : ObjectId("**503cd1f044aefc5be7646ddc"), "title" : "This is my
+>> initiative" }
+>> { "_id" : ObjectId("**503ceff744ae5b0e79903982"), "title" : "zgjfji" }
+>> { "_id" : ObjectId("**503cf40844ae5b0e79903985"), "title" : "ders" }
+>> { "_id" : ObjectId("**503f7adc44ae31641b06ba2b"), "title" : "Aujourd'hui
+>> en france" }
+>> { "_id" : ObjectId("**50338c2a44aed265cdd491e6"), "title" : "test" }
+>>
+>> Now if I change the query and set the limit to 3 I get this array of
+>> documents:
+>>
+>> db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$maxDistance"
+>> : 0.1} , "date_close" : { "$gte" : ISODate( "2012-08-30T15:10:49.157Z")}=
+},
+>> **{title:1}).sort({"up_vote":-1,**"down_vote":-1,"date_init":1})**
+>> .limit(3);
+>>
+>> { "_id" : ObjectId("**503ce7c644aefc5be7646ddf"), "title" : "tuiles" }
+>> { "_id" : ObjectId("**503fadd644ae2f535f25a689"), "title" : "Juve" }
+>> { "_id" : ObjectId("**503ceff744ae5b0e79903982"), "title" : "zgjfji" }
+>>
+>>
+>> The point is I am missing from the result array the document with the
+>> title: "This is my initiative" as seen in the results of the first query=
+.
+>> Even if I do change the limit and set it to 4 the document this is my
+>> initiative is not showing up.
+>> I am trying to build a web application which should show results and the
+>> user should be able to paginate through the results.
+>>
+>> I suspect this is due to the sort fields, but It would be great if
+>> somebody could explain this behaviour.
+>>
+>> Thx,
+>> Guido
+>>
+>>  --
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongodb-user@googlegroups.com
+> To unsubscribe from this group, send email to
+> mongodb-user+unsubscribe@googlegroups.com
+> See also the IRC channel -- freenode.net#mongodb
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--047d7b621e92e962bf04c9175959
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Thomas and Scott,<br><br>Well I sort of skipped the problem. My requirem=
+ent was to return a limited set of a collection of documents and I did it p=
+rogrammatically with a loop and removed the limit function from the query t=
+o keep the order of the returned documents.<br>
+<br>I thought the=A0 limit function wouldn&#39;t modify the result set and =
+suspected a bug in my application code. <br><br>Here are the queries and th=
+e returned documents for each. Only showing id and title field. You will fi=
+nd the documents of the collection below with all the fields. The collectio=
+n &quot;initiatives&quot; has 2d index:<br>
+db.initiatives.find({ &quot;gps&quot; : { &quot;$near&quot; : [ 49.23,6.18]=
+ , &quot;$maxDistance&quot; : 0.1} , &quot;date_close&quot; : { &quot;$gte&=
+quot; : ISODate( &quot;2012-<br>( &quot;2012-08-30T15:10:49.157Z&quot;)}},{=
+title:1}).sort({&quot;up_vote&quot;:-1,&quot;down_vote&quot;:-1,&quot;date_=
+init&quot;:1}).limit(4);<br>
+<br>{ &quot;_id&quot; : ObjectId(&quot;5044a6f244ae11666e2a23c8&quot;), &qu=
+ot;title&quot; : &quot;Test Development #1&quot; }<br>{ &quot;_id&quot; : O=
+bjectId(&quot;5044e81444ae11666e2a23e2&quot;), &quot;title&quot; : &quot;Tu=
+iles bon march=E9&quot; }<br>
+{ &quot;_id&quot; : ObjectId(&quot;5044f5d044ae11666e2a23e4&quot;), &quot;t=
+itle&quot; : &quot;Talange&quot; }<br>{ &quot;_id&quot; : ObjectId(&quot;50=
+45f98344ae76f13d3ac90b&quot;), &quot;title&quot; : &quot;Hello World!&quot;=
+ }<br>
+<br>db.initiatives.find({ &quot;gps&quot; : { &quot;$near&quot; : [ 49.23,6=
+.18] , &quot;$maxDistance&quot; : 0.1} , &quot;date_close&quot; : { &quot;$=
+gte&quot; : ISODate( &quot;2012-<br>( &quot;2012-08-30T15:10:49.157Z&quot;)=
+}},{title:1}).sort({&quot;up_vote&quot;:-1,&quot;down_vote&quot;:-1,&quot;d=
+ate_init&quot;:1}).limit(2);<br>
+<br>{ &quot;_id&quot; : ObjectId(&quot;5044e81444ae11666e2a23e2&quot;), &qu=
+ot;title&quot; : &quot;Tuiles bon march=E9&quot; }<br>{ &quot;_id&quot; : O=
+bjectId(&quot;5044f5d044ae11666e2a23e4&quot;), &quot;title&quot; : &quot;Ta=
+lange&quot; }<br>
+<br>Running explain for each query gives:<br>// limit 4<br>{<br>=A0=A0=A0 &=
+quot;cursor&quot; : &quot;GeoSearchCursor&quot;,<br>=A0=A0=A0 &quot;nscanne=
+d&quot; : 4,<br>=A0=A0=A0 &quot;nscannedObjects&quot; : 4,<br>=A0=A0=A0 &qu=
+ot;n&quot; : 4,<br>=A0=A0=A0 &quot;scanAndOrder&quot; : true,<br>
+=A0=A0=A0 &quot;millis&quot; : 0,<br>=A0=A0=A0 &quot;nYields&quot; : 0,<br>=
+=A0=A0=A0 &quot;nChunkSkips&quot; : 0,<br>=A0=A0=A0 &quot;isMultiKey&quot; =
+: false,<br>=A0=A0=A0 &quot;indexOnly&quot; : false,<br>=A0=A0=A0 &quot;ind=
+exBounds&quot; : {<br>=A0=A0=A0 =A0=A0=A0 <br>
+=A0=A0=A0 }<br>}<br><br>// limit 2<br><br>{<br>=A0=A0=A0 &quot;cursor&quot;=
+ : &quot;GeoSearchCursor&quot;,<br>=A0=A0=A0 &quot;nscanned&quot; : 2,<br>=
+=A0=A0=A0 &quot;nscannedObjects&quot; : 2,<br>=A0=A0=A0 &quot;n&quot; : 2,<=
+br>=A0=A0=A0 &quot;scanAndOrder&quot; : true,<br>
+=A0=A0=A0 &quot;millis&quot; : 0,<br>=A0=A0=A0 &quot;nYields&quot; : 0,<br>=
+=A0=A0=A0 &quot;nChunkSkips&quot; : 0,<br>=A0=A0=A0 &quot;isMultiKey&quot; =
+: false,<br>=A0=A0=A0 &quot;indexOnly&quot; : false,<br>=A0=A0=A0 &quot;ind=
+exBounds&quot; : {<br>=A0=A0=A0 =A0=A0=A0 <br>
+=A0=A0=A0 }<br>}<br><br><br><br><br><br>I exported 4 documents below with t=
+he tool mongoexport.<br><br>{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;=
+5044a6f244ae11666e2a23c8&quot; }, &quot;title&quot; : &quot;Test Developmen=
+t #1&quot;, &quot;date_close&quot; : { &quot;$date&quot; : 1346851202150 },=
+ &quot;description&quot; : &quot;Most people think of QR codes as a conveni=
+ent way to share URL-type links.\nShall we use QR codes to share links to i=
+nitiatives ?&quot;, &quot;date_init&quot; : { &quot;$date&quot; : 134667646=
+6924 }, &quot;gps&quot; : { &quot;lat&quot; : 49.22999833333333, &quot;lon&=
+quot; : 6.169998333333333 }, &quot;down_vote&quot; : 3, &quot;uuid&quot; : =
+&quot;87ab0059-fcf1-4602-8e1a-0054b7bd0167&quot;, &quot;initiar_ut&quot; : =
+&quot;d0f3c9e3-1532-49bf-8baf-6dd17ec3b419&quot;, &quot;floor_value&quot; :=
+ 100, &quot;up_vote&quot; : 1 }<br>
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;5044e81444ae11666e2a23e2&quo=
+t; }, &quot;title&quot; : &quot;Tuiles bon march=E9&quot;, &quot;date_close=
+&quot; : { &quot;$date&quot; : 1349285140914 }, &quot;description&quot; : &=
+quot;Test&#39;&quot;, &quot;date_init&quot; : { &quot;$date&quot; : 1346693=
+140914 }, &quot;gps&quot; : { &quot;lat&quot; : 49.23251027, &quot;lon&quot=
+; : 6.17820406 }, &quot;down_vote&quot; : 0, &quot;uuid&quot; : &quot;b672e=
+332-b4df-4505-b58a-c94ae6f49b26&quot;, &quot;initiar_ut&quot; : &quot;8dd93=
+b88-4eb3-419e-8efb-fca23b677009&quot;, &quot;floor_value&quot; : 100, &quot=
+;up_vote&quot; : 1 }<br>
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;5044f5d044ae11666e2a23e4&quo=
+t; }, &quot;title&quot; : &quot;Talange&quot;, &quot;date_close&quot; : { &=
+quot;$date&quot; : 1349288656329 }, &quot;description&quot; : &quot;rue des=
+ Primeveres&quot;, &quot;date_init&quot; : { &quot;$date&quot; : 1346696656=
+329 }, &quot;gps&quot; : { &quot;lat&quot; : 49.23259016, &quot;lon&quot; :=
+ 6.17833873 }, &quot;down_vote&quot; : 0, &quot;uuid&quot; : &quot;3f917a47=
+-d270-4cf9-bcc1-5df76f62659d&quot;, &quot;initiar_ut&quot; : &quot;8dd93b88=
+-4eb3-419e-8efb-fca23b677009&quot;, &quot;floor_value&quot; : 100, &quot;up=
+_vote&quot; : 1 }<br>
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;5045f98344ae76f13d3ac90b&quo=
+t; }, &quot;title&quot; : &quot;Hello World!&quot;, &quot;date_close&quot; =
+: { &quot;$date&quot; : 1349355139776 }, &quot;description&quot; : &quot;Th=
+is is a typical description.&quot;, &quot;date_init&quot; : { &quot;$date&q=
+uot; : 1346763139776 }, &quot;gps&quot; : { &quot;lat&quot; : 49.2299983333=
+3333, &quot;lon&quot; : 6.169998333333333 }, &quot;down_vote&quot; : 1, &qu=
+ot;uuid&quot; : &quot;fa4c82bb-e93d-4861-90bd-dc088783e277&quot;, &quot;ini=
+tiar_ut&quot; : &quot;d0f3c9e3-1532-49bf-8baf-6dd17ec3b419&quot;, &quot;flo=
+or_value&quot; : 100, &quot;up_vote&quot; : 0 }<br>
+<br><br><br><div class=3D"gmail_quote">2012/9/7 Thomas Rueckstiess <span di=
+r=3D"ltr">&lt;<a href=3D"mailto:Thomas.Rueckstiess@10gen.com" target=3D"_bl=
+ank">Thomas.Rueckstiess@10gen.com</a>&gt;</span><br><blockquote class=3D"gm=
+ail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-le=
+ft:1ex">
+Hi Guido,<div><br></div><div>were you able to solve this problem? If you re=
+quire more help, could you provide some sample documents including all the =
+fields, like Scott suggested, so we can try to reproduce the behavior?</div=
+>
+<div><br></div><div>Thanks,</div><div>Thomas</div><div class=3D"HOEnZb"><di=
+v class=3D"h5"><div><br></div><div><br>On Saturday, September 1, 2012 8:55:=
+39 PM UTC+10, GuidoLx wrote:<blockquote class=3D"gmail_quote" style=3D"marg=
+in:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+Hello,<br><br>I have a database which contains a collection of documents I =
+would like to retrieve in a sorted and paginated way.<br><br>The sort of th=
+e documents should be based on three fieds: up_vote:-1, down_vote:-1, date_=
+init:1.<br>
+
+<br>Running the following query in the shells returns an array of 7 documen=
+ts:<br><br><br>db.initiatives.find({ &quot;gps&quot; : { &quot;$near&quot; =
+: [ 49.23,6.18] , &quot;$maxDistance&quot; : 0.1} , &quot;date_close&quot; =
+: { &quot;$gte&quot; : ISODate( &quot;2012-08-30T15:10:49.157Z&quot;)}},<u>=
+</u>{title:1}).sort({&quot;up_vote&quot;:-1,<u></u>&quot;down_vote&quot;:-1=
+,&quot;date_init&quot;:1})<u></u>.limit(7);<br>
+
+<br>Result:<br><br>{ &quot;_id&quot; : ObjectId(&quot;<u></u>503ce7c644aefc=
+5be7646ddf&quot;), &quot;title&quot; : &quot;tuiles&quot; }<br>{ &quot;_id&=
+quot; : ObjectId(&quot;<u></u>503fadd644ae2f535f25a689&quot;), &quot;title&=
+quot; : &quot;Juve&quot; }<br>
+
+{ &quot;_id&quot; : ObjectId(&quot;<u></u>503cd1f044aefc5be7646ddc&quot;), =
+&quot;title&quot; : &quot;This is my initiative&quot; }<br>{ &quot;_id&quot=
+; : ObjectId(&quot;<u></u>503ceff744ae5b0e79903982&quot;), &quot;title&quot=
+; : &quot;zgjfji&quot; }<br>
+
+{ &quot;_id&quot; : ObjectId(&quot;<u></u>503cf40844ae5b0e79903985&quot;), =
+&quot;title&quot; : &quot;ders&quot; }<br>{ &quot;_id&quot; : ObjectId(&quo=
+t;<u></u>503f7adc44ae31641b06ba2b&quot;), &quot;title&quot; : &quot;Aujourd=
+&#39;hui en france&quot; }<br>
+
+{ &quot;_id&quot; : ObjectId(&quot;<u></u>50338c2a44aed265cdd491e6&quot;), =
+&quot;title&quot; : &quot;test&quot; }<br><br>Now if I change the query and=
+ set the limit to 3 I get this array of documents:<br><br>db.initiatives.fi=
+nd({ &quot;gps&quot; : { &quot;$near&quot; : [ 49.23,6.18] , &quot;$maxDist=
+ance&quot;
+ : 0.1} , &quot;date_close&quot; : { &quot;$gte&quot; : ISODate(=20
+&quot;2012-08-30T15:10:49.157Z&quot;)}},<u></u>{title:1}).sort({&quot;up_vo=
+te&quot;:-1,<u></u>&quot;down_vote&quot;:-1,&quot;date_init&quot;:1})<u></u=
+>.limit(3);<br><br>{ &quot;_id&quot; : ObjectId(&quot;<u></u>503ce7c644aefc=
+5be7646ddf&quot;), &quot;title&quot; : &quot;tuiles&quot; }<br>
+
+{ &quot;_id&quot; : ObjectId(&quot;<u></u>503fadd644ae2f535f25a689&quot;), =
+&quot;title&quot; : &quot;Juve&quot; }<br>{ &quot;_id&quot; : ObjectId(&quo=
+t;<u></u>503ceff744ae5b0e79903982&quot;), &quot;title&quot; : &quot;zgjfji&=
+quot; }<br>
+
+<br><br>The point is I am missing from the result array the document with t=
+he title: &quot;This is my initiative&quot; as seen in the results of the f=
+irst query.<br>Even if I do change the limit and set it to 4 the document t=
+his is my initiative is not showing up.<br>
+
+I am trying to build a web application which should show results and the us=
+er should be able to paginate through the results.<br><br>I suspect this is=
+ due to the sort fields, but It would be great if somebody could explain th=
+is behaviour.<br>
+
+<br>Thx,<br>Guido<br><br>
+</blockquote></div>
+
+<p></p></div></div><div class=3D"HOEnZb"><div class=3D"h5">
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups &quot;mongodb-user&quot; group.<br>
+To post to this group, send email to <a href=3D"mailto:mongodb-user@googleg=
+roups.com" target=3D"_blank">mongodb-user@googlegroups.com</a><br>
+To unsubscribe from this group, send email to<br>
+<a href=3D"mailto:mongodb-user%2Bunsubscribe@googlegroups.com" target=3D"_b=
+lank">mongodb-user+unsubscribe@googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--047d7b621e92e962bf04c9175959--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347002036</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1941</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] query doesn't return expected results with limit and sort</string>
+</dict>
+</plist>

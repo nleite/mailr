@@ -1,0 +1,108 @@
+4892      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230053oef;
+        Thu, 6 Sep 2012 11:41:03 -0700 (PDT)
+Received: by 10.58.74.196 with SMTP id w4mr3979545vev.7.1346956863470;
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLyfsvv5GhC93KOCBRoEENwZcA@googlegroups.com>
+Received: from mail-vc0-f192.google.com (mail-vc0-f192.google.com [209.85.220.192])
+        by mx.google.com with ESMTPS id dy10si2638832vdb.103.2012.09.06.11.41.03
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC93KOCBRoEENwZcA@googlegroups.com designates 209.85.220.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC93KOCBRoEENwZcA@googlegroups.com designates 209.85.220.192 as permitted sender) smtp.mail=mongodb-user+bncCLyfsvv5GhC93KOCBRoEENwZcA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-vc0-f192.google.com with SMTP id p16sf1572053vcq.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=EFqoRI6uNSjdwtRUxHmbkw9CXucgxPpWbD5u3vsnzpk=;
+        b=QzUuT8tsHBvZ6vdA535BhCfc7z24mTwSRb3KYiGq/vTDqstz471J5x2CADWO1V759L
+         qCMVnw3xstzMika4n2ic/2Bjw43O3tnaJYUq8RrI3BQfgZ3aNSCFrJruo7UcCZwygcIR
+         q3pY6DpEvVMcaAjo32BfgA+2KSWojpjbp+iGNyHwU07LYiOCmhsG+ZZoyLqqcHcGjGNj
+         cOzz5tpn6TtjoUujQzcast5xI/T4tUOQ/XrwHtGrZt8XpCd4gqTZr6LdQcYZ5m+x2KMo
+         Mx52ecF16mr1YkY+ljOQhL+aaGwDiaV1O9vlw+FXoMm+5H/sTczh8tlJPFfRZT9jBy0r
+         qyVg==
+Received: by 10.224.205.132 with SMTP id fq4mr850253qab.4.1346956863208;
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.224.138.79 with SMTP id z15ls2182970qat.7.gmail; Thu, 06 Sep
+ 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.39.75 with SMTP id f11mr1740651qae.8.1346956860726;
+        Thu, 06 Sep 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.172.134 with SMTP id l6msqaz;
+        Thu, 6 Sep 2012 11:30:18 -0700 (PDT)
+Received: by 10.236.175.1 with SMTP id y1mr477871yhl.9.1346956218312;
+        Thu, 06 Sep 2012 11:30:18 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:30:17 -0700 (PDT)
+From: Damian <lars@schouw.me>
+To: mongodb-user@googlegroups.com
+Message-Id: <f51f1add-5c73-4b03-82a6-781a290c891d@googlegroups.com>
+Subject: [mongodb-user] block size for load
+MIME-Version: 1.0
+X-Original-Sender: lars@schouw.me
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_2433_23584209.1346956217722"
+
+------=_Part_2433_23584209.1346956217722
+Content-Type: text/plain; charset=ISO-8859-1
+
+What is the optimal block size for loading data from disk?
+I can imagine this would be OS, CPU and disk dependent?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_2433_23584209.1346956217722
+Content-Type: text/html; charset=ISO-8859-1
+
+What is the optimal block size for loading data from disk?<div>I can imagine this would be OS, CPU and disk dependent?</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_2433_23584209.1346956217722--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346956217</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1850</string>
+	<key>subject</key>
+	<string>[mongodb-user] block size for load</string>
+</dict>
+</plist>

@@ -1,0 +1,139 @@
+6419      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp243334oef;
+        Thu, 6 Sep 2012 18:01:20 -0700 (PDT)
+Received: by 10.236.145.40 with SMTP id o28mr3644269yhj.70.1346979680464;
+        Thu, 06 Sep 2012 18:01:20 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOLsq7WDCRDdjqWCBRoEOXeb5g@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id h6si3387524yhk.99.2012.09.06.18.01.20
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:01:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOLsq7WDCRDdjqWCBRoEOXeb5g@googlegroups.com designates 209.85.213.192 as permitted sender) client-ip=209.85.213.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOLsq7WDCRDdjqWCBRoEOXeb5g@googlegroups.com designates 209.85.213.192 as permitted sender) smtp.mail=mongodb-user+bncCOLsq7WDCRDdjqWCBRoEOXeb5g@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yenl1 with SMTP id l1sf1742280yen.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:01:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=bKWArvv86uK7lvd/HbZkvbl5Q1/ZBZVhTxRMq32lbgY=;
+        b=bJQFMPSTYYObhfINK2Kn8yeaExDCA2OAEH9td1hycXk73KC3Q7Bbw5Ii9AmIeSS1ix
+         JaRSh+PbBjc0gbnvEL87AqkCXJJp7a8H4e6asR956U6PXztuR45JoEIudxWLkAkUe2rN
+         uJkJ8lgIkH+7946D2ozIIL5eJ+e4JZbL3+6UVVYtZYJVMXrcBbufIyKzIgCuNjhpzHkZ
+         WBd8igbrOxR1NAjG6Vze7yQ0bB86zX3nUScv4E/tFDXNH6djagRkdmuks8ouZ+0mAOu5
+         4IgzH7rAouFbDmCSPOMJPGdWELNICdXEq2kb7p23Y65mKfSEhY48DKOb5ZSnSKDLubXT
+         ckHA==
+Received: by 10.68.195.72 with SMTP id ic8mr1037025pbc.8.1346979680029;
+        Thu, 06 Sep 2012 18:01:20 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.136.233 with SMTP id qd9ls241715pbb.4.gmail; Thu, 06 Sep
+ 2012 18:01:17 -0700 (PDT)
+Received: by 10.68.211.6 with SMTP id my6mr1027070pbc.15.1346979677707;
+        Thu, 06 Sep 2012 18:01:17 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:01:17 -0700 (PDT)
+From: David Hows <david.hows@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <289fef17-4bf6-4b19-99b7-c0967d42a394@googlegroups.com>
+In-Reply-To: <b2230d3b-9ddd-4525-b250-2f515042ae5f@googlegroups.com>
+References: <b2230d3b-9ddd-4525-b250-2f515042ae5f@googlegroups.com>
+Subject: [mongodb-user] Re: geospatical
+MIME-Version: 1.0
+X-Original-Sender: david.hows@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ david.hows@10gen.com designates internal as permitted sender)
+ smtp.mail=david.hows@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_161_13137582.1346979677237"
+
+------=_Part_161_13137582.1346979677237
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Damian,
+
+Im assuming you are asking why there needs to be a specialised case for 
+geospatial indexes instead of just using a compound key for an index. The 
+reason for this is that the geospatial methods such as nearby are highly 
+specific in their inputs and how they function.  
+
+If i am misinterpreting your question, please let me know.
+
+David
+
+On Friday, September 7, 2012 4:33:33 AM UTC+10, Damian wrote:
+>
+> What is the reason geospatial got special treatment, if it just a set of 
+> number so why not generalized it?
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_161_13137582.1346979677237
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Damian,<div><br></div><div>Im assuming you are asking why there needs to=
+ be a specialised case for geospatial indexes instead of just using a&nbsp;=
+compound&nbsp;key for an index. The reason for this is that the geospatial =
+methods such as <font face=3D"courier new, monospace">nearby</font> are hig=
+hly specific in their inputs and how they function. &nbsp;</div><div><br></=
+div><div>If i am misinterpreting your question, please let me know.</div><d=
+iv><br></div><div>David<br><br>On Friday, September 7, 2012 4:33:33 AM UTC+=
+10, Damian wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margi=
+n-left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;"><p class=3D"M=
+soNormal"><span style=3D"font-size:9pt;line-height:115%;font-family:Arial,s=
+ans-serif;background-color:white;background-repeat:initial initial">What is=
+ the reason geospatial
+got special treatment, if it just a set of number so why not generalized it=
+?</span></p></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_161_13137582.1346979677237--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346979677</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1896</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: geospatical</string>
+</dict>
+</plist>

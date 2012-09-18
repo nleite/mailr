@@ -1,0 +1,154 @@
+7845      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp251167oef;
+        Thu, 6 Sep 2012 23:29:51 -0700 (PDT)
+Received: by 10.236.153.105 with SMTP id e69mr4052774yhk.66.1346999391204;
+        Thu, 06 Sep 2012 23:29:51 -0700 (PDT)
+Return-Path: <mongodb-user+bncCO27qoANENyopoIFGgTe7WQr@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id b29si3899958yhm.127.2012.09.06.23.29.50
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 23:29:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCO27qoANENyopoIFGgTe7WQr@googlegroups.com designates 209.85.160.192 as permitted sender) client-ip=209.85.160.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCO27qoANENyopoIFGgTe7WQr@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCO27qoANENyopoIFGgTe7WQr@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ghrr20 with SMTP id r20sf1873396ghr.29
+        for <multiple recipients>; Thu, 06 Sep 2012 23:29:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=vSEcd3wW+CvDJz6doeL+Er2X211nqPivppMkbrAEWy0=;
+        b=XcrT0ClVRb0hmCBy8xoCjhgGQzu+zsPck4Eikc7iDlRTxp5mbJVRAPG722Vzyr0gha
+         VK715PHnt3+0gsAlDjWnd9ThwZAN5LFCbcGOAwk4QE6Mq0m4aVi+agmPzA4TXCbCZa18
+         qf5ChhMFt3U0dPhpckJpDuSLiLaHajP3Yjfq35I/OZlJxtoSYWuml9FkannXpN2YNs88
+         HpEqRZvHHc9ot/qXCx4dkJVsK0nHyYtA+X4lcYKGIXfGRigNTmKhhrRsb4davf9R1vC6
+         TVwyAkTrNsnfgd8Ch1l67oemXwVagR2DvzOq7Rloh/p/+nKq+W7l+vjJL+8gF5eVhrsq
+         gaeA==
+Received: by 10.68.218.226 with SMTP id pj2mr1113165pbc.19.1346999390317;
+        Thu, 06 Sep 2012 23:29:50 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.136.233 with SMTP id qd9ls870524pbb.4.gmail; Thu, 06 Sep
+ 2012 23:29:48 -0700 (PDT)
+Received: by 10.68.190.65 with SMTP id go1mr1149682pbc.6.1346999388303;
+        Thu, 06 Sep 2012 23:29:48 -0700 (PDT)
+Date: Thu, 6 Sep 2012 23:29:47 -0700 (PDT)
+From: sarvesh <satelin2002@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <cec51513-deda-448b-9ca3-5e8259b6526e@googlegroups.com>
+Subject: [mongodb-user] mongodb logs continuos queries
+MIME-Version: 1.0
+X-Original-Sender: satelin2002@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ satelin2002@gmail.com designates internal as permitted sender)
+ smtp.mail=satelin2002@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_314_16304735.1346999387583"
+
+------=_Part_314_16304735.1346999387583
+Content-Type: text/plain; charset=ISO-8859-1
+
+I tailed the mongodb logs and it seems like this is constantly happening
+
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d31f5f6dbe1557100006d') } ntoreturn:1 idhack:1 reslen:2649 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d31fbf6dbe15571000071') } ntoreturn:1 idhack:1 reslen:2725 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d31fef6dbe15571000073') } ntoreturn:1 idhack:1 reslen:2599 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d3206f6dbe15571000077') } ntoreturn:1 idhack:1 reslen:2696 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d3209f6dbe15571000079') } ntoreturn:1 idhack:1 reslen:2496 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d3404f6dbe15c0c00003f') } ntoreturn:1 idhack:1 reslen:2384 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d340af6dbe15c0c000043') } ntoreturn:1 idhack:1 reslen:2304 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: 
+ObjectId('4f9d3410f6dbe15c0c000047') } ntoreturn:1 idhack:1 reslen:2432 0ms
+Thu Sep  6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: O
+
+
+
+
+I am not sure what this states but there is nothing querying the database 
+so constantly. 
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_314_16304735.1346999387583
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I tailed the mongodb logs and it seems like this is constantly happening<di=
+v><br></div><div><div>Thu Sep &nbsp;6 23:26:05 [conn164573] query vyumixdb.=
+videos query: { _id: ObjectId('4f9d31f5f6dbe1557100006d') } ntoreturn:1 idh=
+ack:1 reslen:2649 0ms</div><div>Thu Sep &nbsp;6 23:26:05 [conn164573] query=
+ vyumixdb.videos query: { _id: ObjectId('4f9d31fbf6dbe15571000071') } ntore=
+turn:1 idhack:1 reslen:2725 0ms</div><div>Thu Sep &nbsp;6 23:26:05 [conn164=
+573] query vyumixdb.videos query: { _id: ObjectId('4f9d31fef6dbe15571000073=
+') } ntoreturn:1 idhack:1 reslen:2599 0ms</div><div>Thu Sep &nbsp;6 23:26:0=
+5 [conn164573] query vyumixdb.videos query: { _id: ObjectId('4f9d3206f6dbe1=
+5571000077') } ntoreturn:1 idhack:1 reslen:2696 0ms</div><div>Thu Sep &nbsp=
+;6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: ObjectId('4f9d=
+3209f6dbe15571000079') } ntoreturn:1 idhack:1 reslen:2496 0ms</div><div>Thu=
+ Sep &nbsp;6 23:26:05 [conn164573] query vyumixdb.videos query: { _id: Obje=
+ctId('4f9d3404f6dbe15c0c00003f') } ntoreturn:1 idhack:1 reslen:2384 0ms</di=
+v><div>Thu Sep &nbsp;6 23:26:05 [conn164573] query vyumixdb.videos query: {=
+ _id: ObjectId('4f9d340af6dbe15c0c000043') } ntoreturn:1 idhack:1 reslen:23=
+04 0ms</div><div>Thu Sep &nbsp;6 23:26:05 [conn164573] query vyumixdb.video=
+s query: { _id: ObjectId('4f9d3410f6dbe15c0c000047') } ntoreturn:1 idhack:1=
+ reslen:2432 0ms</div><div>Thu Sep &nbsp;6 23:26:05 [conn164573] query vyum=
+ixdb.videos query: { _id: O</div></div><div><br></div><div><br></div><div><=
+br></div><div><br></div><div>I am not sure what this states but there is no=
+thing querying the database so constantly.&nbsp;</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_314_16304735.1346999387583--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346999387</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1930</string>
+	<key>subject</key>
+	<string>[mongodb-user] mongodb logs continuos queries</string>
+</dict>
+</plist>

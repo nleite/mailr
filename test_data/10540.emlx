@@ -1,0 +1,343 @@
+14514     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp233037oef;
+        Thu, 6 Sep 2012 12:57:44 -0700 (PDT)
+Received: by 10.100.171.18 with SMTP id t18mr955797ane.42.1346961463898;
+        Thu, 06 Sep 2012 12:57:43 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKej7qzPFhCygKSCBRoEbAhdAA@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id o19si1223483ann.162.2012.09.06.12.57.42
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 12:57:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKej7qzPFhCygKSCBRoEbAhdAA@googlegroups.com designates 209.85.212.47 as permitted sender) client-ip=209.85.212.47;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKej7qzPFhCygKSCBRoEbAhdAA@googlegroups.com designates 209.85.212.47 as permitted sender) smtp.mail=mongodb-user+bncCKej7qzPFhCygKSCBRoEbAhdAA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-yx0-f192.google.com with SMTP id l1sf1622569yen.29
+        for <multiple recipients>; Thu, 06 Sep 2012 12:57:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:from
+         :date:message-id:subject:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=iFELRbfQpoR5eGYtRJ65k2OqucJ/evciFGa5rdAw4GA=;
+        b=LLU4OAkH8kRKC91z3PfaG84ZA1ak0mRHkRpoZp2Ks+TraLg+Y8QYWcOcMMt6GATlPI
+         lzgOyLEoP5tcLbl1cgqWbilwLMtqph1AcOht9zQdT2SFiqur2cHIv3JCslXGU9NgTqer
+         sgrBwkBExVJIlHBS2HsEvc+ZSNepVLTCgHL1Cw9CiahLb4sgmb8eZ2kZmHh9L2L42cxC
+         vZ8yfs/kTNX04VqBas6hN3G6WcVzSE9Kx6X/oC5337BHrGXWvxzN82ThSpOVoNlAcnpy
+         wHy69jXJA//rdQOc8eS0cExD/10Mx2jPP2r6AoevOk6PhAmbHnvbwY8qPF3m6vBHrrqd
+         CzbA==
+Received: by 10.224.204.7 with SMTP id fk7mr947198qab.6.1346961462844;
+        Thu, 06 Sep 2012 12:57:42 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.229.176.150 with SMTP id be22ls1378798qcb.4.gmail; Thu, 06 Sep
+ 2012 12:57:38 -0700 (PDT)
+Received: by 10.58.70.146 with SMTP id m18mr1232320veu.0.1346961458070;
+        Thu, 06 Sep 2012 12:57:38 -0700 (PDT)
+Received: by 10.58.70.146 with SMTP id m18mr1232319veu.0.1346961458054;
+        Thu, 06 Sep 2012 12:57:38 -0700 (PDT)
+Received: from mail-vb0-f47.google.com (mail-vb0-f47.google.com [209.85.212.47])
+        by gmr-mx.google.com with ESMTPS id ef10si638431vdb.3.2012.09.06.12.57.38
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 12:57:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of puentesarrin@gmail.com designates 209.85.212.47 as permitted sender) client-ip=209.85.212.47;
+Received: by mail-vb0-f47.google.com with SMTP id fr13so2199656vbb.20
+        for <mongodb-user@googlegroups.com>; Thu, 06 Sep 2012 12:57:38 -0700 (PDT)
+Received: by 10.220.107.136 with SMTP id b8mr3874096vcp.17.1346961457695; Thu,
+ 06 Sep 2012 12:57:37 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.220.200.134 with HTTP; Thu, 6 Sep 2012 12:56:57 -0700 (PDT)
+In-Reply-To: <CAO+R_P8=wzh5kbPU2-Hv=2i_sdYp6Jm+phxh+qLSN8n1VqTi_w@mail.gmail.com>
+References: <CAO+R_P8=wzh5kbPU2-Hv=2i_sdYp6Jm+phxh+qLSN8n1VqTi_w@mail.gmail.com>
+From: =?ISO-8859-1?Q?Jorge_Puente_Sarr=EDn?= <puentesarrin@gmail.com>
+Date: Thu, 6 Sep 2012 14:56:57 -0500
+Message-ID: <CAO+R_P_FfM8Fx=6OjQRHFue07fuqxdLHc+OEkBQtnVPhERYf6g@mail.gmail.com>
+Subject: [mongodb-user] Re: [pymongo-motor] OperationFailure on insert
+To: mongodb-user@googlegroups.com
+X-Original-Sender: puentesarrin@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of puentesarrin@gmail.com designates 209.85.212.47 as permitted
+ sender) smtp.mail=puentesarrin@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=f46d0435c072364acd04c90de781
+
+--f46d0435c072364acd04c90de781
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I have reviewed the DB and the document is inserted correctly, but I don't
+understand why raise this exception.
+
+Regards.
+
+2012/9/6 Jorge Puente Sarr=EDn <puentesarrin@gmail.com>
+
+> Hi, I'm following the Motor examples<http://emptysquare.net/motor/pymongo=
+/api/motor/examples.html#using-tornado-s-generator-interface>,
+> but my code raise a exception when insert a document using yield operator
+> and motor Op/Task.
+>
+> Here my code:
+>
+> class ContentHandler(MotorSampleHandler):
+>
+>     @tornado.web.asynchronous
+>     @tornado.gen.engine
+>     def post(self):
+>         title =3D self.get_argument('title')
+>         slug =3D stringhelper.get_slug(title)
+>         content =3D {'title': title,
+>             'content': self.get_argument('content'),
+>             'slug': slug,
+>             'date': datetime.datetime.now()}
+>         *yield motor.Op(self.db.contents.insert, content)*
+>         self.redirect('/%s' % slug)
+>
+> This is the traceback:
+>
+>     Traceback (most recent call last):
+>       File "/usr/local/lib/python2.7/dist-packages/tornado/web.py", line
+> 1000, in _stack_context_handle_exception
+>         raise_exc_info((type, value, traceback))
+>       File
+> "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line
+> 256, in _nested
+>         yield vars
+>       File
+> "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py", line
+> 226, in wrapped
+>         callback(*args, **kwargs)
+>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+> 382, in inner
+>         self.set_result(key, result)
+>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+> 315, in set_result
+>         self.run()
+>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+> 343, in run
+>         yielded =3D self.gen.throw(*exc_info)
+> *      File
+> "/home/puentesarrin/projects/motor-sample/motor-sample/handlers.py", line
+> 111, in post*
+> *        yield motor.Op(self.db.contents.insert, content)*
+>       File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line
+> 335, in run
+>         next =3D self.yield_point.get_result()
+>       File "/usr/local/lib/python2.7/dist-packages/motor/__init__.py",
+> line 1365, in get_result
+>         raise error
+>     OperationFailure: need to login
+>
+> I think that it's not about instance PyMongo Connection because, all of
+> queries (find/find_one) results is ok.
+>
+> Python version: 2.7.3
+> Tornado version: 2.3
+> PyMongo version: 2.2
+>
+> --
+> Atte.
+> Jorge Puente Sarr=EDn.
+>
+
+
+
+--=20
+Atte.
+Jorge Puente Sarr=EDn.
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--f46d0435c072364acd04c90de781
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I have reviewed the DB and the document is inserted correctly, but I don&#3=
+9;t understand why raise this exception.<div><br></div><div>Regards.<br><br=
+><div class=3D"gmail_quote">2012/9/6 Jorge Puente Sarr=EDn <span dir=3D"ltr=
+">&lt;<a href=3D"mailto:puentesarrin@gmail.com" target=3D"_blank">puentesar=
+rin@gmail.com</a>&gt;</span><br>
+
+
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hi, I&#39;m following the=A0<a href=3D"http:=
+//emptysquare.net/motor/pymongo/api/motor/examples.html#using-tornado-s-gen=
+erator-interface" target=3D"_blank">Motor examples</a>, but my code raise a=
+ exception when insert a document using yield operator and motor Op/Task.<d=
+iv>
+
+
+
+<br></div><div>Here my code:</div><div><br></div><div><div><font face=3D"&#=
+39;courier new&#39;, monospace">class ContentHandler(MotorSampleHandler):</=
+font></div><div><font face=3D"&#39;courier new&#39;, monospace"><br></font>=
+</div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 @tornado.web.a=
+synchronous</font></div><div><font face=3D"&#39;courier new&#39;, monospace=
+">=A0 =A0 @tornado.gen.engine</font></div><div><font face=3D"&#39;courier n=
+ew&#39;, monospace">=A0 =A0 def post(self):</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 =A0=A0</fo=
+nt><span style=3D"font-family:&#39;courier new&#39;,monospace">title =3D=A0=
+</span><span style=3D"font-family:&#39;courier new&#39;,monospace">self.get=
+_argument(&#39;title&#39;)</span></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 =A0 slug =
+=3D stringhelper.get_slug(title)</font></div><div><font face=3D"&#39;courie=
+r new&#39;, monospace">=A0 =A0 =A0 =A0 content =3D {&#39;title&#39;: title,=
+</font></div><div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =
+=A0 =A0 =A0 =A0 &#39;</font><span style=3D"font-family:&#39;courier new&#39=
+;,monospace">content&#39;: self.get_argument(&#39;content&#39;),</span></di=
+v>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 =A0 =A0 =
+=A0 &#39;slug&#39;: slug,</font></div><div><font face=3D"&#39;courier new&#=
+39;, monospace">=A0 =A0 =A0 =A0 =A0 =A0 &#39;date&#39;: datetime.datetime.n=
+ow()}</font></div><div><font face=3D"&#39;courier new&#39;, monospace">=A0 =
+=A0 =A0 =A0=A0</font><span style=3D"font-family:&#39;courier new&#39;,monos=
+pace"><b>yield motor.Op(self.db.contents.insert, content)</b></span></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 =A0 self.r=
+edirect(&#39;/%s&#39; % slug)</font></div></div><div><br></div><div>This is=
+ the traceback:<br clear=3D"all"><div><br></div><div><div><font face=3D"&#3=
+9;courier new&#39;, monospace">=A0 =A0 Traceback (most recent call last):</=
+font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/web.py&quot;, line 1000, in=
+ _stack_context_handle_exception</font></div><div><font face=3D"&#39;courie=
+r new&#39;, monospace">=A0 =A0 =A0 =A0 raise_exc_info((type, value, traceba=
+ck))</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py&quot;, lin=
+e 256, in _nested</font></div><div><font face=3D"&#39;courier new&#39;, mon=
+ospace">=A0 =A0 =A0 =A0 yield vars</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py&quot;, lin=
+e 226, in wrapped</font></div><div><font face=3D"&#39;courier new&#39;, mon=
+ospace">=A0 =A0 =A0 =A0 callback(*args, **kwargs)</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/gen.py&quot;, line 382, in =
+inner</font></div><div><font face=3D"&#39;courier new&#39;, monospace">=A0 =
+=A0 =A0 =A0 self.set_result(key, result)</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/gen.py&quot;, line 315, in =
+set_result</font></div><div><font face=3D"&#39;courier new&#39;, monospace"=
+>=A0 =A0 =A0 =A0 self.run()</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/gen.py&quot;, line 343, in =
+run</font></div><div><font face=3D"&#39;courier new&#39;, monospace">=A0 =
+=A0 =A0 =A0 yielded =3D self.gen.throw(*exc_info)</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace"><b>=A0 =A0 =A0 File &q=
+uot;/home/puentesarrin/projects/motor-sample/motor-sample/handlers.py&quot;=
+, line 111, in post</b></font></div><div><font face=3D"&#39;courier new&#39=
+;, monospace"><b>=A0 =A0 =A0 =A0 yield motor.Op(self.db.contents.insert, co=
+ntent)</b></font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/tornado/gen.py&quot;, line 335, in =
+run</font></div><div><font face=3D"&#39;courier new&#39;, monospace">=A0 =
+=A0 =A0 =A0 next =3D self.yield_point.get_result()</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 =A0 File &quot=
+;/usr/local/lib/python2.7/dist-packages/motor/__init__.py&quot;, line 1365,=
+ in get_result</font></div><div><font face=3D"&#39;courier new&#39;, monosp=
+ace">=A0 =A0 =A0 =A0 raise error</font></div>
+
+
+
+<div><font face=3D"&#39;courier new&#39;, monospace">=A0 =A0 OperationFailu=
+re: need to login</font></div></div><div><br></div><div>I think that it&#39=
+;s not about instance PyMongo Connection because, all of queries (find/find=
+_one) results is ok.</div>
+
+
+
+<div><br></div><div>Python version: 2.7.3</div><div>Tornado version: 2.3</d=
+iv><div>PyMongo version: 2.2</div><span><font color=3D"#888888"><div><br></=
+div>-- <br>Atte.<br>Jorge Puente Sarr=EDn.<br>
+</font></span></div>
+</blockquote></div><br><br clear=3D"all"><div><br></div>-- <br>Atte.<br>Jor=
+ge Puente Sarr=EDn.<br>
+</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--f46d0435c072364acd04c90de781--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346961417</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1864</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: [pymongo-motor] OperationFailure on insert</string>
+</dict>
+</plist>

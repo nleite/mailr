@@ -1,0 +1,200 @@
+10443     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp267827oef;
+        Fri, 7 Sep 2012 07:58:06 -0700 (PDT)
+Received: by 10.236.151.110 with SMTP id a74mr5183523yhk.35.1347029886479;
+        Fri, 07 Sep 2012 07:58:06 -0700 (PDT)
+Return-Path: <mongodb-user+bncCMPakILqGRD7lqiCBRoE9zG8TA@googlegroups.com>
+Received: from mail-gg0-f192.google.com (mail-gg0-f192.google.com [209.85.161.192])
+        by mx.google.com with ESMTPS id z4si2167212ani.33.2012.09.07.07.58.06
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 07:58:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCMPakILqGRD7lqiCBRoE9zG8TA@googlegroups.com designates 209.85.161.192 as permitted sender) client-ip=209.85.161.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCMPakILqGRD7lqiCBRoE9zG8TA@googlegroups.com designates 209.85.161.192 as permitted sender) smtp.mail=mongodb-user+bncCMPakILqGRD7lqiCBRoE9zG8TA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ggnh1 with SMTP id h1sf2235874ggn.29
+        for <multiple recipients>; Fri, 07 Sep 2012 07:58:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=JE2zCaEKMxFuPyToeQD890bbbdo/7F4D5zjNXEnChRs=;
+        b=fscwI2rYAwFijFZ1fsW/J/hgmDbKRPSu4319ln5Jphbav3/uZFhaAAdounUHVS91P+
+         rjALKGpuMSqwuauz8HAfy/pUJTZC1lAf6kfvfePG9PNjed2eLIEeAvuIS/kDkHp+ugsP
+         mEshpXOH5tQzkin3ke6yn6kX4Bc35lWLRJcjZKImmclTTCi2Hjh41KNDP5xzgiu3fFoj
+         BvAJ6TZxSOZvtrH2gxQVTQUGr29YdPmdfsGhhQxhvGU0VhinZz0B18xJXWaPV4BkdW16
+         9nGdPiwLT1JbWlz4+hhZb8HODveWAY2huB7N4x30PfRgEpyNpu0GqSDdAcI0xuOflA+g
+         gsag==
+Received: by 10.52.90.129 with SMTP id bw1mr1012540vdb.13.1347029886164;
+        Fri, 07 Sep 2012 07:58:06 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.89.173 with SMTP id bp13ls561899vdb.9.gmail; Fri, 07 Sep
+ 2012 07:58:03 -0700 (PDT)
+Received: by 10.52.90.129 with SMTP id bw1mr1012513vdb.13.1347029883299;
+        Fri, 07 Sep 2012 07:58:03 -0700 (PDT)
+Date: Fri, 7 Sep 2012 07:58:02 -0700 (PDT)
+From: DaveC <dacurylo@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <17bbe929-b431-4e03-bb08-bc72e1a50b80@googlegroups.com>
+Subject: [mongodb-user] Using MongoDB C# driver on Windows Server with
+ FIPS-140 compliance policy
+MIME-Version: 1.0
+X-Original-Sender: dacurylo@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ dacurylo@gmail.com designates internal as permitted sender)
+ smtp.mail=dacurylo@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_829_11080067.1347029882914"
+
+------=_Part_829_11080067.1347029882914
+Content-Type: text/plain; charset=ISO-8859-1
+
+I would like to use MongoDB in an environment where FIPS-140 is required. 
+ This is enabled on Windows 2008 by setting this registry bit:
+
+HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled
+
+When I do this, the MongoDB driver can no longer work. Is there any option 
+to use a different hashing algorithm? Can the server support a different 
+hashing algorithm for the connection credentials? Without this, we're 
+unable to use MongoDB in such an environment.
+
+ System.Reflection.TargetInvocationException: Exception has been thrown by 
+the target of an invocation. ---&gt; System.InvalidOperationException: This 
+implementation is not part of the Windows Platform FIPS validated 
+cryptographic algorithms.
+   at System.Security.Cryptography.MD5CryptoServiceProvider..ctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle._InvokeConstructor(IRuntimeMethodInfo 
+method, Object[] args, SignatureStruct&amp; signature, RuntimeType 
+declaringType)
+  at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags 
+invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Security.Cryptography.CryptoConfig.CreateFromName(String name, 
+Object[] args)
+   at System.Security.Cryptography.MD5.Create(String algName)
+   at MongoDB.Driver.MongoUtils.Hash(String text) in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\MongoUtils.cs:line 36
+   at MongoDB.Driver.Internal.MongoConnection.Authenticate(String 
+databaseName, MongoCredentials credentials) in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 
+153
+   at 
+MongoDB.Driver.Internal.MongoConnection.CheckAuthentication(MongoDatabase 
+database) in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 
+244
+   at MongoDB.Driver.MongoServerInstance.AcquireConnection(MongoDatabase 
+database) in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServerInstance.cs:line 
+267
+   at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, 
+Boolean slaveOk) in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoServer.cs:line 
+1038
+   at MongoDB.Driver.MongoCursorEnumerator`1.AcquireConnection() in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 
+184
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 
+194
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in 
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 
+126
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_829_11080067.1347029882914
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I would like to use MongoDB in an environment where FIPS-140 is required. &=
+nbsp;This is enabled on Windows 2008 by setting this registry bit:<div><br>=
+</div><div>HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\En=
+abled</div><div><br></div><div>When I do this, the MongoDB driver can no lo=
+nger work. Is there any option to use a different hashing algorithm? Can th=
+e server support a different hashing algorithm for the connection credentia=
+ls? Without this, we're unable to use MongoDB in such an environment.<br><d=
+iv><br></div><div><div>&nbsp;System.Reflection.TargetInvocationException: E=
+xception has been thrown by the target of an invocation. ---&amp;gt; System=
+.InvalidOperationException: This implementation is not part of the Windows =
+Platform FIPS validated cryptographic algorithms.</div><div>&nbsp; &nbsp;at=
+ System.Security.Cryptography.MD5CryptoServiceProvider..ctor()</div><div>&n=
+bsp; &nbsp;--- End of inner exception stack trace ---</div><div>&nbsp; &nbs=
+p;at System.RuntimeMethodHandle._InvokeConstructor(IRuntimeMethodInfo metho=
+d, Object[] args, SignatureStruct&amp;amp; signature, RuntimeType declaring=
+Type)</div><div>&nbsp; at System.Reflection.RuntimeConstructorInfo.Invoke(B=
+indingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo cul=
+ture)</div><div>&nbsp; &nbsp;at System.Security.Cryptography.CryptoConfig.C=
+reateFromName(String name, Object[] args)</div><div>&nbsp; &nbsp;at System.=
+Security.Cryptography.MD5.Create(String algName)</div><div>&nbsp; &nbsp;at =
+MongoDB.Driver.MongoUtils.Hash(String text) in C:\work\10gen\mongodb\mongo-=
+csharp-driver\Driver\MongoUtils.cs:line 36</div><div>&nbsp; &nbsp;at MongoD=
+B.Driver.Internal.MongoConnection.Authenticate(String databaseName, MongoCr=
+edentials credentials) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\=
+Internal\MongoConnection.cs:line 153</div><div>&nbsp; &nbsp;at MongoDB.Driv=
+er.Internal.MongoConnection.CheckAuthentication(MongoDatabase database) in =
+C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.c=
+s:line 244</div><div>&nbsp; &nbsp;at MongoDB.Driver.MongoServerInstance.Acq=
+uireConnection(MongoDatabase database) in C:\work\10gen\mongodb\mongo-cshar=
+p-driver\Driver\Core\MongoServerInstance.cs:line 267</div><div>&nbsp; &nbsp=
+;at MongoDB.Driver.MongoServer.AcquireConnection(MongoDatabase database, Bo=
+olean slaveOk) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\Mon=
+goServer.cs:line 1038</div><div>&nbsp; &nbsp;at MongoDB.Driver.MongoCursorE=
+numerator`1.AcquireConnection() in C:\work\10gen\mongodb\mongo-csharp-drive=
+r\Driver\Core\MongoCursorEnumerator.cs:line 184</div><div>&nbsp; &nbsp;at M=
+ongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\m=
+ongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 194</div><div>=
+&nbsp; &nbsp;at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\wor=
+k\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:li=
+ne 126</div></div><div><br></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_829_11080067.1347029882914--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347029882</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1970</string>
+	<key>subject</key>
+	<string>[mongodb-user] Using MongoDB C# driver on Windows Server with FIPS-140 compliance policy</string>
+</dict>
+</plist>

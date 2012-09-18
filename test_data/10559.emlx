@@ -1,0 +1,154 @@
+7029      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp239841oef;
+        Thu, 6 Sep 2012 16:04:53 -0700 (PDT)
+Received: by 10.224.78.198 with SMTP id m6mr5794832qak.30.1346972693568;
+        Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+Return-Path: <mongodb-user+bncCP3EzdCTBhCS2KSCBRoE0O4CnA@googlegroups.com>
+Received: from mail-qa0-f64.google.com (mail-qa0-f64.google.com [209.85.216.64])
+        by mx.google.com with ESMTPS id r8si1488892qct.63.2012.09.06.16.04.52
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCP3EzdCTBhCS2KSCBRoE0O4CnA@googlegroups.com designates 209.85.216.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCP3EzdCTBhCS2KSCBRoE0O4CnA@googlegroups.com designates 209.85.216.64 as permitted sender) smtp.mail=mongodb-user+bncCP3EzdCTBhCS2KSCBRoE0O4CnA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-qa0-f64.google.com with SMTP id g24sf1770760qab.29
+        for <multiple recipients>; Thu, 06 Sep 2012 16:04:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=tDfkE94YnrDMgdWY5yk/+y0jo7P/sKQPq8UBanuqiJA=;
+        b=GFaAeVkk7gta7nS4iJZdTumpAzX1TR8LbZPyrWDzZp6RM71lY3Gb9tYxA4+G/yyl05
+         Tur05T5XsusTXqLjqOcfoNpcmBb9gXC9IjX3BlriKc9ZOxHcHI+oneZC1I9up4jbZwds
+         D3RdfCpOBYlDIK0SfwHj/K2Ex5ybDYlUAVVdp8TnoptMIwRrBSW+DgiNtinc1wzZrNX4
+         pcUiEskIWRlYUwpsbh3cYda/d2JT+tDtd/qEZai8ITof02YxpKnEWYmxD+YUlmS2ItiN
+         xVut25QU/2w0gpwqgKeuxmt9j5Pj2Az5iFYEKj/Yr0LSKkzZBtiv0z0oPyP9/7fGGzWk
+         Vy/A==
+Received: by 10.224.42.20 with SMTP id q20mr1032864qae.12.1346972692885;
+        Thu, 06 Sep 2012 16:04:52 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.224.101.68 with SMTP id b4ls26335qao.0.gmail; Thu, 06 Sep 2012
+ 16:04:50 -0700 (PDT)
+Received: by 10.224.182.74 with SMTP id cb10mr2142895qab.0.1346972690783;
+        Thu, 06 Sep 2012 16:04:50 -0700 (PDT)
+Received: by 10.224.172.134 with SMTP id l6msqaz;
+        Thu, 6 Sep 2012 13:31:31 -0700 (PDT)
+Received: by 10.236.87.71 with SMTP id x47mr523456yhe.6.1346963491064;
+        Thu, 06 Sep 2012 13:31:31 -0700 (PDT)
+Date: Thu, 6 Sep 2012 13:31:30 -0700 (PDT)
+From: Stelios Doudalis <douda.ste@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <dd36bf0a-87b6-4756-9afd-486d5ea14cac@googlegroups.com>
+Subject: [mongodb-user] java.lang.ClassNotFoundException: com.mongodb.hadoop.streaming.MongoStreamJob
+MIME-Version: 1.0
+X-Original-Sender: douda.ste@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_28_2372779.1346963490505"
+
+------=_Part_28_2372779.1346963490505
+Content-Type: text/plain; charset=ISO-8859-1
+
+HI all,
+
+I am new to map reduce. 
+
+I have install hadoop 0.23 .
+
+Inside /usr/local/hadoop/share/hadoop/tools/lib
+I can find hadoop-streaming-0.23.1.jar
+
+When I run 
+hadoop jar mongo-hadoop-streaming-assembly-1.1.0-SNAPSHOT.jar -mapper 
+/home/hduser/jobs/examples/word_count/mapper.py  -reduce 
+/home/hduser/jobs/examples/word_count/reducer.py -inputURI 
+mongodb://130.33.51.8:27017/tweets\-english.tweetsNewTest  -outputURI 
+mongodb://130.33.51.8:27017/tweets\-english.hadoopRes
+
+I get :
+
+Exception in thread "main" java.io.IOException: Error opening job jar: 
+mongo-hadoop-streaming-assembly-1.1.0-SNAPSHOT.jar
+    at org.apache.hadoop.util.RunJar.main(RunJar.java:130)
+Caused by: java.util.zip.ZipException: error in opening zip file
+    at java.util.zip.ZipFile.open(Native Method)
+    at java.util.zip.ZipFile.<init>(ZipFile.java:127)
+    at java.util.jar.JarFile.<init>(JarFile.java:135)
+    at java.util.jar.JarFile.<init>(JarFile.java:72)
+    at org.apache.hadoop.util.RunJar.main(RunJar.java:128)
+
+
+Any ideas?
+Thanks
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_28_2372779.1346963490505
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+HI all,<br><br>I am new to map reduce. <br><br>I have install hadoop 0.23 .=
+<br><br>Inside /usr/local/hadoop/share/hadoop/tools/lib<br>I can find hadoo=
+p-streaming-0.23.1.jar<br><br>When I run <br>hadoop jar mongo-hadoop-stream=
+ing-assembly-1.1.0-SNAPSHOT.jar -mapper /home/hduser/jobs/examples/word_cou=
+nt/mapper.py&nbsp; -reduce /home/hduser/jobs/examples/word_count/reducer.py=
+ -inputURI mongodb://130.33.51.8:27017/tweets\-english.tweetsNewTest&nbsp; =
+-outputURI mongodb://130.33.51.8:27017/tweets\-english.hadoopRes<br><br>I g=
+et :<br><br>Exception in thread "main" java.io.IOException: Error opening j=
+ob jar: mongo-hadoop-streaming-assembly-1.1.0-SNAPSHOT.jar<br>&nbsp;&nbsp;&=
+nbsp; at org.apache.hadoop.util.RunJar.main(RunJar.java:130)<br>Caused by: =
+java.util.zip.ZipException: error in opening zip file<br>&nbsp;&nbsp;&nbsp;=
+ at java.util.zip.ZipFile.open(Native Method)<br>&nbsp;&nbsp;&nbsp; at java=
+.util.zip.ZipFile.&lt;init&gt;(ZipFile.java:127)<br>&nbsp;&nbsp;&nbsp; at j=
+ava.util.jar.JarFile.&lt;init&gt;(JarFile.java:135)<br>&nbsp;&nbsp;&nbsp; a=
+t java.util.jar.JarFile.&lt;init&gt;(JarFile.java:72)<br>&nbsp;&nbsp;&nbsp;=
+ at org.apache.hadoop.util.RunJar.main(RunJar.java:128)<br><br><br>Any idea=
+s?<br>Thanks<br>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_28_2372779.1346963490505--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346963490</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1883</string>
+	<key>subject</key>
+	<string>[mongodb-user] java.lang.ClassNotFoundException: com.mongodb.hadoop.streaming.MongoStreamJob</string>
+</dict>
+</plist>

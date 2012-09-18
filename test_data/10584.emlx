@@ -1,0 +1,189 @@
+9519      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp247192oef;
+        Thu, 6 Sep 2012 20:46:48 -0700 (PDT)
+Received: by 10.50.41.230 with SMTP id i6mr6125820igl.7.1346989607567;
+        Thu, 06 Sep 2012 20:46:47 -0700 (PDT)
+Return-Path: <mongodb-user+bncCP_T7PnnFhCk3KWCBRoEBG57uQ@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id hz6si6414246igc.17.2012.09.06.20.46.47
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 20:46:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCP_T7PnnFhCk3KWCBRoEBG57uQ@googlegroups.com designates 209.85.223.192 as permitted sender) client-ip=209.85.223.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCP_T7PnnFhCk3KWCBRoEBG57uQ@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCP_T7PnnFhCk3KWCBRoEBG57uQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iebc12 with SMTP id c12sf1190144ieb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 20:46:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=Gf0hvfSYWsRviQ7U+oKsPLjgAstXJcNhswyFlV2D33c=;
+        b=lPN3uYmQIs0cpe2OY9JWFXQ6fK12WfXM/wsYW3ztWTxbAZzeUcxM8AlfUigQ9xfyBr
+         nUzjzioUjRAfXngQxkQCNBVdEf09vHhEEyvkusLlYgyuFO+qmT0+yMVP8uuCD6OqFrLi
+         niDiGQobFh8O3WGawCEW4LUiLYbBZjcDGx3AkbzJyqilxHgznL09+sI4z6xG+EZl304h
+         hkPiZSo6ThlV38v4PgKutJ3yIQlQitA+XL5rPZl+L8jofjlcNNUZBZ+NemrVAa5Hvzka
+         14XtpAbxjlUoVdVltSviw92R3wFz1lT10k4nvx+zbRHSnfoVDnNwC3zMAozGBRYH3wqV
+         EMKg==
+Received: by 10.50.183.195 with SMTP id eo3mr10876719igc.6.1346989607210;
+        Thu, 06 Sep 2012 20:46:47 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.55.155 with SMTP id u27ls237202ibg.8.gmail; Thu, 06 Sep
+ 2012 20:46:44 -0700 (PDT)
+Received: by 10.50.188.163 with SMTP id gb3mr2324039igc.5.1346989604618;
+        Thu, 06 Sep 2012 20:46:44 -0700 (PDT)
+Received: by 10.50.100.229 with SMTP id fb5msigb;
+        Thu, 6 Sep 2012 20:44:43 -0700 (PDT)
+Received: by 10.68.211.6 with SMTP id my6mr1070186pbc.15.1346989483363;
+        Thu, 06 Sep 2012 20:44:43 -0700 (PDT)
+Date: Thu, 6 Sep 2012 20:44:42 -0700 (PDT)
+From: fadzlinor mustapa <cikonut@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <08e042dc-f96f-45e1-b3c4-f9ac549cfe5e@googlegroups.com>
+Subject: [mongodb-user] [Jasper report pdf export with mongodb]
+MIME-Version: 1.0
+X-Original-Sender: cikonut@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_244_6605904.1346989482796"
+
+------=_Part_244_6605904.1346989482796
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi all,
+
+i'm trying to export pdf/csv from a report that read MongoDB database. 
+however what i get was 0 byte. i don't what goes wrong. below is the code 
+for the method.
+
+private void generateReport(HashMap<String, Object> parametersMap, 
+MongoDbConnection conn, String jasperLocation, 
+            String reportFormat, String reportName) throws Exception {
+        OutputStream out = null;
+        try {
+            out = response.getOutputStream();
+            ByteArrayOutputStream baos =new ByteArrayOutputStream();
+            JasperPrint jasperPrint = 
+JasperFillManager.fillReport(jasperLocation, parametersMap, conn);
+            if("pdf".equalsIgnoreCase(reportFormat)) {
+                response.setContentType("application/pdf");
+                response.setHeader("Content-Disposition",  "attachment; 
+filename="+reportName+".pdf");
+                JasperExportManager.exportReportToPdfStream(jasperPrint, 
+baos);
+            } else {
+                response.setContentType("text/csv");
+                response.setHeader("Content-Disposition",  "attachment; 
+filename="+reportName+".csv");
+                JRExporter exporter = new JRCsvExporter();
+                exporter.setParameter(JRExporterParameter.JASPER_PRINT, 
+jasperPrint);
+                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, 
+baos);
+                exporter.exportReport();
+            }
+            response.setContentLength(baos.size());
+            baos.writeTo(out);
+            out.flush();
+        } catch(Exception e) {
+            log.error(e);
+            throw new Exception(e);
+        } finally {
+            out.close();
+        }
+ thanks
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_244_6605904.1346989482796
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi all,<br><br>i'm trying to export pdf/csv from a report that read MongoDB=
+ database. however what i get was 0 byte. i don't what goes wrong. below is=
+ the code for the method.<br><br>private void generateReport(HashMap&lt;Str=
+ing, Object&gt; parametersMap, MongoDbConnection conn, String jasperLocatio=
+n, <br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String repo=
+rtFormat, String reportName) throws Exception {<br>&nbsp;&nbsp;&nbsp; &nbsp=
+;&nbsp;&nbsp; OutputStream out =3D null;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;=
+&nbsp; try {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ou=
+t =3D response.getOutputStream();<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; =
+&nbsp;&nbsp;&nbsp; ByteArrayOutputStream baos =3Dnew ByteArrayOutputStream(=
+);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; JasperPrint =
+jasperPrint =3D JasperFillManager.fillReport(jasperLocation, parametersMap,=
+ conn);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if("pdf=
+".equalsIgnoreCase(reportFormat)) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp=
+; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; response.setContentType("applicatio=
+n/pdf");<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;=
+&nbsp;&nbsp; response.setHeader("Content-Disposition",&nbsp; "attachment; f=
+ilename=3D"+reportName+".pdf");<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &n=
+bsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; JasperExportManager.exportReportToPdfSt=
+ream(jasperPrint, baos);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nb=
+sp;&nbsp; } else {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nb=
+sp; &nbsp;&nbsp;&nbsp; response.setContentType("text/csv");<br>&nbsp;&nbsp;=
+&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; response.se=
+tHeader("Content-Disposition",&nbsp; "attachment; filename=3D"+reportName+"=
+.csv");<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&=
+nbsp;&nbsp; JRExporter exporter =3D new JRCsvExporter();<br>&nbsp;&nbsp;&nb=
+sp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; exporter.setPa=
+rameter(JRExporterParameter.JASPER_PRINT, jasperPrint);<br>&nbsp;&nbsp;&nbs=
+p; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; exporter.setPar=
+ameter(JRExporterParameter.OUTPUT_STREAM, baos);<br>&nbsp;&nbsp;&nbsp; &nbs=
+p;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; exporter.exportReport(=
+);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>&nbsp;&=
+nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; response.setContentLength=
+(baos.size());<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; =
+baos.writeTo(out);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nb=
+sp; out.flush();<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } catch(Exception=
+ e) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; log.error=
+(e);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; throw new =
+Exception(e);<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } finally {<br>&nbsp=
+;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; out.close();<br>&nbsp;&=
+nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>&nbsp;thanks<br>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_244_6605904.1346989482796--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346989482</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1908</string>
+	<key>subject</key>
+	<string>[mongodb-user] [Jasper report pdf export with mongodb]</string>
+</dict>
+</plist>

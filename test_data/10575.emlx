@@ -1,0 +1,277 @@
+12720     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp244212oef;
+        Thu, 6 Sep 2012 18:38:21 -0700 (PDT)
+Received: by 10.66.84.6 with SMTP id u6mr6098810pay.75.1346981901300;
+        Thu, 06 Sep 2012 18:38:21 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNrK0JCQCxCKoKWCBRoEKyJE8w@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id ip5si6455842pbc.18.2012.09.06.18.38.20
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:38:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNrK0JCQCxCKoKWCBRoEKyJE8w@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNrK0JCQCxCKoKWCBRoEKyJE8w@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCNrK0JCQCxCKoKWCBRoEKyJE8w@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1807193pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:38:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=nYulIQVPefJrOqGZ5/IyuuzzYiUDzGJG0145GAdRbbw=;
+        b=sg3CvbBxyUQcBr0PzJzIYDhz907BZBkQZL7jLjDUj3LNTvnxATu4fp6Rcluq24aTqn
+         c9pF9vFdIs6l3iCNfOMYXF7d/Vi4QIdV/I3c+zY6wtmPX2j6XXDuQBetNGEZIvEF4Ohw
+         D2ddxcOvrFQIrKP7XJm+A1Knfv/daCmjQ81wa+cwrpUiu6dOU0tFQQFIvzShWaiobmjh
+         93I2TaApF14Z6SIahjzHjsrYBFwyVU6+GJsDzWanv6+saH10n7rtmpe+zBtshhdw6ZXB
+         mUvhCO2w0+kZ5u6XXy3VRFiYlena2SJoiUn/DdRWBA8ieVJ2ucxoNwqh1c9BDeEfpcwm
+         51Og==
+Received: by 10.68.233.104 with SMTP id tv8mr1055697pbc.5.1346981900316;
+        Thu, 06 Sep 2012 18:38:20 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.141.133 with SMTP id ro5ls731881pbb.1.gmail; Thu, 06 Sep
+ 2012 18:38:18 -0700 (PDT)
+Received: by 10.68.232.230 with SMTP id tr6mr1020307pbc.16.1346981898233;
+        Thu, 06 Sep 2012 18:38:18 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:38:17 -0700 (PDT)
+From: Thomas Rueckstiess <Thomas.Rueckstiess@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <05be3489-4105-40f7-add3-c0da4c80e9b2@googlegroups.com>
+In-Reply-To: <34a27c9d-6030-42d0-a5fe-36dee4d6e3b3@googlegroups.com>
+References: <6dbed5a4-1240-4107-bc35-3db35209980a@googlegroups.com>
+ <946590f6-8149-4bad-9e6e-e7c8b7dba28c@googlegroups.com>
+ <34a27c9d-6030-42d0-a5fe-36dee4d6e3b3@googlegroups.com>
+Subject: [mongodb-user] Re: $OR Queries not hitting a composite index
+MIME-Version: 1.0
+X-Original-Sender: thomas.rueckstiess@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ thomas.rueckstiess@10gen.com designates internal as permitted sender)
+ smtp.mail=thomas.rueckstiess@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_184_19546011.1346981897877"
+
+------=_Part_184_19546011.1346981897877
+Content-Type: text/plain; charset=ISO-8859-1
+
+You need a separate index for each of the fields in the or clause. If your 
+query reads  { $or: [{odadd.z: ...}, {adadd.z: ...}] }, then you need two 
+indexes, one on odadd.z and one on adadd.z.
+$or works different from other query operators, it runs the separate 
+indexes in parallel.
+
+
+On Wednesday, September 5, 2012 2:45:54 AM UTC+10, jdmerth wrote:
+>
+> Thanks for the clarification.
+>
+> I created individual indexes to cover the fields, which works...but when I 
+> try to query against composite indexes I'm getting a table scan.
+>
+> for example, I have the following indexes:
+> db.packages.ensureIndex({
+> "odadd.l1": 1,
+> "odadd.c": 1,
+> "odadd.s": 1,
+> "odadd.z": 1
+> })
+>
+> db.packages.ensureIndex({
+> "adadd.l1": 1,
+> "adadd.c": 1,
+> "adadd.s": 1,
+> "adadd.z": 1
+> });
+> then for the query:
+>
+>
+>  db.packages.find({
+> "$or" : [
+> {
+> "odadd.z" : "76087"
+> },
+> {
+> "adadd.z" : "76087"
+> }
+> ]
+> }).explain();
+>
+> I'm still getting a table scan.  I can get it to work if I create 
+> individual indexes on the 'z' field, but it seems like it should use the 
+> composite index.
+>
+> Thanks in advance!
+>
+> On Thursday, August 30, 2012 12:21:07 PM UTC-6, thomasr wrote:
+>
+>> Queries with $or use multiple index plans in parallel, so you actually 
+>> want a separate index on each of the fields of the $or query. This is the 
+>> exception to normal queries, that need one compound index per query.
+>>
+>>
+>> http://www.mongodb.org/display/DOCS/Indexing+Advice+and+FAQ#IndexingAdviceandFAQ-Oneindexperquery.
+>>
+>>
+>>
+>> On Thursday, August 30, 2012 2:02:25 PM UTC-4, jdmerth wrote:
+>>>
+>>> I have a query that seems to be ignoring a composite index. The 
+>>>
+>>> I have the following index:
+>>>
+>>> db.mytable.ensureIndex({
+>>> "odadd.n": 1,
+>>> "odadd.cmp": 1,
+>>> "adadd.Address.n": 1,
+>>> "adadd.Address.cmp": 1
+>>> })
+>>>
+>>>
+>>> and when running the query:
+>>>
+>>> db.mytable.find({
+>>> "$or": [{
+>>> "odadd.n": "AMY"
+>>> },
+>>> {
+>>> "odadd.cmp": "AMY"
+>>> },
+>>> {
+>>> "adadd.Address.n": "AMY"
+>>> },
+>>> {
+>>> "adadd.Address.cmp": "AMY"
+>>> }]
+>>>
+>>> mongo does a table scan.  I can get it to work if I add separate indexes 
+>>> on each field, but that seems like a poor solution. Can anyone provide some 
+>>> insight into what I'm doing wrong here?
+>>>
+>>> Thank you!
+>>>
+>>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_184_19546011.1346981897877
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div>You need a separate index for each of the fields in the or clause. If =
+your query reads&nbsp;&nbsp;{&nbsp;$or: [{odadd.z: ...}, {adadd.z: ...}] },=
+ then you need two indexes, one on odadd.z and one on adadd.z.</div><div>$o=
+r works different from other query operators, it runs the separate indexes =
+in parallel.</div><div><br></div><div><div><div><br>On Wednesday, September=
+ 5, 2012 2:45:54 AM UTC+10, jdmerth wrote:<blockquote class=3D"gmail_quote"=
+ style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-=
+left: 1ex;">Thanks for the clarification.<div><br></div><div>I created indi=
+vidual indexes to cover the fields, which works...but when I try to query a=
+gainst composite indexes I'm getting a table scan.</div><div><br></div><div=
+>for example, I have the following indexes:</div><div><div><div>db.packages=
+.ensureIndex({</div><div><span style=3D"white-space:pre">	</span>"odadd.l1"=
+: 1,</div><div><span style=3D"white-space:pre">	</span>"odadd.c": 1,</div><=
+div><span style=3D"white-space:pre">	</span>"odadd.s": 1,</div><div><span s=
+tyle=3D"white-space:pre">	</span>"odadd.z": 1</div><div>})</div><div><br></=
+div><div>db.packages.ensureIndex({</div><div><span style=3D"white-space:pre=
+">	</span>"adadd.l1": 1,</div><div><span style=3D"white-space:pre">	</span>=
+"adadd.c": 1,</div><div><span style=3D"white-space:pre">	</span>"adadd.s": =
+1,</div><div><span style=3D"white-space:pre">	</span>"adadd.z": 1</div><div=
+>});</div><div>then for the query:</div><div><br></div><div><div><br></div>=
+<div>&nbsp;db.packages.find({</div><div><span style=3D"white-space:pre">			=
+		</span>"$or" : [</div><div><span style=3D"white-space:pre">						</span>{=
+</div><div><span style=3D"white-space:pre">							</span>"odadd.z" : "76087=
+"</div><div><span style=3D"white-space:pre">						</span>},</div><div><span=
+ style=3D"white-space:pre">						</span>{</div><div><span style=3D"white-sp=
+ace:pre">							</span>"adadd.z" : "76087"</div><div><span style=3D"white-s=
+pace:pre">						</span>}</div><div><span style=3D"white-space:pre">					</s=
+pan>]</div><div><span style=3D"white-space:pre">				</span>}).explain();</d=
+iv></div><div><br></div><div>I'm still getting a table scan. &nbsp;I can ge=
+t it to work if I create individual indexes on the 'z' field, but it seems =
+like it should use the composite index.</div><div><br></div><div>Thanks in =
+advance!</div><div><br></div><div>On Thursday, August 30, 2012 12:21:07 PM =
+UTC-6, thomasr wrote:<br></div></div><blockquote class=3D"gmail_quote" styl=
+e=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex=
+">Queries with $or use multiple index plans in parallel, so you actually wa=
+nt a separate&nbsp;index on each of the fields of the $or query. This is th=
+e exception to normal queries, that need one compound index per query.<div>=
+<br></div><div><a href=3D"http://www.mongodb.org/display/DOCS/Indexing+Advi=
+ce+and+FAQ#IndexingAdviceandFAQ-Oneindexperquery." target=3D"_blank">http:/=
+/www.mongodb.org/<wbr>display/DOCS/Indexing+Advice+<wbr>and+FAQ#IndexingAdv=
+iceandFAQ-<wbr>Oneindexperquery.</a><br></div><div><br></div><div><br></div=
+><div><br>On Thursday, August 30, 2012 2:02:25 PM UTC-4, jdmerth wrote:<blo=
+ckquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-le=
+ft:1px #ccc solid;padding-left:1ex">I have a query that seems to be ignorin=
+g a composite index. The&nbsp;<div><div><br></div><div>I have the following=
+ index:</div></div><blockquote style=3D"margin:0 0 0 40px;border:none;paddi=
+ng:0px"><div><div>db.mytable.ensureIndex({</div></div><div><div><span style=
+=3D"white-space:pre">	</span>"odadd.n": 1,</div></div><div><div><span style=
+=3D"white-space:pre">	</span>"odadd.cmp": 1,</div></div><div><div><span sty=
+le=3D"white-space:pre">	</span>"adadd.Address.n": 1,</div></div><div><div><=
+span style=3D"white-space:pre">	</span>"adadd.Address.cmp": 1</div></div><d=
+iv><div>})</div></div></blockquote><div><div><br></div><div>and when runnin=
+g the query:</div></div><blockquote style=3D"margin:0 0 0 40px;border:none;=
+padding:0px"><div><div>db.mytable.find({</div></div><div><div><span style=
+=3D"white-space:pre">	</span>"$or": [{</div></div><div><div><span style=3D"=
+white-space:pre">		</span>"odadd.n": "AMY"</div></div><div><div><span style=
+=3D"white-space:pre">	</span>},</div></div><div><div><span style=3D"white-s=
+pace:pre">	</span>{</div></div><div><div><span style=3D"white-space:pre">		=
+</span>"odadd.cmp": "AMY"</div></div><div><div><span style=3D"white-space:p=
+re">	</span>},</div></div><div><div><span style=3D"white-space:pre">	</span=
+>{</div></div><div><div><span style=3D"white-space:pre">		</span>"adadd.Add=
+ress.n": "AMY"</div></div><div><div><span style=3D"white-space:pre">	</span=
+>},</div></div><div><div><span style=3D"white-space:pre">	</span>{</div></d=
+iv><div><div><span style=3D"white-space:pre">		</span>"adadd.Address.cmp": =
+"AMY"</div></div><div><div><span style=3D"white-space:pre">	</span>}]</div>=
+</div></blockquote><div>mongo does a table scan. &nbsp;I can get it to work=
+ if I add separate indexes on each field, but that seems like a poor soluti=
+on. Can anyone provide some insight into what I'm doing wrong here?</div><d=
+iv><br></div><div>Thank you!</div></blockquote></div></blockquote></div></b=
+lockquote></div></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_184_19546011.1346981897877--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346981897</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1899</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: $OR Queries not hitting a composite index</string>
+</dict>
+</plist>

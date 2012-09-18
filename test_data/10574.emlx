@@ -1,0 +1,172 @@
+7500      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp244082oef;
+        Thu, 6 Sep 2012 18:31:54 -0700 (PDT)
+Received: by 10.236.191.69 with SMTP id f45mr3781459yhn.8.1346981514610;
+        Thu, 06 Sep 2012 18:31:54 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOLsq7WDCRCGnaWCBRoEdyLUtw@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id a4si1507365anh.142.2012.09.06.18.31.53
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:31:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOLsq7WDCRCGnaWCBRoEdyLUtw@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOLsq7WDCRCGnaWCBRoEdyLUtw@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCOLsq7WDCRCGnaWCBRoEdyLUtw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf1751720yhn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:31:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=+aA2C7AvxpSI7VySybq94bS2FaObf1TDNk3bXCF6DMc=;
+        b=RlikDWI0IPI5pLq6raFu4xYDrVpnZZo5M/BSseYVtNG6C/OBQqrTUiDcEwEFqqe4Gn
+         adDnN/4RfAU6YgJGygDzu6Se4jbR30hFhhsgdUUOaApaRO6Ik9xXL1aVd7hXgvp9itPg
+         plUzv1f4rSb0uoEjNQ9EzRmLejKGz5oYWHqtqE8lu5uMRbWk2EzUTGd7fQ1VbFvBquud
+         Wb4+4Fmv6nRhVmL24pP+Q5t/55TR18LOq/hidjnLY4rUtlX6eVNrplYM7ixZ09eaEhF5
+         kCUSSzt0Is9MzHV7il0jrRjoek6nOTc2p1T5pOAD5AyyQdTnB05cN6UHcaBQvt/G17Sy
+         dT/A==
+Received: by 10.68.189.202 with SMTP id gk10mr1046235pbc.11.1346981513543;
+        Thu, 06 Sep 2012 18:31:53 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.141.133 with SMTP id ro5ls721841pbb.1.gmail; Thu, 06 Sep
+ 2012 18:31:50 -0700 (PDT)
+Received: by 10.68.135.103 with SMTP id pr7mr1040878pbb.7.1346981510468;
+        Thu, 06 Sep 2012 18:31:50 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:31:49 -0700 (PDT)
+From: David Hows <david.hows@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <2fe246e1-dc21-4d6a-a58f-6d0b6fbeab5b@googlegroups.com>
+In-Reply-To: <dd707e31-7b76-4f6e-8f50-7c3a04d680c9@googlegroups.com>
+References: <43dbc088-4060-414d-a206-480aa390162d@googlegroups.com>
+ <0f9c3a34-6a07-4234-b3f9-da1b57a88826@googlegroups.com>
+ <90cd43d8-2612-4a1f-ae20-f3c8e9b96812@googlegroups.com>
+ <c5350bdd-1a13-4c4a-838d-e8e301438051@googlegroups.com>
+ <5592f4ef-ba2b-4f7c-be34-b3bc2a203aab@googlegroups.com>
+ <dd707e31-7b76-4f6e-8f50-7c3a04d680c9@googlegroups.com>
+Subject: [mongodb-user] Re: Mongo Benchmark/Profile
+MIME-Version: 1.0
+X-Original-Sender: david.hows@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ david.hows@10gen.com designates internal as permitted sender)
+ smtp.mail=david.hows@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_162_28574155.1346981509942"
+
+------=_Part_162_28574155.1346981509942
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Thomas,
+
+One last note. The recommended version of boost is version 1.49, if you are 
+doing a build please use that version.
+
+Cheers,
+
+David
+
+On Friday, September 7, 2012 10:13:10 AM UTC+10, David Hows wrote:
+>
+> Thomas,
+>
+> Quick run through of the output shows that the version of boost you have 
+> in your OS doesnt contain the boost_system library.
+>
+> It also appears that its is version 1.33.1 which is from 2006. 
+>
+> Please try running the following to install the current versions of the 
+> libraries
+> sudo yum install libboost-devel libboost-static-devel 
+>
+> If these dont provide any help you will need to download and compile 
+> libboost from source.
+>
+> Cheers,
+>
+> David
+>
+> On Friday, September 7, 2012 9:54:22 AM UTC+10, Thomas Weidman wrote:
+>>
+>> Hi David,
+>>
+>> The attached file contains the result of the find search.
+>>
+>> Thanks,
+>> Thomas
+>>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_162_28574155.1346981509942
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Thomas,<div><br></div><div>One last note. The recommended version of boo=
+st is version 1.49, if you are doing a build please use that version.</div>=
+<div><br></div><div>Cheers,</div><div><br></div><div>David</div><div><br>On=
+ Friday, September 7, 2012 10:13:10 AM UTC+10, David Hows wrote:<blockquote=
+ class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1=
+px #ccc solid;padding-left: 1ex;">Thomas,<div><br></div><div>Quick run thro=
+ugh of the output shows that the version of boost you have in your OS doesn=
+t contain the boost_system library.</div><div><br></div><div>It also appear=
+s that its is version 1.33.1 which is from 2006.&nbsp;</div><div><br></div>=
+<div>Please try running the following to install the current versions of th=
+e libraries</div><div>sudo yum install libboost-devel libboost-static-devel=
+&nbsp;</div><div><br></div><div>If these dont provide any help you will nee=
+d to download and compile libboost from source.</div><div><br></div><div>Ch=
+eers,</div><div><br></div><div>David<br><br>On Friday, September 7, 2012 9:=
+54:22 AM UTC+10, Thomas Weidman wrote:<blockquote class=3D"gmail_quote" sty=
+le=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1e=
+x">Hi David,<div><br></div><div>The attached file contains the result of th=
+e find search.</div><div><br></div><div>Thanks,</div><div>Thomas</div></blo=
+ckquote></div></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_162_28574155.1346981509942--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346981509</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1898</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Mongo Benchmark/Profile</string>
+</dict>
+</plist>

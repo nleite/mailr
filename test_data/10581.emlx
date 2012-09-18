@@ -1,0 +1,264 @@
+12625     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp246126oef;
+        Thu, 6 Sep 2012 20:06:42 -0700 (PDT)
+Received: by 10.50.194.138 with SMTP id hw10mr5987681igc.60.1346987201821;
+        Thu, 06 Sep 2012 20:06:41 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNHMjruXCBC-yaWCBRoEPGOlQQ@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id xu3si6592779igb.66.2012.09.06.20.06.41
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 20:06:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNHMjruXCBC-yaWCBRoEPGOlQQ@googlegroups.com designates 209.85.223.192 as permitted sender) client-ip=209.85.223.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNHMjruXCBC-yaWCBRoEPGOlQQ@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCNHMjruXCBC-yaWCBRoEPGOlQQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iebc12 with SMTP id c12sf1182999ieb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 20:06:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=FxqvR3y1SHY7PopstJB0MBmhYph2mWT1t0tvBJYo0hE=;
+        b=D0b0jS8TVm3A8Ea9kuKicvx9Bh971fb0ovscR7GKRnHpX2ewBBHRfRZQB2ztimR0SI
+         KtmtzUEReCE31/E9NoSyFpm8tCCRGqH4jUGguuezEpUls3800wB77DTJu0PfPcZSOel5
+         1LFwS6sZrr42iVFdrpnF6+SvZIkLXpoLcZ89JZEIYMH1JKhutvwGR3oj/4Eiei+ESrnS
+         2/VZWcs8RwD96QshESXY0Eqq+uYu6YOsIgCOlAtZ4X5uCI9BNcbRU10BlVg71IxHITwh
+         ZRH9TXsDLmWg2HNfrbJokTnSmUnwNMR+SN9AXhznKNBE80M95MWbejddMsqYe5f+oUVW
+         odgg==
+Received: by 10.68.225.234 with SMTP id rn10mr1053520pbc.3.1346987200871;
+        Thu, 06 Sep 2012 20:06:40 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.195.39 with SMTP id ib7ls461350pbc.9.gmail; Thu, 06 Sep
+ 2012 20:06:38 -0700 (PDT)
+Received: by 10.68.190.65 with SMTP id go1mr1075079pbc.6.1346987198670;
+        Thu, 06 Sep 2012 20:06:38 -0700 (PDT)
+Date: Thu, 6 Sep 2012 20:06:38 -0700 (PDT)
+From: Tom Vo <tom.vo@nexcel.vn>
+To: mongodb-user@googlegroups.com
+Message-Id: <7e404331-d26d-4671-9243-afc61d2be12b@googlegroups.com>
+Subject: [mongodb-user] Create Index on array
+MIME-Version: 1.0
+X-Original-Sender: tom.vo@nexcel.vn
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ tom.vo@nexcel.vn designates internal as permitted sender)
+ smtp.mail=tom.vo@nexcel.vn; dkim=pass
+ header.i=@nexcel.vn
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_227_11014764.1346987198066"
+
+------=_Part_227_11014764.1346987198066
+Content-Type: text/plain; charset=ISO-8859-1
+
+Dear all
+*I have collection Devices with data sample below.*
+db.Devices.find()
+{
+        "_id" : NumberLong(1),
+        "CapturedDate" : [
+                [
+                        1,
+                        ISODate("2012-05-10T02:07:50.159Z")
+                ],
+                [
+                        2,
+                        ISODate("2012-05-09T12:31:50.299Z")
+                ] 
+        ],
+        "OSName" : "Windows",
+        "DeviceType" : "Mobile"
+}
+
+{
+        "_id" : NumberLong(2),
+        "CapturedDate" : [
+                [
+                        1,
+                        ISODate("2012-04-10T06:59:50.123Z")
+                ],
+                [
+                        3,
+                        ISODate("2012-12-09T12:06:50.243Z")
+                ] 
+        ],
+        "OSName" : "Iphone",
+        "DeviceType" : "Mobile"
+}
+*I want to find size of "CapturedDate" great than 2, and this query run 
+slowly. **I try to create index on "CapturedDate" but performance not 
+improve. Please give me to your suggestion to solute this trouble.*
+
+db.Devices.ensureIndex( { CapturedDate : 1 } )
+db.Devices.find({"CapturedDate":{$size:2}},{CapturedDate:1}).explain()
+{
+        "cursor" : "BasicCursor",
+        "nscanned" : 1218300,
+        "nscannedObjects" : 1218300,
+        "n" : 73,
+        "millis" : 21544,
+        "nYields" : 0,
+        "nChunkSkips" : 0,
+        "isMultiKey" : false,
+        "indexOnly" : false,
+        "indexBounds" : {
+
+        }
+}
+>
+
+> db.Devices.find( { $where: "this.CapturedDate.length > 1" } 
+).hint({CapturedDate : 1}).explain()
+{
+        "cursor" : "BtreeCursor CapturedDate_1",
+        "nscanned" : 1218376,
+        "nscannedObjects" : 1218376,
+        "n" : 73,
+        "millis" : 23276,
+        "nYields" : 0,
+        "nChunkSkips" : 0,
+        "isMultiKey" : true,
+        "indexOnly" : false,
+        "indexBounds" : {
+                "CapturedDate" : [
+                        [
+                                {
+                                        "$minElement" : 1
+                                },
+                                {
+                                        "$maxElement" : 1
+                                }
+                        ]
+                ]
+        }
+
+
+*Thanks and Regards*
+*Tom Vo*
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_227_11014764.1346987198066
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<div>Dear all</div><div><b>I have collection Devices with data sample below=
+.</b></div><div>db.Devices.find()</div><div>{</div><div>&nbsp; &nbsp; &nbsp=
+; &nbsp; "_id" : NumberLong(1),</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "Capt=
+uredDate" : [</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; [</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; 1,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ISODate("2012-05-10T02:07:5=
+0.159Z")</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+],</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [</div=
+><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; 2,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ISODate("2012-05-09T12:31:50.299Z")</d=
+iv><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]<span clas=
+s=3D"Apple-tab-span" style=3D"white-space:pre">				</span></div><div>&nbsp;=
+ &nbsp; &nbsp; &nbsp; ],</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "OSName" : "=
+Windows",</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "DeviceType" : "Mobile"</di=
+v><div>}</div><div><br></div><div>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "=
+_id" : NumberLong(2),</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "CapturedDate" =
+: [</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [</di=
+v><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; 1,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ISODate("2012-04-10T06:59:50.123Z")</=
+div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],</div><d=
+iv>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [</div><div>&nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; 3,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; ISODate("2012-12-09T12:06:50.243Z")</div><div>&n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ]<span class=3D"Apple=
+-tab-span" style=3D"white-space:pre">				</span></div><div>&nbsp; &nbsp; &n=
+bsp; &nbsp; ],</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "OSName" : "Iphone",</=
+div><div>&nbsp; &nbsp; &nbsp; &nbsp; "DeviceType" : "Mobile"</div><div>}</d=
+iv><div><b>I want to find size of&nbsp;"CapturedDate" great than 2, and thi=
+s query run slowly.&nbsp;</b><b>I try to create index on "CapturedDate" but=
+ performance not improve. Please give me to your suggestion to solute this =
+trouble.</b></div><div><br></div><div>db.Devices.ensureIndex( { CapturedDat=
+e : 1 } )<br></div><div>db.Devices.find({"CapturedDate":{$size:2}},{Capture=
+dDate:1}).explain()<br></div><div><div>{</div><div>&nbsp; &nbsp; &nbsp; &nb=
+sp; "cursor" : "BasicCursor",</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "nscann=
+ed" : 1218300,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "nscannedObjects" : 12=
+18300,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "n" : 73,</div><div>&nbsp; &nb=
+sp; &nbsp; &nbsp; "millis" : 21544,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "=
+nYields" : 0,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "nChunkSkips" : 0,</div=
+><div>&nbsp; &nbsp; &nbsp; &nbsp; "isMultiKey" : false,</div><div>&nbsp; &n=
+bsp; &nbsp; &nbsp; "indexOnly" : false,</div><div>&nbsp; &nbsp; &nbsp; &nbs=
+p; "indexBounds" : {</div><div><br></div><div>&nbsp; &nbsp; &nbsp; &nbsp; }=
+</div><div>}</div><div>&gt;</div></div><div><br></div><div><div>&gt; db.Dev=
+ices.find( { $where: "this.CapturedDate.length &gt; 1" } ).hint({CapturedDa=
+te : 1}).explain()</div><div>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "curso=
+r" : "BtreeCursor CapturedDate_1",</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "n=
+scanned" : 1218376,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "nscannedObjects"=
+ : 1218376,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "n" : 73,</div><div>&nbsp=
+; &nbsp; &nbsp; &nbsp; "millis" : 23276,</div><div>&nbsp; &nbsp; &nbsp; &nb=
+sp; "nYields" : 0,</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "nChunkSkips" : 0,=
+</div><div>&nbsp; &nbsp; &nbsp; &nbsp; "isMultiKey" : true,</div><div>&nbsp=
+; &nbsp; &nbsp; &nbsp; "indexOnly" : false,</div><div>&nbsp; &nbsp; &nbsp; =
+&nbsp; "indexBounds" : {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; "CapturedDate" : [</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [</div><div>&nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; "$minElement" : 1</div><div>&nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; },</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</di=
+v><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "$m=
+axElement" : 1</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; ]</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ ]</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div></div><div><br></div><div><=
+br></div><div><b>Thanks and Regards</b></div><div><b>Tom Vo</b></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_227_11014764.1346987198066--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346987198</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1905</string>
+	<key>subject</key>
+	<string>[mongodb-user] Create Index on array</string>
+</dict>
+</plist>

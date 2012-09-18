@@ -1,0 +1,187 @@
+9614      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp266467oef;
+        Fri, 7 Sep 2012 07:24:50 -0700 (PDT)
+Received: by 10.236.77.7 with SMTP id c7mr5267921yhe.2.1347027890434;
+        Fri, 07 Sep 2012 07:24:50 -0700 (PDT)
+Return-Path: <mongodb-user+bncCPuu2bvJBhCwh6iCBRoE8am9bQ@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id y1si2130734ani.64.2012.09.07.07.24.50
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 07:24:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCPuu2bvJBhCwh6iCBRoE8am9bQ@googlegroups.com designates 209.85.213.192 as permitted sender) client-ip=209.85.213.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCPuu2bvJBhCwh6iCBRoE8am9bQ@googlegroups.com designates 209.85.213.192 as permitted sender) smtp.mail=mongodb-user+bncCPuu2bvJBhCwh6iCBRoE8am9bQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yenl1 with SMTP id l1sf2218761yen.29
+        for <multiple recipients>; Fri, 07 Sep 2012 07:24:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=ptTtwVHQ8dE4oDX71y0+X8Nz97OrkVKNCrima6fMArU=;
+        b=Fau/C6qgiWEh/4Arm/3K3wUS2u+2hZWQ/I7SS/sB147fVyuP9jmNFxwzj414FfPRKE
+         A9+j/cH0SJTvp3lABIlzaBb82zYpt3dj9VJqEYMxygV5mi7zdIMC7czxNwcceEgYOtg5
+         6Jlz/lz0msAUmvEt573hsXF5RYDjvNZ4JoXLFSEHiuyKxSBiiurddtAtoaoxsdwshHjX
+         fnZdnfpOvreo8a/ZMv/pJSSbe71/PZjVWvI5CCKp0+ThybF7jOoRq91m/PmPW4pGeBtn
+         VWCCvA/JNuwG+ImDGe+2Q5uS5sqWvgfptTIjh/WqbpIGVZ/Sb8STo/x2WHAPH2ot9M9m
+         88QA==
+Received: by 10.52.29.131 with SMTP id k3mr166358vdh.5.1347027889904;
+        Fri, 07 Sep 2012 07:24:49 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.177.106 with SMTP id cp10ls521744vdc.2.gmail; Fri, 07 Sep
+ 2012 07:24:48 -0700 (PDT)
+Received: by 10.52.35.104 with SMTP id g8mr942776vdj.19.1347027887888;
+        Fri, 07 Sep 2012 07:24:47 -0700 (PDT)
+Date: Fri, 7 Sep 2012 07:24:47 -0700 (PDT)
+From: gregor <gregor@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <00c5c079-2245-4741-8b78-cf75ae75fd19@googlegroups.com>
+In-Reply-To: <aac9cf4d-3567-4ed0-8a66-c7044ef45876@googlegroups.com>
+References: <039c5c38-175f-476f-9a67-f00b51467158@googlegroups.com>
+ <3e88c89a-83c4-4367-b2b1-ba0853d24f6e@googlegroups.com>
+ <aac9cf4d-3567-4ed0-8a66-c7044ef45876@googlegroups.com>
+Subject: [mongodb-user] Re: mongo 2.2.0 seg fault
+MIME-Version: 1.0
+X-Original-Sender: gregor@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ gregor@10gen.com designates internal as permitted sender)
+ smtp.mail=gregor@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_110_3263333.1347027887664"
+
+------=_Part_110_3263333.1347027887664
+Content-Type: text/plain; charset=ISO-8859-1
+
+It looks like the bottom of the stack trace is missing - do you have the 
+whole thing?
+
+On Friday, September 7, 2012 3:16:07 PM UTC+1, Valentin Kuznetsov wrote:
+>
+> Here is gdb output and I'm still investigating.
+>
+> GNU gdb (GDB) Red Hat Enterprise Linux (7.0.1-42.el5)
+> Copyright (C) 2009 Free Software Foundation, Inc.
+> License GPLv3+: GNU GPL version 3 or later <
+> http://gnu.org/licenses/gpl.html>
+> This is free software: you are free to change and redistribute it.
+> There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+> and "show warranty" for details.
+> This GDB was configured as "x86_64-redhat-linux-gnu".
+> For bug reporting instructions, please see:
+> <http://www.gnu.org/software/gdb/bugs/>...
+> Reading symbols from 
+> /build/vk/build_stuff/w/slc5_amd64_gcc461/external/mongo/2.2.0/bin/mongo...(no 
+> debugging symbols found)...done.
+> (gdb) run --port 8230
+> Starting program: 
+> /build/vk/build_stuff/w/slc5_amd64_gcc461/external/mongo/2.2.0/bin/mongo 
+> --port 8230
+> warning: no loadable sections found in added symbol-file system-supplied 
+> DSO at 0x2aaaaaaab000
+> [Thread debugging using libthread_db enabled]
+> MongoDB shell version: 2.2.0
+>
+> Program received signal SIGSEGV, Segmentation fault.
+> 0x000000000040fb08 in std::basic_string<char, std::char_traits<char>, 
+> std::allocator<char> >::find_last_not_of(char const*, unsigned long, 
+> unsigned long) const ()
+>     at 
+> /build/lat/comp/boot461b/BUILD/slc5_amd64_gcc461/external/gcc/4.6.1-comp2/gcc-4.6.1/obj/x86_64-unknown-linux-gnu/libstdc++-v3/include/bits/basic_string.tcc:876
+> 876     
+> /build/lat/comp/boot461b/BUILD/slc5_amd64_gcc461/external/gcc/4.6.1-comp2/gcc-4.6.1/obj/x86_64-unknown-linux-gnu/libstdc++-v3/include/bits/basic_string.tcc: 
+> No such file or directory.
+>         in 
+> /build/lat/comp/boot461b/BUILD/slc5_amd64_gcc461/external/gcc/4.6.1-comp2/gcc-4.6.1/obj/x86_64-unknown-linux-gnu/libstdc++-v3/include/bits/basic_string.tcc
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_110_3263333.1347027887664
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+It looks like the bottom of the stack trace is missing - do you have the wh=
+ole thing?<br><br>On Friday, September 7, 2012 3:16:07 PM UTC+1, Valentin K=
+uznetsov wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-=
+left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">Here is gdb out=
+put and I'm still investigating.<div><br></div><div><div>GNU gdb (GDB) Red =
+Hat Enterprise Linux (7.0.1-42.el5)</div><div>Copyright (C) 2009 Free Softw=
+are Foundation, Inc.</div><div>License GPLv3+: GNU GPL version 3 or later &=
+lt;<a href=3D"http://gnu.org/licenses/gpl.html" target=3D"_blank">http://gn=
+u.org/licenses/gpl.<wbr>html</a>&gt;</div><div>This is free software: you a=
+re free to change and redistribute it.</div><div>There is NO WARRANTY, to t=
+he extent permitted by law. &nbsp;Type "show copying"</div><div>and "show w=
+arranty" for details.</div><div>This GDB was configured as "x86_64-redhat-l=
+inux-gnu".</div><div>For bug reporting instructions, please see:</div><div>=
+&lt;<a href=3D"http://www.gnu.org/software/gdb/bugs/" target=3D"_blank">htt=
+p://www.gnu.org/software/<wbr>gdb/bugs/</a>&gt;...</div><div>Reading symbol=
+s from /build/vk/build_stuff/w/slc5_<wbr>amd64_gcc461/external/mongo/2.<wbr=
+>2.0/bin/mongo...(no debugging symbols found)...done.</div><div>(gdb) run -=
+-port 8230</div><div>Starting program: /build/vk/build_stuff/w/slc5_<wbr>am=
+d64_gcc461/external/mongo/2.<wbr>2.0/bin/mongo --port 8230</div><div>warnin=
+g: no loadable sections found in added symbol-file system-supplied DSO at 0=
+x2aaaaaaab000</div><div>[Thread debugging using libthread_db enabled]</div>=
+<div>MongoDB shell version: 2.2.0</div><div><br></div><div>Program received=
+ signal SIGSEGV, Segmentation fault.</div><div>0x000000000040fb08 in std::b=
+asic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&g=
+t; &gt;::find_last_not_of(char const*, unsigned long, unsigned long) const =
+()</div><div>&nbsp; &nbsp; at /build/lat/comp/boot461b/<wbr>BUILD/slc5_amd6=
+4_gcc461/<wbr>external/gcc/4.6.1-comp2/gcc-<wbr>4.6.1/obj/x86_64-unknown-<w=
+br>linux-gnu/libstdc++-v3/<wbr>include/bits/basic_string.tcc:<wbr>876</div>=
+<div>876 &nbsp; &nbsp; /build/lat/comp/boot461b/<wbr>BUILD/slc5_amd64_gcc46=
+1/<wbr>external/gcc/4.6.1-comp2/gcc-<wbr>4.6.1/obj/x86_64-unknown-<wbr>linu=
+x-gnu/libstdc++-v3/<wbr>include/bits/basic_string.tcc: No such file or dire=
+ctory.</div><div>&nbsp; &nbsp; &nbsp; &nbsp; in /build/lat/comp/boot461b/<w=
+br>BUILD/slc5_amd64_gcc461/<wbr>external/gcc/4.6.1-comp2/gcc-<wbr>4.6.1/obj=
+/x86_64-unknown-<wbr>linux-gnu/libstdc++-v3/<wbr>include/bits/basic_string.=
+tcc</div></div></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_110_3263333.1347027887664--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347027887</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1964</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo 2.2.0 seg fault</string>
+</dict>
+</plist>

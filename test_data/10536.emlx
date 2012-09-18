@@ -1,0 +1,178 @@
+7183      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp232387oef;
+        Thu, 6 Sep 2012 12:39:13 -0700 (PDT)
+Received: by 10.66.74.74 with SMTP id r10mr261679pav.57.1346960352529;
+        Thu, 06 Sep 2012 12:39:12 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLao3teyHBDc96OCBRoEFUxYtA@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id pf8si5235630pbc.49.2012.09.06.12.39.11
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 12:39:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLao3teyHBDc96OCBRoEFUxYtA@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLao3teyHBDc96OCBRoEFUxYtA@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCLao3teyHBDc96OCBRoEFUxYtA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1671622pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 12:39:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=78S+ZMaTIdu4sbkt5hHMnaO2GKVDaVRYP0zOr44T2uk=;
+        b=Wu+CZGqRLpAG6sDIoSmGA1RFGSmVU9HHzvBcj6kpwTZfFzHjS+q8gtOKd64n5z9Kgq
+         tDi0qwgI6KIlp0jqjMDgRlajh53KWc3yxGLiuJmpk10ypqwo4GgF8fZ4DRxOODgyzPG5
+         6FRFShxKym/XMmPrCUvp4R/lQ3j2/Dew064gL6gp5F16ZsypORld7FKUuc49UQ/+RlXd
+         89oJ/VsJ0k1dDa5O4hy5tvI/0zXiBxeo9GNs2KsohhTPWkD5H4w7rS6IGfSsf8XuRk3f
+         8zmyos0fIOeiAGcMNtgCatqJSKGtgsD7sH/ow9VgNO0YKWj5LnYxjdT8Z4r2DWz7h3tN
+         ay/g==
+Received: by 10.52.90.129 with SMTP id bw1mr639648vdb.13.1346960350469;
+        Thu, 06 Sep 2012 12:39:10 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.141.4 with SMTP id k4ls1153045vcu.8.gmail; Thu, 06 Sep
+ 2012 12:39:08 -0700 (PDT)
+Received: by 10.52.38.99 with SMTP id f3mr636457vdk.5.1346960348154;
+        Thu, 06 Sep 2012 12:39:08 -0700 (PDT)
+Date: Thu, 6 Sep 2012 12:39:07 -0700 (PDT)
+From: Tim <tim.a.zimmermann@googlemail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <b593fe14-6bea-4f68-87a2-bf3eff0fa915@googlegroups.com>
+Subject: [mongodb-user] Execute a Java Script file
+MIME-Version: 1.0
+X-Original-Sender: tim.a.zimmermann@googlemail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ tim.a.zimmermann@googlemail.com designates internal as permitted sender)
+ smtp.mail=tim.a.zimmermann@googlemail.com; dkim=pass
+ header.i=@googlemail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_45_5568929.1346960347711"
+
+------=_Part_45_5568929.1346960347711
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hello,
+I developed a Java Script function, that inserts data and measures the 
+time. (Tried it with and without the "function()")
+
+function f() {
+
+var doc= '';
+var start = new Date().getTime();
+
+for (i=0; i<1000000; i++)
+{ 
+doc = { a: '13', b:i}  
+db.mycol.insert(doc);
+}
+var end = new Date().getTime();
+var time = end - start;
+alert('Execution time: ' + time);
+}
+
+
+
+I tried to execute via the mongos shell like 
+
+
+If a line contains open '(' or '{' characters, the shell will request more 
+input before evaluating:
+ 
+> function f() {
+... x = 1;
+... }
+>
+ 
+
+from
+http://www.mongodb.org/display/DOCS/Overview+-+The+MongoDB+Interactive+Shell#Overview-TheMongoDBInteractiveShell-SomeNotesonDatatypesintheShell
+
+but it failed.
+
+From http://www.mongodb.org/display/DOCS/Scripting+the+shell
+I read:
+
+
+./mongo server:27017/dbname --quiet my_commands.js
+
+
+I'm not quite sure if I missed something, but is there a folder where I have to store the .js file?
+Or how do you execute a .js file?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_45_5568929.1346960347711
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hello,<br>I developed a Java Script function, that inserts data and measure=
+s the time. (Tried it with and without the "function()")<br><br>function f(=
+) {<br><br>var doc=3D '';<br>var start =3D new Date().getTime();<br><br>for=
+ (i=3D0; i&lt;1000000; i++)<br>{ <br>doc =3D { a: '13', b:i}&nbsp; <br>db.m=
+ycol.insert(doc);<br>}<br>var end =3D new Date().getTime();<br>var time =3D=
+ end - start;<br>alert('Execution time: ' + time);<br>}<br><br><br><br>I tr=
+ied to execute via the mongos shell like <br><br><br><p style=3D"margin-lef=
+t: 40px;">If a line contains open '(' or '{' characters, the shell will req=
+uest more input before evaluating:</p>
+
+<div class=3D"code panel" style=3D"border-width: 1px;"><div class=3D"codeCo=
+ntent panelContent">
+<pre style=3D"margin-left: 40px;" class=3D"code-java">&gt; function f() {
+... x =3D 1;
+... }
+&gt;<br>&nbsp;</pre>
+</div></div>from<br>http://www.mongodb.org/display/DOCS/Overview+-+The+Mong=
+oDB+Interactive+Shell#Overview-TheMongoDBInteractiveShell-SomeNotesonDataty=
+pesintheShell<br><br>but it failed.<br><br>From http://www.mongodb.org/disp=
+lay/DOCS/Scripting+the+shell<br>I read:<br><pre class=3D"code-java"><br>./m=
+ongo server:27017/dbname --quiet my_commands.js<br></pre><pre class=3D"code=
+-java"><br>I'm not quite sure if I missed something, but is there a folder =
+where I have to store the .js file?<br>Or how do you execute a .js file?<br=
+></pre>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_45_5568929.1346960347711--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346960347</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1860</string>
+	<key>subject</key>
+	<string>[mongodb-user] Execute a Java Script file</string>
+</dict>
+</plist>

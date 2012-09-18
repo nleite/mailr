@@ -1,0 +1,226 @@
+11880     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp264809oef;
+        Fri, 7 Sep 2012 06:43:58 -0700 (PDT)
+Received: by 10.68.228.100 with SMTP id sh4mr10060362pbc.45.1347025437538;
+        Fri, 07 Sep 2012 06:43:57 -0700 (PDT)
+Return-Path: <mongodb-user+bncCPuu2bvJBhCb9KeCBRoE9hwTFw@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id nr4si3071008pbc.246.2012.09.07.06.43.57
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 06:43:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCPuu2bvJBhCb9KeCBRoE9hwTFw@googlegroups.com designates 209.85.210.64 as permitted sender) client-ip=209.85.210.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCPuu2bvJBhCb9KeCBRoE9hwTFw@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCPuu2bvJBhCb9KeCBRoE9hwTFw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by dadz9 with SMTP id z9sf2178117dad.29
+        for <multiple recipients>; Fri, 07 Sep 2012 06:43:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=Ls9WzmrOFd9jGO2VJTjHYhnDLg3ZRjTKeu0/yILsH0g=;
+        b=k/dB5ZHFGKIwPIMFiQB23nDqvL9WbpaH26u60pFw08P105Ekfb7yTeDLXhKtTGfLcz
+         GHCG7d8JGdCYDtBa7BHfoqTqFe/71mhskVE25EzfKuInVwIZ8usgbxos90S0+Lbf1ElK
+         +xNM9iEwAraXpoXL2oCLsyRtEMh0txT7qZZW8Q6D3uOxnTkEvpPd2Cf8WqBg5WEFphwp
+         rokvC4if2DMPkqiNK2TkGW+Zf3IiTjDYyUwq6E7Whf+/2nLJbhQfOdUtndTCHhZD2U3r
+         g0KsYZB/Wx+/wOUIMrWSVYl8DQiq9heo08YhoWr3ZgzkJt2OXgq1eJxykD4vwUuBY4zN
+         oRpw==
+Received: by 10.52.99.8 with SMTP id em8mr913505vdb.16.1347025436481;
+        Fri, 07 Sep 2012 06:43:56 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.155.6 with SMTP id q6ls451294vcw.3.gmail; Fri, 07 Sep 2012
+ 06:43:54 -0700 (PDT)
+Received: by 10.52.75.36 with SMTP id z4mr922877vdv.14.1347025434751;
+        Fri, 07 Sep 2012 06:43:54 -0700 (PDT)
+Date: Fri, 7 Sep 2012 06:43:54 -0700 (PDT)
+From: gregor <gregor@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <3e88c89a-83c4-4367-b2b1-ba0853d24f6e@googlegroups.com>
+In-Reply-To: <039c5c38-175f-476f-9a67-f00b51467158@googlegroups.com>
+References: <039c5c38-175f-476f-9a67-f00b51467158@googlegroups.com>
+Subject: [mongodb-user] Re: mongo 2.2.0 seg fault
+MIME-Version: 1.0
+X-Original-Sender: gregor@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ gregor@10gen.com designates internal as permitted sender)
+ smtp.mail=gregor@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_63_10289126.1347025434337"
+
+------=_Part_63_10289126.1347025434337
+Content-Type: text/plain; charset=ISO-8859-1
+
+Are you able to see with gdb where in the code it has crashed?
+
+On Friday, September 7, 2012 12:58:54 PM UTC+1, Valentin Kuznetsov wrote:
+>
+> Hi,
+> I downloaded new release (2.2.0) and built it on our system (we use our 
+> own version of compiler). The system is Scientific Linux 5, 64 bit and we 
+> use gcc 4.6.1. Once I got executable and I was able to start mongod, but 
+> mongo crashed with seg fault. Here is the output
+>
+> valya@vo106(23:49:08)> mongo --port 8230
+> MongoDB shell version: 2.2.0
+> Thu Sep  6 23:49:12 mongo got signal 11 (Segmentation fault), stack trace: 
+>
+> Thu Sep  6 23:49:12 0x493733 0x40d824 0x38142302f0 0x40fb08 0x41b9ce 
+> 0x381421d994 0x40be09 
+>  mongo [0x493733]
+>  mongo [0x40d824]
+>  /lib64/libc.so.6 [0x38142302f0]
+>  mongo [0x40fb08]
+>  mongo [0x41b9ce]
+>  /lib64/libc.so.6(__libc_start_main+0xf4) [0x381421d994]
+>  mongo [0x40be09]
+>
+> valya@vo106(23:49:12)> ps auxwww | grep mongo
+> valya    29900  3.0  0.1 131532 29796 ?        Sl   23:46   0:04 mongod 
+> --fork --dbpath=/tmp/valya/mongodb/db/ --port 8230 --nohttpinterface 
+> --logpath /tmp/valya/mongodb/logs/mongodb.log
+> valya    29936  0.0  0.0  59196   780 pts/1    S+   23:49   0:00 grep mongo
+> valya@vocms106(23:49:37)> tail /tmp/valya/mongodb/logs/mongodb.log
+> Thu Sep  6 23:46:59 [initandlisten] preallocateIsFaster=true 7.62
+> Thu Sep  6 23:47:00 [initandlisten] preallocateIsFaster=true 8.02
+> Thu Sep  6 23:47:01 [initandlisten] preallocateIsFaster=true 7.88
+> Thu Sep  6 23:47:01 [initandlisten] preallocating a journal file 
+> /tmp/valya/mongodb/db/journal/prealloc.0
+> Thu Sep  6 23:47:34 [initandlisten] preallocating a journal file 
+> /tmp/valya/mongodb/db/journal/prealloc.1
+> Thu Sep  6 23:48:08 [initandlisten] preallocating a journal file 
+> /tmp/valya/mongodb/db/journal/prealloc.2
+> Thu Sep  6 23:48:12 [initandlisten]             230686720/1073741824    21%
+> Thu Sep  6 23:48:15 [initandlisten]             356515840/1073741824    33%
+> Thu Sep  6 23:48:20 [initandlisten]             1006632960/1073741824   93%
+> Thu Sep  6 23:48:44 [initandlisten] waiting for connections on port 8230
+>
+> valya@vo106(23:52:24)> ldd 
+> /build/vk/build_stuff/w/slc5_amd64_gcc461/external/mongo/2.2.0/bin/mongo
+>         linux-vdso.so.1 =>  (0x00007fff7b1fd000)
+>         libpthread.so.0 => /lib64/libpthread.so.0 (0x0000003814a00000)
+>         librt.so.1 => /lib64/librt.so.1 (0x0000003815600000)
+>         libstdc++.so.6 => 
+> /build/vk/build_stuff/w/slc5_amd64_gcc461/external/gcc/4.6.1-comp2/lib64/libstdc++.so.6 
+> (0x00002b451d0ab000)
+>         libm.so.6 => /lib64/libm.so.6 (0x0000003814e00000)
+>         libgcc_s.so.1 => 
+> /build/vk/build_stuff/w/slc5_amd64_gcc461/external/gcc/4.6.1-comp2/lib64/libgcc_s.so.1 
+> (0x00002b451d1b8000)
+>         libc.so.6 => /lib64/libc.so.6 (0x0000003814200000)
+>         /lib64/ld-linux-x86-64.so.2 (0x0000003813e00000)
+>
+> Any idea?
+> Thanks
+> Valentin.
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_63_10289126.1347025434337
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Are you able to see with gdb where in the code it has crashed?<br><br>On Fr=
+iday, September 7, 2012 12:58:54 PM UTC+1, Valentin Kuznetsov wrote:<blockq=
+uote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-lef=
+t: 1px #ccc solid;padding-left: 1ex;">Hi,<div>I downloaded new release (2.2=
+.0) and built it on our system (we use our own version of compiler). The sy=
+stem is Scientific Linux 5, 64 bit and we use gcc 4.6.1. Once I got executa=
+ble and I was able to start mongod, but mongo crashed with seg fault. Here =
+is the output</div><div><br></div><div><div>valya@vo106(23:49:08)&gt; mongo=
+ --port 8230</div><div>MongoDB shell version: 2.2.0</div><div>Thu Sep &nbsp=
+;6 23:49:12 mongo got signal 11 (Segmentation fault), stack trace:&nbsp;</d=
+iv><div><br></div><div>Thu Sep &nbsp;6 23:49:12 0x493733 0x40d824 0x3814230=
+2f0 0x40fb08 0x41b9ce 0x381421d994 0x40be09&nbsp;</div><div>&nbsp;mongo [0x=
+493733]</div><div>&nbsp;mongo [0x40d824]</div><div>&nbsp;/lib64/libc.so.6 [=
+0x38142302f0]</div><div>&nbsp;mongo [0x40fb08]</div><div>&nbsp;mongo [0x41b=
+9ce]</div><div>&nbsp;/lib64/libc.so.6(__libc_<wbr>start_main+0xf4) [0x38142=
+1d994]</div><div>&nbsp;mongo [0x40be09]</div><div><br></div><div>valya@vo10=
+6(23:49:12)&gt; ps auxwww | grep mongo</div><div>valya &nbsp; &nbsp;29900 &=
+nbsp;3.0 &nbsp;0.1 131532 29796 ? &nbsp; &nbsp; &nbsp; &nbsp;Sl &nbsp; 23:4=
+6 &nbsp; 0:04 mongod --fork --dbpath=3D/tmp/valya/mongodb/<wbr>db/ --port 8=
+230 --nohttpinterface --logpath /tmp/valya/mongodb/logs/<wbr>mongodb.log</d=
+iv><div>valya &nbsp; &nbsp;29936 &nbsp;0.0 &nbsp;0.0 &nbsp;59196 &nbsp; 780=
+ pts/1 &nbsp; &nbsp;S+ &nbsp; 23:49 &nbsp; 0:00 grep mongo</div><div>valya@=
+vocms106(23:49:37)&gt; tail /tmp/valya/mongodb/logs/<wbr>mongodb.log</div><=
+div>Thu Sep &nbsp;6 23:46:59 [initandlisten] preallocateIsFaster=3Dtrue 7.6=
+2</div><div>Thu Sep &nbsp;6 23:47:00 [initandlisten] preallocateIsFaster=3D=
+true 8.02</div><div>Thu Sep &nbsp;6 23:47:01 [initandlisten] preallocateIsF=
+aster=3Dtrue 7.88</div><div>Thu Sep &nbsp;6 23:47:01 [initandlisten] preall=
+ocating a journal file /tmp/valya/mongodb/db/journal/<wbr>prealloc.0</div><=
+div>Thu Sep &nbsp;6 23:47:34 [initandlisten] preallocating a journal file /=
+tmp/valya/mongodb/db/journal/<wbr>prealloc.1</div><div>Thu Sep &nbsp;6 23:4=
+8:08 [initandlisten] preallocating a journal file /tmp/valya/mongodb/db/jou=
+rnal/<wbr>prealloc.2</div><div>Thu Sep &nbsp;6 23:48:12 [initandlisten] &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 230686720/1073741824 &nbsp; &nbsp;21=
+%</div><div>Thu Sep &nbsp;6 23:48:15 [initandlisten] &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; 356515840/1073741824 &nbsp; &nbsp;33%</div><div>Thu Sep=
+ &nbsp;6 23:48:20 [initandlisten] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ 1006632960/1073741824 &nbsp; 93%</div><div>Thu Sep &nbsp;6 23:48:44 [inita=
+ndlisten] waiting for connections on port 8230</div><div><br></div><div>val=
+ya@vo106(23:52:24)&gt; ldd /build/vk/build_stuff/w/slc5_<wbr>amd64_gcc461/e=
+xternal/mongo/2.<wbr>2.0/bin/mongo</div><div>&nbsp; &nbsp; &nbsp; &nbsp; li=
+nux-vdso.so.1 =3D&gt; &nbsp;(0x00007fff7b1fd000)</div><div>&nbsp; &nbsp; &n=
+bsp; &nbsp; libpthread.so.0 =3D&gt; /lib64/libpthread.so.0 (0x0000003814a00=
+000)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; librt.so.1 =3D&gt; /lib64/librt.=
+so.1 (0x0000003815600000)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; libstdc++.s=
+o.6 =3D&gt; /build/vk/build_stuff/w/slc5_<wbr>amd64_gcc461/external/gcc/4.6=
+.<wbr>1-comp2/lib64/libstdc++.so.6 (0x00002b451d0ab000)</div><div>&nbsp; &n=
+bsp; &nbsp; &nbsp; libm.so.6 =3D&gt; /lib64/libm.so.6 (0x0000003814e00000)<=
+/div><div>&nbsp; &nbsp; &nbsp; &nbsp; libgcc_s.so.1 =3D&gt; /build/vk/build=
+_stuff/w/slc5_<wbr>amd64_gcc461/external/gcc/4.6.<wbr>1-comp2/lib64/libgcc_=
+s.so.1 (0x00002b451d1b8000)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; libc.so.6=
+ =3D&gt; /lib64/libc.so.6 (0x0000003814200000)</div><div>&nbsp; &nbsp; &nbs=
+p; &nbsp; /lib64/ld-linux-x86-64.so.2 (0x0000003813e00000)</div></div><div>=
+<br></div><div>Any idea?</div><div>Thanks</div><div>Valentin.</div></blockq=
+uote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_63_10289126.1347025434337--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347025434</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1960</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo 2.2.0 seg fault</string>
+</dict>
+</plist>

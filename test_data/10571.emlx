@@ -1,0 +1,212 @@
+9390      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp243315oef;
+        Thu, 6 Sep 2012 18:00:49 -0700 (PDT)
+Received: by 10.68.135.67 with SMTP id pq3mr7624090pbb.49.1346979649355;
+        Thu, 06 Sep 2012 18:00:49 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJ6xgq25CRC-jqWCBRoEXlwqtg@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id wk6si6319599pbc.55.2012.09.06.18.00.48
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:00:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJ6xgq25CRC-jqWCBRoEXlwqtg@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJ6xgq25CRC-jqWCBRoEXlwqtg@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCJ6xgq25CRC-jqWCBRoEXlwqtg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1799455pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:00:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=v1uTnUL2iL6sXuzVPz1DATlI5Y2W39YeSbZSUhNMj+8=;
+        b=ILjjVtBIw2A4dVfnlyH9T+gx7nHPyBb1n/yMxuGSRVIJsAYhDMW6Ev9hGwHfKxHCm0
+         RQHVi/uJr/ZCIncx7ngOGB18CxBYrAxH72igyXvqnizNYjUfWfc5vuRPWe0woFwGDc/E
+         lHRurcnS+dtefcRBuPPaXFB20i3FvBTRgxEbLcFQ6GPfET1NFiqBzJPBjsRkBs/IgLuW
+         rVHymPmq8TRElswuuLnJ8wqbvhW3mrQwDTlNLp2C8FWbYevvX/f/WId9fSPlJQIRf2/8
+         /8Pc+VVKonRsO7UCHRMiB9LX16jV9E0AWN33vJ6MC3ommBYZJja/EI4uMKgSv9cfQTwF
+         2p4Q==
+Received: by 10.52.91.47 with SMTP id cb15mr774469vdb.11.1346979648269;
+        Thu, 06 Sep 2012 18:00:48 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.149.129 with SMTP id t1ls59704vcv.0.gmail; Thu, 06 Sep
+ 2012 18:00:46 -0700 (PDT)
+Received: by 10.52.23.145 with SMTP id m17mr764365vdf.0.1346979646540;
+        Thu, 06 Sep 2012 18:00:46 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:00:46 -0700 (PDT)
+From: gavinliu <tomliugen@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <f855845a-1206-4968-934a-8b02f3e96687@googlegroups.com>
+In-Reply-To: <CALOM=qgLBqhSSCV=wZuHeRmFZi42EB4_jOry4c15VxaPG_Hjjw@mail.gmail.com>
+References: <28eb5604-b991-4cf3-af02-7595cdc6d2dc@googlegroups.com>
+ <CALOM=qgLBqhSSCV=wZuHeRmFZi42EB4_jOry4c15VxaPG_Hjjw@mail.gmail.com>
+Subject: Re: [mongodb-user] Need to close OutputStream when write file in
+ GridFSDBFile.java(java driver, version 2.7.2)
+MIME-Version: 1.0
+X-Original-Sender: tomliugen@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ tomliugen@gmail.com designates internal as permitted sender)
+ smtp.mail=tomliugen@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_275_17806572.1346979646264"
+
+------=_Part_275_17806572.1346979646264
+Content-Type: text/plain; charset=ISO-8859-1
+
+Thanks a lot.
+
+On Thursday, September 6, 2012 10:25:18 AM UTC+8, Scott Hernandez wrote:
+>
+> You can use the writeTo(OutputStream stream) method if you want 
+> control over this: 
+>
+> http://api.mongodb.org/java/2.8.0/com/mongodb/gridfs/GridFSDBFile.html#writeTo(java.io.OutputStream) 
+>
+> The garbage collector will clean it up, but it is better to do it 
+> sooner than later on high volume servers. 
+>
+> On Wed, Sep 5, 2012 at 9:58 PM, gen liu <toml...@gmail.com <javascript:>> 
+> wrote: 
+> > In java driver, I saw it has not close the OutputStream before return, 
+> here 
+> > is the code(GridFSDBFile.java, line 66, version 2.7.2): 
+> > 
+> >     public long writeTo( File f ) throws IOException { 
+> >         return writeTo( new FileOutputStream( f ) ); 
+> >     } 
+> > 
+> >     /** 
+> >      * Writes the file's data to an OutputStream 
+> >      * @param out the OutputStream 
+> >      * @return 
+> >      * @throws IOException 
+> >      */ 
+> >     public long writeTo( OutputStream out ) 
+> >         throws IOException { 
+> >         final int nc = numChunks(); 
+> >         for ( int i=0; i<nc; i++ ){ 
+> >             out.write( getChunk( i ) ); 
+> >         } 
+> >         return _length; // is need to close out before return ? or the 
+> > destructor function will close it? 
+> >     } 
+> > 
+> > -- 
+> > You received this message because you are subscribed to the Google 
+> > Groups "mongodb-user" group. 
+> > To post to this group, send email to mongod...@googlegroups.com<javascript:> 
+> > To unsubscribe from this group, send email to 
+> > mongodb-user...@googlegroups.com <javascript:> 
+> > See also the IRC channel -- freenode.net#mongodb 
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_275_17806572.1346979646264
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Thanks a lot.<br><br>On Thursday, September 6, 2012 10:25:18 AM UTC+8, Scot=
+t Hernandez wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;marg=
+in-left: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">You can use =
+the writeTo(OutputStream stream) method if you want
+<br>control over this:
+<br><a href=3D"http://api.mongodb.org/java/2.8.0/com/mongodb/gridfs/GridFSD=
+BFile.html#writeTo(java.io.OutputStream)" target=3D"_blank">http://api.mong=
+odb.org/java/2.<wbr>8.0/com/mongodb/gridfs/<wbr>GridFSDBFile.html#writeTo(<=
+wbr>java.io.OutputStream)</a>
+<br>
+<br>The garbage collector will clean it up, but it is better to do it
+<br>sooner than later on high volume servers.
+<br>
+<br>On Wed, Sep 5, 2012 at 9:58 PM, gen liu &lt;<a href=3D"javascript:" tar=
+get=3D"_blank" gdf-obfuscated-mailto=3D"cS9VNj0svksJ">toml...@gmail.com</a>=
+&gt; wrote:
+<br>&gt; In java driver, I saw it has not close the OutputStream before ret=
+urn, here
+<br>&gt; is the code(GridFSDBFile.java, line 66, version 2.7.2):
+<br>&gt;
+<br>&gt; &nbsp; &nbsp; public long writeTo( File f ) throws IOException {
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; return writeTo( new FileOutputStream( =
+f ) );
+<br>&gt; &nbsp; &nbsp; }
+<br>&gt;
+<br>&gt; &nbsp; &nbsp; /**
+<br>&gt; &nbsp; &nbsp; &nbsp;* Writes the file's data to an OutputStream
+<br>&gt; &nbsp; &nbsp; &nbsp;* @param out the OutputStream
+<br>&gt; &nbsp; &nbsp; &nbsp;* @return
+<br>&gt; &nbsp; &nbsp; &nbsp;* @throws IOException
+<br>&gt; &nbsp; &nbsp; &nbsp;*/
+<br>&gt; &nbsp; &nbsp; public long writeTo( OutputStream out )
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; throws IOException {
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; final int nc =3D numChunks();
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; for ( int i=3D0; i&lt;nc; i++ ){
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; out.write( getChunk( i )=
+ );
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; }
+<br>&gt; &nbsp; &nbsp; &nbsp; &nbsp; return _length; // is need to close ou=
+t before return ? or the
+<br>&gt; destructor function will close it?
+<br>&gt; &nbsp; &nbsp; }
+<br>&gt;
+<br>&gt; --
+<br>&gt; You received this message because you are subscribed to the Google
+<br>&gt; Groups "mongodb-user" group.
+<br>&gt; To post to this group, send email to <a href=3D"javascript:" targe=
+t=3D"_blank" gdf-obfuscated-mailto=3D"cS9VNj0svksJ">mongod...@googlegroups.=
+com</a>
+<br>&gt; To unsubscribe from this group, send email to
+<br>&gt; <a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D=
+"cS9VNj0svksJ">mongodb-user...@<wbr>googlegroups.com</a>
+<br>&gt; See also the IRC channel -- <a href=3D"http://freenode.net#mongodb=
+" target=3D"_blank">freenode.net#mongodb</a>
+<br></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_275_17806572.1346979646264--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346979646</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1895</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Need to close OutputStream when write file in GridFSDBFile.java(java driver, version 2.7.2)</string>
+</dict>
+</plist>

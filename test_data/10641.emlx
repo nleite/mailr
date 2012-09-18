@@ -1,0 +1,321 @@
+15200     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp266563oef;
+        Fri, 7 Sep 2012 07:27:28 -0700 (PDT)
+Received: by 10.66.77.71 with SMTP id q7mr8692800paw.0.1347028047763;
+        Fri, 07 Sep 2012 07:27:27 -0700 (PDT)
+Return-Path: <mongodb-user+bncCPuu2bvJBhDNiKiCBRoESHpydQ@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id iq5si8913413pbc.314.2012.09.07.07.27.27
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 07:27:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCPuu2bvJBhDNiKiCBRoESHpydQ@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCPuu2bvJBhDNiKiCBRoESHpydQ@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCPuu2bvJBhDNiKiCBRoESHpydQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf2279499pbb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 07:27:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:cc:message-id:in-reply-to:references
+         :subject:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=htylD0rAqOzyprRNPDJ2b7BPKaXTJmCRN6oSTO5NZcI=;
+        b=zMz7SNzeDH+5iC8vfX5Qh63VfVW/40ZJcqI7BECAfx2B17z+/q4cJmsDOZ7iI5iEhS
+         UK7oCNK6X0VdK+Ymbn8fWRcMHGu1i+E6zXPOQMjlZYDgF9rxEISbVky63fqHqIc4yFys
+         0g9GexTfcneCpDoo+O6ZleQN8+T/4vhxTk7KY0JhNGg8Jd351YuW1vzgDSsFMlnb1QVk
+         XZaS2kXh/+SJ1of4Pw1g9dTrFKChDyBVO+boGxICGA1BnkKWtJnqAw0O4yXN/mRQriZd
+         jK9EZJgvG/FowhYW8s2tgISURPSTFtcTApzvd2BxTr+HjAQEP0wjlg8okSKNWKsHfrxH
+         xWJQ==
+Received: by 10.52.33.34 with SMTP id o2mr948974vdi.12.1347028046736;
+        Fri, 07 Sep 2012 07:27:26 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.223.69 with SMTP id ij5ls522967vcb.6.gmail; Fri, 07 Sep
+ 2012 07:27:24 -0700 (PDT)
+Received: by 10.52.23.145 with SMTP id m17mr954315vdf.0.1347028044950;
+        Fri, 07 Sep 2012 07:27:24 -0700 (PDT)
+Date: Fri, 7 Sep 2012 07:27:24 -0700 (PDT)
+From: gregor <gregor@10gen.com>
+To: mongodb-user@googlegroups.com
+Cc: xzhan@cisco.com
+Message-Id: <b61566ac-309b-4041-b7f8-ffd79ca1e2c6@googlegroups.com>
+In-Reply-To: <7b567c7c-c783-421d-af02-432f14aa0e22@googlegroups.com>
+References: <2b9cef4b-c3fe-4b1a-a597-23c5ca6aef70@googlegroups.com>
+ <5a908cb1-8148-44c0-b7b9-03672834c49f@googlegroups.com>
+ <8d1306a8-fd2c-4493-be66-638eb4b49358@googlegroups.com>
+ <34d7bb0e-2e21-4a65-9c84-d8dc15267885@googlegroups.com>
+ <e40ecfe2-b056-4209-bc2a-24d443b6f1bb@googlegroups.com>
+ <c52ff30f-72b1-4451-818e-f1d2493d3357@googlegroups.com>
+ <7b567c7c-c783-421d-af02-432f14aa0e22@googlegroups.com>
+Subject: [mongodb-user] Re: why the secondary not sync with PRI or another
+ normally Seconday Node for oplog,when other Two secondary nodes encouter Disk
+ fully error
+MIME-Version: 1.0
+X-Original-Sender: gregor@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ gregor@10gen.com designates internal as permitted sender)
+ smtp.mail=gregor@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_847_18447002.1347028044718"
+
+------=_Part_847_18447002.1347028044718
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+I have updated the server ticket - it seems the the behaviour is different=
+=20
+on 2.2=20
+
+On Wednesday, September 5, 2012 3:09:01 AM UTC+1, Xuguang wrote:
+>
+> thanks, i have notice you have change the bug title, we are using MongoD=
+=20
+> in Linux . i will clear the disk .glad to become the MongoDB committer la=
+ter
+>
+> =E5=9C=A8 2012=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=8CUTC=
++8=E4=B8=8B=E5=8D=8810=E6=97=B652=E5=88=8652=E7=A7=92=EF=BC=8Cgregor=E5=86=
+=99=E9=81=93=EF=BC=9A
+>>
+>> Ok thanks - I have edited your server ticket a little to make it more=20
+>> clear what it it for :)
+>> I will try to reproduce your error first and then the ticket will be=20
+>> considered  - although I don't know if that will be 2.2.x or 2.0.x=20
+>> The two nodes that have this error - they are just out of disk space now=
+?=20
+>> You are using linux?
+>>
+>> On Tuesday, September 4, 2012 3:20:57 PM UTC+1, Xuguang wrote:
+>>>
+>>> yes ,i think it should check other Secondary status, and change sync to=
+=20
+>>> other nodes which was normally
+>>>
+>>> Disk fully is one exception status, we should consider other exception=
+=20
+>>> status,=20
+>>>
+>>> bug https://jira.mongodb.org/browse/SERVER-6926
+>>>
+>>> =E5=9C=A8 2012=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=8CU=
+TC+8=E4=B8=8B=E5=8D=8810=E6=97=B618=E5=88=8612=E7=A7=92=EF=BC=8CXuguang=E5=
+=86=99=E9=81=93=EF=BC=9A
+>>>>
+>>>> yeah, i have create a bug for the version 2.0.6 which we have used, pl=
+s=20
+>>>> mark it have fixed in the version at 2.2 , and i can notify myTeam to=
+=20
+>>>> upgrade .=20
+>>>>
+>>>> whether the new version can fix the issues , i am not sure ,we should=
+=20
+>>>> try the command and test again
+>>>>
+>>>> thanks
+>>>> -xuguang
+>>>>
+>>>> =E5=9C=A8 2012=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=8C=
+UTC+8=E4=B8=8B=E5=8D=8810=E6=97=B615=E5=88=8601=E7=A7=92=EF=BC=8Cgregor=E5=
+=86=99=E9=81=93=EF=BC=9A
+>>>>>
+>>>>> Create a bug for which issue? So that the secondary will check the=20
+>>>>> error status of a node and sync from another node?=20
+>>>>> 2.2 is out already - check the downloads<http://www.mongodb.org/downl=
+oads>
+>>>>>  page.=20
+>>>>>
+>>>>> On Tuesday, September 4, 2012 3:01:50 PM UTC+1, Xuguang wrote:
+>>>>>>
+>>>>>> thanks, I think we should create a bug for the issue to manual to fi=
+x=20
+>>>>>> the bad status
+>>>>>> when it release at Mongo2.2
+>>>>>>
+>>>>>> =E5=9C=A8 2012=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=
+=8CUTC+8=E4=B8=8B=E5=8D=884=E6=97=B646=E5=88=8607=E7=A7=92=EF=BC=8CXuguang=
+=E5=86=99=E9=81=93=EF=BC=9A
+>>>>>>>
+>>>>>>>
+>>>>>>> <https://lh5.googleusercontent.com/-qBI6Fs4j0iY/UEW_tDen6cI/AAAAAAA=
+AACY/Y64ingxZIac/s1600/sycdiskFailure.PNG>
+>>>>>>>
+>>>>>>>
+>>>>>>> <https://lh3.googleusercontent.com/-AXTHtga3y6w/UEW_p-e-TzI/AAAAAAA=
+AACQ/46htP9mXdpo/s1600/sycOptlog.PNG>
+>>>>>>>
+>>>>>>>
+>>>>>>> Check my env
+>>>>>>>
+>>>>>>> three Mongo config server
+>>>>>>> one Mongos
+>>>>>>> i have create one shard
+>>>>>>>
+>>>>>>> > cfg =3D {
+>>>>>>>     _id : "webex11_shard1",
+>>>>>>>     members : [
+>>>>>>>         {_id : 0, host : "10.224.88.109:27018", tags : {"DC":=20
+>>>>>>> "SJ"}, priority:2},
+>>>>>>>         {_id : 1, host : "10.224.88.110:27018", tags : {"DC":=20
+>>>>>>> "SJ"}, priority:1},
+>>>>>>>         {_id : 2, host : "10.224.88.160:27018", tags : {"DC":=20
+>>>>>>> "TX"}, priority:1},
+>>>>>>>         {_id : 3, host : "10.224.88.161:27018", tags : {"DC":=20
+>>>>>>> "TX"}, priority:1},
+>>>>>>>         {_id : 4, host : "10.224.88.163:27018", tags : {"DC":=20
+>>>>>>> "LONDON"}, priority:0}
+>>>>>>>     ]
+>>>>>>> }
+>>>>>>>
+>>>>>>> when I use multhiThread to call insert , it cause tow secondaryNode=
+=20
+>>>>>>> Disk fully, but check the rs.status() I have confuse why the 10.224=
+.88.160=20
+>>>>>>> not sync the right optlog with 10.224.88.109(PRI) 10.224.88.110(nor=
+mally=20
+>>>>>>> Secondary), seems it only keep in touch with other two nodes which =
+have=20
+>>>>>>> disk fully
+>>>>>>>
+>>>>>>> check the attachement
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_847_18447002.1347028044718
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+I have updated the server ticket - it seems the the behaviour is different =
+on 2.2&nbsp;<br><br>On Wednesday, September 5, 2012 3:09:01 AM UTC+1, Xugua=
+ng wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: =
+0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">thanks, i have notice=
+ you have change the bug title, we are using MongoD in Linux . i will clear=
+ the disk .glad to become the MongoDB committer later<br><br>=E5=9C=A8 2012=
+=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=8CUTC+8=E4=B8=8B=E5=
+=8D=8810=E6=97=B652=E5=88=8652=E7=A7=92=EF=BC=8C<wbr>gregor=E5=86=99=E9=81=
+=93=EF=BC=9A<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left=
+:0.8ex;border-left:1px #ccc solid;padding-left:1ex">Ok thanks - I have edit=
+ed your server ticket a little to make it more clear what it it for :)<div>=
+I will try to reproduce your error first and then the ticket will be consid=
+ered &nbsp;- although I don't know if that will be 2.2.x or 2.0.x&nbsp;</di=
+v><div>The two nodes that have this error - they are just out of disk space=
+ now? You are using linux?<br><br>On Tuesday, September 4, 2012 3:20:57 PM =
+UTC+1, Xuguang wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0;ma=
+rgin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">yes ,i think i=
+t should check other Secondary status, and change sync to other nodes which=
+ was normally<br><br>Disk fully is one exception status, we should consider=
+ other exception status, <br><br>bug <a href=3D"https://jira.mongodb.org/br=
+owse/SERVER-6926" target=3D"_blank">https://jira.mongodb.org/<wbr>browse/SE=
+RVER-6926</a><br><br>=E5=9C=A8 2012=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=
+=E6=9C=9F=E4=BA=8CUTC+8=E4=B8=8B=E5=8D=8810=E6=97=B618=E5=88=8612=E7=A7=92=
+=EF=BC=8C<wbr>Xuguang=E5=86=99=E9=81=93=EF=BC=9A<blockquote class=3D"gmail_=
+quote" style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;paddi=
+ng-left:1ex">yeah, i have create a bug for the version 2.0.6 which we have =
+used, pls mark it have fixed in the version at 2.2 , and i can notify myTea=
+m to upgrade . <br><br>whether the new version can fix the issues , i am no=
+t sure ,we should try the command and test again<br><br>thanks<br>-xuguang<=
+br><br>=E5=9C=A8 2012=E5=B9=B49=E6=9C=884=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=
+=8CUTC+8=E4=B8=8B=E5=8D=8810=E6=97=B615=E5=88=8601=E7=A7=92=EF=BC=8C<wbr>gr=
+egor=E5=86=99=E9=81=93=EF=BC=9A<blockquote class=3D"gmail_quote" style=3D"m=
+argin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">Crea=
+te a bug for which issue? So that the secondary will check the error status=
+ of a node and sync from another node?&nbsp;<div>2.2 is out already - check=
+ the&nbsp;<a href=3D"http://www.mongodb.org/downloads" target=3D"_blank">do=
+wnloads</a>&nbsp;page.&nbsp;<br><div><br>On Tuesday, September 4, 2012 3:01=
+:50 PM UTC+1, Xuguang wrote:<blockquote class=3D"gmail_quote" style=3D"marg=
+in:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">thanks,=
+ I think we should create a bug for the issue to manual to fix the bad stat=
+us<br>when it release at Mongo2.2<br><br>=E5=9C=A8 2012=E5=B9=B49=E6=9C=884=
+=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=8CUTC+8=E4=B8=8B=E5=8D=884=E6=97=B646=E5=
+=88=8607=E7=A7=92=EF=BC=8C<wbr>Xuguang=E5=86=99=E9=81=93=EF=BC=9A<blockquot=
+e class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-left:1px=
+ #ccc solid;padding-left:1ex"><p style=3D"text-align:center;clear:both"><a =
+style=3D"margin-left:1em;margin-right:1em" href=3D"https://lh5.googleuserco=
+ntent.com/-qBI6Fs4j0iY/UEW_tDen6cI/AAAAAAAAACY/Y64ingxZIac/s1600/sycdiskFai=
+lure.PNG" target=3D"_blank"><img border=3D"0" height=3D"208" width=3D"320">=
+</a></p><p style=3D"text-align:center;clear:both"><a style=3D"margin-left:1=
+em;margin-right:1em" href=3D"https://lh3.googleusercontent.com/-AXTHtga3y6w=
+/UEW_p-e-TzI/AAAAAAAAACQ/46htP9mXdpo/s1600/sycOptlog.PNG" target=3D"_blank"=
+><img border=3D"0" height=3D"300" width=3D"320"></a></p><p style=3D"text-al=
+ign:center;clear:both"><br></p><p style=3D"text-align:center;clear:both"></=
+p>Check my env<br><br>three Mongo config server<br>one Mongos<br>i have cre=
+ate one shard<br><br>&gt; cfg =3D {<br>&nbsp;&nbsp;&nbsp; _id : "webex11_sh=
+ard1",<br>&nbsp;&nbsp;&nbsp; members : [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp; {_id : 0, host : "<a href=3D"http://10.224.88.109:27018" target=
+=3D"_blank">10.224.88.109:27018</a>", tags : {"DC": "SJ"}, priority:2},<br>=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {_id : 1, host : "<a href=3D"htt=
+p://10.224.88.110:27018" target=3D"_blank">10.224.88.110:27018</a>", tags :=
+ {"DC": "SJ"}, priority:1},<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {_id :=
+ 2, host : "<a href=3D"http://10.224.88.160:27018" target=3D"_blank">10.224=
+.88.160:27018</a>", tags : {"DC": "TX"}, priority:1},<br>&nbsp;&nbsp;&nbsp;=
+ &nbsp;&nbsp;&nbsp; {_id : 3, host : "<a href=3D"http://10.224.88.161:27018=
+" target=3D"_blank">10.224.88.161:27018</a>", tags : {"DC": "TX"}, priority=
+:1},<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {_id : 4, host : "<a href=3D"=
+http://10.224.88.163:27018" target=3D"_blank">10.224.88.163:27018</a>", tag=
+s : {"DC": "LONDON"}, priority:0}<br>&nbsp;&nbsp;&nbsp; ]<br>}<br><br>when =
+I use multhiThread to call insert , it cause tow secondaryNode Disk fully, =
+but check the rs.status() I have confuse why the 10.224.88.160 not sync the=
+ right optlog with 10.224.88.109(PRI) 10.224.88.110(normally Secondary), se=
+ems it only keep in touch with other two nodes which have disk fully<br><br=
+>check the attachement<br><br><br><br><br><br><br><br><br><br><br><br></blo=
+ckquote></blockquote></div></div></blockquote></blockquote></blockquote></d=
+iv></blockquote></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_847_18447002.1347028044718--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347028044</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1965</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: why the secondary not sync with PRI or another normally Seconday Node for oplog,when other Two secondary nodes encouter Disk fully error</string>
+</dict>
+</plist>

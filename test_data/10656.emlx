@@ -1,0 +1,241 @@
+12791     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp270395oef;
+        Fri, 7 Sep 2012 09:02:45 -0700 (PDT)
+Received: by 10.236.141.42 with SMTP id f30mr5399989yhj.120.1347033764832;
+        Fri, 07 Sep 2012 09:02:44 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJr2rp3pBBChtaiCBRoENtaZ0A@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id n62si5054754yhm.129.2012.09.07.09.02.43
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 09:02:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJr2rp3pBBChtaiCBRoENtaZ0A@googlegroups.com designates 209.85.160.192 as permitted sender) client-ip=209.85.160.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJr2rp3pBBChtaiCBRoENtaZ0A@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCJr2rp3pBBChtaiCBRoENtaZ0A@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ghrr13 with SMTP id r13sf391939ghr.29
+        for <multiple recipients>; Fri, 07 Sep 2012 09:02:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=ZigSBuK37EQIjlbaBv89r0w5qLbfHiR6YENIymLo77E=;
+        b=WlDp7EK9I2S1yvAUOSu88r5pKTiwXrYnv6blEBSe1Bk23svNOmyzLyGR9ZGlS8JKZo
+         gw5wNvbnroXQzDpAKuwMnfwDu9YzNyb5pCg5SaCQXIkWD5XUaLj4zbXEZQ7BAJnGZUqp
+         t99Oo90UIFPuUYrhGkY3SkHtrEavCGwZuxkxThbKJiiwRNWVPGIegRbVs9oToLUuEm0T
+         ILr12lu4w6PhbnMky43sV3BQ3VLJfJwY7hdvIV01h/mQj1XzD2inhags3wvYpWplkzyL
+         w35s5lxEwQlVGPbsH1iEMBYhlGDHvWS7oGKxygT+T0j3skhYqzp00MazMeDpyYEoHMr6
+         ogMQ==
+Received: by 10.68.237.163 with SMTP id vd3mr1528263pbc.9.1347033763633;
+        Fri, 07 Sep 2012 09:02:43 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.136.233 with SMTP id qd9ls2270332pbb.4.gmail; Fri, 07 Sep
+ 2012 09:02:41 -0700 (PDT)
+Received: by 10.68.232.9 with SMTP id tk9mr1550690pbc.0.1347033760713;
+        Fri, 07 Sep 2012 09:02:40 -0700 (PDT)
+Date: Fri, 7 Sep 2012 09:02:40 -0700 (PDT)
+From: Thomas Weidman <tweidman.ispot@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <f452c062-41f3-4453-8dd3-bd18f9bc1973@googlegroups.com>
+In-Reply-To: <2fe246e1-dc21-4d6a-a58f-6d0b6fbeab5b@googlegroups.com>
+References: <43dbc088-4060-414d-a206-480aa390162d@googlegroups.com>
+ <0f9c3a34-6a07-4234-b3f9-da1b57a88826@googlegroups.com>
+ <90cd43d8-2612-4a1f-ae20-f3c8e9b96812@googlegroups.com>
+ <c5350bdd-1a13-4c4a-838d-e8e301438051@googlegroups.com>
+ <5592f4ef-ba2b-4f7c-be34-b3bc2a203aab@googlegroups.com>
+ <dd707e31-7b76-4f6e-8f50-7c3a04d680c9@googlegroups.com>
+ <2fe246e1-dc21-4d6a-a58f-6d0b6fbeab5b@googlegroups.com>
+Subject: [mongodb-user] Re: Mongo Benchmark/Profile
+MIME-Version: 1.0
+X-Original-Sender: tweidman.ispot@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ tweidman.ispot@gmail.com designates internal as permitted sender)
+ smtp.mail=tweidman.ispot@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_726_26331768.1347033760200"
+
+------=_Part_726_26331768.1347033760200
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi David,
+
+I downloaded boost 1.49 and installed it following these steps:
+
+tar zxvf boost_1_49_0.tar.gz
+cd boost_1_49_0
+./bootstrap.sh --prefix=${LOCAL} --libdir=${LOCAL}/lib
+./bjam variant=release link=shared install
+
+export BOOST_INCLUDE=${LOCAL}/include
+export BOOST_LIB=${LOCAL}/lib
+export LD_LIBRARY_PATH=${BOOST_LIB}:${LD_LIBRARY_PATH}
+
+
+
+After that I went to the mongo-perf directory and ran scons and got farther 
+but hit this issue:
+
+scons: Reading SConscript files ...
+Checking for C library mongoclient... (cached) yes
+Checking for C library boost_thread_mt... (cached) no
+Checking for C library boost_thread... (cached) yes
+Checking for C library boost_filesystem_mt... (cached) no
+Checking for C library boost_filesystem... (cached) yes
+Checking for C library boost_program_options_mt... (cached) no
+Checking for C library boost_program_options... (cached) yes
+Checking for C library boost_system_mt... (cached) no
+Checking for C library boost_system... (cached) yes
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o benchmark.o -c -pthread -O3 -g benchmark.cpp
+In file included from benchmark.cpp:5:
+/usr/local/include/mongo/client/dbclient.h:25:2: error: #error dbclient.h 
+is for C++ driver consumer use only
+In file included from /usr/local/include/mongo/pch.h:78,
+                 from /usr/local/include/mongo/client/dbclient.h:30,
+                 from benchmark.cpp:5:
+/usr/local/include/mongo/util/goodies.h:22:47: error: 
+boost/thread/condition_variable.hpp: No such file or directory
+benchmark.cpp:11:29: error: boost/foreach.hpp: No such file or directory
+/usr/local/include/mongo/util/concurrency/mutex.h: In constructor 
+'mongo::mutex::try_lock::try_lock(mongo::mutex&, int)':
+/usr/local/include/mongo/util/concurrency/mutex.h:84: error: 'class 
+boost::detail::thread::scoped_timed_lock<boost::timed_mutex>' has no member 
+named 'owns_lock'
+benchmark.cpp: In member function 'void<unnamed>::TestSuite::run()':
+benchmark.cpp:152: error: expected primary-expression before 'int'
+benchmark.cpp:152: error: 'BOOST_FOREACH' was not declared in this scope
+benchmark.cpp:152: error: expected `;' before '{' token
+scons: *** [benchmark.o] Error 1
+scons: building terminated because of errors.
+
+
+
+What am I missing?
+
+Thanks,
+Thomas
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_726_26331768.1347033760200
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi David,<div><br></div><div>I downloaded boost 1.49 and installed it follo=
+wing these steps:</div><div><br></div><blockquote style=3D"margin: 0 0 0 40=
+px; border: none; padding: 0px;"><div><div><font face=3D"courier new, monos=
+pace">tar zxvf boost_1_49_0.tar.gz</font></div></div><div><div><font face=
+=3D"courier new, monospace">cd boost_1_49_0</font></div></div><div><div><fo=
+nt face=3D"courier new, monospace">./bootstrap.sh --prefix=3D${LOCAL} --lib=
+dir=3D${LOCAL}/lib</font></div></div><div><div><font face=3D"courier new, m=
+onospace">./bjam variant=3Drelease link=3Dshared install</font></div></div>=
+<div><div><font face=3D"courier new, monospace"><br></font></div></div><div=
+><div><font face=3D"courier new, monospace">export BOOST_INCLUDE=3D${LOCAL}=
+/include</font></div></div><div><div><font face=3D"courier new, monospace">=
+export BOOST_LIB=3D${LOCAL}/lib</font></div></div><div><div><font face=3D"c=
+ourier new, monospace">export LD_LIBRARY_PATH=3D${BOOST_LIB}:${LD_LIBRARY_P=
+ATH}</font></div></div></blockquote><div><br></div><div><br></div><div>Afte=
+r that I went to the mongo-perf directory and ran scons and got farther but=
+ hit this issue:</div><div><br></div><blockquote style=3D"margin: 0 0 0 40p=
+x; border: none; padding: 0px;"><div><div><font face=3D"courier new, monosp=
+ace">scons: Reading SConscript files ...</font></div></div><div><div><font =
+face=3D"courier new, monospace">Checking for C library mongoclient... (cach=
+ed) yes</font></div></div><div><div><font face=3D"courier new, monospace">C=
+hecking for C library boost_thread_mt... (cached) no</font></div></div><div=
+><div><font face=3D"courier new, monospace">Checking for C library boost_th=
+read... (cached) yes</font></div></div><div><div><font face=3D"courier new,=
+ monospace">Checking for C library boost_filesystem_mt... (cached) no</font=
+></div></div><div><div><font face=3D"courier new, monospace">Checking for C=
+ library boost_filesystem... (cached) yes</font></div></div><div><div><font=
+ face=3D"courier new, monospace">Checking for C library boost_program_optio=
+ns_mt... (cached) no</font></div></div><div><div><font face=3D"courier new,=
+ monospace">Checking for C library boost_program_options... (cached) yes</f=
+ont></div></div><div><div><font face=3D"courier new, monospace">Checking fo=
+r C library boost_system_mt... (cached) no</font></div></div><div><div><fon=
+t face=3D"courier new, monospace">Checking for C library boost_system... (c=
+ached) yes</font></div></div><div><div><font face=3D"courier new, monospace=
+">scons: done reading SConscript files.</font></div></div><div><div><font f=
+ace=3D"courier new, monospace">scons: Building targets ...</font></div></di=
+v><div><div><font face=3D"courier new, monospace">g++ -o benchmark.o -c -pt=
+hread -O3 -g benchmark.cpp</font></div></div><div><div><font face=3D"courie=
+r new, monospace">In file included from benchmark.cpp:5:</font></div></div>=
+<div><div><font face=3D"courier new, monospace">/usr/local/include/mongo/cl=
+ient/dbclient.h:25:2: error: #error dbclient.h is for C++ driver consumer u=
+se only</font></div></div><div><div><font face=3D"courier new, monospace">I=
+n file included from /usr/local/include/mongo/pch.h:78,</font></div></div><=
+div><div><font face=3D"courier new, monospace">&nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;from /usr/local/include/mongo/client/dbcl=
+ient.h:30,</font></div></div><div><div><font face=3D"courier new, monospace=
+">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;from benchm=
+ark.cpp:5:</font></div></div><div><div><font face=3D"courier new, monospace=
+">/usr/local/include/mongo/util/goodies.h:22:47: error: boost/thread/condit=
+ion_variable.hpp: No such file or directory</font></div></div><div><div><fo=
+nt face=3D"courier new, monospace">benchmark.cpp:11:29: error: boost/foreac=
+h.hpp: No such file or directory</font></div></div><div><div><font face=3D"=
+courier new, monospace">/usr/local/include/mongo/util/concurrency/mutex.h: =
+In constructor 'mongo::mutex::try_lock::try_lock(mongo::mutex&amp;, int)':<=
+/font></div></div><div><div><font face=3D"courier new, monospace">/usr/loca=
+l/include/mongo/util/concurrency/mutex.h:84: error: 'class boost::detail::t=
+hread::scoped_timed_lock&lt;boost::timed_mutex&gt;' has no member named 'ow=
+ns_lock'</font></div></div><div><div><font face=3D"courier new, monospace">=
+benchmark.cpp: In member function 'void&lt;unnamed&gt;::TestSuite::run()':<=
+/font></div></div><div><div><font face=3D"courier new, monospace">benchmark=
+.cpp:152: error: expected primary-expression before 'int'</font></div></div=
+><div><div><font face=3D"courier new, monospace">benchmark.cpp:152: error: =
+'BOOST_FOREACH' was not declared in this scope</font></div></div><div><div>=
+<font face=3D"courier new, monospace">benchmark.cpp:152: error: expected `;=
+' before '{' token</font></div></div><div><div><font face=3D"courier new, m=
+onospace">scons: *** [benchmark.o] Error 1</font></div></div><div><div><fon=
+t face=3D"courier new, monospace">scons: building terminated because of err=
+ors.</font></div></div></blockquote><div><br></div><div><br></div><div>What=
+ am I missing?</div><div><br></div><div>Thanks,</div><div>Thomas</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_726_26331768.1347033760200--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347033760</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1980</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Mongo Benchmark/Profile</string>
+</dict>
+</plist>

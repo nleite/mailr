@@ -1,0 +1,128 @@
+6213      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp251319oef;
+        Thu, 6 Sep 2012 23:36:46 -0700 (PDT)
+Received: by 10.60.13.3 with SMTP id d3mr4605991oec.118.1346999806350;
+        Thu, 06 Sep 2012 23:36:46 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJidnPO5FBD7q6aCBRoEwLsG9Q@googlegroups.com>
+Received: from mail-ob0-f192.google.com (mail-ob0-f192.google.com [209.85.214.192])
+        by mx.google.com with ESMTPS id fy3si5111910obc.153.2012.09.06.23.36.45
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 23:36:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJidnPO5FBD7q6aCBRoEwLsG9Q@googlegroups.com designates 209.85.214.192 as permitted sender) client-ip=209.85.214.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJidnPO5FBD7q6aCBRoEwLsG9Q@googlegroups.com designates 209.85.214.192 as permitted sender) smtp.mail=mongodb-user+bncCJidnPO5FBD7q6aCBRoEwLsG9Q@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by obbwc18 with SMTP id wc18sf1439050obb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 23:36:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:mime-version:date:in-reply-to:references:user-agent
+         :x-http-useragent:message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type
+         :content-transfer-encoding;
+        bh=LOWxoqa0yXVcLbtXFa8V9AvYES3bWvdvJyaUzIRZg4M=;
+        b=mndpdeDMw6A+lrJxJPXc4S+UdjtHqGfGx0QTClXuZtRz1ckPm8i9BDVmTeGVdhDlS2
+         WdNk3VjJUktbdB6eTrcolH7Mu4zmp0KTadlg96AgveFYwylb4dkXIyj8G20Wp709Czcm
+         V83eyCz4W/Ana+ywkHNr5xVcTT3m9cHQXIkWFxBDBjbjZjZFh1nghshIybxhSxZeNBsE
+         HPkUy7PX3TaQ6JLA6FW2xeYnK/1/S92zTY1Q3T0pmZu6bVFY4hZ4IMwu4dx+adtgYaB2
+         z8Hq1GE36MaaGTwR+gRkhQHSVeIIplyzZKIqvAbbcab4GiwSdk2namXtUH9cDGfK1r2K
+         5CXw==
+Received: by 10.52.75.36 with SMTP id z4mr819351vdv.14.1346999805236;
+        Thu, 06 Sep 2012 23:36:45 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.92.107 with SMTP id cl11ls196779vdb.4.gmail; Thu, 06 Sep
+ 2012 23:36:43 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.52.34.115 with SMTP id y19mr820287vdi.1.1346999803347; Thu, 06
+ Sep 2012 23:36:43 -0700 (PDT)
+Received: by s2g2000vbj.googlegroups.com with HTTP; Thu, 6 Sep 2012 23:36:43
+ -0700 (PDT)
+Date: Thu, 6 Sep 2012 23:36:43 -0700 (PDT)
+In-Reply-To: <cec51513-deda-448b-9ca3-5e8259b6526e@googlegroups.com>
+References: <cec51513-deda-448b-9ca3-5e8259b6526e@googlegroups.com>
+User-Agent: G2/1.0
+X-HTTP-UserAgent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like
+ Gecko) Chrome/21.0.1180.89 Safari/537.1,gzip(gfe)
+Message-ID: <11e819e4-0d88-4304-a092-2bd4bc97d8b7@s2g2000vbj.googlegroups.com>
+Subject: [mongodb-user] Re: mongodb logs continuos queries
+From: tetlika <tetlika@gmail.com>
+To: mongodb-user <mongodb-user@googlegroups.com>
+X-Original-Sender: tetlika@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain
+ of tetlika@gmail.com designates internal as permitted sender)
+ smtp.mail=tetlika@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+what version of mongo do you use?
+
+On 7 =D0=92=D0=B5=D1=80, 09:29, sarvesh <satelin2...@gmail.com> wrote:
+> I tailed the mongodb logs and it seems like this is constantly happening
+>
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d31f5f6dbe1557100006d') } ntoreturn:1 idhack:1 reslen:2649 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d31fbf6dbe15571000071') } ntoreturn:1 idhack:1 reslen:2725 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d31fef6dbe15571000073') } ntoreturn:1 idhack:1 reslen:2599 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d3206f6dbe15571000077') } ntoreturn:1 idhack:1 reslen:2696 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d3209f6dbe15571000079') } ntoreturn:1 idhack:1 reslen:2496 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d3404f6dbe15c0c00003f') } ntoreturn:1 idhack:1 reslen:2384 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d340af6dbe15c0c000043') } ntoreturn:1 idhack:1 reslen:2304 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:
+> ObjectId('4f9d3410f6dbe15c0c000047') } ntoreturn:1 idhack:1 reslen:2432 0=
+ms
+> Thu Sep =C2=A06 23:26:05 [conn164573] query vyumixdb.videos query: { _id:=
+ O
+>
+> I am not sure what this states but there is nothing querying the database
+> so constantly.
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346999803</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1933</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongodb logs continuos queries</string>
+</dict>
+</plist>

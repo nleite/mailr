@@ -1,0 +1,148 @@
+7102      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp267698oef;
+        Fri, 7 Sep 2012 07:55:30 -0700 (PDT)
+Received: by 10.66.79.195 with SMTP id l3mr8670491pax.33.1347029730032;
+        Fri, 07 Sep 2012 07:55:30 -0700 (PDT)
+Return-Path: <mongodb-user+bncCM36zLKbHBDflaiCBRoENodNkw@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id ow6si9079754pbb.63.2012.09.07.07.55.29
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 07:55:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCM36zLKbHBDflaiCBRoENodNkw@googlegroups.com designates 209.85.210.64 as permitted sender) client-ip=209.85.210.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCM36zLKbHBDflaiCBRoENodNkw@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCM36zLKbHBDflaiCBRoENodNkw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by dadz9 with SMTP id z9sf2239953dad.29
+        for <multiple recipients>; Fri, 07 Sep 2012 07:55:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=61J9lXrzU2M6hZpUKkjZO2cWJhVfZiHSidOKQwzXKXI=;
+        b=oD+vGv88bF83hhGSBuneufGO7E25UqiG95uwJVRPTKhZM00h7oq7WAHgIJqy1WyUln
+         bAJ4sBBMY9DLGdm7JfG4CkIj0jBAJlJnlSaUwomFq9/HuXHQQcWz/7hWa/aPtU92xmMu
+         FiEY+ATv035Oh6r4L+poPnmazApFKoZvY921CiL9bSJGQo/jpOpy0KAIBLcsBkxXP2Va
+         YptQ6FZlCcDEqVWy9fjLibdhw4sVbJUOV8+/Lcu4Dgvc+Z3wWr6tnODG6MbQHyd/+fvJ
+         dpd12JCocWSbO7g+SA/DEURmj3tn9vAIw3ibAgvfH19QSywjO1iLHHbSCo4EHmrc0CPY
+         Id4w==
+Received: by 10.52.177.163 with SMTP id cr3mr213417vdc.4.1347029729027;
+        Fri, 07 Sep 2012 07:55:29 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.36.237 with SMTP id t13ls589085vdj.3.gmail; Fri, 07 Sep
+ 2012 07:55:26 -0700 (PDT)
+Received: by 10.52.90.129 with SMTP id bw1mr1009517vdb.13.1347029726959;
+        Fri, 07 Sep 2012 07:55:26 -0700 (PDT)
+Date: Fri, 7 Sep 2012 07:55:26 -0700 (PDT)
+From: "A. Jesse Jiryu Davis" <jesse@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <b4e6cb0e-5f2d-42d6-acea-a52fc736b556@googlegroups.com>
+In-Reply-To: <8a9ad37c-ca03-40aa-b95e-6f2af3bc0e9f@fm12g2000vbb.googlegroups.com>
+References: <b8ffa3de-fb72-4081-bce0-c4fd52542528@k3g2000vby.googlegroups.com>
+ <CAFqwGEy1JJBabhvaocjoPhPkpJk=xXwoCoHT1DUNCQRi+YnTww@mail.gmail.com>
+ <10214575-de67-470b-b8c3-94fb8efa6197@r4g2000vbn.googlegroups.com>
+ <74964484-c158-4ab3-b62e-80a46be56b50@r14g2000vbd.googlegroups.com>
+ <CAFqwGExBjqa8XmxfzPkYN8PdXySgu+Eo5wnk3wxG49tu3-eyjA@mail.gmail.com>
+ <fd27f5f0-6f02-42bb-a34e-fa557f44cc16@d7g2000vbv.googlegroups.com>
+ <CAFqwGEwWevz0DJDpVwKHG+N0Rft-aYUaczcM6z-OkXnSy82+Nw@mail.gmail.com>
+ <09a8f5be-5c97-4900-a0fa-85bed17998a0@c19g2000vbb.googlegroups.com>
+ <358a1ba4-642c-4540-a1cb-b28d4c2aaa61@p5g2000vbl.googlegroups.com>
+ <CAFqwGEz4WmsDYyUSj=RWNbpHytCpeKmrs1iUpdxbWgbYeLQ15w@mail.gmail.com>
+ <3184cf0a-0b93-4c3d-9f8f-654f0fb7d775@googlegroups.com> <38c3c188-ff80-417c-88f0-f70f079fb3a7@r14g2000vbd.googlegroups.com>
+ <8a9ad37c-ca03-40aa-b95e-6f2af3bc0e9f@fm12g2000vbb.googlegroups.com>
+Subject: [mongodb-user] Re: sorting in PyMongo
+MIME-Version: 1.0
+X-Original-Sender: jesse@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ jesse@10gen.com designates internal as permitted sender)
+ smtp.mail=jesse@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_877_24913617.1347029726595"
+
+------=_Part_877_24913617.1347029726595
+Content-Type: text/plain; charset=ISO-8859-1
+
+Aliane, you need to post the exact command you issued to MongoDB and then 
+post the exact error that Mongo reported, otherwise we can't help.
+
+However, I recommend that you simply sort the array in Python, not with an 
+aggregate command. Sorting in Python is simpler and faster and will put 
+much less burden on the database server.
+
+On Friday, September 7, 2012 10:07:39 AM UTC-4, aliane abdelouahab wrote:
+>
+> am sorry but it dident work 
+> it give me errors! 
+> in mongo shell it give me error (near id) and in pymongo when using 
+> the "" whith $.. it give me errors too 
+> any ideas? 
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_877_24913617.1347029726595
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Aliane, you need to post the exact command you issued to MongoDB and then p=
+ost the exact error that Mongo reported, otherwise we can't help.<div><br><=
+/div><div>However, I recommend that you simply sort the array in Python, no=
+t with an aggregate command. Sorting in Python is simpler and faster and wi=
+ll put much less burden on the database server.<br><br>On Friday, September=
+ 7, 2012 10:07:39 AM UTC-4, aliane abdelouahab wrote:<blockquote class=3D"g=
+mail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc sol=
+id;padding-left: 1ex;">am sorry but it dident work
+<br>it give me errors!
+<br>in mongo shell it give me error (near id) and in pymongo when using
+<br>the "" whith $.. it give me errors too
+<br>any ideas?
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_877_24913617.1347029726595--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347029726</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1969</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: sorting in PyMongo</string>
+</dict>
+</plist>

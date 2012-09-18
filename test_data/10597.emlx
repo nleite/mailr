@@ -1,0 +1,369 @@
+14373     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp249954oef;
+        Thu, 6 Sep 2012 22:47:48 -0700 (PDT)
+Received: by 10.236.176.71 with SMTP id a47mr4063721yhm.43.1346996867683;
+        Thu, 06 Sep 2012 22:47:47 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOLsq7WDCRCAlaaCBRoECioh2A@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id p13si1697524anm.23.2012.09.06.22.47.47
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 22:47:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOLsq7WDCRCAlaaCBRoECioh2A@googlegroups.com designates 209.85.213.192 as permitted sender) client-ip=209.85.213.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOLsq7WDCRCAlaaCBRoECioh2A@googlegroups.com designates 209.85.213.192 as permitted sender) smtp.mail=mongodb-user+bncCOLsq7WDCRCAlaaCBRoECioh2A@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yenl1 with SMTP id l1sf1844732yen.29
+        for <multiple recipients>; Thu, 06 Sep 2012 22:47:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=Hevxn8gFDfMv4/r7Si48vlL5UFkmqGisFmkr5IlwCgE=;
+        b=rVoqQom7bdZv9iMQPIYqOGfDiOxBKcqa9iWEmwfyjkikKOx8jv0EdJVf4rgsDrDAn1
+         u/cLnVvk91rmZXe6UgN0U9rHnkLa23Oar+Vg4yXh2xUtKc77HixM53GB8LmmxdVEvpBw
+         jXgOqU4vVVJw0W9Ks4cgzHzoDvEET1jCBGtHGfXyNbS3tiD3OwPOPTWiy8snpGF+XLDW
+         bjEKD5RBUzQfn/oKL/Umea/s+4hzqf6CxkEZpOfexv7j75xTPuiYJ16KYq5mFt1vCR+q
+         Oxcfhy51u3yQmv8SoSH5fE8wSH5izsjPOdu7AyRXOJ8OV+BRxQmrIFfHn/9JPAI0KVTC
+         9Hhg==
+Received: by 10.68.129.69 with SMTP id nu5mr1111646pbb.17.1346996866552;
+        Thu, 06 Sep 2012 22:47:46 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.210.197 with SMTP id mw5ls783817pbc.7.gmail; Thu, 06 Sep
+ 2012 22:47:44 -0700 (PDT)
+Received: by 10.68.225.234 with SMTP id rn10mr1113224pbc.3.1346996864559;
+        Thu, 06 Sep 2012 22:47:44 -0700 (PDT)
+Date: Thu, 6 Sep 2012 22:47:44 -0700 (PDT)
+From: David Hows <david.hows@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <f67d44de-80dc-4c31-805f-08a89b8409d1@googlegroups.com>
+In-Reply-To: <a8a77983-3ec8-450c-bdc1-44aa1dfdfbbf@c4g2000vbe.googlegroups.com>
+References: <5bd33a8b-c7ed-4216-9567-1f9a5e4fed04@z4g2000vby.googlegroups.com>
+ <e0b39e6a-980e-41ae-b0a8-a774247fb1f0@v22g2000vbu.googlegroups.com>
+ <CAMNCBP6k182ULpLBU49hLrWkqjwQM2umn4EkR1_LeMDhqBBtMA@mail.gmail.com>
+ <13068984-6a79-4849-a129-157f88c85fa0@m3g2000vby.googlegroups.com> <58750060-eb7e-4b60-a47b-589c832f1623@googlegroups.com>
+ <a8a77983-3ec8-450c-bdc1-44aa1dfdfbbf@c4g2000vbe.googlegroups.com>
+Subject: [mongodb-user] Re: mongo iowait
+MIME-Version: 1.0
+X-Original-Sender: david.hows@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ david.hows@10gen.com designates internal as permitted sender)
+ smtp.mail=david.hows@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_369_4950943.1346996864134"
+
+------=_Part_369_4950943.1346996864134
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Tetlika,
+
+This very much sounds as if your system is paging at the time you are=20
+seeing these spikes.
+
+The spike in resident memory correlating with a spike in I/O Wait sounds=20
+like your instance is trying to pull paged files from disk into memory.
+
+In MMS we capture this metric explicitly.=20
+
+Common solutions here are to look at faster disks or increase the amount of=
+=20
+ram available to your server.
+
+Cheers,
+
+David
+
+On Friday, September 7, 2012 3:27:48 PM UTC+10, tetlika wrote:
+>
+> we are on rightscale and iowait is collected by default in reflected=20
+> in plots, also during that periods I see queues in mongostat=20
+> yes there are long queries in log, but they are regular queries which=20
+> are starting executing more longer during iowait periods and are=20
+> dropped into log, we already investigated that=20
+> also after stepDown the things are back to normal on new master and=20
+> old one=20
+> the problem is always when we have high res value, we didnt faced=20
+> unexpected iowaits while the res is low=20
+>
+> we are on 2.0.6=20
+>
+> On 7 =D0=92=D0=B5=D1=80, 08:16, David Hows <david.h...@10gen.com> wrote:=
+=20
+> > Hi Tetlika,=20
+> >=20
+> > How are you collecting the iowait metric when these issues occur?=20
+> >=20
+> > Are there any mentions of long running queries or yields in your mongod=
+=20
+> > logs when this occurs?=20
+> >=20
+> > If the res value increases and you see a spike in iowait it sounds like=
+=20
+> you=20
+> > would be pagefaulting.=20
+> >=20
+> > Do you have MMS installed? If so can you provide a link to your=20
+> dashboard?=20
+> > And which version of the DB are you running?=20
+> >=20
+> > Cheers,=20
+> >=20
+> > David=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> > On Friday, September 7, 2012 2:58:48 PM UTC+10, tetlika wrote:=20
+> >=20
+> > > thanks, nice video=20
+> >=20
+> > > but looks in our specific case there are no random ebs io problems=20
+> >=20
+> > > On 7 =D0=92=D0=B5=D1=80, 00:34, Samuel Garc=C3=ADa Mart=C3=ADnez <sam=
+uelgmarti...@gmail.com>=20
+> > > wrote:=20
+> > > > Maybe is not resident size related. This can give you a hint:=20
+> > >http://www.10gen.com/presentations/MongoNYC-2012/MongoDB-at-foursquare=
+=20
+> >=20
+> > > > On Thu, Sep 6, 2012 at 4:49 PM, tetlika <tetl...@gmail.com> wrote:=
+=20
+> > > > > forgot to say that it is not happening every time the res is=20
+> reached=20
+> > > > > to that value, the shard can "live" for weeks with that res but=
+=20
+> than=20
+> > > > > suddenly starts that behavior, sometimes the shard "lives" just a=
+=20
+> > > > > couple of days with that res, and than starts iowaiting=20
+> >=20
+> > > > > On 6 =D0=92=D0=B5=D1=80, 17:44, tetlika <tetl...@gmail.com> wrote=
+:=20
+> > > > > > hi!=20
+> >=20
+> > > > > > we are on amazon ec2 m2.4xlarge instances and on sharding with=
+=20
+> mongo=20
+> > > > > > 2.0.6, with 4x disks in RAID0, index size on every shard is les=
+s=20
+> > > than=20
+> > > > > > 50Gb=20
+> >=20
+> > > > > > m2.4xlarge are 69GB of RAM=20
+> >=20
+> > > > > > we've noticed such weird behavior of mongod:=20
+> >=20
+> > > > > > 1) as soon as "res" value is around 55-60Gb on any of our=20
+> shards, we=20
+> > > > > > are monitoring high unexplainable iowait on that shard master,=
+=20
+> > > > > > application slows down extremely=20
+> >=20
+> > > > > > 2) we are doing stepdown and things are normal again until the=
+=20
+> res=20
+> > > > > > reaches the value of 55-60Gb (after month or so)=20
+> >=20
+> > > > > > such behavior looks very weird, any thoughts what it can be?=20
+> >=20
+> > > > > > thanks=20
+> >=20
+> > > > > --=20
+> > > > > You received this message because you are subscribed to the Googl=
+e=20
+> > > > > Groups "mongodb-user" group.=20
+> > > > > To post to this group, send email to mongod...@googlegroups.com<j=
+avascript:>=20
+>
+> > > > > To unsubscribe from this group, send email to=20
+> > > > > mongodb-user...@googlegroups.com <javascript:>=20
+> > > > > See also the IRC channel -- freenode.net#mongodb=20
+> >=20
+> > > > --=20
+> > > > Un saludo,=20
+> > > > Samuel Garc=C3=ADa.=20
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_369_4950943.1346996864134
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Tetlika,<div><br></div><div>This very much sounds as if your system is p=
+aging at the time you are seeing these spikes.</div><div><br></div><div>The=
+ spike in resident memory correlating with a spike in I/O Wait sounds like =
+your instance is trying to pull paged files from disk into memory.</div><di=
+v><br></div><div>In MMS we capture this metric explicitly.&nbsp;</div><div>=
+<br></div><div>Common solutions here are to look at faster disks or increas=
+e the amount of ram available to your server.</div><div><br></div><div>Chee=
+rs,</div><div><br></div><div>David</div><div><br>On Friday, September 7, 20=
+12 3:27:48 PM UTC+10, tetlika wrote:<blockquote class=3D"gmail_quote" style=
+=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-left: =
+1ex;">we are on rightscale and iowait is collected by default in reflected
+<br>in plots, also during that periods I see queues in mongostat
+<br>yes there are long queries in log, but they are regular queries which
+<br>are starting executing more longer during iowait periods and are
+<br>dropped into log, we already investigated that
+<br>also after stepDown the things are back to normal on new master and
+<br>old one
+<br>the problem is always when we have high res value, we didnt faced
+<br>unexpected iowaits while the res is low
+<br>
+<br>we are on 2.0.6
+<br>
+<br>On 7 =D0=92=D0=B5=D1=80, 08:16, David Hows &lt;<a>david.h...@10gen.com<=
+/a>&gt; wrote:
+<br>&gt; Hi Tetlika,
+<br>&gt;
+<br>&gt; How are you collecting the iowait metric when these issues occur?
+<br>&gt;
+<br>&gt; Are there any mentions of long running queries or yields in your m=
+ongod
+<br>&gt; logs when this occurs?
+<br>&gt;
+<br>&gt; If the res value increases and you see a spike in iowait it sounds=
+ like you
+<br>&gt; would be pagefaulting.
+<br>&gt;
+<br>&gt; Do you have MMS installed? If so can you provide a link to your da=
+shboard?
+<br>&gt; And which version of the DB are you running?
+<br>&gt;
+<br>&gt; Cheers,
+<br>&gt;
+<br>&gt; David
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt; On Friday, September 7, 2012 2:58:48 PM UTC+10, tetlika wrote:
+<br>&gt;
+<br>&gt; &gt; thanks, nice video
+<br>&gt;
+<br>&gt; &gt; but looks in our specific case there are no random ebs io pro=
+blems
+<br>&gt;
+<br>&gt; &gt; On 7 =D0=92=D0=B5=D1=80, 00:34, Samuel Garc=C3=ADa Mart=C3=AD=
+nez &lt;<a>samuelgmarti...@gmail.com</a>&gt;
+<br>&gt; &gt; wrote:
+<br>&gt; &gt; &gt; Maybe is not resident size related. This can give you a =
+hint:
+<br>&gt; &gt;<a href=3D"http://www.10gen.com/presentations/MongoNYC-2012/Mo=
+ngoDB-at-foursquare" target=3D"_blank">http://www.10gen.com/<wbr>presentati=
+ons/MongoNYC-2012/<wbr>MongoDB-at-foursquare</a>
+<br>&gt;
+<br>&gt; &gt; &gt; On Thu, Sep 6, 2012 at 4:49 PM, tetlika &lt;<a>tetl...@g=
+mail.com</a>&gt; wrote:
+<br>&gt; &gt; &gt; &gt; forgot to say that it is not happening every time t=
+he res is reached
+<br>&gt; &gt; &gt; &gt; to that value, the shard can "live" for weeks with =
+that res but than
+<br>&gt; &gt; &gt; &gt; suddenly starts that behavior, sometimes the shard =
+"lives" just a
+<br>&gt; &gt; &gt; &gt; couple of days with that res, and than starts iowai=
+ting
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; On 6 =D0=92=D0=B5=D1=80, 17:44, tetlika &lt;<a>tetl=
+...@gmail.com</a>&gt; wrote:
+<br>&gt; &gt; &gt; &gt; &gt; hi!
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; we are on amazon ec2 m2.4xlarge instances and =
+on sharding with mongo
+<br>&gt; &gt; &gt; &gt; &gt; 2.0.6, with 4x disks in RAID0, index size on e=
+very shard is less
+<br>&gt; &gt; than
+<br>&gt; &gt; &gt; &gt; &gt; 50Gb
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; m2.4xlarge are 69GB of RAM
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; we've noticed such weird behavior of mongod:
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; 1) as soon as "res" value is around 55-60Gb on=
+ any of our shards, we
+<br>&gt; &gt; &gt; &gt; &gt; are monitoring high unexplainable iowait on th=
+at shard master,
+<br>&gt; &gt; &gt; &gt; &gt; application slows down extremely
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; 2) we are doing stepdown and things are normal=
+ again until the res
+<br>&gt; &gt; &gt; &gt; &gt; reaches the value of 55-60Gb (after month or s=
+o)
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; such behavior looks very weird, any thoughts w=
+hat it can be?
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; &gt; thanks
+<br>&gt;
+<br>&gt; &gt; &gt; &gt; --
+<br>&gt; &gt; &gt; &gt; You received this message because you are subscribe=
+d to the Google
+<br>&gt; &gt; &gt; &gt; Groups "mongodb-user" group.
+<br>&gt; &gt; &gt; &gt; To post to this group, send email to <a>mongod...@g=
+ooglegroups.com</a>&lt;<wbr>javascript:&gt;
+<br>&gt; &gt; &gt; &gt; To unsubscribe from this group, send email to
+<br>&gt; &gt; &gt; &gt; <a>mongodb-user...@googlegroups.<wbr>com</a> &lt;ja=
+vascript:&gt;
+<br>&gt; &gt; &gt; &gt; See also the IRC channel -- <a href=3D"http://freen=
+ode.net#mongodb" target=3D"_blank">freenode.net#mongodb</a>
+<br>&gt;
+<br>&gt; &gt; &gt; --
+<br>&gt; &gt; &gt; Un saludo,
+<br>&gt; &gt; &gt; Samuel Garc=C3=ADa.
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_369_4950943.1346996864134--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346996864</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1921</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo iowait</string>
+</dict>
+</plist>

@@ -1,0 +1,196 @@
+9829      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp267041oef;
+        Fri, 7 Sep 2012 07:38:59 -0700 (PDT)
+Received: by 10.60.20.165 with SMTP id o5mr3509658oee.135.1347028739107;
+        Fri, 07 Sep 2012 07:38:59 -0700 (PDT)
+Return-Path: <mongodb-user+bncCP23-LDyDxCAjqiCBRoEX8RzhA@googlegroups.com>
+Received: from mail-ob0-f192.google.com (mail-ob0-f192.google.com [209.85.214.192])
+        by mx.google.com with ESMTPS id lg5si6937465obb.182.2012.09.07.07.38.58
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 07:38:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCP23-LDyDxCAjqiCBRoEX8RzhA@googlegroups.com designates 209.85.214.192 as permitted sender) client-ip=209.85.214.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCP23-LDyDxCAjqiCBRoEX8RzhA@googlegroups.com designates 209.85.214.192 as permitted sender) smtp.mail=mongodb-user+bncCP23-LDyDxCAjqiCBRoEX8RzhA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by obbwc18 with SMTP id wc18sf1794841obb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 07:38:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=cI73T8VDC/Q7OjcYO4N8srC9h4S61oj0hnXmZbTpeUE=;
+        b=J4KMSzf8c/aNlZCnQ9U6PbK4F6IAl+sGWsu7DuA60xFZot5AceDu1idED60KelA3qo
+         YhDRysjsRRVOvxL9amY3OcULcLH1Gkx/NFjl1A2fa0CdARfep/UfYtggVyDvg6Y4HqYA
+         JY6aw62UEJ8ajpGdqloGUfwvQYMszmYbviP7q28gvcuNdOb8UfgAhnH67kBlNIbNDqzI
+         VCAi1QIIvBILO4c6nLe9eNWhqV0OrduF/fNxPzxaSnyjOjMEB3R7pJzPechiBIZXpeKz
+         EYi5UZwanuVjzr8TDzS+r9J5zyZXx8Gv5B4QPSOGaopuNsV6OVIGyyM9DZWofaELX1E7
+         +DIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=x-beenthere:received-spf:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:x-gm-message-state:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=cI73T8VDC/Q7OjcYO4N8srC9h4S61oj0hnXmZbTpeUE=;
+        b=FJIVdBwm51FIdbwF0LYfW6fCj3fUuILrmSytbr4DXy08ccjA4s6boJ3ex/XpF8sR2k
+         7d60enhUjU6gmxCVFZMp3AsRAdv84ndizknuZT82zEnS23B47aAQTE7V6ahPTuFSIOvu
+         68uBKO/5KlXGHr2qSEXEThJ2JwbwoZrGWeA5HwCcTtRHOgJ/+SrI97iognblF8sEpl2s
+         xQnTdoijBkuDO1bhTKfUCBBnrMB+n4KAnRZGqkqTfOEGOwmXZQ0PwDwrpJGlHJr1bYff
+         Lt8+WNe5s3Rs+Hi5By77hg8jmdTAs/lrcV9ZvERphu8cfC6NIGugFpj4Bm+/HeSmEyRe
+         cewg==
+Received: by 10.236.142.211 with SMTP id i59mr817429yhj.1.1347028738742;
+        Fri, 07 Sep 2012 07:38:58 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.113.178 with SMTP id a38ls851156yhh.9.gmail; Fri, 07 Sep
+ 2012 07:38:56 -0700 (PDT)
+Received: by 10.236.153.6 with SMTP id e6mr3182018yhk.20.1347028736382;
+        Fri, 07 Sep 2012 07:38:56 -0700 (PDT)
+Received: by 10.236.153.6 with SMTP id e6mr3182016yhk.20.1347028736358;
+        Fri, 07 Sep 2012 07:38:56 -0700 (PDT)
+Received: from mail-yw0-f43.google.com (mail-yw0-f43.google.com [209.85.213.43])
+        by gmr-mx.google.com with ESMTPS id i27si1494552yhe.4.2012.09.07.07.38.56
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 07:38:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of robert@10gen.com designates 209.85.213.43 as permitted sender) client-ip=209.85.213.43;
+Received: by yhjj67 with SMTP id j67so77892yhj.2
+        for <mongodb-user@googlegroups.com>; Fri, 07 Sep 2012 07:38:56 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.58.4.33 with SMTP id h1mr8170930veh.38.1347028736130; Fri, 07
+ Sep 2012 07:38:56 -0700 (PDT)
+Received: by 10.58.70.110 with HTTP; Fri, 7 Sep 2012 07:38:56 -0700 (PDT)
+In-Reply-To: <8ea1522f-b629-432c-b3a6-a50e31fabbd2@googlegroups.com>
+References: <8ea1522f-b629-432c-b3a6-a50e31fabbd2@googlegroups.com>
+Date: Fri, 7 Sep 2012 10:38:56 -0400
+Message-ID: <CAJCJWG2UvY787iNivvKY8Zva3TbmJDe0xaYR-4G3r6tovWDAww@mail.gmail.com>
+Subject: Re: [mongodb-user] InserBatch and DocumentsAffected
+From: Robert Stam <robert@10gen.com>
+To: mongodb-user@googlegroups.com
+X-Gm-Message-State: ALoCoQk0HEXInrs363E+skrwKOEqkrn/2B0gqm0+CF6QjgFfskq20zIMmwUGs99C5CGNGOphedY/
+X-Original-Sender: robert@10gen.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of robert@10gen.com designates 209.85.213.43 as permitted sender) smtp.mail=robert@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=047d7b5d883151bd7f04c91d91e2
+
+--047d7b5d883151bd7f04c91d91e2
+Content-Type: text/plain; charset=ISO-8859-1
+
+DocumentsAffected is set by the server (it's the "n" field in the response
+to getLastError), but is only set for Update operations, not for Inserts.
+
+You can assume that if InsertBatch didn't throw an exception that there
+were no errors (assuming you are using SafeMode.True as you are).
+
+On Fri, Sep 7, 2012 at 4:35 AM, Daniel Moqvist <daniel.moqvist@gmail.com>wrote:
+
+> Hello,
+> I'm on C# and running InsertBatch with SafeMode=True.
+> InsertBatch returns an IEnumerable<SafeModeResult>. When I insert over
+> 25000 documents the IEnumerable only contains 4 elements. All 4 elements
+> has DocumentsAffected = 0.
+> As I insert over 25000 documents I expected to get over 25000
+> SafeModeResults in return.
+>
+> How can I confirm that all documents is correctly inserted in the DB?
+> Is there another way to confirm this? maybe a try/catch to fetch errors?
+>
+> /Daniel
+>
+> --
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongodb-user@googlegroups.com
+> To unsubscribe from this group, send email to
+> mongodb-user+unsubscribe@googlegroups.com
+> See also the IRC channel -- freenode.net#mongodb
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--047d7b5d883151bd7f04c91d91e2
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+DocumentsAffected is set by the server (it&#39;s the &quot;n&quot; field in=
+ the response to getLastError), but is only set for Update operations, not =
+for Inserts.<div><br></div><div>You can assume that if InsertBatch didn&#39=
+;t throw an exception that there were no errors (assuming you are using Saf=
+eMode.True as you are).<br>
+<br><div class=3D"gmail_quote">On Fri, Sep 7, 2012 at 4:35 AM, Daniel Moqvi=
+st <span dir=3D"ltr">&lt;<a href=3D"mailto:daniel.moqvist@gmail.com" target=
+=3D"_blank">daniel.moqvist@gmail.com</a>&gt;</span> wrote:<br><blockquote c=
+lass=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;=
+padding-left:1ex">
+<div>Hello,</div><div>I&#39;m on C# and running InsertBatch with SafeMode=
+=3DTrue.</div><div>InsertBatch returns an IEnumerable&lt;SafeModeResult&gt;=
+. When I insert over 25000 documents the IEnumerable only contains 4 elemen=
+ts. All 4 elements has DocumentsAffected =3D 0.</div>
+<div>As I insert over 25000 documents I expected to get over 25000 SafeMode=
+Results in return. </div><div>=A0</div><div>How can I confirm that all docu=
+ments is correctly inserted in the DB?</div><div>Is there another way to co=
+nfirm this? maybe a try/catch to fetch errors?</div>
+<span class=3D"HOEnZb"><font color=3D"#888888"><div>=A0</div><div>/Daniel</=
+div>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups &quot;mongodb-user&quot; group.<br>
+To post to this group, send email to <a href=3D"mailto:mongodb-user@googleg=
+roups.com" target=3D"_blank">mongodb-user@googlegroups.com</a><br>
+To unsubscribe from this group, send email to<br>
+<a href=3D"mailto:mongodb-user%2Bunsubscribe@googlegroups.com" target=3D"_b=
+lank">mongodb-user+unsubscribe@googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</font></span></blockquote></div><br></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--047d7b5d883151bd7f04c91d91e2--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347028736</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1966</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] InserBatch and DocumentsAffected</string>
+</dict>
+</plist>

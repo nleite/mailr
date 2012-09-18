@@ -1,0 +1,250 @@
+11154     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp234802oef;
+        Thu, 6 Sep 2012 13:43:02 -0700 (PDT)
+Received: by 10.50.5.196 with SMTP id u4mr5071175igu.41.1346964182389;
+        Thu, 06 Sep 2012 13:43:02 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOb61Jf4ChDSlaSCBRoEtadV7w@googlegroups.com>
+Received: from mail-iy0-f192.google.com (mail-iy0-f192.google.com [209.85.210.192])
+        by mx.google.com with ESMTPS id zz5si5055284icb.101.2012.09.06.13.43.01
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 13:43:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOb61Jf4ChDSlaSCBRoEtadV7w@googlegroups.com designates 209.85.210.192 as permitted sender) client-ip=209.85.210.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOb61Jf4ChDSlaSCBRoEtadV7w@googlegroups.com designates 209.85.210.192 as permitted sender) smtp.mail=mongodb-user+bncCOb61Jf4ChDSlaSCBRoEtadV7w@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iagf6 with SMTP id f6sf1643777iag.29
+        for <multiple recipients>; Thu, 06 Sep 2012 13:43:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=7580TiYnJXIbtsNMPMaW8YTxZ+0/p/FPhdvFmbwKBlY=;
+        b=fRdFH2SzNmvYGeFvpetl58puRJYTo0W6b3VFiN9wFMGhYMCryGYyfbpZHjgJDJ6r3N
+         lit07zQn5HFIVukIzT6yHm3dVQLLPhtseBcjNyBnMmbEyb23fCYNmnguySpi2I8WgcFg
+         EqmPMQ/Zpd9k4VyhpkwTwuyILtCzRDkEiLvP4iBUn4yLSmvLCyfhxTFkzo7TXXoBOaQK
+         QfDlRAzsWJGgiRUDBpZYk/rZTz1UD8T9YesMnhp9Uk0UJWVlHnwbOd9ZopOdZkj4tk+H
+         OuL8cqoDrpvlDdjUbQQ+FPI/mho257TiV0UquOyS1yyENgu0EfjF7kWpzNBibwWsMN+s
+         SAew==
+Received: by 10.236.185.130 with SMTP id u2mr542880yhm.0.1346964181660;
+        Thu, 06 Sep 2012 13:43:01 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.124.176 with SMTP id x36ls1926750yhh.1.gmail; Thu, 06 Sep
+ 2012 13:42:58 -0700 (PDT)
+Received: by 10.236.192.164 with SMTP id i24mr525457yhn.14.1346964178259;
+        Thu, 06 Sep 2012 13:42:58 -0700 (PDT)
+Date: Thu, 6 Sep 2012 13:42:57 -0700 (PDT)
+From: Andrew Emil <andrew.emil@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <befca25f-481a-4b45-98e9-cfa2c7f06366@googlegroups.com>
+In-Reply-To: <b8c401e1-7956-4166-8c59-0726a6488620@cf4g2000vbb.googlegroups.com>
+References: <b8c401e1-7956-4166-8c59-0726a6488620@cf4g2000vbb.googlegroups.com>
+Subject: [mongodb-user] Re: i cant remove "pushed" array!
+MIME-Version: 1.0
+X-Original-Sender: andrew.emil@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ andrew.emil@10gen.com designates internal as permitted sender)
+ smtp.mail=andrew.emil@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_66_12784627.1346964177794"
+
+------=_Part_66_12784627.1346964177794
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Aliane,
+
+If I correctly understand your operations you are trying to pull all the 
+elements in produit_up that have a prix value of 4100.  The main issue with 
+this is that the main field used in a pull command must be an array 
+(see http://www.mongodb.org/display/DOCS/Updating#Updating-%24pull for more 
+info).  
+
+Additionally, I am not sure if this is what you are trying to do, but it 
+would be good to note it is not currently possible to pull fields out of 
+documents in the array, your only option is to pull the entire document 
+from the array.  A possible workaround might be to pull the entire 
+document, remove the field from that document, and push it back into the 
+array.
+
+If you just want to pull the entire document, this could be done by placing 
+an expression inside of your pull as described in the doc I linked above. 
+ If I misunderstood your question or did not get you a useful answer, just 
+respond back and I will definitely try to get back to you and try and 
+resolve this.
+
+On Thursday, September 6, 2012 12:12:04 PM UTC-7, aliane abdelouahab wrote:
+>
+> hi 
+> why cant i remove nested document? 
+> here is the original document: 
+>
+> list(db.users.find({"pseudo":"alucaard"}, {"produit_up":1, "_id":0})) 
+> Out[1]: 
+> [{u'produit_up': [{u'avctype': u'image/jpeg', 
+>     u'date': u'2012-09-06', 
+>     u'description': u'samiiiiiiiiiiiiiiiiiiiiiing', 
+>     u'id': u'alucaard134695511544', 
+>     u'namep': u'samsung e250', 
+>     u'orientation': u'portrait', 
+>     u'photo': ObjectId('5048e76b3a5f3a0a5c199d41'), 
+>     u'prix': 410, 
+>     u'vendu': False}, 
+>    {u'avctype': u'image/jpeg', 
+>     u'date': u'2012-09-06', 
+>     u'description': u'samifgfdgfdgfdgfdg', 
+>     u'id': u'alucaard13469551377', 
+>     u'namep': u'nokia 3310', 
+>     u'orientation': u'portrait', 
+>     u'photo': ObjectId('5048e7813a5f3a0a5c199d43'), 
+>     u'prix': 4100, 
+>     u'vendu': False}]}] 
+>
+> db.users.update({"pseudo":"alucaard"}, {"$pull":{"produit_up.prix": 
+> 4100}}) 
+>
+> list(db.users.find({"pseudo":"alucaard"}, {"produit_up":1, "_id":0})) 
+> Out[1]: 
+> [{u'produit_up': [{u'avctype': u'image/jpeg', 
+>     u'date': u'2012-09-06', 
+>     u'description': u'samiiiiiiiiiiiiiiiiiiiiiing', 
+>     u'id': u'alucaard134695511544', 
+>     u'namep': u'samsung e250', 
+>     u'orientation': u'portrait', 
+>     u'photo': ObjectId('5048e76b3a5f3a0a5c199d41'), 
+>     u'prix': 410, 
+>     u'vendu': False}, 
+>    {u'avctype': u'image/jpeg', 
+>     u'date': u'2012-09-06', 
+>     u'description': u'samifgfdgfdgfdgfdg', 
+>     u'id': u'alucaard13469551377', 
+>     u'namep': u'nokia 3310', 
+>     u'orientation': u'portrait', 
+>     u'photo': ObjectId('5048e7813a5f3a0a5c199d43'), 
+>     u'prix': 4100, 
+>     u'vendu': False}]}] 
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_66_12784627.1346964177794
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Aliane,<div><br></div><div>If I correctly understand your operations you=
+ are trying to pull all the elements in produit_up that have a prix value o=
+f 4100. &nbsp;The main issue with this is that the main field used in a pul=
+l command must be an array (see&nbsp;http://www.mongodb.org/display/DOCS/Up=
+dating#Updating-%24pull for more info). &nbsp;</div><div><br></div><div>Add=
+itionally, I am not sure if this is what you are trying to do, but it would=
+ be good to note it is not currently possible to pull fields out of documen=
+ts in the array, your only option is to pull the entire document from the a=
+rray. &nbsp;A possible workaround might be to pull the entire document, rem=
+ove the field from that document, and push it back into the array.</div><di=
+v><br></div><div>If you just want to pull the entire document, this could b=
+e done by placing an expression inside of your pull as described in the doc=
+ I linked above. &nbsp;If I misunderstood your question or did not get you =
+a useful answer, just respond back and I will definitely try to get back to=
+ you and try and resolve this.<br><br>On Thursday, September 6, 2012 12:12:=
+04 PM UTC-7, aliane abdelouahab wrote:<blockquote class=3D"gmail_quote" sty=
+le=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-left=
+: 1ex;">hi
+<br>why cant i remove nested document?
+<br>here is the original document:
+<br>
+<br>list(db.users.find({"pseudo":"<wbr>alucaard"}, {"produit_up":1, "_id":0=
+}))
+<br>Out[1]:
+<br>[{u'produit_up': [{u'avctype': u'image/jpeg',
+<br>&nbsp; &nbsp; u'date': u'2012-09-06',
+<br>&nbsp; &nbsp; u'description': u'samiiiiiiiiiiiiiiiiiiiiiing'<wbr>,
+<br>&nbsp; &nbsp; u'id': u'alucaard134695511544',
+<br>&nbsp; &nbsp; u'namep': u'samsung e250',
+<br>&nbsp; &nbsp; u'orientation': u'portrait',
+<br>&nbsp; &nbsp; u'photo': ObjectId('<wbr>5048e76b3a5f3a0a5c199d41'),
+<br>&nbsp; &nbsp; u'prix': 410,
+<br>&nbsp; &nbsp; u'vendu': False},
+<br>&nbsp; &nbsp;{u'avctype': u'image/jpeg',
+<br>&nbsp; &nbsp; u'date': u'2012-09-06',
+<br>&nbsp; &nbsp; u'description': u'samifgfdgfdgfdgfdg',
+<br>&nbsp; &nbsp; u'id': u'alucaard13469551377',
+<br>&nbsp; &nbsp; u'namep': u'nokia 3310',
+<br>&nbsp; &nbsp; u'orientation': u'portrait',
+<br>&nbsp; &nbsp; u'photo': ObjectId('<wbr>5048e7813a5f3a0a5c199d43'),
+<br>&nbsp; &nbsp; u'prix': 4100,
+<br>&nbsp; &nbsp; u'vendu': False}]}]
+<br>
+<br>db.users.update({"pseudo":"<wbr>alucaard"}, {"$pull":{"produit_up.prix"=
+:
+<br>4100}})
+<br>
+<br>list(db.users.find({"pseudo":"<wbr>alucaard"}, {"produit_up":1, "_id":0=
+}))
+<br>Out[1]:
+<br>[{u'produit_up': [{u'avctype': u'image/jpeg',
+<br>&nbsp; &nbsp; u'date': u'2012-09-06',
+<br>&nbsp; &nbsp; u'description': u'samiiiiiiiiiiiiiiiiiiiiiing'<wbr>,
+<br>&nbsp; &nbsp; u'id': u'alucaard134695511544',
+<br>&nbsp; &nbsp; u'namep': u'samsung e250',
+<br>&nbsp; &nbsp; u'orientation': u'portrait',
+<br>&nbsp; &nbsp; u'photo': ObjectId('<wbr>5048e76b3a5f3a0a5c199d41'),
+<br>&nbsp; &nbsp; u'prix': 410,
+<br>&nbsp; &nbsp; u'vendu': False},
+<br>&nbsp; &nbsp;{u'avctype': u'image/jpeg',
+<br>&nbsp; &nbsp; u'date': u'2012-09-06',
+<br>&nbsp; &nbsp; u'description': u'samifgfdgfdgfdgfdg',
+<br>&nbsp; &nbsp; u'id': u'alucaard13469551377',
+<br>&nbsp; &nbsp; u'namep': u'nokia 3310',
+<br>&nbsp; &nbsp; u'orientation': u'portrait',
+<br>&nbsp; &nbsp; u'photo': ObjectId('<wbr>5048e7813a5f3a0a5c199d43'),
+<br>&nbsp; &nbsp; u'prix': 4100,
+<br>&nbsp; &nbsp; u'vendu': False}]}]
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_66_12784627.1346964177794--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346964177</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1869</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: i cant remove "pushed" array!</string>
+</dict>
+</plist>

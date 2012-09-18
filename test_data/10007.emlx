@@ -1,0 +1,126 @@
+5950      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp227296oef;
+        Thu, 6 Sep 2012 10:31:18 -0700 (PDT)
+Received: by 10.236.176.234 with SMTP id b70mr2590094yhm.55.1346952677863;
+        Thu, 06 Sep 2012 10:31:17 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNfjkLXhFBDju6OCBRoEtUC_mw@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id l5si2458902yhk.139.2012.09.06.10.31.17
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 10:31:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNfjkLXhFBDju6OCBRoEtUC_mw@googlegroups.com designates 209.85.160.192 as permitted sender) client-ip=209.85.160.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNfjkLXhFBDju6OCBRoEtUC_mw@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCNfjkLXhFBDju6OCBRoEtUC_mw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ghrr20 with SMTP id r20sf1538730ghr.29
+        for <multiple recipients>; Thu, 06 Sep 2012 10:31:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=2svyQaIvok1brlRThiIjGUYBJQcVaKfZ6SNYoTt538E=;
+        b=AN7PCD8Z7qIY0nQSazOrAVeyWJJuSKmv06eoHPQLOsg+pbmceYOoPjg6UYWkl8cXFo
+         5ljg5iTZ/iDnhIFYYCu874ibz0l5bxfkCkXHyy9fcLxMYRSQjf7f6KKNAqXV0ctVoBG8
+         jzTPG8JVM03MjOiBYj8IR6LOsA4gBwCt+xAzwq8nUijaftBfWCPvLLu3F7ZkXVc0Y4YF
+         oGEqkEFCByf8TouB43QLVPZfgrNl6L7u+J3iVUN+2igSS2SK84B+Z+f2/hMh9+3IXs8T
+         5XeKbfT/mLLrW5/B1dH23vvVUeWHrQKk/xGcrFjNL4GQ3ZD0CWwfeY7IEdvP6LycY1hX
+         SlUQ==
+Received: by 10.52.28.83 with SMTP id z19mr531645vdg.20.1346952677419;
+        Thu, 06 Sep 2012 10:31:17 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.154.17 with SMTP id m17ls1002831vcw.1.gmail; Thu, 06 Sep
+ 2012 10:31:14 -0700 (PDT)
+Received: by 10.52.35.104 with SMTP id g8mr510360vdj.19.1346952674936;
+        Thu, 06 Sep 2012 10:31:14 -0700 (PDT)
+Date: Thu, 6 Sep 2012 10:31:14 -0700 (PDT)
+From: Arkadiy <parkan@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <493f8a33-4e58-4465-8564-054a1242c92d@googlegroups.com>
+Subject: [mongodb-user] How can I make PHP inserts/update safe by default?
+MIME-Version: 1.0
+X-Original-Sender: parkan@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ parkan@gmail.com designates internal as permitted sender)
+ smtp.mail=parkan@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_2603_13295532.1346952674596"
+
+------=_Part_2603_13295532.1346952674596
+Content-Type: text/plain; charset=ISO-8859-1
+
+We've recently suffered from some missing data due to (I suspect) master 
+switchover during inserts. How can I avoid this without writing 
+array(safe=> true) in every single insert/update?
+
+Basically I want connection-level safe => true default that I can 
+occasionally override with safe => false for throughput-oriented data.
+
+Unfortunately, it looks like the php drives doesn't support the ?safe=1 
+syntax ("argument 27017?safe=1 isn't numeric") and setting w=1 at 
+connection level still appears to require specifying safe => true per query.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_2603_13295532.1346952674596
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+We've recently suffered from some missing data due to (I suspect) master sw=
+itchover during inserts. How can I avoid this without writing array(safe=3D=
+&gt; true) in every single insert/update?<div><br></div><div>Basically I wa=
+nt connection-level safe =3D&gt; true default that I can occasionally overr=
+ide with safe =3D&gt; false for throughput-oriented data.</div><div><br></d=
+iv><div>Unfortunately, it looks like the php drives doesn't support the ?sa=
+fe=3D1 syntax ("argument 27017?safe=3D1 isn't numeric") and setting w=3D1 a=
+t connection level still appears to require specifying safe =3D&gt; true pe=
+r query.</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_2603_13295532.1346952674596--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346952674</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1828</string>
+	<key>subject</key>
+	<string>[mongodb-user] How can I make PHP inserts/update safe by default?</string>
+</dict>
+</plist>

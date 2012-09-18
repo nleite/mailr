@@ -1,0 +1,110 @@
+5074      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230056oef;
+        Thu, 6 Sep 2012 11:41:04 -0700 (PDT)
+Received: by 10.236.155.10 with SMTP id i10mr2811715yhk.91.1346956864087;
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id h6si2633170yhk.99.2012.09.06.11.41.03
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:41:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com designates 209.85.160.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCLyfsvv5GhC83KOCBRoEGt_1cg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-gh0-f192.google.com with SMTP id r20sf1581207ghr.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=4DVY8um/3T6SPLA3AjezSDWbSSKJOCYpBERx31OX7uA=;
+        b=nNHUUFY4d69/CZjqdzPDXGUlRcgwo2XWmKZpZ26RYS25DGMSc4srJ6RJY7UT+2UQqG
+         H9lYZbWmP+3CjHMKWVN0sekYNKpQcKydHk4ExRzOWgQtr/Tju6MWZhBCmgQ64LGLfeaJ
+         /DJtjbT/Y3Y9C3fSR4EUb+gVPBJJ7nrZqHtrAPEM1gu60kCwUZIJqT3UQCXHRMBxkUDu
+         fTAEz0S0kYQkZ52Xk43jRHpUQBu80C7B9whp10HKvPSZ7e4QJ3ZrPlqmakLJTPyvtPHK
+         clsIwZU1xmRvbBCOyTC8Lgajt8nPWl1hhR6Au2SrdM5rdZKfH1utuiMk9MwE6BuwOllV
+         uRJg==
+Received: by 10.224.217.68 with SMTP id hl4mr841706qab.9.1346956863833;
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.229.175.169 with SMTP id ba41ls1285543qcb.5.gmail; Thu, 06 Sep
+ 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.182.74 with SMTP id cb10mr1753578qab.0.1346956860720;
+        Thu, 06 Sep 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.18.193 with SMTP id x1msqaa;
+        Thu, 6 Sep 2012 11:32:41 -0700 (PDT)
+Received: by 10.236.75.3 with SMTP id y3mr475567yhd.20.1346956361218;
+        Thu, 06 Sep 2012 11:32:41 -0700 (PDT)
+Date: Thu, 6 Sep 2012 11:32:40 -0700 (PDT)
+From: Damian <lars@schouw.me>
+To: mongodb-user@googlegroups.com
+Message-Id: <2e0d59e3-819d-470a-a89b-33104a7f102a@googlegroups.com>
+Subject: [mongodb-user] Parallel across one box
+MIME-Version: 1.0
+X-Original-Sender: lars@schouw.me
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_212_14581329.1346956360583"
+
+------=_Part_212_14581329.1346956360583
+Content-Type: text/plain; charset=ISO-8859-1
+
+Will MongoDB be able to work concurrently on number of core on a single 
+box? 
+If yes how does it scale if there are more than say 4 cores? I can imagine 
+one needs to implement lockfree methods.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_212_14581329.1346956360583
+Content-Type: text/html; charset=ISO-8859-1
+
+Will MongoDB be able to work concurrently on number of core on a single box?&nbsp;<div>If yes how does it scale if there are more than say 4 cores? I can imagine one needs to implement lockfree methods.</div><div><br></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_212_14581329.1346956360583--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346956360</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1851</string>
+	<key>subject</key>
+	<string>[mongodb-user] Parallel across one box</string>
+</dict>
+</plist>

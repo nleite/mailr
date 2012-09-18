@@ -1,0 +1,301 @@
+14924     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp243073oef;
+        Thu, 6 Sep 2012 17:52:03 -0700 (PDT)
+Received: by 10.50.106.233 with SMTP id gx9mr5538988igb.49.1346979122717;
+        Thu, 06 Sep 2012 17:52:02 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKfshLCuGBCviqWCBRoEQDv9ow@googlegroups.com>
+Received: from mail-iy0-f192.google.com (mail-iy0-f192.google.com [209.85.210.192])
+        by mx.google.com with ESMTPS id i2si5849453icy.42.2012.09.06.17.52.02
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 17:52:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKfshLCuGBCviqWCBRoEQDv9ow@googlegroups.com designates 209.85.210.192 as permitted sender) client-ip=209.85.210.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKfshLCuGBCviqWCBRoEQDv9ow@googlegroups.com designates 209.85.210.192 as permitted sender) smtp.mail=mongodb-user+bncCKfshLCuGBCviqWCBRoEQDv9ow@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iagf6 with SMTP id f6sf1731289iag.29
+        for <multiple recipients>; Thu, 06 Sep 2012 17:52:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=4ai9/lEapBbT9FjxIlGIqeRXw8Gt/4nlyyuDZ5RGgCc=;
+        b=vkZTK5ekp9wLYj3a1eWoWHt6Wvu2t1p1iYMUnrAQcm4ipIMw3mFZvbLe+Are9e/0xM
+         MTYmhv3BoGetvwfdCoxTx4oj+MDwapROU13jX+IxDOp7E9f+iTo5SVa3tBApgMLXcbjS
+         Qut/Jo4hNnba06lye2xJhnTgRVR9gO5hodKZC18+41ot8vIz8CiAzHylOGIFQGZRqzmQ
+         8uPh9kJIN42AgTtOkqW/NowiX0e0MmGP+RkQQlFACPtxkUw1Dl1phrGfZo0UsMTjnvMp
+         36TWu059zkgr+6Yh669jVWEv1zFbwc4GtOh2NzEKzsj64GY+nVWi7Hb+ZFN09tRCDFKr
+         ZyvA==
+Received: by 10.68.232.230 with SMTP id tr6mr1014406pbc.16.1346979121848;
+        Thu, 06 Sep 2012 17:52:01 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.222.39 with SMTP id qj7ls220594pbc.2.gmail; Thu, 06 Sep
+ 2012 17:51:59 -0700 (PDT)
+Received: by 10.68.225.234 with SMTP id rn10mr1026028pbc.3.1346979119142;
+        Thu, 06 Sep 2012 17:51:59 -0700 (PDT)
+Date: Thu, 6 Sep 2012 17:51:58 -0700 (PDT)
+From: Xuguang <xzhan.cisco@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <9e568ac7-04c7-4cd2-a7a8-e6dcb1a3d48d@googlegroups.com>
+In-Reply-To: <606f00de-8f99-4109-819a-c06d4962a5f4@googlegroups.com>
+References: <91a61f0b-48ba-4433-a0e2-f1f4fc33e70a@googlegroups.com>
+ <04d8b1f1-d981-4e9a-9d06-7aa33194c268@googlegroups.com>
+ <5c28acde-6f5b-40c0-a35d-29eddf4b1391@googlegroups.com>
+ <faacbb66-9a41-41c0-aba8-2d769165ce31@googlegroups.com>
+ <e4d5eff9-7b63-4df9-9819-f87f26e4ea4d@googlegroups.com>
+ <0daca14b-509d-4033-bcfb-3f8dfc81d9c5@googlegroups.com>
+ <4dc5b35c-2ba4-41c0-ab94-4d7389acc3ae@googlegroups.com>
+ <82effbb2-4a71-45b6-9a19-ef15bfbddd47@googlegroups.com>
+ <af8dec44-f7bd-4611-83d1-afb34bfc7eef@googlegroups.com>
+ <606f00de-8f99-4109-819a-c06d4962a5f4@googlegroups.com>
+Subject: [mongodb-user] Re: what's the sync flow  in one shard when slave have
+ not creat the connection with pri
+MIME-Version: 1.0
+X-Original-Sender: xzhan.cisco@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ xzhan.cisco@gmail.com designates internal as permitted sender)
+ smtp.mail=xzhan.cisco@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_130_12104620.1346979118712"
+
+------=_Part_130_12104620.1346979118712
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+I mean runTime model sync code,(1) pri sync the write action to the=20
+secondary (2) secondary sync the opt with other nodes, and what's the mech=
+=20
+to choose the sync target
+
+=E5=9C=A8 2012=E5=B9=B49=E6=9C=886=E6=97=A5=E6=98=9F=E6=9C=9F=E5=9B=9BUTC+8=
+=E4=B8=8B=E5=8D=886=E6=97=B641=E5=88=8646=E7=A7=92=EF=BC=8Cgregor=E5=86=99=
+=E9=81=93=EF=BC=9A
+>
+> Hi - I'm not sure what code you are asking about? Code that does what?
+>
+> On Wednesday, September 5, 2012 3:07:19 AM UTC+1, Xuguang wrote:
+>>
+>> thanks.if you show the code logical to me ,that's will be more cool
+>>
+>> =E5=9C=A8 2012=E5=B9=B49=E6=9C=883=E6=97=A5=E6=98=9F=E6=9C=9F=E4=B8=80UT=
+C+8=E4=B8=8B=E5=8D=885=E6=97=B642=E5=88=8604=E7=A7=92=EF=BC=8Cgregor=E5=86=
+=99=E9=81=93=EF=BC=9A
+>>>
+>>> Yes the node that SEC will sync from can change - but it will only sync=
+=20
+>>> with one.=20
+>>>
+>>> On Monday, September 3, 2012 6:29:23 AM UTC+1, Xuguang wrote:
+>>>>
+>>>> thanks, but from the log ,it have some confuse me ,in the end ,the SEC=
+=20
+>>>> have sync with PRI "again" per check the log
+>>>>
+>>>> =E5=9C=A8 2012=E5=B9=B48=E6=9C=8831=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=
+=94UTC+8=E4=B8=8B=E5=8D=883=E6=97=B636=E5=88=8602=E7=A7=92=EF=BC=8Cgregor=
+=E5=86=99=E9=81=93=EF=BC=9A
+>>>>>
+>>>>> If all connetions between the two SEC and the PRI are open the each=
+=20
+>>>>> SEC will sync from either the PRI *or* the other SEC - not both.=20
+>>>>>
+>>>>> On Friday, August 31, 2012 7:57:40 AM UTC+1, Xuguang wrote:
+>>>>>>
+>>>>>> yes, i just broke PRI and one Slave Nodes, other nodes connections=
+=20
+>>>>>> works well , as you except , the broken slave nodes will trigger the=
+ Vote=20
+>>>>>> and think the another Secondar nodes is primary. so in the end it wi=
+ll sync=20
+>>>>>> only with this Slave nodes, not with Pri. but at the normally case ,=
+will it=20
+>>>>>> sync with Pri and Slave both? this is really i want to know
+>>>>>>
+>>>>>> =E5=9C=A8 2012=E5=B9=B48=E6=9C=8830=E6=97=A5=E6=98=9F=E6=9C=9F=E5=9B=
+=9BUTC+8=E4=B8=8B=E5=8D=8810=E6=97=B600=E5=88=8644=E7=A7=92=EF=BC=8Cgregor=
+=E5=86=99=E9=81=93=EF=BC=9A
+>>>>>>>
+>>>>>>> If the SECONDARY can't see the PRIMARY, then it will trigger an=20
+>>>>>>> election<http://docs.mongodb.org/manual/core/replication-internals/=
+#elections> -=20
+>>>>>>> I think at this point the other SECONDARY will become PRIMARY becau=
+se it is=20
+>>>>>>> the only node that all members can see. Have you tried this?=20
+>>>>>>>
+>>>>>>> On Thursday, August 30, 2012 8:14:25 AM UTC+1, Xuguang wrote:
+>>>>>>>>
+>>>>>>>> Yeah , i use the Iptable tool to broken the connection, so if the=
+=20
+>>>>>>>> connection broked between PRI and SECONDARY, it will start the syn=
+c the=20
+>>>>>>>> process with Other Secondary node , right?  if no broken the conne=
+ction ,=20
+>>>>>>>> Slave node  will syc between other Slavenode and PRI?
+>>>>>>>>
+>>>>>>>> =E5=9C=A8 2012=E5=B9=B48=E6=9C=8829=E6=97=A5=E6=98=9F=E6=9C=9F=E4=
+=B8=89UTC+8=E4=B8=8B=E5=8D=884=E6=97=B642=E5=88=8604=E7=A7=92=EF=BC=8Cgrego=
+r=E5=86=99=E9=81=93=EF=BC=9A
+>>>>>>>>>
+>>>>>>>>> I'm not sure what you are asking? Replication in mongodb is=20
+>>>>>>>>> covered here <http://www.mongodb.org/display/DOCS/Replication>.=
+=20
+>>>>>>>>> How are you breaking the PRIMARY and SECONDARY connection? The SE=
+CONDARY=20
+>>>>>>>>> will always try to sync either from the PRIMARY or another SECOND=
+ARY.=20
+>>>>>>>>>
+>>>>>>>>> On Wednesday, August 29, 2012 6:49:17 AM UTC+1, Xuguang wrote:
+>>>>>>>>>>
+>>>>>>>>>> Case2. When I broken the Pri and slave connection, we find ,the=
+=20
+>>>>>>>>>> slave still can sync data back, so  what=E2=80=99s the sync mech=
+ with=20
+>>>>>>>>>> pri or other slave nodes, check the result
+>>>>>>>>>>
+>>>>>>>>>>  Depend on Log :check the flow, it have sync finishing  with=20
+>>>>>>>>>> Slave node 10.224.88.163, but not sure in the end why still call=
+=20
+>>>>>>>>>> PRI 10.224.88.109 sync once more?
+>>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>> <https://lh4.googleusercontent.com/-Q5CCqiuF_c0/UD2tPKJiwcI/AAAA=
+AAAAABs/JxWqTZaFM94/s1600/sync.PNG>
+>>>>>>>>>>
+>>>>>>>>>>
+>>>>>>>>>>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_130_12104620.1346979118712
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+I mean runTime model sync code,(1) pri sync the write action to the seconda=
+ry (2) secondary sync the opt with other nodes, and what's the mech to choo=
+se the sync target<br><br>=E5=9C=A8 2012=E5=B9=B49=E6=9C=886=E6=97=A5=E6=98=
+=9F=E6=9C=9F=E5=9B=9BUTC+8=E4=B8=8B=E5=8D=886=E6=97=B641=E5=88=8646=E7=A7=
+=92=EF=BC=8Cgregor=E5=86=99=E9=81=93=EF=BC=9A<blockquote class=3D"gmail_quo=
+te" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;paddi=
+ng-left: 1ex;">Hi - I'm not sure what code you are asking about? Code that =
+does what?<br><br>On Wednesday, September 5, 2012 3:07:19 AM UTC+1, Xuguang=
+ wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8e=
+x;border-left:1px #ccc solid;padding-left:1ex">thanks.if you show the code =
+logical to me ,that's will be more cool<br><br>=E5=9C=A8 2012=E5=B9=B49=E6=
+=9C=883=E6=97=A5=E6=98=9F=E6=9C=9F=E4=B8=80UTC+8=E4=B8=8B=E5=8D=885=E6=97=
+=B642=E5=88=8604=E7=A7=92=EF=BC=8C<wbr>gregor=E5=86=99=E9=81=93=EF=BC=9A<bl=
+ockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-l=
+eft:1px #ccc solid;padding-left:1ex">Yes the node that SEC will sync from c=
+an change - but it will only sync with one.&nbsp;<br><br>On Monday, Septemb=
+er 3, 2012 6:29:23 AM UTC+1, Xuguang wrote:<blockquote class=3D"gmail_quote=
+" style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-le=
+ft:1ex">thanks, but from the log ,it have some confuse me ,in the end ,the =
+SEC have sync with PRI "again" per check the log<br><br>=E5=9C=A8 2012=E5=
+=B9=B48=E6=9C=8831=E6=97=A5=E6=98=9F=E6=9C=9F=E4=BA=94UTC+8=E4=B8=8B=E5=8D=
+=883=E6=97=B636=E5=88=8602=E7=A7=92=EF=BC=8C<wbr>gregor=E5=86=99=E9=81=93=
+=EF=BC=9A<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.=
+8ex;border-left:1px #ccc solid;padding-left:1ex">If all connetions between =
+the two SEC and the PRI are open the each SEC will sync from either the PRI=
+ *or* the other SEC - not both.&nbsp;<br><br>On Friday, August 31, 2012 7:5=
+7:40 AM UTC+1, Xuguang wrote:<blockquote class=3D"gmail_quote" style=3D"mar=
+gin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">yes, i=
+ just broke PRI and one Slave Nodes, other nodes connections works well , a=
+s you except , the broken slave nodes will trigger the Vote and think the a=
+nother Secondar nodes is primary. so in the end it will sync only with this=
+ Slave nodes, not with Pri. but at the normally case ,will it sync with Pri=
+ and Slave both? this is really i want to know<br><br>=E5=9C=A8 2012=E5=B9=
+=B48=E6=9C=8830=E6=97=A5=E6=98=9F=E6=9C=9F=E5=9B=9BUTC+8=E4=B8=8B=E5=8D=881=
+0=E6=97=B600=E5=88=8644=E7=A7=92=EF=BC=8C<wbr>gregor=E5=86=99=E9=81=93=EF=
+=BC=9A<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex=
+;border-left:1px #ccc solid;padding-left:1ex">If the SECONDARY can't see th=
+e PRIMARY, then it will trigger an&nbsp;<a href=3D"http://docs.mongodb.org/=
+manual/core/replication-internals/#elections" target=3D"_blank">election</a=
+>&nbsp;- I think at this point the other SECONDARY will become PRIMARY beca=
+use it is the only node that all members can see. Have you tried this?&nbsp=
+;<br><br>On Thursday, August 30, 2012 8:14:25 AM UTC+1, Xuguang wrote:<bloc=
+kquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-lef=
+t:1px #ccc solid;padding-left:1ex">Yeah , i use the Iptable tool to broken =
+the connection, so if the connection broked between PRI and SECONDARY, it w=
+ill start the sync the process with Other Secondary node , right?&nbsp; if =
+no broken the connection , Slave node&nbsp; will syc between other Slavenod=
+e and PRI?<br><br>=E5=9C=A8 2012=E5=B9=B48=E6=9C=8829=E6=97=A5=E6=98=9F=E6=
+=9C=9F=E4=B8=89UTC+8=E4=B8=8B=E5=8D=884=E6=97=B642=E5=88=8604=E7=A7=92=EF=
+=BC=8C<wbr>gregor=E5=86=99=E9=81=93=EF=BC=9A<blockquote class=3D"gmail_quot=
+e" style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-l=
+eft:1ex">I'm not sure what you are asking? Replication in mongodb is covere=
+d&nbsp;<a href=3D"http://www.mongodb.org/display/DOCS/Replication" target=
+=3D"_blank">here</a>. How are you breaking the PRIMARY and SECONDARY connec=
+tion? The SECONDARY will always try to sync either from the PRIMARY or anot=
+her SECONDARY.&nbsp;<br><br>On Wednesday, August 29, 2012 6:49:17 AM UTC+1,=
+ Xuguang wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-l=
+eft:0.8ex;border-left:1px #ccc solid;padding-left:1ex">
+
+<p class=3D"MsoNormal">Case2.
+When I broken the Pri and slave connection, we find ,the slave still can sy=
+nc
+data back, so&nbsp; <span style=3D"color:red">what=E2=80=99s the sync mech =
+with pri or
+other slave nodes</span>, check the result</p>
+
+
+
+<p class=3D"MsoNormal">&nbsp;Depend
+on Log :check the flow, it have sync finishing &nbsp;with Slave node
+10.224.88.163, but not sure in the end <span style=3D"color:red">why still =
+call
+PRI 10.224.88.109 sync once more?</span></p><p style=3D"text-align:center;c=
+lear:both"><a style=3D"margin-left:1em;margin-right:1em" href=3D"https://lh=
+4.googleusercontent.com/-Q5CCqiuF_c0/UD2tPKJiwcI/AAAAAAAAABs/JxWqTZaFM94/s1=
+600/sync.PNG" target=3D"_blank"><img border=3D"0"></a></p><p class=3D"MsoNo=
+rmal"><span style=3D"color:red"><br></span></p>
+
+</blockquote></blockquote></blockquote></blockquote></blockquote></blockquo=
+te></blockquote></blockquote></blockquote></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_130_12104620.1346979118712--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346979118</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1894</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: what's the sync flow  in one shard when slave have not creat the connection with pri</string>
+</dict>
+</plist>

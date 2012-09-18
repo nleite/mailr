@@ -1,0 +1,348 @@
+17053     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp273546oef;
+        Fri, 7 Sep 2012 10:30:59 -0700 (PDT)
+Received: by 10.66.88.1 with SMTP id bc1mr9138097pab.18.1347039058959;
+        Fri, 07 Sep 2012 10:30:58 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLPlh62UBRDQ3qiCBRoEObFfCg@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id pp2si9563115pbc.76.2012.09.07.10.30.58
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 10:30:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLPlh62UBRDQ3qiCBRoEObFfCg@googlegroups.com designates 209.85.210.64 as permitted sender) client-ip=209.85.210.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLPlh62UBRDQ3qiCBRoEObFfCg@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCLPlh62UBRDQ3qiCBRoEObFfCg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by dadz9 with SMTP id z9sf2366326dad.29
+        for <multiple recipients>; Fri, 07 Sep 2012 10:30:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=xc6KrDhWVeyKFAlgQvWrM3rjq62/BKWTUIY2tAjqcns=;
+        b=c160mC9DpLHYvNoKqwEpghWU9UyPx/rQDQWje8tTS5qI02wNgNCROO6XYPDKMxg0ZM
+         r+oJoUGm4ZdQd8vEkQOBrfjLrWGMY8IF1FzxnUshEnDlDMgwKuWopfAZCg3L4FNuHQsg
+         1+pQmsW8925Ro3/79jnxQTzlGczUDi9LVFDyODSYkgMutxieDgaA8AiXGmlXNetwjfUL
+         vuzzxBN2qoWSSxMHBa/aJIXAIbmGx9EuhcvO6k7rBijyyozungO0GixlLeYGuia4r3D0
+         Y7Sa4t/E4Deht6V/qyUyj1Fxo1Wvvg1hyI4l1ltRiMsjWpJRDXKNFl2ZXwh1OgSRWqSs
+         Plmg==
+Received: by 10.52.156.18 with SMTP id wa18mr1135894vdb.9.1347039057970;
+        Fri, 07 Sep 2012 10:30:57 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.67.82 with SMTP id l18ls366390vdt.0.gmail; Fri, 07 Sep 2012
+ 10:30:55 -0700 (PDT)
+Received: by 10.52.72.16 with SMTP id z16mr1134275vdu.15.1347039055835;
+        Fri, 07 Sep 2012 10:30:55 -0700 (PDT)
+Date: Fri, 7 Sep 2012 10:30:55 -0700 (PDT)
+From: Thomas <thomas.rosenblatt@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <cc298d51-57c6-4814-bda4-a9c92b43000f@googlegroups.com>
+In-Reply-To: <decdc9f5-47f0-4481-9cc5-9c95e2960132@googlegroups.com>
+References: <ba68b95b-014b-43df-b142-57405b7ed6f0@googlegroups.com>
+ <3636e668-24f7-4426-85bf-5e3ae8b61e68@googlegroups.com>
+ <072dc23d-eb24-4672-9f9d-29c89360284d@googlegroups.com>
+ <decdc9f5-47f0-4481-9cc5-9c95e2960132@googlegroups.com>
+Subject: [mongodb-user] Re: mongodump big bug
+MIME-Version: 1.0
+X-Original-Sender: thomas.rosenblatt@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ thomas.rosenblatt@gmail.com designates internal as permitted sender)
+ smtp.mail=thomas.rosenblatt@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_269_10634388.1347039055499"
+
+------=_Part_269_10634388.1347039055499
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Indeed (i just thought that, because the completion on the console did not=
+=20
+work for namespaces) :)
+
+Well for the collection message_queue i have this metadata genrated by=20
+mongodump:
+{options : { "create" : "message_queue", "capped" : true, "size" : 1024,=20
+undefined }, indexes:[{ "v" : 1, "key" : { "time" : 1 }, "unique" : true,=
+=20
+"ns" : "nadb.message_queue", "sparse" : true, "name" : "time_1" }]}
+
+And in the db.system.namespaces.find() : (for our message_queue part only)
+{ "name" : "nadb.message_queue", "options" : { "create" : "message_queue",=
+=20
+"capped" : true, "size" : 1024, "max" : null } }
+{ "name" : "nadb.message_queue.$time_1" }
+
+db.message_queue.stats() produces :
+> db.message_queue.stats()
+{
+"ns" : "nadb.message_queue",
+"count" : 63,
+"size" : 2796,
+"avgObjSize" : 44.38095238095238,
+"storageSize" : 4096,
+"numExtents" : 1,
+"nindexes" : 1,
+"lastExtentSize" : 4096,
+"paddingFactor" : 1,
+"systemFlags" : 0,
+"userFlags" : 0,
+"totalIndexSize" : 8176,
+"indexSizes" : {
+"time_1" : 8176
+},
+"capped" : true,
+"max" : 2147483647,
+"ok" : 1
+}
+
+Thank you,
+
+Thomas.
+
+Le vendredi 7 septembre 2012 19:18:35 UTC+2, Mathias Stearn a =E9crit :
+>
+> Every database has a system.namespaces collection. Note that there is no=
+=20
+> "systems" collection, the actual name of the collection is=20
+> "system.namespaces". Please try running db.system.namespaces.find()
+>
+> On Thursday, September 6, 2012 3:55:03 AM UTC-4, Thomas wrote:
+>>
+>> I don't have any namespaces in the system collection ...
+>>
+>> Le mercredi 5 septembre 2012 23:03:35 UTC+2, Mathias Stearn a =E9crit :
+>>>
+>>> What does db.system.namespaces.find() say?
+>>>
+>>> On Wednesday, September 5, 2012 10:21:54 AM UTC-4, Thomas wrote:
+>>>>
+>>>> Hello,
+>>>> I have a big backup issue with mongo 2.2 under ubuntu 12.04.
+>>>>
+>>>> When I backup my whole database (mongodump on the db) it badly exports=
+=20
+>>>> some of my collections (the metadata contains undefined values)
+>>>> Exemple:
+>>>> > db.testairq.stats()
+>>>> {
+>>>> "ns" : "test.testairq",
+>>>> "count" : 0,
+>>>> "size" : 0,
+>>>> "storageSize" : 5713248256,
+>>>> "numExtents" : 32,
+>>>> "nindexes" : 1,
+>>>> "lastExtentSize" : 961069056,
+>>>> "paddingFactor" : 1.5299999998863023,
+>>>> "systemFlags" : 0,
+>>>> "userFlags" : 0,
+>>>> "totalIndexSize" : 8176,
+>>>> "indexSizes" : {
+>>>> "_id.loc___id.time_1" : 8176
+>>>> },
+>>>> "ok" : 1
+>>>> }
+>>>>
+>>>> And the resulted metadata :
+>>>> {options : { "create" : "testairq", undefined, undefined, undefined,=
+=20
+>>>> "autoIndexId" : false }, indexes:[{ "v" : 1, "key" : { "_id.loc" : "2d=
+",=20
+>>>> "_id.time" : 1 }, "unique" : true, "ns" : "test.testairq", "name" :=20
+>>>> "_id.loc___id.time_1", "sparse" : true }]}
+>>>>
+>>>> mongorestore failed then to restore with this message
+>>>> Wed Sep  5 16:17:12 dump/test/testairq.bson
+>>>> Wed Sep  5 16:17:12 going into namespace [test.testairq]
+>>>> Wed Sep  5 16:17:12   Assertion failure b.empty() src/mongo/db/json.cp=
+p=20
+>>>> 645
+>>>> 0xad2211 0x67fced 0xa7daa5 0x56aa20 0x569cd1 0x569cd1 0x56db4a 0xb3b07=
+8=20
+>>>> 0xb41712 0x553f92 0x7f3a3c43076d 0x553e09=20
+>>>>  mongorestore(_ZN5mongo15printStackTraceERSo+0x21) [0xad2211]
+>>>>  mongorestore(_ZN5mongo12verifyFailedEPKcS1_j+0xfd) [0x67fced]
+>>>>  mongorestore(_ZN5mongo8fromjsonEPKcPi+0x585) [0xa7daa5]
+>>>>  mongorestore(_ZN7Restore9drillDownEN5boost11filesystem210basic_pathIS=
+sNS1_11path_traitsEEEbbb+0xff0)=20
+>>>> [0x56aa20]
+>>>>  mongorestore(_ZN7Restore9drillDownEN5boost11filesystem210basic_pathIS=
+sNS1_11path_traitsEEEbbb+0x2a1)=20
+>>>> [0x569cd1]
+>>>>  mongorestore(_ZN7Restore9drillDownEN5boost11filesystem210basic_pathIS=
+sNS1_11path_traitsEEEbbb+0x2a1)=20
+>>>> [0x569cd1]
+>>>>  mongorestore(_ZN7Restore5doRunEv+0xdda) [0x56db4a]
+>>>>  mongorestore(_ZN5mongo8BSONTool3runEv+0x448) [0xb3b078]
+>>>>  mongorestore(_ZN5mongo4Tool4mainEiPPc+0x1712) [0xb41712]
+>>>>  mongorestore(main+0x32) [0x553f92]
+>>>>  /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xed)=20
+>>>> [0x7f3a3c43076d]
+>>>>  mongorestore(__gxx_personality_v0+0x421) [0x553e09]
+>>>> assertion: 0 assertion src/mongo/db/json.cpp:645
+>>>>
+>>>>
+>>>> Is this a known bug or do I have to open a new issue ?
+>>>> It's really a big issue since my backup system is totally based on thi=
+s=20
+>>>> mechanism.
+>>>>
+>>>> Thank you,
+>>>>
+>>>> Thomas.
+>>>>
+>>>>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_269_10634388.1347039055499
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Indeed (i just thought that, because the completion on the console did not =
+work for namespaces) :)<div><br><div><div>Well for the collection message_q=
+ueue i have this metadata genrated by mongodump:</div><div><div>{options : =
+{ "create" : "message_queue", "capped" : true, "size" : 1024, undefined }, =
+indexes:[{ "v" : 1, "key" : { "time" : 1 }, "unique" : true, "ns" : "nadb.m=
+essage_queue", "sparse" : true, "name" : "time_1" }]}</div><div><br></div><=
+div>And in the db.system.namespaces.find() : (for our message_queue part on=
+ly)</div><div><div>{ "name" : "nadb.message_queue", "options" : { "create" =
+: "message_queue", "capped" : true, "size" : 1024, "max" : null } }</div><d=
+iv>{ "name" : "nadb.message_queue.$time_1" }</div></div><div><br></div><div=
+>db.message_queue.stats() produces :</div><div><div>&gt; db.message_queue.s=
+tats()</div><div>{</div><div><span class=3D"Apple-tab-span" style=3D"white-=
+space:pre">	</span>"ns" : "nadb.message_queue",</div><div><span class=3D"Ap=
+ple-tab-span" style=3D"white-space:pre">	</span>"count" : 63,</div><div><sp=
+an class=3D"Apple-tab-span" style=3D"white-space:pre">	</span>"size" : 2796=
+,</div><div><span class=3D"Apple-tab-span" style=3D"white-space:pre">	</spa=
+n>"avgObjSize" : 44.38095238095238,</div><div><span class=3D"Apple-tab-span=
+" style=3D"white-space:pre">	</span>"storageSize" : 4096,</div><div><span c=
+lass=3D"Apple-tab-span" style=3D"white-space:pre">	</span>"numExtents" : 1,=
+</div><div><span class=3D"Apple-tab-span" style=3D"white-space:pre">	</span=
+>"nindexes" : 1,</div><div><span class=3D"Apple-tab-span" style=3D"white-sp=
+ace:pre">	</span>"lastExtentSize" : 4096,</div><div><span class=3D"Apple-ta=
+b-span" style=3D"white-space:pre">	</span>"paddingFactor" : 1,</div><div><s=
+pan class=3D"Apple-tab-span" style=3D"white-space:pre">	</span>"systemFlags=
+" : 0,</div><div><span class=3D"Apple-tab-span" style=3D"white-space:pre">	=
+</span>"userFlags" : 0,</div><div><span class=3D"Apple-tab-span" style=3D"w=
+hite-space:pre">	</span>"totalIndexSize" : 8176,</div><div><span class=3D"A=
+pple-tab-span" style=3D"white-space:pre">	</span>"indexSizes" : {</div><div=
+><span class=3D"Apple-tab-span" style=3D"white-space:pre">		</span>"time_1"=
+ : 8176</div><div><span class=3D"Apple-tab-span" style=3D"white-space:pre">=
+	</span>},</div><div><span class=3D"Apple-tab-span" style=3D"white-space:pr=
+e">	</span>"capped" : true,</div><div><span class=3D"Apple-tab-span" style=
+=3D"white-space:pre">	</span>"max" : 2147483647,</div><div><span class=3D"A=
+pple-tab-span" style=3D"white-space:pre">	</span>"ok" : 1</div><div>}</div>=
+</div><div><br></div><div>Thank you,</div><div><br>Thomas.</div><br>Le vend=
+redi 7 septembre 2012 19:18:35 UTC+2, Mathias Stearn a =E9crit&nbsp;:<block=
+quote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-le=
+ft: 1px #ccc solid;padding-left: 1ex;">Every database has a system.namespac=
+es collection. Note that there is no "systems" collection, the actual name =
+of the collection is "system.namespaces". Please try running db.system.name=
+spaces.find()<br><br>On Thursday, September 6, 2012 3:55:03 AM UTC-4, Thoma=
+s wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8=
+ex;border-left:1px #ccc solid;padding-left:1ex">I don't have any namespaces=
+ in the system collection ...<br><br>Le mercredi 5 septembre 2012 23:03:35 =
+UTC+2, Mathias Stearn a =E9crit&nbsp;:<blockquote class=3D"gmail_quote" sty=
+le=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1e=
+x">What does db.system.namespaces.find() say?<br><br>On Wednesday, Septembe=
+r 5, 2012 10:21:54 AM UTC-4, Thomas wrote:<blockquote class=3D"gmail_quote"=
+ style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-lef=
+t:1ex">Hello,<div>I have a big backup issue with mongo 2.2 under ubuntu 12.=
+04.</div><div><br></div><div>When I backup my whole database (mongodump on =
+the db) it badly exports some of my collections (the metadata contains unde=
+fined values)</div><div>Exemple:</div><div><div>&gt; db.testairq.stats()</d=
+iv><div>{</div><div><span style=3D"white-space:pre">	</span>"ns" : "test.te=
+stairq",</div><div><span style=3D"white-space:pre">	</span>"count" : 0,</di=
+v><div><span style=3D"white-space:pre">	</span>"size" : 0,</div><div><span =
+style=3D"white-space:pre">	</span>"storageSize" : 5713248256,</div><div><sp=
+an style=3D"white-space:pre">	</span>"numExtents" : 32,</div><div><span sty=
+le=3D"white-space:pre">	</span>"nindexes" : 1,</div><div><span style=3D"whi=
+te-space:pre">	</span>"lastExtentSize" : 961069056,</div><div><span style=
+=3D"white-space:pre">	</span>"paddingFactor" : 1.5299999998863023,</div><di=
+v><span style=3D"white-space:pre">	</span>"systemFlags" : 0,</div><div><spa=
+n style=3D"white-space:pre">	</span>"userFlags" : 0,</div><div><span style=
+=3D"white-space:pre">	</span>"totalIndexSize" : 8176,</div><div><span style=
+=3D"white-space:pre">	</span>"indexSizes" : {</div><div><span style=3D"whit=
+e-space:pre">		</span>"_id.loc___id.time_1" : 8176</div><div><span style=3D=
+"white-space:pre">	</span>},</div><div><span style=3D"white-space:pre">	</s=
+pan>"ok" : 1</div><div>}</div></div><div><br></div><div>And the resulted me=
+tadata :</div><div><div>{options : { "create" : "testairq", undefined, unde=
+fined, undefined, "autoIndexId" : false }, indexes:[{ "v" : 1, "key" : { "_=
+id.loc" : "2d", "_id.time" : 1 }, "unique" : true, "ns" : "test.testairq", =
+"name" : "_id.loc___id.time_1", "sparse" : true }]}</div></div><div><br></d=
+iv><div>mongorestore failed then to restore with this message</div><div><di=
+v>Wed Sep &nbsp;5 16:17:12 dump/test/testairq.bson</div><div>Wed Sep &nbsp;=
+5 16:17:12 <span style=3D"white-space:pre">	</span>going into namespace [te=
+st.testairq]</div><div>Wed Sep &nbsp;5 16:17:12 &nbsp; Assertion failure b.=
+empty() src/mongo/db/json.cpp 645</div><div>0xad2211 0x67fced 0xa7daa5 0x56=
+aa20 0x569cd1 0x569cd1 0x56db4a 0xb3b078 0xb41712 0x553f92 0x7f3a3c43076d 0=
+x553e09&nbsp;</div><div>&nbsp;mongorestore(_<wbr>ZN5mongo15printStackTraceE=
+RSo+<wbr>0x21) [0xad2211]</div><div>&nbsp;mongorestore(_<wbr>ZN5mongo12veri=
+fyFailedEPKcS1_<wbr>j+0xfd) [0x67fced]</div><div>&nbsp;mongorestore(_<wbr>Z=
+N5mongo8fromjsonEPKcPi+0x585) [0xa7daa5]</div><div>&nbsp;mongorestore(_<wbr=
+>ZN7Restore9drillDownEN5boost11<wbr>filesystem210basic_pathISsNS1_<wbr>11pa=
+th_traitsEEEbbb+0xff0) [0x56aa20]</div><div>&nbsp;mongorestore(_<wbr>ZN7Res=
+tore9drillDownEN5boost11<wbr>filesystem210basic_pathISsNS1_<wbr>11path_trai=
+tsEEEbbb+0x2a1) [0x569cd1]</div><div>&nbsp;mongorestore(_<wbr>ZN7Restore9dr=
+illDownEN5boost11<wbr>filesystem210basic_pathISsNS1_<wbr>11path_traitsEEEbb=
+b+0x2a1) [0x569cd1]</div><div>&nbsp;mongorestore(_<wbr>ZN7Restore5doRunEv+0=
+xdda) [0x56db4a]</div><div>&nbsp;mongorestore(_<wbr>ZN5mongo8BSONTool3runEv=
++0x448) [0xb3b078]</div><div>&nbsp;mongorestore(_<wbr>ZN5mongo4Tool4mainEiP=
+Pc+<wbr>0x1712) [0xb41712]</div><div>&nbsp;mongorestore(main+0x32) [0x553f9=
+2]</div><div>&nbsp;/lib/x86_64-linux-gnu/libc.<wbr>so.6(__libc_start_main+0=
+xed) [0x7f3a3c43076d]</div><div>&nbsp;mongorestore(__gxx_<wbr>personality_v=
+0+0x421) [0x553e09]</div><div>assertion: 0 assertion src/mongo/db/json.cpp:=
+645</div></div><div><br></div><div><br></div><div>Is this a known bug or do=
+ I have to open a new issue ?</div><div>It's really a big issue since my ba=
+ckup system is totally based on this mechanism.</div><div><br></div><div>Th=
+ank you,</div><div><br>Thomas.</div><div><br></div></blockquote></blockquot=
+e></blockquote></blockquote></div></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_269_10634388.1347039055499--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347039055</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1983</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongodump big bug</string>
+</dict>
+</plist>

@@ -1,0 +1,241 @@
+9582      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp227801oef;
+        Thu, 6 Sep 2012 10:42:50 -0700 (PDT)
+Received: by 10.224.186.203 with SMTP id ct11mr4917998qab.80.1346953369379;
+        Thu, 06 Sep 2012 10:42:49 -0700 (PDT)
+Return-Path: <mongodb-user+bncCM36zLKbHBCTwaOCBRoE7cZzqg@googlegroups.com>
+Received: from mail-qa0-f64.google.com (mail-qa0-f64.google.com [209.85.216.64])
+        by mx.google.com with ESMTPS id 9si2828867qaf.113.2012.09.06.10.42.49
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 10:42:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCM36zLKbHBCTwaOCBRoE7cZzqg@googlegroups.com designates 209.85.216.64 as permitted sender) client-ip=209.85.216.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCM36zLKbHBCTwaOCBRoE7cZzqg@googlegroups.com designates 209.85.216.64 as permitted sender) smtp.mail=mongodb-user+bncCM36zLKbHBCTwaOCBRoE7cZzqg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by qabg24 with SMTP id g24sf1594705qab.29
+        for <multiple recipients>; Thu, 06 Sep 2012 10:42:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=KHFZhn0bRo4yehree/+T0RbmqSkpl4b3pKLAYN7Ps3M=;
+        b=qEHON6Ua4Z2Uxf7o1j5+mj3lejm/NWi/bI0Uw+l6b8TqS6p0AXoEAGV5VQ9hDrYg/S
+         4DhP4gFZl/gds5J8nNTxSMJfPhMkmEVv8/cv6aJLcprQcvD9w3TVHN+UBtH+iQz/v9g0
+         D1hmk4+rp60de0GsQNXy/NiOO1qyebbOfp4nWsRI9Yk1cAazKRRvd3+Ci3VJEM4uhVPJ
+         RFf9e7V64u4ETqs3xFa8zcSGd3Df17AtxTAi0u25XgySIIUb1Ia2hha/GiXHS46YqRig
+         SouwGXRtx4iL/5M+Lp4CSzbo9u8foozXZfGWr01znndpJK+3qGAkAZMbZqMe0tFMW53L
+         GD7w==
+Received: by 10.236.154.194 with SMTP id h42mr451326yhk.8.1346953366927;
+        Thu, 06 Sep 2012 10:42:46 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.149.34 with SMTP id w22ls1685825yhj.8.gmail; Thu, 06 Sep
+ 2012 10:42:43 -0700 (PDT)
+Received: by 10.236.176.103 with SMTP id a67mr449930yhm.2.1346953362791;
+        Thu, 06 Sep 2012 10:42:42 -0700 (PDT)
+Date: Thu, 6 Sep 2012 10:42:40 -0700 (PDT)
+From: "A. Jesse Jiryu Davis" <jesse@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <0f68dc8e-4b03-45ba-982e-13688460a400@googlegroups.com>
+In-Reply-To: <54de1e32-aec9-45ce-b298-af5be91fc1b5@c4g2000vbe.googlegroups.com>
+References: <dd2aee93-5e3f-4a82-a527-f4c7d11bb2ae@c9g2000vbv.googlegroups.com>
+ <48a93c5e-d1ae-4401-b04e-908aaac9f3e4@googlegroups.com> <a2763b5b-333f-4334-802c-1fe1cc9d877d@v22g2000vbu.googlegroups.com>
+ <54de1e32-aec9-45ce-b298-af5be91fc1b5@c4g2000vbe.googlegroups.com>
+Subject: [mongodb-user] Re: mongo failover
+MIME-Version: 1.0
+X-Original-Sender: jesse@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ jesse@10gen.com designates internal as permitted sender)
+ smtp.mail=jesse@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_2814_11444749.1346953360254"
+
+------=_Part_2814_11444749.1346953360254
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+What operating system are you using on the client (where Python runs) and=
+=20
+on the MongoDB servers? What Python version? Can you provide the exact code=
+=20
+you use to create the PyMongo ReplicaSetConnection? I need to see precisely=
+=20
+what options you pass to ReplicaSetConnection.
+
+Thanks.
+
+On Wednesday, September 5, 2012 12:14:33 PM UTC-4, tetlika wrote:
+>
+> can anyone help me on that?=20
+>
+> On 5 =D0=92=D0=B5=D1=80, 18:08, tetlika <tetl...@gmail.com> wrote:=20
+> > in second scenario of course the fail over is not happening=20
+> > immediately, - it takes 10-15 seconds or so=20
+> >=20
+> > but in scenario 1 - the fail over is not happening at least for 30-40=
+=20
+> > minutes=20
+> >=20
+> > On 5 =D0=92=D0=B5=D1=80, 18:05, Stephan <sboeseb...@googlemail.com> wro=
+te:=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> >=20
+> > > Actually, in Java I always see the first behavior, no matter if host=
+=20
+> is=20
+> > > really down, or only the mongod.=20
+> > > If there is a write access during the fail-over time (a couple of=20
+> seconds),=20
+> > > there is an error "can't find master". After that, it works here...=
+=20
+> >=20
+> > > Strange, that you see a different behavior...=20
+> >=20
+> > > Am Mittwoch, 5. September 2012 15:13:06 UTC+2 schrieb tetlika:=20
+> >=20
+> > > > we use pymongo 2.1.1, I've noticed such behavior in replica set (ca=
+n=20
+> > > > be easy reproduced):=20
+> >=20
+> > > > scenario 1:=20
+> >=20
+> > > > 1) master host is shutted down by "shutdown -r now" command, or=20
+> > > > hardware failure=20
+> > > > 2) slave becomes master=20
+> > > > 3) application fails saying it cant establish connection to the db=
+=20
+> > > > 4) when the host with master's IP appears on the network and is=20
+> > > > pingable (even without mongod on it), things become ok=20
+> >=20
+> > > > scenario 2:=20
+> >=20
+> > > > 1) just mongod is shutted down on master host=20
+> > > > 2) slave becomes master=20
+> > > > 3) application handles failover and things are fine=20
+> >=20
+> > > > is that normal behavior?=20
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_2814_11444749.1346953360254
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+What operating system are you using on the client (where Python runs) and o=
+n the MongoDB servers? What Python version? Can you provide the exact code =
+you use to create the PyMongo ReplicaSetConnection? I need to see precisely=
+ what options you pass to ReplicaSetConnection.<div><br></div><div>Thanks.<=
+br><br>On Wednesday, September 5, 2012 12:14:33 PM UTC-4, tetlika wrote:<bl=
+ockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border=
+-left: 1px #ccc solid;padding-left: 1ex;">can anyone help me on that?
+<br>
+<br>On 5 =D0=92=D0=B5=D1=80, 18:08, tetlika &lt;<a>tetl...@gmail.com</a>&gt=
+; wrote:
+<br>&gt; in second scenario of course the fail over is not happening
+<br>&gt; immediately, - it takes 10-15 seconds or so
+<br>&gt;
+<br>&gt; but in scenario 1 - the fail over is not happening at least for 30=
+-40
+<br>&gt; minutes
+<br>&gt;
+<br>&gt; On 5 =D0=92=D0=B5=D1=80, 18:05, Stephan &lt;<a>sboeseb...@googlema=
+il.com</a>&gt; wrote:
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt;
+<br>&gt; &gt; Actually, in Java I always see the first behavior, no matter =
+if host is
+<br>&gt; &gt; really down, or only the mongod.
+<br>&gt; &gt; If there is a write access during the fail-over time (a coupl=
+e of seconds),
+<br>&gt; &gt; there is an error "can't find master". After that, it works h=
+ere...
+<br>&gt;
+<br>&gt; &gt; Strange, that you see a different behavior...
+<br>&gt;
+<br>&gt; &gt; Am Mittwoch, 5. September 2012 15:13:06 UTC+2 schrieb tetlika=
+:
+<br>&gt;
+<br>&gt; &gt; &gt; we use pymongo 2.1.1, I've noticed such behavior in repl=
+ica set (can
+<br>&gt; &gt; &gt; be easy reproduced):
+<br>&gt;
+<br>&gt; &gt; &gt; scenario 1:
+<br>&gt;
+<br>&gt; &gt; &gt; 1) master host is shutted down by "shutdown -r now" comm=
+and, or
+<br>&gt; &gt; &gt; hardware failure
+<br>&gt; &gt; &gt; 2) slave becomes master
+<br>&gt; &gt; &gt; 3) application fails saying it cant establish connection=
+ to the db
+<br>&gt; &gt; &gt; 4) when the host with master's IP appears on the network=
+ and is
+<br>&gt; &gt; &gt; pingable (even without mongod on it), things become ok
+<br>&gt;
+<br>&gt; &gt; &gt; scenario 2:
+<br>&gt;
+<br>&gt; &gt; &gt; 1) just mongod is shutted down on master host
+<br>&gt; &gt; &gt; 2) slave becomes master
+<br>&gt; &gt; &gt; 3) application handles failover and things are fine
+<br>&gt;
+<br>&gt; &gt; &gt; is that normal behavior?
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_2814_11444749.1346953360254--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346953360</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1829</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo failover</string>
+</dict>
+</plist>

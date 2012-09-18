@@ -1,0 +1,144 @@
+6860      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp270154oef;
+        Fri, 7 Sep 2012 08:57:21 -0700 (PDT)
+Received: by 10.180.84.104 with SMTP id x8mr54052019wiy.20.1347033440613;
+        Fri, 07 Sep 2012 08:57:20 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJGyzvefFBDdsqiCBRoECWdEOA@googlegroups.com>
+Received: from mail-wi0-f192.google.com (mail-wi0-f192.google.com [209.85.212.192])
+        by mx.google.com with ESMTPS id r2si7418955wea.59.2012.09.07.08.57.19
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 08:57:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJGyzvefFBDdsqiCBRoECWdEOA@googlegroups.com designates 209.85.212.192 as permitted sender) client-ip=209.85.212.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJGyzvefFBDdsqiCBRoECWdEOA@googlegroups.com designates 209.85.212.192 as permitted sender) smtp.mail=mongodb-user+bncCJGyzvefFBDdsqiCBRoECWdEOA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by wibhm4 with SMTP id hm4sf713365wib.29
+        for <multiple recipients>; Fri, 07 Sep 2012 08:57:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:from:date:message-id:subject
+         :to:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=b4VHX1ATkUaEACxSD5DRUTr5EB1ER3rlAZa4KPHwoSg=;
+        b=M4GUgK1NjHCgVn85nqtIVP5VnSBigDShpZwgKaUI/Kxw00jm/m6fn9TL/EJMyB3I52
+         exAwxv99AJbRAovsvnzlQ/qv/4bLDwyRhXOc7LoGzgUXjdI4Azf/NxeUOLuqRPpdMx3x
+         0fFnUwQn0Odhe0fpLL6ThiUX4KCWHfbZs9KxyPUBBxUYSG6gvZFHPBbah+5bb6X6u7Vu
+         76c7Jhmt+cfv9Sk8cg9WCrlIsxUYmU0ZFtm7lJECrs5oQv2v9sa5Xtm7b3p/1PrMJ+7y
+         hXCxjDq4OxGlRI3PlRZ4PS6oXYc/aEdDmt/zVevR8MTtz9dtkMCI5Z2HVBTvBkMorU5y
+         /WFw==
+Received: by 10.180.104.166 with SMTP id gf6mr3684388wib.1.1347033439675;
+        Fri, 07 Sep 2012 08:57:19 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.14.213.71 with SMTP id z47ls283255eeo.6.gmail; Fri, 07 Sep
+ 2012 08:57:17 -0700 (PDT)
+Received: by 10.14.205.5 with SMTP id i5mr5990035eeo.5.1347033437089;
+        Fri, 07 Sep 2012 08:57:17 -0700 (PDT)
+Received: by 10.14.205.5 with SMTP id i5mr5990034eeo.5.1347033437076;
+        Fri, 07 Sep 2012 08:57:17 -0700 (PDT)
+Received: from mail-lb0-f180.google.com (mail-lb0-f180.google.com [209.85.217.180])
+        by gmr-mx.google.com with ESMTPS id d5si7186993eep.0.2012.09.07.08.57.16
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 08:57:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of octavian.covalschi@gmail.com designates 209.85.217.180 as permitted sender) client-ip=209.85.217.180;
+Received: by mail-lb0-f180.google.com with SMTP id n10so1820651lbo.11
+        for <mongodb-user@googlegroups.com>; Fri, 07 Sep 2012 08:57:16 -0700 (PDT)
+Received: by 10.152.103.244 with SMTP id fz20mr5794196lab.54.1347033436795;
+ Fri, 07 Sep 2012 08:57:16 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.112.32.34 with HTTP; Fri, 7 Sep 2012 08:56:56 -0700 (PDT)
+From: Octavian Covalschi <octavian.covalschi@gmail.com>
+Date: Fri, 7 Sep 2012 10:56:56 -0500
+Message-ID: <CA+rUdO3urb6DjCRKji6O+WyjEEdWoXOHUq+XmLZ4DO3J4_=_bw@mail.gmail.com>
+Subject: [mongodb-user] Replica sets and /etc/hosts file
+To: mongodb-user@googlegroups.com
+X-Original-Sender: octavian.covalschi@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of octavian.covalschi@gmail.com designates 209.85.217.180 as permitted
+ sender) smtp.mail=octavian.covalschi@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=f46d04083a878031c604c91ea97e
+
+--f46d04083a878031c604c91ea97e
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi,
+
+I'm in a process of deploying a 3 nodes replica set and I'm trying to
+figure out 2 things:
+
+1. Do I need to have 3 copies of /etc/hosts file on each node's machine or
+it's enough to have it on the machine I'm doing initial set up?
+2. Later on when I'll need to replace nodes with more powerful servers, do
+I just change IP address in hosts file and mongodb will figure it out? Or
+it's better to add new one and remove old one?
+
+PS: MongoDB 2.2.0, CentOS 64, using private network (192.x.x.x)
+
+Thank you in advance.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--f46d04083a878031c604c91ea97e
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi,<div><br></div><div>I&#39;m in a process of deploying a 3 nodes replica =
+set and I&#39;m trying to figure out 2 things:</div><div><br></div><div>1. =
+Do I need to have 3 copies of /etc/hosts file on each node&#39;s machine or=
+ it&#39;s enough to have it on the machine I&#39;m doing initial set up?=A0=
+</div>
+
+<div>2. Later on when I&#39;ll need to replace nodes with more=A0powerful s=
+ervers, do I just change IP address in hosts file and mongodb will figure i=
+t out?=A0Or it&#39;s better to add new one and remove old one?=A0</div><div=
+>
+<br>
+</div><div>PS: MongoDB 2.2.0, CentOS 64, using private network (192.x.x.x)=
+=A0</div><div><br></div><div>Thank you in advance.</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--f46d04083a878031c604c91ea97e--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347033416</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1979</string>
+	<key>subject</key>
+	<string>[mongodb-user] Replica sets and /etc/hosts file</string>
+</dict>
+</plist>

@@ -1,0 +1,360 @@
+17582     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp273630oef;
+        Fri, 7 Sep 2012 10:33:17 -0700 (PDT)
+Received: by 10.50.5.180 with SMTP id t20mr10108085igt.31.1347039197156;
+        Fri, 07 Sep 2012 10:33:17 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKCxmIjDHRDa36iCBRoE3Nkclw@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id zz5si9613675icb.2.2012.09.07.10.33.16
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 10:33:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKCxmIjDHRDa36iCBRoE3Nkclw@googlegroups.com designates 209.85.223.192 as permitted sender) client-ip=209.85.223.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKCxmIjDHRDa36iCBRoE3Nkclw@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCKCxmIjDHRDa36iCBRoE3Nkclw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iebc12 with SMTP id c12sf1641447ieb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 10:33:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:cc:message-id:in-reply-to:references
+         :subject:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=PmBL41L1VpjwsyU9U09z4rSDVsRIaiwPF+6zZKoh2Fs=;
+        b=D+e9Al42RBXbu2XVNIXPVldfNRcysysS3e/y/A6pB9+1TSOdMdJDZUcygjPw/xEZ0v
+         S016oAxJQPeGwKB12PF+qrO2EWzh6+W8YXDfA/RlCs5qbA+tqhUI2EhRxDNC/H0hVfeN
+         7Z7JtbiISXW/MFFJB7AJk0xS1Oio2ESQHdFNKI1q8lAsFxnEogduOvniCdqHRGxUL9u7
+         +IpchrGwnn2L7TFJxjBWMx1hDFJGb+O3S8EUWeO1rEGtBb1Hw1o/erToNZpMVkN2++DT
+         KOFdmjuAm8aRnwA21FMHnuCrmFMNAPbzraoBhsponcMLwGey0YnUxZxof2AUFyyPzXoj
+         Ozqg==
+Received: by 10.52.156.18 with SMTP id wa18mr1136838vdb.9.1347039196453;
+        Fri, 07 Sep 2012 10:33:16 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.148.143 with SMTP id p15ls805186vcv.9.gmail; Fri, 07 Sep
+ 2012 10:33:14 -0700 (PDT)
+Received: by 10.52.30.133 with SMTP id s5mr1150971vdh.10.1347039194428;
+        Fri, 07 Sep 2012 10:33:14 -0700 (PDT)
+Date: Fri, 7 Sep 2012 10:33:13 -0700 (PDT)
+From: acl <andrew.leung@10gen.com>
+To: mongodb-user@googlegroups.com
+Cc: fly542 <fly542@gmail.com>
+Message-Id: <8f5910a3-5f38-425f-a712-4fccfb108f6d@googlegroups.com>
+In-Reply-To: <201209061544597009575@gmail.com>
+References: <201209061525096900174@gmail.com>,>
+ <5048522E.6010804@gmail.com>
+ <201209061544597009575@gmail.com>
+Subject: Re: Re: [mongodb-user] why my building files are much bigger than
+ release file
+MIME-Version: 1.0
+X-Original-Sender: andrew.leung@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ andrew.leung@10gen.com designates internal as permitted sender)
+ smtp.mail=andrew.leung@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_291_1217626.1347039194022"
+
+------=_Part_291_1217626.1347039194022
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Benk,                                                                  =
+=20
+                                           =20
+                                                                           =
+=20
+                                          =20
+I built mongoDB from source and also got the same result as you            =
+=20
+                                          =20
+(mongod filesize is: 110MB). When I ran strip (/usr/bin/strip mongod)      =
+=20
+                                          =20
+the mongod filesize became: 9MB.                                          =
+=20
+                                           =20
+                                                                           =
+=20
+                                          =20
+Try using strip to reduce file size. Strip removes all the debug          =
+=20
+                                           =20
+symbols from an application binary. The debug symbols make up a            =
+=20
+                                          =20
+majority of the file size in any application binary. The strip binary      =
+=20
+                                          =20
+is included with the binutils package on Linux.                            =
+=20
+                                          =20
+                                                                           =
+=20
+                                          =20
+Thanks,                                                                    =
+=20
+                                          =20
+andrew       =20
+
+On Thursday, September 6, 2012 3:45:17 AM UTC-4, Benk wrote:
+>
+> =EF=BB=BF=20
+> how ? build command is : scons all strip ??
+> =20
+> ------------------------------
+> Benk
+> =20
+>  *From:* =E0=A4=AE=E0=A5=88=E0=A4=82 =E0=A4=8F=E0=A4=95 =E0=A4=AD=E0=A4=
+=BE=E0=A4=B0=E0=A4=A4=E0=A5=80=E0=A4=AF =E0=A4=AC=E0=A5=87=E0=A4=B5=E0=A4=
+=95=E0=A5=82=E0=A4=AB =E0=A4=B9=E0=A5=82=E0=A4=81 <javascript:>
+> *Date:* 2012-09-06 15:35
+> *To:* mongodb-user <javascript:>
+> *Subject:* Re: [mongodb-user] why my building files are much bigger than=
+=20
+> release file
+>  Use the "strip" command.
+> =20
+> =20
+> Benk wrote:
+> > Hi:
+> > I use the source tar ball to build the mongd and other program, after I
+> > building the source file , the mongo file is 25M and mongos file is
+> > 117M, but I download the binary file from the official the mongo file i=
+s
+> > only 2.7M and mongod is only 8.3M ?  how to make my building files's
+> > size  almost to the official files size?
+> > =20
+> > From the official document I know use scons all to build all the files,
+> > but if I only want to build mongo program how to do that?=20
+> > =20
+> > I build the source files under linux.
+> > =20
+> > Best Regards!
+> > -----------------------------------------------------------------------=
+-
+> > Benk
+> >=20
+> > --=20
+> > You received this message because you are subscribed to the Google
+> > Groups "mongodb-user" group.
+> > To post to this group, send email to mongod...@googlegroups.com<javascr=
+ipt:>
+> > To unsubscribe from this group, send email to
+> > mongodb-user...@googlegroups.com <javascript:>
+> > See also the IRC channel -- freenode.net#mongodb
+> =20
+> --=20
+> You received this message because you are subscribed to the Google
+> Groups "mongodb-user" group.
+> To post to this group, send email to mongod...@googlegroups.com<javascrip=
+t:>
+> To unsubscribe from this group, send email to
+> mongodb-user...@googlegroups.com <javascript:>
+> See also the IRC channel -- freenode.net#mongodb
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_291_1217626.1347039194022
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div>Hi Benk, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp;&nbsp;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp;</div><div>I built mongoDB from source and also got the same resul=
+t as you &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div>(mongod fi=
+lesize is: 110MB). When I ran strip (/usr/bin/strip mongod) &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp;</div><div>the mongod filesize became: 9MB. &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div><div>&nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div>Try using strip to reduce=
+ file size. Strip removes all the debug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp;&nbsp;</div><div>symbols from an application binary. The debug symbols m=
+ake up a &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div>majority o=
+f the file size in any application binary. The strip binary &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp;</div><div>is included with the binutils package on Linux. &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<=
+/div><div>Thanks, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div><div>andrew &nbsp; &nbsp; &nbsp; &n=
+bsp;</div><br>On Thursday, September 6, 2012 3:45:17 AM UTC-4, Benk wrote:<=
+blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;bord=
+er-left: 1px #ccc solid;padding-left: 1ex;">=EF=BB=BF
+
+
+
+
+
+<div style=3D"MARGIN:10px">
+<div>how ? build command is : scons all strip ??</div>
+<div>&nbsp;</div>
+<hr style=3D"WIDTH:210px;min-height:1px" align=3D"left" color=3D"#b5c4df" s=
+ize=3D"1">
+
+<div><span>Benk</span></div>
+<div>&nbsp;</div>
+<div style=3D"BORDER-BOTTOM:medium none;BORDER-LEFT:medium none;PADDING-BOT=
+TOM:0cm;PADDING-LEFT:0cm;PADDING-RIGHT:0cm;BORDER-TOP:#b5c4df 1pt solid;BOR=
+DER-RIGHT:medium none;PADDING-TOP:3pt">
+<div style=3D"PADDING-BOTTOM:8px;PADDING-LEFT:8px;PADDING-RIGHT:8px;BACKGRO=
+UND:#efefef;COLOR:#000000;FONT-SIZE:12px;PADDING-TOP:8px">
+<div><b>From:</b>&nbsp;<a href=3D"javascript:" target=3D"_blank" gdf-obfusc=
+ated-mailto=3D"jLJDT16VSDMJ">=E0=A4=AE=E0=A5=88=E0=A4=82 =E0=A4=8F=E0=A4=95=
+=20
+=E0=A4=AD=E0=A4=BE=E0=A4=B0=E0=A4=A4=E0=A5=80=E0=A4=AF =E0=A4=AC=E0=A5=87=
+=E0=A4=B5=E0=A4=95=E0=A5=82=E0=A4=AB =E0=A4=B9=E0=A5=82=E0=A4=81</a></div>
+<div><b>Date:</b>&nbsp;2012-09-06&nbsp;15:35</div>
+<div><b>To:</b>&nbsp;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscat=
+ed-mailto=3D"jLJDT16VSDMJ">mongodb-user</a></div>
+<div><b>Subject:</b>&nbsp;Re: [mongodb-user] why my building files are much=
+=20
+bigger than release file</div></div></div>
+<div>
+<div>Use&nbsp;the&nbsp;"strip"&nbsp;command.</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>Benk&nbsp;wrote:</div>
+<div>&gt;&nbsp;Hi:</div>
+<div>&gt;&nbsp;I&nbsp;use&nbsp;the&nbsp;source&nbsp;tar&nbsp;ball&nbsp;<wbr=
+>to&nbsp;build&nbsp;the&nbsp;mongd&nbsp;and&nbsp;other&nbsp;<wbr>program,&n=
+bsp;after&nbsp;I</div>
+<div>&gt;&nbsp;building&nbsp;the&nbsp;source&nbsp;file&nbsp;,&nbsp;<wbr>the=
+&nbsp;mongo&nbsp;file&nbsp;is&nbsp;25M&nbsp;and&nbsp;<wbr>mongos&nbsp;file&=
+nbsp;is</div>
+<div>&gt;&nbsp;117M,&nbsp;but&nbsp;I&nbsp;download&nbsp;the&nbsp;<wbr>binar=
+y&nbsp;file&nbsp;from&nbsp;the&nbsp;official&nbsp;<wbr>the&nbsp;mongo&nbsp;=
+file&nbsp;is</div>
+<div>&gt;&nbsp;only&nbsp;2.7M&nbsp;and&nbsp;mongod&nbsp;is&nbsp;<wbr>only&n=
+bsp;8.3M&nbsp;?&nbsp;&nbsp;how&nbsp;to&nbsp;make&nbsp;my&nbsp;<wbr>building=
+&nbsp;files's</div>
+<div>&gt;&nbsp;size&nbsp;&nbsp;almost&nbsp;to&nbsp;the&nbsp;<wbr>official&n=
+bsp;files&nbsp;size?</div>
+<div>&gt;&nbsp;&nbsp;</div>
+<div>&gt;&nbsp;From&nbsp;the&nbsp;official&nbsp;document&nbsp;<wbr>I&nbsp;k=
+now&nbsp;use&nbsp;scons&nbsp;all&nbsp;to&nbsp;build&nbsp;<wbr>all&nbsp;the&=
+nbsp;files,</div>
+<div>&gt;&nbsp;but&nbsp;if&nbsp;I&nbsp;only&nbsp;want&nbsp;to&nbsp;build&nb=
+sp;<wbr>mongo&nbsp;program&nbsp;how&nbsp;to&nbsp;do&nbsp;that?&nbsp;</div>
+<div>&gt;&nbsp;&nbsp;</div>
+<div>&gt;&nbsp;I&nbsp;build&nbsp;the&nbsp;source&nbsp;files&nbsp;<wbr>under=
+&nbsp;linux.</div>
+<div>&gt;&nbsp;&nbsp;</div>
+<div>&gt;&nbsp;Best&nbsp;Regards!</div>
+<div>&gt;&nbsp;----------------------------<wbr>---------------------------=
+---<wbr>--------------</div>
+<div>&gt;&nbsp;Benk</div>
+<div>&gt;&nbsp;</div>
+<div>&gt;&nbsp;--&nbsp;</div>
+<div>&gt;&nbsp;You&nbsp;received&nbsp;this&nbsp;message&nbsp;<wbr>because&n=
+bsp;you&nbsp;are&nbsp;subscribed&nbsp;to&nbsp;<wbr>the&nbsp;Google</div>
+<div>&gt;&nbsp;Groups&nbsp;"mongodb-user"&nbsp;group.</div>
+<div>&gt;&nbsp;To&nbsp;post&nbsp;to&nbsp;this&nbsp;group,&nbsp;send&nbsp;<w=
+br>email&nbsp;to&nbsp;<a href=3D"javascript:" target=3D"_blank" gdf-obfusca=
+ted-mailto=3D"jLJDT16VSDMJ">mongod...@<wbr>googlegroups.com</a></div>
+<div>&gt;&nbsp;To&nbsp;unsubscribe&nbsp;from&nbsp;this&nbsp;<wbr>group,&nbs=
+p;send&nbsp;email&nbsp;to</div>
+<div>&gt;&nbsp;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mai=
+lto=3D"jLJDT16VSDMJ">mongodb-user...@<wbr>googlegroups.com</a></div>
+<div>&gt;&nbsp;See&nbsp;also&nbsp;the&nbsp;IRC&nbsp;channel&nbsp;--&nbsp;<a=
+ href=3D"http://freenode.net#mongodb" target=3D"_blank"><wbr>freenode.net#m=
+ongodb</a></div>
+<div>&nbsp;</div>
+<div>--&nbsp;</div>
+<div>You&nbsp;received&nbsp;this&nbsp;message&nbsp;<wbr>because&nbsp;you&nb=
+sp;are&nbsp;subscribed&nbsp;to&nbsp;<wbr>the&nbsp;Google</div>
+<div>Groups&nbsp;"mongodb-user"&nbsp;group.</div>
+<div>To&nbsp;post&nbsp;to&nbsp;this&nbsp;group,&nbsp;send&nbsp;<wbr>email&n=
+bsp;to&nbsp;<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=
+=3D"jLJDT16VSDMJ">mongod...@<wbr>googlegroups.com</a></div>
+<div>To&nbsp;unsubscribe&nbsp;from&nbsp;this&nbsp;<wbr>group,&nbsp;send&nbs=
+p;email&nbsp;to</div>
+<div><a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"jLJ=
+DT16VSDMJ">mongodb-user...@<wbr>googlegroups.com</a></div>
+<div>See&nbsp;also&nbsp;the&nbsp;IRC&nbsp;channel&nbsp;--&nbsp;<a href=3D"h=
+ttp://freenode.net#mongodb" target=3D"_blank">fr<wbr>eenode.net#mongodb</a>=
+</div></div></div>
+</blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_291_1217626.1347039194022--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347039193</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1984</string>
+	<key>subject</key>
+	<string>Re: Re: [mongodb-user] why my building files are much bigger than release file</string>
+</dict>
+</plist>

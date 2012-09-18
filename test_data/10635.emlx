@@ -1,0 +1,131 @@
+5935      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp264617oef;
+        Fri, 7 Sep 2012 06:38:57 -0700 (PDT)
+Received: by 10.220.239.209 with SMTP id kx17mr7230904vcb.41.1347025134526;
+        Fri, 07 Sep 2012 06:38:54 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIKH09LzHhDr8aeCBRoEs1gLjg@googlegroups.com>
+Received: from mail-vb0-f64.google.com (mail-vb0-f64.google.com [209.85.212.64])
+        by mx.google.com with ESMTPS id dk7si4931977vdc.93.2012.09.07.06.38.54
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 06:38:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIKH09LzHhDr8aeCBRoEs1gLjg@googlegroups.com designates 209.85.212.64 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIKH09LzHhDr8aeCBRoEs1gLjg@googlegroups.com designates 209.85.212.64 as permitted sender) smtp.mail=mongodb-user+bncCIKH09LzHhDr8aeCBRoEs1gLjg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-vb0-f64.google.com with SMTP id ff1sf2160166vbb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 06:38:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=9x9Y/+bbqdi9rcpHR3TjQMaHKWg2KjS3+BKLms5eIC8=;
+        b=hj5BEzf88TDD7KgrGrUcDxZclwOklhuiE5UO2sJ/mlmEDAGWQXFoW6iVdtJh6F3To0
+         Agp9bwgRduQWjf4EY8jjDVcdSHBZWOPRR0oMMXKNUNZNtWLp9n/GvK//Yh/Efo5Q/IeN
+         GBUj/OGQXNQVB50dI+dQ6KSQfjTy+yXaUYRpQvBt3N85DPRJJXeq4KrNGnaiB1rVCzVd
+         OQESaH574c/RTnxoMFUqeHeU3pP/JVMhfY/5ufdXaSFQ5m39Y1p2c7Osjug7Bw4+n9oP
+         odWNvc70dQ9/M+6lmemZ1/fIxy49ilkTw0JXAqQDmimEWJJeXVUlHq1kRZR7ddzoCG0P
+         yDSQ==
+Received: by 10.236.87.71 with SMTP id x47mr744978yhe.6.1347025134061;
+        Fri, 07 Sep 2012 06:38:54 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.149.34 with SMTP id w22ls682490yhj.8.gmail; Fri, 07 Sep
+ 2012 06:38:51 -0700 (PDT)
+Received: by 10.236.170.7 with SMTP id o7mr752845yhl.3.1347025131547;
+        Fri, 07 Sep 2012 06:38:51 -0700 (PDT)
+Date: Fri, 7 Sep 2012 06:38:50 -0700 (PDT)
+From: Jonas <jo89lin@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <b5c10297-2708-4ec8-a487-87607b616567@googlegroups.com>
+Subject: [mongodb-user] Mongodb time locale ($dayOfWeek)
+MIME-Version: 1.0
+X-Original-Sender: jo89lin@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ jo89lin@gmail.com designates internal as permitted sender)
+ smtp.mail=jo89lin@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_280_20313448.1347025130997"
+
+------=_Part_280_20313448.1347025130997
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hello.
+
+I want to use the $dayOfWeek aggregation framework operator to compare 
+data transferred different days of the week over the course of a year. 
+
+The problem is that most of the activity is after midnight CEST but the 
+$dayOfWeek operator is not locale sensitive, so it looks like it 
+all happened the day before. Is the any way to change the time locale of 
+mongodb?
+
+The machine running Mongod has the right time locale but this does not seem 
+to effect mongodb $dayOfweek operator.
+
+Thank you in advence,
+Jonas
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_280_20313448.1347025130997
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hello.<div><br></div><div>I want to use the $dayOfWeek aggregation framewor=
+k operator to compare data&nbsp;transferred&nbsp;different&nbsp;days of the=
+ week over the course of a year.&nbsp;</div><div><br></div><div>The problem=
+ is that most of the activity is after midnight CEST but the $dayOfWeek ope=
+rator is not locale sensitive, so it looks like it all&nbsp;happened&nbsp;t=
+he day before. Is the any way to change the time locale of mongodb?<br></di=
+v><div><br></div><div>The machine running Mongod has the right time locale =
+but this does not seem to effect mongodb $dayOfweek operator.<br></div><div=
+><br></div><div>Thank you in advence,</div><div>Jonas</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_280_20313448.1347025130997--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347025130</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1959</string>
+	<key>subject</key>
+	<string>[mongodb-user] Mongodb time locale ($dayOfWeek)</string>
+</dict>
+</plist>

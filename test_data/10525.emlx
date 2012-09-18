@@ -1,0 +1,197 @@
+8450      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp230052oef;
+        Thu, 6 Sep 2012 11:41:03 -0700 (PDT)
+Received: by 10.236.73.36 with SMTP id u24mr2740219yhd.103.1346956863415;
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+Return-Path: <mongodb-user+bncCIDf2_dxELzco4IFGgSi9o_L@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id h6si2633170yhk.99.2012.09.06.11.41.03
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCIDf2_dxELzco4IFGgSi9o_L@googlegroups.com designates 209.85.160.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCIDf2_dxELzco4IFGgSi9o_L@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCIDf2_dxELzco4IFGgSi9o_L@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-gh0-f192.google.com with SMTP id r20sf1581207ghr.29
+        for <multiple recipients>; Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=0UuV9XB/WnkI/xdD/on3vbs91n2SMXCncjRdaLAWBeA=;
+        b=SLO2TetBtozOVg6L1Q22FRN/E7yWF2f4/IPMO1T/JG1KExwWdSRP8HGxVhSOh/09E9
+         SUgHkN54nNsVgD9XcBwUbqfi6uETPfQujlUTpk3T7krGjlbrHfW8U88Y6ijOR7M4dEK8
+         eUuJeBN1Z+V8kfstH6aQnDgB6i5voohClCI4au6KZVPbxf8ZgT5Nu3hiHW8pY0PQsIjQ
+         yctI++FlYKjE3uqV7mjIJNl/02zMs2tVSvxVjMrk3qd55stKzNiUlhIOzJjdLEzDqdfX
+         LmYuxEiRQgzn0kcDlxtbxn7OXPAPmwdkwgF7/aboC9sQFbk35tiZ47p8F4QFtomBdKiW
+         tgYQ==
+Received: by 10.229.69.3 with SMTP id x3mr164670qci.20.1346956863120;
+        Thu, 06 Sep 2012 11:41:03 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.224.101.68 with SMTP id b4ls2185580qao.0.gmail; Thu, 06 Sep
+ 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.207.72 with SMTP id fx8mr1740762qab.2.1346956860723;
+        Thu, 06 Sep 2012 11:41:00 -0700 (PDT)
+Received: by 10.224.172.134 with SMTP id l6msqaz;
+        Thu, 6 Sep 2012 06:57:30 -0700 (PDT)
+Received: by 10.236.74.161 with SMTP id x21mr265130yhd.13.1346939850328;
+        Thu, 06 Sep 2012 06:57:30 -0700 (PDT)
+Date: Thu, 6 Sep 2012 06:57:29 -0700 (PDT)
+From: Richard Myers <kb1flr@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <1c497ef9-b49a-41d4-9914-06d78240c0b6@googlegroups.com>
+In-Reply-To: <CAGYT-xTyBatmXnT9k_XMDgxDjyvBoFBSoRmWcHMiY8JM3B0eYg@mail.gmail.com>
+References: <CAGYT-xSu-=1BnoVcVJPVyZo6xoevp2W0Jovj7F7542d2YejLOQ@mail.gmail.com>
+ <3e5315c6-0110-40cc-933f-997022a7fc52@googlegroups.com>
+ <CAGYT-xTyBatmXnT9k_XMDgxDjyvBoFBSoRmWcHMiY8JM3B0eYg@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: count always zero
+MIME-Version: 1.0
+X-Original-Sender: kb1flr@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_54_23368118.1346939849562"
+
+------=_Part_54_23368118.1346939849562
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Martinus,
+
+Shouldn't "ISO Date" be specified "ISODate()?
+
+Rick
+
+On Thursday, September 6, 2012 12:11:04 AM UTC-4, Martinus Martinus wrote:
+>
+> Hi Jenna,
+>
+> Yes I connect and inserting document via mongos. Actually, the above 
+> source code is already the source code that I used.
+>
+> Thanks.
+>
+> On Wed, Sep 5, 2012 at 10:41 PM, Jenna <jenna.de...@10gen.com<javascript:>
+> > wrote:
+>
+>> Hi Martinus,
+>>
+>> Are you connecting to the cluster and inserting the documents via mongos? 
+>> Could you post all of your code so that we can attempt to reproduce the 
+>> issue?
+>>
+>> Thanks,
+>> Jenna
+>>
+>>
+>> On Thursday, August 30, 2012 6:19:42 AM UTC-4, Martinus Martinus wrote:
+>>
+>>> Hi,
+>>>
+>>> I print my method result in java before I insert my data into the 
+>>> collection, but when I see the collection it's empty. Anyone can tell me 
+>>> what can cause this?
+>>>
+>>> Thanks.
+>>>
+>>  -- 
+>> You received this message because you are subscribed to the Google
+>> Groups "mongodb-user" group.
+>> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> To unsubscribe from this group, send email to
+>> mongodb-user...@googlegroups.com <javascript:>
+>> See also the IRC channel -- freenode.net#mongodb
+>>
+>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_54_23368118.1346939849562
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Martinus,<div><br></div><div>Shouldn't "ISO Date" be specified "ISODate(=
+)?</div><div><br></div><div>Rick<br><br>On Thursday, September 6, 2012 12:1=
+1:04 AM UTC-4, Martinus Martinus wrote:<blockquote class=3D"gmail_quote" st=
+yle=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-lef=
+t: 1ex;">Hi Jenna,<div><br></div><div>Yes I connect and inserting document =
+via mongos. Actually, the above source code is already the source code that=
+ I used.</div><div><br></div><div>Thanks.<br><br><div class=3D"gmail_quote"=
+>On Wed, Sep 5, 2012 at 10:41 PM, Jenna <span dir=3D"ltr">&lt;<a href=3D"ja=
+vascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"pFaVFrTlp5UJ">jenna.d=
+e...@10gen.com</a>&gt;</span> wrote:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hi Martinus,<div><br></div><div>Are you conn=
+ecting to the cluster and inserting the documents via mongos? Could you pos=
+t all of your code so that we can attempt to reproduce the issue?</div>
+<div><br></div><div>Thanks,</div><div>Jenna<div><br><br>On Thursday, August=
+ 30, 2012 6:19:42 AM UTC-4, Martinus Martinus wrote:</div><div><div><blockq=
+uote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-left:=
+1px #ccc solid;padding-left:1ex">
+Hi,<div><br></div><div>I print my method result in java before I insert my =
+data into the collection, but when I see the collection it's empty. Anyone =
+can tell me what can cause this?</div><div><br></div><div>Thanks.</div>
+
+</blockquote></div></div></div>
+
+<p></p>
+
+-- <br><div><div>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br>
+To post to this group, send email to <a href=3D"javascript:" target=3D"_bla=
+nk" gdf-obfuscated-mailto=3D"pFaVFrTlp5UJ">mongod...@googlegroups.com</a><b=
+r>
+To unsubscribe from this group, send email to<br>
+<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"pFaVFrTl=
+p5UJ">mongodb-user...@<wbr>googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br></div>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_54_23368118.1346939849562--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346939849</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1849</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: count always zero</string>
+</dict>
+</plist>

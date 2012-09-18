@@ -1,0 +1,927 @@
+41144     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp244396oef;
+        Thu, 6 Sep 2012 18:48:42 -0700 (PDT)
+Received: by 10.236.78.234 with SMTP id g70mr3673082yhe.24.1346982522037;
+        Thu, 06 Sep 2012 18:48:42 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNrK0JCQCxD3pKWCBRoEbU4Q1w@googlegroups.com>
+Received: from mail-gg0-f192.google.com (mail-gg0-f192.google.com [209.85.161.192])
+        by mx.google.com with ESMTPS id w42si3482159yhd.44.2012.09.06.18.48.41
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:48:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNrK0JCQCxD3pKWCBRoEbU4Q1w@googlegroups.com designates 209.85.161.192 as permitted sender) client-ip=209.85.161.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNrK0JCQCxD3pKWCBRoEbU4Q1w@googlegroups.com designates 209.85.161.192 as permitted sender) smtp.mail=mongodb-user+bncCNrK0JCQCxD3pKWCBRoEbU4Q1w@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ggnh1 with SMTP id h1sf1740823ggn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:48:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=JGabJb2GIZ6qcgUoJ3lx2w4Dv4kYlt07S3FDfz6b06c=;
+        b=HYvFLoyb6IhtF3CzsyxIlr6QGLYmWdZ96o8u6tQgc0RXdV22qLdHynzzDs2uaRyT60
+         h5oCrEtJPzSmEU5cmHDFwwST5rXBXgMtUkrfkJJKMyOMXmc0LPabBO//pT/h1GLZAN0R
+         qIfMC+xMx3ID0+siESHHruI4629nmcL8075/ayi6H6JMdfNlwUzSSFNL/s8O+9QPZE9i
+         UocieW6AVBhHcawmun8lSxItmaA3OasgywhQMFVcAsR3xfygkC5T1lXI05hGlN9IYQXe
+         aO99c+zMTr/+gVJfOFxrwAdSb9hsauNM/nWjDkEDL8aUqSKGSZT8TkszWRRh7enk2ek+
+         Uk2g==
+Received: by 10.68.129.69 with SMTP id nu5mr1031560pbb.17.1346982521264;
+        Thu, 06 Sep 2012 18:48:41 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.237.161 with SMTP id vd1ls321222pbc.3.gmail; Thu, 06 Sep
+ 2012 18:48:39 -0700 (PDT)
+Received: by 10.68.232.9 with SMTP id tk9mr1066834pbc.0.1346982519055;
+        Thu, 06 Sep 2012 18:48:39 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:48:38 -0700 (PDT)
+From: Thomas Rueckstiess <Thomas.Rueckstiess@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <c4d683e6-63bc-409e-9e29-0e9c205b3d15@googlegroups.com>
+In-Reply-To: <CAB=AsSCaGQTu0rtsWZgTQdHvCA0shQG4aQUAYyxOtwKpNoGoGQ@mail.gmail.com>
+References: <e2a09706-98cd-4f5d-9c00-de4e6d324297@googlegroups.com>
+ <a3da525d-22b5-4ed8-9c49-7748fab27c5a@googlegroups.com>
+ <CAB=AsSBc6DM4rHFPt4jpc0jkGia3LB-VMZKiXOD5esGwX+5GOA@mail.gmail.com>
+ <c8be5766-c75d-4ace-aeea-ff1bf828d356@googlegroups.com>
+ <CAB=AsSCBttTwr0gc0p9Lap4TwhBqizoiCemJCdSH7NasF32bCw@mail.gmail.com>
+ <ddfec4ce-5ac5-4871-877f-4941ab06f41f@googlegroups.com>
+ <CAB=AsSCaGQTu0rtsWZgTQdHvCA0shQG4aQUAYyxOtwKpNoGoGQ@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: Mongo java Sharding Example
+MIME-Version: 1.0
+X-Original-Sender: thomas.rueckstiess@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ thomas.rueckstiess@10gen.com designates internal as permitted sender)
+ smtp.mail=thomas.rueckstiess@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_177_10045335.1346982518341"
+
+------=_Part_177_10045335.1346982518341
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Rahat,
+
+were you able to solve your problem? I think what could have happened here 
+is that you inserted documents directly to the mongod rather than through 
+mongos. That would explain why you can't get any data back from mongos. I 
+suggest you start your example code from scratch, and make sure that you 
+always connect to mongos (port 30000), even for inserting the documents. 
+Then you should be able to revtrieve them, both in the shell and through 
+the Java driver.
+
+Please let us know if you need any further assistance with this.
+
+Regards,
+Thomas
+
+
+On Tuesday, September 4, 2012 7:38:33 PM UTC+10, Rahat Masood wrote:
+>
+> Dear Thomas,
+>
+> the answers to your queries are:
+>
+> Could you connect to the mongos through the shell directly (mongo --port 
+> 30000) and try to access the document there? Are you able to retrieve it?
+>
+> When I connect directly to mongos shell and query the data, i get nothing. 
+> Below is the shell commands:
+>
+> Microsoft Windows [Version 6.1.7600]
+> Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+>
+> D:\Users\tecnex>cd D:\mongodb\bin
+>
+> D:\mongodb\bin>mongo localhost:30000/admin
+> MongoDB shell version: 2.0.6
+> connecting to: localhost:30000/admin
+> mongos> db.testShard.find();
+> mongos> show collections
+> mongos>
+>
+>
+> In your Java code, can you connect to the shard directly that contains the 
+> document, instead of the mongos? Are you able to retrieve it?
+>
+> Sorry, i do not understand your question. Therefore i am putting my whole 
+> code here:
+>
+>
+> //--------------------------------------------------------------------------------------------
+> package main.com.deftlabs.examples.mongo;
+>
+> import com.mongodb.*;
+> import java.security.MessageDigest;
+> import java.util.Random;
+>
+> // JUnit
+> import org.junit.Test;
+> import org.junit.Before;
+> import static org.junit.Assert.*;
+>
+> // Java
+> import java.util.List;
+> import java.util.Random;
+> import java.util.ArrayList;
+> import java.security.MessageDigest;
+> import org.bson.types.Binary;
+>
+> /**
+>  *
+>  * @author tecnex
+>  */
+>
+> public class ShardingTest {
+>
+>     
+>     static DBCollection coll,coll2,coll3;
+>     static DB db;
+>     
+>     private static void insert1() throws Exception {
+>     
+>  final Mongo mongo2 = new Mongo(new DBAddress("127.0.0.1", 30000,
+> "ExampleShardingData"));
+>         
+>  db = mongo2.getDB("ExampleShardingD
+> ata");
+>  coll = db.getCollection("testShard");
+>   
+>   BasicDBObject view1 = new BasicDBObject();
+>         
+>         view1.put("x",20110114);
+>         DBCursor cur = coll.find(view1);
+>         
+>         Double id;
+>         Binary b;
+>          if (cur.hasNext()) {
+>             DBObject o = cur.next();
+>             
+>              id = (Double) (o.get("x"));
+>              
+>                  b = (Binary) (o.get("hash"));
+>              
+>              System.out.println(id);
+>              System.out.println(b);
+>
+>     }
+> }
+>    
+>     
+>      public ShardingTest() {
+>        
+>     }
+>
+>
+>     private static final int [] _shardPorts = { 10049, 10057 };
+>
+>     @Before
+>     public static void setupCluster() throws Exception {
+>
+>         // Connect to mongos
+>         final Mongo mongo = new Mongo(new DBAddress("127.0.0.1", 30000, 
+> "admin"));
+>
+>         // Add the shards
+>        /* for (final int shardPort : _shardPorts) {
+>             final CommandResult result
+>             = mongo.getDB("admin").command(new BasicDBObject("addshard", 
+> ("localhost:" + shardPort)));
+>             System.out.println(result);
+>         }
+>
+>         // Sleep for a bit to wait for all the nodes to be intialized.
+>         Thread.sleep(5000);
+>
+>         // Enable sharding on a collection.
+>         CommandResult result
+>         = mongo.getDB("admin").command(new BasicDBObject("enablesharding", 
+> "ExampleShardingData"));
+>         System.out.println(result);*/
+>
+>        final BasicDBObject shardKey = new BasicDBObject("x", 1);
+>       shardKey.put("hash", 1);
+>
+>         final BasicDBObject cmd = new BasicDBObject("shardcollection", 
+> "ExampleShardingData.testShard");
+>
+>         cmd.put("key", shardKey);
+>
+>     CommandResult result4 = mongo.getDB("admin").command(cmd);
+>
+>        System.out.println(result4);
+>         
+>        final BasicDBObject re = new BasicDBObject("split", 
+> "ExampleShardingData.testShard");
+>        
+>        final BasicDBObject mid = new BasicDBObject("x", 100);
+>        re.put("middle", mid);
+>        CommandResult result3 = mongo.getDB("admin").command(re);
+>         System.out.println(result3);
+>         
+>         final BasicDBObject mov = new BasicDBObject("moveChunk", 
+> "ExampleShardingData.testShard");
+>        
+>        final BasicDBObject mo2 = new BasicDBObject("x", 10);
+>        mov.put("find", mo2);
+>        
+>     
+>        mov.put("to", "shard0001");
+>        
+>        
+>         CommandResult result2 = mongo.getDB("admin").command(mov);
+>         System.out.println(result2);
+>     }
+>
+>     @Test
+>     public static void testShards() throws Exception {
+>
+>         final Mongo mongo = new Mongo(new DBAddress("127.0.0.1", 27017, 
+> "ExampleShardingData"));
+>
+>         final DBCollection shardCollection = 
+> mongo.getDB("ExampleShardingData").getCollection("testShard");
+>
+>         final Random random = new Random(System.currentTimeMillis());
+>
+>         // Write some data
+>         for (int idx=0; idx < 1000; idx++) {
+>
+>             final BasicDBObject entry
+>             = new BasicDBObject("x", ("201101" + String.format("%02d", 
+> random.nextInt(30))));
+>
+>             entry.put("hash", md5(("this is a value to hash-" + idx)));
+>
+>             shardCollection.insert(entry);
+>         }
+>     }
+>
+>     private static byte [] md5(final String pValue) throws Exception
+>     { return 
+> MessageDigest.getInstance("MD5").digest(pValue.getBytes("UTF-8")); }
+>     
+>      public static void main(String[] args) {
+>         // TODO code application logic here
+>          
+>        
+>        try {
+>             testShards();
+>         } catch (Exception ex) {
+>             System.out.println(ex.getMessage());
+>         }
+>         
+>           try {
+>             setupCluster();
+>         } catch (Exception ex) {
+>             System.out.println(ex.getMessage());
+>             
+>         }
+>         
+>   try {
+>             insert1();
+>         } catch (Exception ex) {
+>             System.out.println(ex.getMessage());
+>             
+>         }
+>         
+>     }
+> }
+>
+>
+> //-------------------------------------------------------------------------------------
+>
+> yes i have Java Tutorials and also implemented them. They ware running 
+> accurately. What i want is to make shards through java driver and then 
+> query the data in those shards.
+>
+> Regards,
+> Rahat Masood.
+>
+>
+> On Tue, Sep 4, 2012 at 10:56 AM, thomasr <thomas.ru...@10gen.com<javascript:>
+> > wrote:
+>
+>> Hi Rahat,
+>>
+>> I've looked through your code example, but unfortunately can't see any 
+>> obvious reasons why you wouldn't be able to retrieve any data.
+>>
+>> In order to diagnose your problem, could you try the following:
+>>
+>>      1. Could you connect to the mongos through the shell directly (mongo 
+>> --port 30000) and try to access the document there? Are you able to 
+>> retrieve it?
+>>      2. In your Java code, can you connect to the shard directly that 
+>> contains the document, instead of the mongos? Are you able to retrieve it?
+>>
+>> the answers to these questions will be very helpful in finding out why 
+>> your code doesn't work.
+>>
+>> Lastly, I'd like to refer you to the Java tutorials on the MongoDB 
+>> website, in case you haven't seen them yet: 
+>> http://www.mongodb.org/display/DOCS/Java+Tutorial
+>> They provide you with some more examples on how to connect to MongoDB 
+>> through the Java driver.
+>>
+>> Best regards,
+>> Thomas
+>>
+>>
+>>
+>> On Tuesday, September 4, 2012 3:19:28 PM UTC+10, Rahat Masood wrote:
+>>
+>>> Yes, i found the problem and sorted it out. Can u please tell, how can i 
+>>> query the data stored on shards??
+>>>
+>>> I think i need to connect to Mongos. I connected to it and then using 
+>>> simple view query I printed out the statement. However, it is not working 
+>>> because my dbcursor is empty.
+>>>
+>>> Here is my code:
+>>>
+>>> final Mongo mongo2 = new Mongo(new DBAddress("127.0.0.1", 30000,
+>>> "ExampleShardingData"));
+>>>         
+>>>  db = mongo2.getDB("**ExampleShardingData");
+>>>  coll = db.getCollection("testShard");
+>>>   
+>>>   BasicDBObject view1 = new BasicDBObject();
+>>>         
+>>>         view1.put("x",20110114);
+>>>         DBCursor cur = coll.find(view1);
+>>>         
+>>>         Double id;
+>>>         Binary b;
+>>>          if (cur.hasNext()) {
+>>>             DBObject o = cur.next();
+>>>             
+>>>              id = (Double) (o.get("x"));
+>>>              
+>>>                  b = (Binary) (o.get("hash"));
+>>>              
+>>>              System.out.println(id);
+>>>              System.out.println(b);
+>>>          }
+>>>
+>>>
+>>> DBCursor variable is not returning anything....Can you please find the 
+>>> problem??
+>>>
+>>> Do i need to query through CommnadResult because we are connecting now 
+>>> with Mongos....
+>>>
+>>> Regards,
+>>> Rahat Masood.
+>>>
+>>> On Mon, Sep 3, 2012 at 12:38 PM, thomasr <thomas.ru...@10gen.com> wrote:
+>>>
+>>>> Hi Rahat,
+>>>>
+>>>> It seems like you're trying to add the same shards to the mongos server 
+>>>> that have already been added before. You only need to do this step once 
+>>>> during the lifetime of the server, not every time you run the example. Try 
+>>>> commenting out the lines that add the shards to the server and see if the 
+>>>> code runs without errors.
+>>>>
+>>>> Best regards,
+>>>> Thomas
+>>>>
+>>>>
+>>>> On Monday, September 3, 2012 5:22:37 PM UTC+10, Rahat Masood wrote:
+>>>>
+>>>>> Dear Thomas,
+>>>>>
+>>>>> Thanks for the reply. Yes, you pointed out the exact problem. I was 
+>>>>> giving mongod parameters instead of mongos. Now the problem is resolved, 
+>>>>> however, now i am facing another problem in using the ports......
+>>>>>
+>>>>>  private static final int [] _shardPorts = { 10049, 10057 };
+>>>>>
+>>>>> When I run 2 shards with the ports 10049 and 10057 and then tun mongo 
+>>>>> java sharding example in netbeans, it gives an error:
+>>>>>
+>>>>> { "ok" : 0.0 , "errmsg" : "host already used"}
+>>>>> { "ok" : 0.0 , "errmsg" : "host already used"}
+>>>>>
+>>>>> I know this error is because these ports are already in use of 
+>>>>> sharding. To remove this error, what i am doing is that whenever i compile 
+>>>>> the code I give new port number.s
+>>>>>
+>>>>> I want to know, is there any way to reconfigure the same ports because 
+>>>>> i am running this example for my testing and giving new ports each time is 
+>>>>> not feasible for me.
+>>>>>
+>>>>> Regards,
+>>>>> Rahat Masood.
+>>>>>
+>>>>>  On Mon, Sep 3, 2012 at 11:10 AM, thomasr <thomas.ru...@10gen.com>wrote:
+>>>>>
+>>>>>>  Hi Rahat, 
+>>>>>>
+>>>>>> Just to add to my previous reply: Are you by any chance connecting to 
+>>>>>> a mongod instead of the mongos?
+>>>>>> You need to make sure that you connect to mongos (in your example on 
+>>>>>> port 30000) and then issue the
+>>>>>> addshard commands. mongod doesn't know about shards. Connecting to a 
+>>>>>> mongod instead would result 
+>>>>>> in exactly the error you experienced.
+>>>>>>
+>>>>>> So if you use the javascript shell, you would have to call mongo with 
+>>>>>> the --port 30000 parameter.
+>>>>>>
+>>>>>> Best regards,
+>>>>>> Thomas
+>>>>>>
+>>>>>>
+>>>>>> On Monday, September 3, 2012 3:15:12 PM UTC+10, Rahat Masood wrote:
+>>>>>>
+>>>>>>> Hello Everyone,
+>>>>>>>
+>>>>>>> I am facing a problem in running Mongo Java Sharding Example. What i 
+>>>>>>> have done so far is:
+>>>>>>>
+>>>>>>> 1. Download a zip folder from github.
+>>>>>>> 2. Create a new project in netbeans and add all the required files 
+>>>>>>> from zipped folder to the new project.
+>>>>>>> 3. Run following servers: configd, mongos, shard1 and shard2 
+>>>>>>> ...through following commands
+>>>>>>>
+>>>>>>> mongod --configsvr --dbpath C:/data/configdb --port 20000
+>>>>>>>
+>>>>>>> mongos --port 30000 --configdb localhost:20000
+>>>>>>>
+>>>>>>> mongod --dbpath C:\data\dbs\shard1 --port 10000
+>>>>>>>
+>>>>>>> mongod --dbpath C:\data\dbs\shard2 --port 10001
+>>>>>>>
+>>>>>>> Hoever, when i debug or run the shardingExample file....:
+>>>>>>>
+>>>>>>> it prompts following output:
+>>>>>>>
+>>>>>>> { "errmsg" : "no such cmd: addshard" , "bad cmd" : { "addshard" : 
+>>>>>>> "localhost:10005"} , "ok" : 0.0}
+>>>>>>> { "errmsg" : "no such cmd: addshard" , "bad cmd" : { "addshard" : 
+>>>>>>> "localhost:10006"} , "ok" : 0.0}
+>>>>>>> { "errmsg" : "no such cmd: enablesharding" , "bad cmd" : { 
+>>>>>>> "enablesharding" : "test"} , "ok" : 0.0}
+>>>>>>> { "errmsg" : "no such cmd: shardcollection" , "bad cmd" : { 
+>>>>>>> "shardcollection" : "test.logs" , "key" : { "date" : 1 , "hash" : 1}} , 
+>>>>>>> "ok" : 0.0}
+>>>>>>> DBPort.findOne failed.....
+>>>>>>>
+>>>>>>> Can anyone please help in finding the exact problem????
+>>>>>>>
+>>>>>>>  Your efforts will be highly appreciated.
+>>>>>>>
+>>>>>>> Regards,
+>>>>>>> Rahat Masood.
+>>>>>>>
+>>>>>>  -- 
+>>>>>> You received this message because you are subscribed to the Google
+>>>>>> Groups "mongodb-user" group.
+>>>>>> To post to this group, send email to mongod...@googlegroups.com
+>>>>>>
+>>>>>> To unsubscribe from this group, send email to
+>>>>>> mongodb-user...@**googlegroups.**com
+>>>>>>
+>>>>>> See also the IRC channel -- freenode.net#mongodb
+>>>>>>
+>>>>>
+>>>>>  -- 
+>>>> You received this message because you are subscribed to the Google
+>>>> Groups "mongodb-user" group.
+>>>> To post to this group, send email to mongod...@googlegroups.com
+>>>> To unsubscribe from this group, send email to
+>>>> mongodb-user...@**googlegroups.com
+>>>> See also the IRC channel -- freenode.net#mongodb
+>>>>
+>>>
+>>>  -- 
+>> You received this message because you are subscribed to the Google
+>> Groups "mongodb-user" group.
+>> To post to this group, send email to mongod...@googlegroups.com<javascript:>
+>> To unsubscribe from this group, send email to
+>> mongodb-user...@googlegroups.com <javascript:>
+>> See also the IRC channel -- freenode.net#mongodb
+>>
+>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_177_10045335.1346982518341
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Rahat,<div><br></div><div>were you able to solve your problem? I think w=
+hat could have happened here is that you inserted documents directly to the=
+ mongod rather than through mongos. That would explain why you can't get an=
+y data back from mongos. I suggest you start your example code from scratch=
+, and make sure that you always connect to mongos (port 30000), even for in=
+serting the documents. Then you should be able to revtrieve them, both in t=
+he shell and through the Java driver.</div><div><br></div><div>Please let u=
+s know if you need any further assistance with this.</div><div><br></div><d=
+iv>Regards,</div><div>Thomas</div><div><br><br>On Tuesday, September 4, 201=
+2 7:38:33 PM UTC+10, Rahat Masood wrote:<blockquote class=3D"gmail_quote" s=
+tyle=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-le=
+ft: 1ex;">Dear Thomas,<br><br>the answers to your queries are:<br><br>Could=
+ you connect to the mongos through the shell directly (mongo --port
+ 30000) and try to access the document there? Are you able to retrieve=20
+it?<br><br>When I connect directly to mongos shell and query the data, i ge=
+t nothing. Below is the shell commands:<br><br>Microsoft Windows [Version 6=
+.1.7600]<br>Copyright (c) 2009 Microsoft Corporation.&nbsp; All rights rese=
+rved.<br>
+<br>D:\Users\tecnex&gt;cd D:\mongodb\bin<br><br>D:\mongodb\bin&gt;mongo loc=
+alhost:30000/admin<br>MongoDB shell version: 2.0.6<br>connecting to: localh=
+ost:30000/admin<br>mongos&gt; db.testShard.find();<br>mongos&gt; show colle=
+ctions<br>
+mongos&gt;<br><br><br> In your Java code, can you connect to the shard dire=
+ctly that contains=20
+the document, instead of the mongos? Are you able to retrieve it?<br><br>So=
+rry, i do not understand your question. Therefore i am putting my whole cod=
+e here:<br><br>//----------------------------<wbr>-------------------------=
+-----<wbr>------------------------------<wbr>----<br>
+package main.com.deftlabs.examples.<wbr>mongo;<br><br>import com.mongodb.*;=
+<br>import java.security.MessageDigest;<br>import java.util.Random;<br><br>=
+// JUnit<br>import org.junit.Test;<br>import org.junit.Before;<br>import st=
+atic org.junit.Assert.*;<br>
+<br>// Java<br>import java.util.List;<br>import java.util.Random;<br>import=
+ java.util.ArrayList;<br>import java.security.MessageDigest;<br>import org.=
+bson.types.Binary;<br><br>/**<br>&nbsp;*<br>&nbsp;* @author tecnex<br>&nbsp=
+;*/<br><br>
+public class ShardingTest {<br><br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp=
+; static DBCollection coll,coll2,coll3;<br>&nbsp;&nbsp;&nbsp; static DB db;=
+<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; private static void insert1()=
+ throws Exception {<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;final Mongo mongo2 =3D =
+new Mongo(new DBAddress("127.0.0.1", 30000,<br>
+"ExampleShardingData"));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>=
+&nbsp;db =3D mongo2.getDB("ExampleShardingD<div>ata");<br>&nbsp;coll =3D db=
+.getCollection("testShard");<br>
+&nbsp; <br>&nbsp; BasicDBObject view1 =3D new BasicDBObject();<br>&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp; view1.put("x",20110114);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; DBCursor cur =3D coll.find(view1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Double id;<br>&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Binary b;<br>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp; if (cur.hasNext()) {<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DBObject=
+ o =3D cur.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; id =3D (Double) (o.get("x"));<br>&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b =
+=3D (Binary) (o.get("hash"));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(id);<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sy=
+stem.out.println(b);</div><br>&nbsp;&nbsp;&nbsp; }<br>}<br>&nbsp;&nbsp; <br=
+>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp; public ShardingTest() {<br=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br><br><br>&=
+nbsp;&nbsp;&nbsp; private static final int [] _shardPorts =3D { 10049, 1005=
+7 };<br><br>&nbsp;&nbsp;&nbsp; @Before<br>
+&nbsp;&nbsp;&nbsp; public static void setupCluster() throws Exception {<br>=
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Connect to mongos<br>&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Mongo mongo =3D new Mongo(new =
+DBAddress("127.0.0.1", 30000, "admin"));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; // Add the shards<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* for (final int shardPort : _shardPo=
+rts) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; final CommandResult result<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp; =3D mongo.getDB("admin").command(<wbr>new BasicDBOb=
+ject("addshard", ("localhost:" + shardPort)));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.o=
+ut.println(result);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Sleep for a bit to wait for a=
+ll the nodes to be intialized.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; Thread.sleep(5000);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // =
+Enable sharding on a collection.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; CommandResult result<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =3D mongo.getDB("admin").command=
+(<wbr>new BasicDBObject("enablesharding"<wbr>, "ExampleShardingData"));<br>=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(result);*/<br=
+><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final BasicDBObject shardKey =3D =
+new BasicDBObject("x", 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shardKey.put("hash", 1);<br><br>&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final BasicDBObject cmd =3D new BasicDBObjec=
+t("<wbr>shardcollection", "ExampleShardingData.<wbr>testShard");<br><br>&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmd.put("key", shardKey);<br>
+<br>&nbsp;&nbsp;&nbsp; CommandResult result4 =3D mongo.getDB("admin").comma=
+nd(<wbr>cmd);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.printl=
+n(result4);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp; final BasicDBObject re =3D new BasicDBObject("split=
+", "ExampleShardingData.<wbr>testShard");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p; final BasicDBObject mid =3D new BasicDBObject("x", 100);<br>&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp; re.put("middle", mid);<br>&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp; CommandResult result3 =3D mongo.getDB("admin").command(<wbr>re=
+);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(result3=
+);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp; final BasicDBObject mov =3D new BasicDBObject("moveChunk", "=
+ExampleShardingData.<wbr>testShard");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final BasicDBObject mo2 =3D new=
+ BasicDBObject("x", 10);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov.put("f=
+ind", mo2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp; mov.put("to", "shard0001");<br>&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommandResult result2 =3D mongo.getDB("admi=
+n").command(<wbr>mov);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System=
+.out.println(result2);<br>&nbsp;&nbsp;&nbsp; }<br>
+<br>&nbsp;&nbsp;&nbsp; @Test<br>&nbsp;&nbsp;&nbsp; public static void testS=
+hards() throws Exception {<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; final Mongo mongo =3D new Mongo(new DBAddress("127.0.0.1", 27017, "Exampl=
+eShardingData"));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final D=
+BCollection shardCollection =3D mongo.getDB("<wbr>ExampleShardingData").<wb=
+r>getCollection("testShard");<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Random random =3D new =
+Random(System.<wbr>currentTimeMillis());<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; // Write some data<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp; for (int idx=3D0; idx &lt; 1000; idx++) {<br><br>&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final BasicDBObject entry<br=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =3D new=
+ BasicDBObject("x", ("201101" + String.format("%02d", random.nextInt(30))))=
+;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entr=
+y.put("hash", md5(("this is a value to hash-" + idx)));<br><br>&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shardCollection.inse=
+rt(entry);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&=
+nbsp; }<br><br>&nbsp;&nbsp;&nbsp; private static byte [] md5(final String p=
+Value) throws Exception<br>
+&nbsp;&nbsp;&nbsp; { return MessageDigest.getInstance("<wbr>MD5").digest(pV=
+alue.getBytes("<wbr>UTF-8")); }<br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp=
+;&nbsp; public static void main(String[] args) {<br>&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp; // TODO code application logic here<br>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p; try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp; testShards();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (Ex=
+ception ex) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp; System.out.println(ex.<wbr>getMessage());<br>&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {<br>&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setupCluster();<br>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (Exception ex) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.o=
+ut.println(ex.<wbr>getMessage());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+ }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp; try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insert1(=
+);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (Exception ex) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.o=
+ut.println(ex.<wbr>getMessage());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>}<br><br>//--------------------=
+--------<wbr>------------------------------<wbr>---------------------------=
+<br><br>yes i have Java Tutorials and also implemented them. They ware runn=
+ing accurately. What i want is to make shards through java driver and then =
+query the data in those shards.<br>
+<br>Regards,<br>Rahat Masood.<br><br><br><div class=3D"gmail_quote">On Tue,=
+ Sep 4, 2012 at 10:56 AM, thomasr <span dir=3D"ltr">&lt;<a href=3D"javascri=
+pt:" target=3D"_blank" gdf-obfuscated-mailto=3D"o6cAjGh3WYgJ">thomas.ru...@=
+10gen.com</a>&gt;</span> wrote:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hi Rahat,<div><br></div><div>I've looked thr=
+ough your code example, but unfortunately can't see any obvious reasons why=
+ you wouldn't be able to retrieve any data.</div>
+<div><br></div><div>In order to diagnose your problem, could you try the fo=
+llowing:</div><div><br></div><div>&nbsp; &nbsp; &nbsp;1. Could you connect =
+to the mongos through the shell directly (mongo --port 30000) and try to ac=
+cess the document there? Are you able to retrieve it?</div>
+<div>&nbsp; &nbsp; &nbsp;2. In your Java code, can you connect to the shard=
+ directly that contains the document, instead of the mongos? Are you able t=
+o retrieve it?</div><div><br></div><div>the answers to these questions will=
+ be very helpful in finding out why your code doesn't work.</div>
+<div><br></div><div>Lastly, I'd like to refer you to the Java tutorials on =
+the MongoDB website, in case you haven't seen them yet:&nbsp;<a href=3D"htt=
+p://www.mongodb.org/display/DOCS/Java+Tutorial" target=3D"_blank">http://ww=
+w.mongodb.org/<wbr>display/DOCS/Java+Tutorial</a></div>
+<div>They provide you with some more examples on how to connect to MongoDB =
+through the Java driver.</div><div><br></div><div>Best regards,</div><div>T=
+homas</div><div><br></div><div><br></div><div><div><br>On Tuesday, Septembe=
+r 4, 2012 3:19:28 PM UTC+10, Rahat Masood wrote:</div>
+<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;borde=
+r-left:1px #ccc solid;padding-left:1ex"><div>Yes, i found the problem and s=
+orted it out. Can u please tell, how can i query the data stored on shards?=
+?<br>
+<br>I think i need to connect to Mongos. I connected to it and then using s=
+imple view query I printed out the statement. However, it is not working be=
+cause my dbcursor is empty.<br>
+<br>Here is my code:<br><br>final Mongo mongo2 =3D new Mongo(new DBAddress(=
+"127.0.0.1", 30000,<br>"ExampleShardingData"));<br>&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp; <br>&nbsp;db =3D mongo2.getDB("<u></u>ExampleShardingD<w=
+br>ata");<br>&nbsp;coll =3D db.getCollection("testShard");<br>
+
+&nbsp; <br>&nbsp; BasicDBObject view1 =3D new BasicDBObject();<br>&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp; view1.put("x",20110114);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+; DBCursor cur =3D coll.find(view1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Double id;<br>&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Binary b;<br>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp; if (cur.hasNext()) {<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DBObject=
+ o =3D cur.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp; id =3D (Double) (o.get("x"));<br>&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b =
+=3D (Binary) (o.get("hash"));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(id);<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sy=
+stem.out.println(b);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<=
+br><br><br>DBCursor variable is not returning anything....Can you please fi=
+nd the problem??<br><br>Do i need to query through CommnadResult because we=
+ are connecting now with Mongos....<br>
+
+<br>Regards,<br>Rahat Masood.<br><br></div><div><div><div class=3D"gmail_qu=
+ote">On Mon, Sep 3, 2012 at 12:38 PM, thomasr <span dir=3D"ltr">&lt;<a>thom=
+as.ru...@10gen.com</a>&gt;</span> wrote:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex"><div>Hi Rahat,</div><div><br></div>It seems =
+like you're trying to add the same shards to the mongos server that have al=
+ready been added before. You only need to do this step once during the life=
+time of the server, not every time you run the example.&nbsp;Try commenting=
+ out the lines that add the shards to the server and see if the code runs w=
+ithout errors.<div>
+
+<br></div><div>Best regards,</div><div>Thomas<br><div><div><br><br>On Monda=
+y, September 3, 2012 5:22:37 PM UTC+10, Rahat Masood wrote:</div><blockquot=
+e class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-left:1px=
+ #ccc solid;padding-left:1ex">
+
+<div>Dear Thomas,<br><br>Thanks for the reply. Yes, you pointed out the exa=
+ct problem. I was giving mongod parameters instead of mongos. Now the probl=
+em is resolved, however, now i am facing another problem in using the ports=
+......<br>
+
+
+<br>&nbsp;private static final int [] _shardPorts =3D { 10049, 10057 };<br>=
+<br>When I run 2 shards with the ports 10049 and 10057 and then tun mongo j=
+ava sharding example in netbeans, it gives an error:<br><br>{ "ok" : 0.0 , =
+"errmsg" : "host already used"}<br>
+
+
+{ "ok" : 0.0 , "errmsg" : "host already used"}<br><br>I know this error is =
+because these ports are already in use of sharding. To remove this error, w=
+hat i am doing is that whenever i compile the code I give new port number.s=
+<br>
+
+
+<br>I want to know, is there any way to reconfigure the same ports because =
+i am running this example for my testing and giving new ports each time is =
+not feasible for me.<br><br>Regards,<br>Rahat Masood.<br><br></div><div cla=
+ss=3D"gmail_quote">
+
+<div><div>
+On Mon, Sep 3, 2012 at 11:10 AM, thomasr <span dir=3D"ltr">&lt;<a>thomas.ru=
+...@10gen.com</a>&gt;</span> wrote:<br></div></div><blockquote class=3D"gma=
+il_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-lef=
+t:1ex">
+
+<div><div>
+<div>Hi Rahat,&nbsp;</div><div><br></div><div>Just to add to my previous re=
+ply: Are you by any chance connecting to a mongod instead of the mongos?</d=
+iv><div>You need to make sure that you connect to mongos (in your example o=
+n port 30000) and then issue the</div>
+
+
+<div>addshard commands. mongod doesn't know about shards.&nbsp;Connecting t=
+o a mongod instead would result&nbsp;</div><div>in exactly the error you ex=
+perienced.</div><div><br></div><div>So if you use the javascript shell, you=
+ would have to call mongo with the --port 30000 parameter.</div>
+
+
+<div><br></div><div>Best regards,</div><div><div>Thomas</div><div><br></div=
+><br>On Monday, September 3, 2012 3:15:12 PM UTC+10, Rahat Masood wrote:</d=
+iv></div></div><div><div><div><div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex"=
+>
+
+
+Hello Everyone,<br><br>I am facing a problem in running Mongo Java Sharding=
+ Example. What i have done so far is:<br><br>1. Download a zip folder from =
+github.<br>2. Create a new project in netbeans and add all the required fil=
+es from zipped folder to the new project.<br>
+
+
+3. Run following servers: configd, mongos, shard1 and shard2 ...through fol=
+lowing commands<br><br>mongod --configsvr --dbpath C:/data/configdb --port =
+20000<br><br>mongos --port 30000 --configdb localhost:20000<br><br>mongod -=
+-dbpath C:\data\dbs\shard1 --port 10000<br>
+
+
+<br>mongod --dbpath C:\data\dbs\shard2 --port 10001<br><br>Hoever, when i d=
+ebug or run the shardingExample file....:<br><br>it prompts following outpu=
+t:<br><br>{ "errmsg" : "no such cmd: addshard" , "bad cmd" : { "addshard" :=
+ "localhost:10005"} , "ok" : 0.0}<br>
+
+
+{ "errmsg" : "no such cmd: addshard" , "bad cmd" : { "addshard" : "localhos=
+t:10006"} , "ok" : 0.0}<br>{ "errmsg" : "no such cmd: enablesharding" , "ba=
+d cmd" : { "enablesharding" : "test"} , "ok" : 0.0}<br>
+
+
+{ "errmsg" : "no such cmd: shardcollection" , "bad cmd" : { "shardcollectio=
+n" : "test.logs" , "key" : { "date" : 1 , "hash" : 1}} , "ok" : 0.0}<br>
+
+
+DBPort.findOne failed.....<br><br>Can anyone please help in finding the exa=
+ct problem????<br><br>&nbsp;Your efforts will be highly appreciated.<br><br=
+>Regards,<br>Rahat Masood.<br></blockquote>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br></div></div>
+To post to this group, send email to <a>mongod...@googlegroups.com</a><div>=
+<br>
+To unsubscribe from this group, send email to<br>
+</div><a>mongodb-user...@<u></u>googlegroups.<u></u>c<wbr>om</a><div><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></div></blockquote></div><br>
+</blockquote></div></div><div><div>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br>
+To post to this group, send email to <a>mongod...@googlegroups.com</a><br>
+To unsubscribe from this group, send email to<br>
+<a>mongodb-user...@<u></u>googlegroups.<wbr>com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br>
+</div></div></blockquote></div><div><div>
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br>
+To post to this group, send email to <a href=3D"javascript:" target=3D"_bla=
+nk" gdf-obfuscated-mailto=3D"o6cAjGh3WYgJ">mongod...@googlegroups.com</a><b=
+r>
+To unsubscribe from this group, send email to<br>
+<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"o6cAjGh3=
+WYgJ">mongodb-user...@<wbr>googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_177_10045335.1346982518341--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346982518</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1903</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: Mongo java Sharding Example</string>
+</dict>
+</plist>

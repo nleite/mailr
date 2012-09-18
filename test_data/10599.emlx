@@ -1,0 +1,149 @@
+6512      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp250377oef;
+        Thu, 6 Sep 2012 23:03:49 -0700 (PDT)
+Received: by 10.236.200.168 with SMTP id z28mr4030823yhn.34.1346997829116;
+        Thu, 06 Sep 2012 23:03:49 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOLsq7WDCRDCnKaCBRoEDN6GIg@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id y1si1688901ani.170.2012.09.06.23.03.48
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 23:03:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOLsq7WDCRDCnKaCBRoEDN6GIg@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOLsq7WDCRDCnKaCBRoEDN6GIg@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCOLsq7WDCRDCnKaCBRoEDN6GIg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf1861264yhn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 23:03:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=eqsJfxwaMvPXlQ/E6r95kEONxZisuMjRKcvz9xsWglM=;
+        b=pWYG6UGVD2dOZQJys44rQwFtuXKRuqixjeBlHe1xdFEcvcknEgz/1NjleWx35whtDE
+         Uj0kJf+dY4g/B4Raddmzh4Yk7piIeoeMNs7kAqTXqnu3zFWgIp7Fe/I7UfBgarwZyAAK
+         wwh1UUznnuQ3hS0rY5cCuPUclutRJ6AQAmuubgCyubJcwdrJG2rSujVfoVRnHss6gAHF
+         /PFDCdCMc8AtkJXcIaBBLEZ5IA6rNM8DEt/402HnW7e2RdKuw0ujRN9Y+d7BpgzPTUWL
+         9duA6JgQlu2X2cWnIFUH5IOg/fxga5q/meeUS6GipwTUdiqG32m37MgUCX1ahTPTT7st
+         rsGQ==
+Received: by 10.68.244.73 with SMTP id xe9mr1128455pbc.10.1346997828272;
+        Thu, 06 Sep 2012 23:03:48 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.237.161 with SMTP id vd1ls810111pbc.3.gmail; Thu, 06 Sep
+ 2012 23:03:46 -0700 (PDT)
+Received: by 10.68.237.163 with SMTP id vd3mr1129514pbc.9.1346997826202;
+        Thu, 06 Sep 2012 23:03:46 -0700 (PDT)
+Date: Thu, 6 Sep 2012 23:03:45 -0700 (PDT)
+From: David Hows <david.hows@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <7460afc0-f28f-47f8-af11-595c92a80b74@googlegroups.com>
+In-Reply-To: <2567ebcb-cf3d-491f-ba1a-7fa9e89a6f1d@googlegroups.com>
+References: <2567ebcb-cf3d-491f-ba1a-7fa9e89a6f1d@googlegroups.com>
+Subject: [mongodb-user] Re: explanation of locks(micros)
+MIME-Version: 1.0
+X-Original-Sender: david.hows@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ david.hows@10gen.com designates internal as permitted sender)
+ smtp.mail=david.hows@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_373_32828646.1346997825738"
+
+------=_Part_373_32828646.1346997825738
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Arin,
+
+Yes, this metric is the amount of time for which this operation was write 
+locked - ie held the write lock.
+
+The time spent acquiring is held in a different metric.
+
+Cheers,
+
+David 
+
+On Friday, September 7, 2012 12:22:49 PM UTC+10, arin wrote:
+>
+> Hey all,
+>
+> Quick question about the mongodb logs:
+>
+> does locks(micros) w:270 mean that this operation caused a write lock for 
+> 270micros?
+> or does it mean it waited for a write lock for 270 micros.
+>
+> More or less I'm trying to identify which one my queries are the cause(s) 
+> of write locks and was hoping for some guideance.
+>
+> Thanks,
+> Arin
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_373_32828646.1346997825738
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Arin,<div><br></div><div>Yes, this metric is the amount of time for whic=
+h this operation was write locked - ie held the write lock.</div><div><br><=
+/div><div>The time spent acquiring is held in a different metric.</div><div=
+><br></div><div>Cheers,</div><div><br></div><div>David&nbsp;<br><br>On Frid=
+ay, September 7, 2012 12:22:49 PM UTC+10, arin wrote:<blockquote class=3D"g=
+mail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc sol=
+id;padding-left: 1ex;">Hey all,<div><br></div><div>Quick question about the=
+ mongodb logs:</div><div><br></div><div>does&nbsp;locks(micros) w:270 mean =
+that this operation caused a write lock for 270micros?</div><div>or does it=
+ mean it waited for a write lock for 270 micros.</div><div><br></div><div>M=
+ore or less I'm trying to identify which one my queries are the cause(s) of=
+ write locks and was hoping for some guideance.</div><div><br></div><div>Th=
+anks,</div><div>Arin</div></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_373_32828646.1346997825738--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346997825</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1923</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: explanation of locks(micros)</string>
+</dict>
+</plist>

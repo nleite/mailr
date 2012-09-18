@@ -1,0 +1,220 @@
+10259     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp244318oef;
+        Thu, 6 Sep 2012 18:43:31 -0700 (PDT)
+Received: by 10.229.135.149 with SMTP id n21mr1373786qct.82.1346982210915;
+        Thu, 06 Sep 2012 18:43:30 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNrK0JCQCxC_oqWCBRoEf2ynZw@googlegroups.com>
+Received: from mail-qc0-f192.google.com (mail-qc0-f192.google.com [209.85.216.192])
+        by mx.google.com with ESMTPS id l1si3729583qap.20.2012.09.06.18.43.30
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:43:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNrK0JCQCxC_oqWCBRoEf2ynZw@googlegroups.com designates 209.85.216.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNrK0JCQCxC_oqWCBRoEf2ynZw@googlegroups.com designates 209.85.216.192 as permitted sender) smtp.mail=mongodb-user+bncCNrK0JCQCxC_oqWCBRoEf2ynZw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-qc0-f192.google.com with SMTP id n41sf1317344qco.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:43:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=WZGfdVSFyRFU0MGh7MyTNJxf66vKz6O2xpR8Yi6aF8A=;
+        b=L2iSO3GeQ66otU7GMRatFli7gTke1ZkBT+F+KnYIWiIcyjq4lFi+HPRwgv0zjqjQT1
+         Y+2wH9Mc5kjGGeMtM+koOBSLRJqChA8XYsFVK1I7cyMe1sgeWQ1R/ES8IQl8YnNNTs+t
+         T5hfpVbLoZFIXIY5iVHqd3ifFMHbrAtrDhZ3ofrZbOXFv9E/EHG82wrKS2IuZ1IKtLp+
+         i44AxWXv8mj4FwudV5bk9JPSntUJ2wSqMLZbYo2cbSc5epUq1XgMQhLtIGoApHKZzIDj
+         vO8SKdYeYqhN2wdozv5Ov3SW9J2SE4CfNpRN0o38LACMLQLph3FQ0uXRErX1vn+WzlL2
+         u2hA==
+Received: by 10.68.189.228 with SMTP id gl4mr1053247pbc.4.1346982209622;
+        Thu, 06 Sep 2012 18:43:29 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.194.202 with SMTP id hy10ls328549pbc.0.gmail; Thu, 06 Sep
+ 2012 18:43:27 -0700 (PDT)
+Received: by 10.68.125.201 with SMTP id ms9mr1036317pbb.20.1346982207673;
+        Thu, 06 Sep 2012 18:43:27 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:43:27 -0700 (PDT)
+From: Thomas Rueckstiess <Thomas.Rueckstiess@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <d19f1b7d-ecaf-4a69-89f2-29c6b0012361@googlegroups.com>
+In-Reply-To: <CAF0aBdwr61TnnED4NiF0agY-Fdqfg0Hcpv3jkH7MZpP6cDM92A@mail.gmail.com>
+References: <CAF0aBdwr61TnnED4NiF0agY-Fdqfg0Hcpv3jkH7MZpP6cDM92A@mail.gmail.com>
+Subject: Re: [mongodb-user] query doesn't return expected results with limit
+ and sort
+MIME-Version: 1.0
+X-Original-Sender: thomas.rueckstiess@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ thomas.rueckstiess@10gen.com designates internal as permitted sender)
+ smtp.mail=thomas.rueckstiess@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_191_27333835.1346982207266"
+
+------=_Part_191_27333835.1346982207266
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi Guido,
+
+were you able to solve this problem? If you require more help, could you 
+provide some sample documents including all the fields, like Scott 
+suggested, so we can try to reproduce the behavior?
+
+Thanks,
+Thomas
+
+
+On Saturday, September 1, 2012 8:55:39 PM UTC+10, GuidoLx wrote:
+>
+> Hello,
+>
+> I have a database which contains a collection of documents I would like to 
+> retrieve in a sorted and paginated way.
+>
+> The sort of the documents should be based on three fieds: up_vote:-1, 
+> down_vote:-1, date_init:1.
+>
+> Running the following query in the shells returns an array of 7 documents:
+>
+>
+> db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$maxDistance" : 
+> 0.1} , "date_close" : { "$gte" : ISODate( 
+> "2012-08-30T15:10:49.157Z")}},{title:1}).sort({"up_vote":-1,"down_vote":-1,"date_init":1}).limit(7);
+>
+> Result:
+>
+> { "_id" : ObjectId("503ce7c644aefc5be7646ddf"), "title" : "tuiles" }
+> { "_id" : ObjectId("503fadd644ae2f535f25a689"), "title" : "Juve" }
+> { "_id" : ObjectId("503cd1f044aefc5be7646ddc"), "title" : "This is my 
+> initiative" }
+> { "_id" : ObjectId("503ceff744ae5b0e79903982"), "title" : "zgjfji" }
+> { "_id" : ObjectId("503cf40844ae5b0e79903985"), "title" : "ders" }
+> { "_id" : ObjectId("503f7adc44ae31641b06ba2b"), "title" : "Aujourd'hui en 
+> france" }
+> { "_id" : ObjectId("50338c2a44aed265cdd491e6"), "title" : "test" }
+>
+> Now if I change the query and set the limit to 3 I get this array of 
+> documents:
+>
+> db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$maxDistance" : 
+> 0.1} , "date_close" : { "$gte" : ISODate( 
+> "2012-08-30T15:10:49.157Z")}},{title:1}).sort({"up_vote":-1,"down_vote":-1,"date_init":1}).limit(3);
+>
+> { "_id" : ObjectId("503ce7c644aefc5be7646ddf"), "title" : "tuiles" }
+> { "_id" : ObjectId("503fadd644ae2f535f25a689"), "title" : "Juve" }
+> { "_id" : ObjectId("503ceff744ae5b0e79903982"), "title" : "zgjfji" }
+>
+>
+> The point is I am missing from the result array the document with the 
+> title: "This is my initiative" as seen in the results of the first query.
+> Even if I do change the limit and set it to 4 the document this is my 
+> initiative is not showing up.
+> I am trying to build a web application which should show results and the 
+> user should be able to paginate through the results.
+>
+> I suspect this is due to the sort fields, but It would be great if 
+> somebody could explain this behaviour.
+>
+> Thx,
+> Guido
+>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_191_27333835.1346982207266
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi Guido,<div><br></div><div>were you able to solve this problem? If you re=
+quire more help, could you provide some sample documents including all the =
+fields, like Scott suggested, so we can try to reproduce the behavior?</div=
+><div><br></div><div>Thanks,</div><div>Thomas</div><div><br></div><div><br>=
+On Saturday, September 1, 2012 8:55:39 PM UTC+10, GuidoLx wrote:<blockquote=
+ class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;border-left: 1=
+px #ccc solid;padding-left: 1ex;">Hello,<br><br>I have a database which con=
+tains a collection of documents I would like to retrieve in a sorted and pa=
+ginated way.<br><br>The sort of the documents should be based on three fied=
+s: up_vote:-1, down_vote:-1, date_init:1.<br>
+<br>Running the following query in the shells returns an array of 7 documen=
+ts:<br><br><br>db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "$=
+maxDistance" : 0.1} , "date_close" : { "$gte" : ISODate( "2012-08-30T15:10:=
+49.157Z")}},<wbr>{title:1}).sort({"up_vote":-1,<wbr>"down_vote":-1,"date_in=
+it":1})<wbr>.limit(7);<br>
+<br>Result:<br><br>{ "_id" : ObjectId("<wbr>503ce7c644aefc5be7646ddf"), "ti=
+tle" : "tuiles" }<br>{ "_id" : ObjectId("<wbr>503fadd644ae2f535f25a689"), "=
+title" : "Juve" }<br>
+{ "_id" : ObjectId("<wbr>503cd1f044aefc5be7646ddc"), "title" : "This is my =
+initiative" }<br>{ "_id" : ObjectId("<wbr>503ceff744ae5b0e79903982"), "titl=
+e" : "zgjfji" }<br>
+{ "_id" : ObjectId("<wbr>503cf40844ae5b0e79903985"), "title" : "ders" }<br>=
+{ "_id" : ObjectId("<wbr>503f7adc44ae31641b06ba2b"), "title" : "Aujourd'hui=
+ en france" }<br>
+{ "_id" : ObjectId("<wbr>50338c2a44aed265cdd491e6"), "title" : "test" }<br>=
+<br>Now if I change the query and set the limit to 3 I get this array of do=
+cuments:<br><br>db.initiatives.find({ "gps" : { "$near" : [ 49.23,6.18] , "=
+$maxDistance"
+ : 0.1} , "date_close" : { "$gte" : ISODate(=20
+"2012-08-30T15:10:49.157Z")}},<wbr>{title:1}).sort({"up_vote":-1,<wbr>"down=
+_vote":-1,"date_init":1})<wbr>.limit(3);<br><br>{ "_id" : ObjectId("<wbr>50=
+3ce7c644aefc5be7646ddf"), "title" : "tuiles" }<br>
+{ "_id" : ObjectId("<wbr>503fadd644ae2f535f25a689"), "title" : "Juve" }<br>=
+{ "_id" : ObjectId("<wbr>503ceff744ae5b0e79903982"), "title" : "zgjfji" }<b=
+r>
+<br><br>The point is I am missing from the result array the document with t=
+he title: "This is my initiative" as seen in the results of the first query=
+.<br>Even if I do change the limit and set it to 4 the document this is my =
+initiative is not showing up.<br>
+I am trying to build a web application which should show results and the us=
+er should be able to paginate through the results.<br><br>I suspect this is=
+ due to the sort fields, but It would be great if somebody could explain th=
+is behaviour.<br>
+<br>Thx,<br>Guido<br><br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_191_27333835.1346982207266--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346982207</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1900</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] query doesn't return expected results with limit and sort</string>
+</dict>
+</plist>

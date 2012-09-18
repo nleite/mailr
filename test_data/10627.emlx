@@ -1,0 +1,282 @@
+15506     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp255297oef;
+        Fri, 7 Sep 2012 01:55:00 -0700 (PDT)
+Received: by 10.68.138.163 with SMTP id qr3mr9037180pbb.161.1347008099825;
+        Fri, 07 Sep 2012 01:54:59 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKKHquftAxDg7KaCBRoEavEY0Q@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id mr7si7859573pbb.311.2012.09.07.01.54.59
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 01:54:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKKHquftAxDg7KaCBRoEavEY0Q@googlegroups.com designates 209.85.210.64 as permitted sender) client-ip=209.85.210.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKKHquftAxDg7KaCBRoEavEY0Q@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCKKHquftAxDg7KaCBRoEavEY0Q@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by dadz9 with SMTP id z9sf1981607dad.29
+        for <multiple recipients>; Fri, 07 Sep 2012 01:54:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=zZ44ITrahUnd+Z+N2MIUquCJjTk8IicPmubFRC7/l8k=;
+        b=cRHPCyaDZICgFAaGm2vZ4G9w6dd4CtqTSvlOYf7b2+ixx4w5Uw2m8E2lMx8nwVEn1z
+         1WTkXWui9pTrWK3Z4mF2TmNsZ5+UVcawwyBusa0ww8jTZJbc7tje3BBd1inmvLviEl1a
+         2YXejrVQhRN1JBVKgzxhSqMEe63WfhvtYED+WpnikTbBTtF6ztg2YY3Mz0pbtaGKxoMi
+         OSlcBZJWTLSSokCIuIliYPLBevtpsV4G0ajvmbhRRhFS9kNfi7JSTZn+NiI0xHhmag5t
+         woX7tJfbBMIKW0JNTyea0A/d3xJqpoGIXK+nFuGURkUnFOGS2yq7HWdJ/s6Qw4pWYfgA
+         NRuw==
+Received: by 10.52.72.16 with SMTP id z16mr848546vdu.15.1347008098755;
+        Fri, 07 Sep 2012 01:54:58 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.92.107 with SMTP id cl11ls264280vdb.4.gmail; Fri, 07 Sep
+ 2012 01:54:56 -0700 (PDT)
+Received: by 10.52.156.115 with SMTP id wd19mr861099vdb.2.1347008096811;
+        Fri, 07 Sep 2012 01:54:56 -0700 (PDT)
+Date: Fri, 7 Sep 2012 01:54:56 -0700 (PDT)
+From: Hanson Lu <hansonl@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <59f260fd-1116-4894-a39d-dde98a0baea2@googlegroups.com>
+In-Reply-To: <7a94600f-8ca6-4fa6-8e13-6c88b3030aad@googlegroups.com>
+References: <7a94600f-8ca6-4fa6-8e13-6c88b3030aad@googlegroups.com>
+Subject: [mongodb-user] Re: How to resolve the $or  sort not using index problem
+MIME-Version: 1.0
+X-Original-Sender: hansonl@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ hansonl@gmail.com designates internal as permitted sender)
+ smtp.mail=hansonl@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_581_24529559.1347008096452"
+
+------=_Part_581_24529559.1347008096452
+Content-Type: text/plain; charset=ISO-8859-1
+
+I forgot to mention that i have created the index {both:1,sentDate:-1}  for 
+the query db.msgs.find({both:{$all:['1000','9999']}).sort(sendDate:-1},.
+
+On Friday, September 7, 2012 4:43:01 PM UTC+8, Hanson Lu wrote:
+>
+> My app has a collection like this 
+> { 
+>   sender:'1000', 
+>   receiver:'9999',
+>   type:'text',
+>   content:' this is content' ,
+>   sentDate:ISODate("2011-10-12T14:54:02.069Z)
+> }
+>
+> The collection records number > 50M. 
+>
+> There is a requirement to query records *between *sender 'X' and receiver 
+> 'Y' in short time. 
+>
+> First, i create index, {sender:1, receiver:1, sentDate:-1}, use query 
+>
+>   db.msgs.find({$or:[{sender:'1000',receiver:'9999'}, { sender:'9999', 
+> receiver:'1000'}]}).sort(sentDate:-1}, 
+>
+> but this query will not use the above index, it do scan full table.  The 
+> problem is known as 
+> https://jira.mongodb.org/browse/SERVER-1205
+>
+> Next, I change the structure of the collection like this 
+> { 
+>   sender:'1000', 
+>   receiver:'9999',
+>   type:'text',
+>   both:['1000','9999']
+>   content:' this is content' ,
+>   sentDate:ISODate("2011-10-12T14:54:02.069Z)
+> }
+>
+> add a new field named 'both' to store 'sender' and 'receiver' , and use 
+> query 
+>
+> db.msgs.find({both:{$all:['1000','9999']}).sort(sendDate:-1},.
+>
+> The query do hit index, but if  sender '1000'  has large number of 
+> records(>100000), 
+>
+> the query become very slow, i saw lots page fault from mongostat.
+>
+> It seems MongoDB will load all documents for indexed for {both:'1000'}, 
+>  and compare whether the 'both' contents is exactly['1000','9999'].
+> is it right? 
+>
+> I have no idea how to resolve the problem. Can you give me some suggestion.
+>
+> Regards.
+>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_581_24529559.1347008096452
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I forgot to mention that i have created the index {both:1,sentDate:-1} &nbs=
+p;for the query&nbsp;db.msgs.find({both:{$all:['<wbr>1000','9999']}).sort(s=
+endDate:<wbr>-1},.<br><br>On Friday, September 7, 2012 4:43:01 PM UTC+8, Ha=
+nson Lu wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-l=
+eft: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">My app has a col=
+lection like this&nbsp;<div><div style=3D"margin-top:0px;margin-right:0px;m=
+argin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-=
+bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;bor=
+der-bottom-width:0px;border-left-width:0px;border-style:initial;border-colo=
+r:initial;vertical-align:baseline">{&nbsp;<br></div><div style=3D"margin-to=
+p:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;pa=
+dding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;bo=
+rder-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-s=
+tyle:initial;border-color:initial;vertical-align:baseline">&nbsp;&nbsp;send=
+er:'1000',&nbsp;<br></div><div style=3D"margin-top:0px;margin-right:0px;mar=
+gin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bo=
+ttom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;borde=
+r-bottom-width:0px;border-left-width:0px;border-style:initial;border-color:=
+initial;vertical-align:baseline">&nbsp;&nbsp;receiver:'9999',</div><div sty=
+le=3D"margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-t=
+op-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-wid=
+th:0px;border-style:initial;border-color:initial;vertical-align:baseline">&=
+nbsp;&nbsp;type:'text',</div><div style=3D"margin-top:0px;margin-right:0px;=
+margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding=
+-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;bo=
+rder-bottom-width:0px;border-left-width:0px;border-style:initial;border-col=
+or:initial;vertical-align:baseline">&nbsp;&nbsp;content:' this is content' =
+,<br></div><div style=3D"margin-top:0px;margin-right:0px;margin-bottom:0px;=
+margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;paddin=
+g-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:=
+0px;border-left-width:0px;border-style:initial;border-color:initial;vertica=
+l-align:baseline">&nbsp;&nbsp;sentDate:ISODate(<span style=3D"margin-top:0p=
+x;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;paddin=
+g-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border=
+-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style=
+:initial;border-color:initial;vertical-align:baseline;font-family:arial,san=
+s-serif;line-height:16px;font-size:small">"2011-10-<wbr>12T14:54:02.069Z)</=
+span></div><div style=3D"margin-top:0px;margin-right:0px;margin-bottom:0px;=
+margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;paddin=
+g-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:=
+0px;border-left-width:0px;border-style:initial;border-color:initial;vertica=
+l-align:baseline">}<br></div></div><div><br></div><div><div style=3D"margin=
+-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px=
+;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px=
+;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;borde=
+r-style:initial;border-color:initial;vertical-align:baseline">The collectio=
+n records number &gt; 50M.&nbsp;<br></div></div><div><br></div><div>There i=
+s a requirement to query records <b>between </b>sender 'X' and receiver 'Y'=
+ in short time.&nbsp;</div><div><br></div><div>First, i create index, {send=
+er:1, receiver:1, sentDate:-1}, use query&nbsp;</div><div><br></div><div>&n=
+bsp;&nbsp;db.msgs.find({$or:[{sender:'<wbr>1000',receiver:'9999'}, { sender=
+:'9999', receiver:'1000'}]}).sort(<wbr>sentDate:-1},&nbsp;</div><div><br></=
+div><div>but this query will not use the above index, it do scan full table=
+. &nbsp;The problem is known as&nbsp;<br></div><div><a href=3D"https://jira=
+.mongodb.org/browse/SERVER-1205" target=3D"_blank">https://jira.mongodb.org=
+/<wbr>browse/SERVER-1205</a><br></div><div><br></div><div>Next, I change th=
+e structure of the collection like this&nbsp;</div><div><div style=3D"margi=
+n-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0p=
+x;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0p=
+x;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;bord=
+er-style:initial;border-color:initial;vertical-align:baseline;border-style:=
+initial;border-color:initial">{&nbsp;<br></div><div style=3D"margin-top:0px=
+;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding=
+-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-=
+right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:=
+initial;border-color:initial;vertical-align:baseline;border-style:initial;b=
+order-color:initial">&nbsp;&nbsp;sender:'1000',&nbsp;<br></div><div style=
+=3D"margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;paddi=
+ng-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top=
+-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width=
+:0px;border-style:initial;border-color:initial;vertical-align:baseline;bord=
+er-style:initial;border-color:initial">&nbsp;&nbsp;receiver:'9999',</div><d=
+iv style=3D"margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0=
+px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;bo=
+rder-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-le=
+ft-width:0px;border-style:initial;border-color:initial;vertical-align:basel=
+ine;border-style:initial;border-color:initial">&nbsp;&nbsp;type:'text',</di=
+v><div style=3D"margin-top:0px;margin-right:0px;margin-bottom:0px;margin-le=
+ft:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0p=
+x;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;borde=
+r-left-width:0px;border-style:initial;border-color:initial;vertical-align:b=
+aseline;border-style:initial;border-color:initial">&nbsp;&nbsp;both:['1000'=
+,'9999']</div><div style=3D"margin-top:0px;margin-right:0px;margin-bottom:0=
+px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;pad=
+ding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-wid=
+th:0px;border-left-width:0px;border-style:initial;border-color:initial;vert=
+ical-align:baseline;border-style:initial;border-color:initial">&nbsp;&nbsp;=
+content:' this is content' ,<br></div><div style=3D"margin-top:0px;margin-r=
+ight:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0p=
+x;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-wid=
+th:0px;border-bottom-width:0px;border-left-width:0px;border-style:initial;b=
+order-color:initial;vertical-align:baseline;border-style:initial;border-col=
+or:initial">&nbsp;&nbsp;sentDate:ISODate(<span style=3D"margin-top:0px;marg=
+in-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-righ=
+t:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right=
+-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:initi=
+al;border-color:initial;vertical-align:baseline;border-style:initial;border=
+-color:initial;font-family:arial,sans-serif;line-height:16px;font-size:smal=
+l">"2011-10-<wbr>12T14:54:02.069Z)</span></div><div style=3D"margin-top:0px=
+;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding=
+-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-=
+right-width:0px;border-bottom-width:0px;border-left-width:0px;border-style:=
+initial;border-color:initial;vertical-align:baseline;border-style:initial;b=
+order-color:initial">}</div></div><div><br></div><div>add a new field named=
+ 'both' to store 'sender' and 'receiver' , and use query&nbsp;</div><div><b=
+r></div><div>db.msgs.find({both:{$all:['<wbr>1000','9999']}).sort(sendDate:=
+<wbr>-1},.</div><div><br></div><div>The query do hit index, but if&nbsp;&nb=
+sp;sender '1000' &nbsp;has large number of records(&gt;100000),&nbsp;</div>=
+<div><br></div><div>the query become very slow, i saw lots page fault from =
+mongostat.</div><div><br></div><div>It seems MongoDB will load all document=
+s for&nbsp;indexed for {both:'1000'}, &nbsp;and compare whether the 'both' =
+contents is exactly['1000','9999'].</div><div>is it right?&nbsp;<br></div><=
+div><br></div><div>I have no idea how to resolve the problem.&nbsp;Can you =
+give me some suggestion.</div><div><br></div><div>Regards.<br></div><div><b=
+r></div></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_581_24529559.1347008096452--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347008096</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1951</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: How to resolve the $or  sort not using index problem</string>
+</dict>
+</plist>

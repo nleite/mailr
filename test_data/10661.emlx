@@ -1,0 +1,201 @@
+9241      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp276003oef;
+        Fri, 7 Sep 2012 11:39:56 -0700 (PDT)
+Received: by 10.224.179.18 with SMTP id bo18mr8735999qab.81.1347043196123;
+        Fri, 07 Sep 2012 11:39:56 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOrntqvrHBD4_qiCBRoEGXVFfQ@googlegroups.com>
+Received: from mail-qc0-f192.google.com (mail-qc0-f192.google.com [209.85.216.192])
+        by mx.google.com with ESMTPS id c20si2645136qcx.137.2012.09.07.11.39.55
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 11:39:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOrntqvrHBD4_qiCBRoEGXVFfQ@googlegroups.com designates 209.85.216.192 as permitted sender) client-ip=209.85.216.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOrntqvrHBD4_qiCBRoEGXVFfQ@googlegroups.com designates 209.85.216.192 as permitted sender) smtp.mail=mongodb-user+bncCOrntqvrHBD4_qiCBRoEGXVFfQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by qcon41 with SMTP id n41sf1947440qco.29
+        for <multiple recipients>; Fri, 07 Sep 2012 11:39:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=6DEieScm8OKKAyU4sEdVHjI6EhHKHd789++0+pU+240=;
+        b=FVR+OhNg5a2D8nMr/1X3Cd/qUeC8SfMjxFgDYqhcHzGbdY2d1dx5XMCj8Wy9O8GZSb
+         dbYSkgBDUEFGbCI2vxN7wmvOWmPc3QjD7NIfJJd/8eVJNIwY1GeDJqH5Evim8PeuP2zh
+         GhrwalYDryuIvNwQQPwgt/8dKB25rqOY+GFsiNomBnpV3fljTYbxK1BqRBimi1CiO6vf
+         75HQ3G6D8BtrWOB/j0UDgYUMfiQI3JreyMSkpVpC1TAsr5cAvAWKnIH58dyBUo62i9yF
+         91Wt6cyi4Y+I+Eybz2xpnAKnHChGjKbxniHmr8RSHboXRX9ofKS/5rqEKCiaCKxq24RS
+         twqA==
+Received: by 10.68.125.201 with SMTP id ms9mr1673616pbb.20.1347043194917;
+        Fri, 07 Sep 2012 11:39:54 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.116.38 with SMTP id jt6ls2791307pbb.8.gmail; Fri, 07 Sep
+ 2012 11:39:52 -0700 (PDT)
+Received: by 10.68.225.234 with SMTP id rn10mr1674455pbc.3.1347043192149;
+        Fri, 07 Sep 2012 11:39:52 -0700 (PDT)
+Date: Fri, 7 Sep 2012 11:39:51 -0700 (PDT)
+From: William Z <william.zola@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <7c3b6573-2670-44ae-bfad-4c1591f93153@googlegroups.com>
+In-Reply-To: <CAGYT-xQnah9iRhNKPgii33Od3EL33ZBFEMLwCwrWgr4Nv9dUmA@mail.gmail.com>
+References: <CAGYT-xQnah9iRhNKPgii33Od3EL33ZBFEMLwCwrWgr4Nv9dUmA@mail.gmail.com>
+Subject: [mongodb-user] Re: upgrade from 2.0.5 to 2.2.0
+MIME-Version: 1.0
+X-Original-Sender: william.zola@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ william.zola@10gen.com designates internal as permitted sender)
+ smtp.mail=william.zola@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_815_12869752.1347043191613"
+
+------=_Part_815_12869752.1347043191613
+Content-Type: text/plain; charset=ISO-8859-1
+
+
+Hi Martinus!
+
+1) When you run the command 'sh.setBalancerState(false)' when attached to 
+one of the 'mongos' processes, it will save the configuration changes in 
+all of the configuration servers.  This will affect the configuration for 
+the entire cluster.  
+
+You can check this by running 'sh.getBalancerState()' from any 'mongos' 
+process attached to the cluster -- you'll see the same result from all of 
+them.
+
+This works the same way, whether you are disabling or enabling the balancer.
+
+2) To perform the upgrade, all you have to do is replace the 'mongod' 
+binaries and point them at the original data files.  There are no data file 
+modifications required.
+
+Have a great day!
+
+ -William 
+
+
+
+On Thursday, September 6, 2012 9:41:33 PM UTC-7, Martinus Martinus wrote:
+>
+> Hi,
+>
+> I'm following this step to upgrade my mongod servers from 2.0.5 to 2.2.0 : 
+> http://docs.mongodb.org/manual/release-notes/2.2/#upgrading. My 
+> configurations is like below :
+>
+> ReplicaSet1 :
+> - cluster1:10001
+> - cluster1:10002
+> - cluster1:10003
+> - cluster1:20001 as config server
+> - cluster1:20002 as config server
+>
+> ReplicaSet2:
+> - cluster2:10004
+> - cluster2:10005
+> - cluster2:10006
+> - cluster2:20003 as config server
+>
+> And many mongos servers connected to cluster1:20001, cluster1:20002, and 
+> cluster2:20003. In the disable the balancer step it's doing sh.
+> setBalancerState(false) in only one of the mongos server will be ok? and 
+> connect to any mongos server to reenable it is also ok?
+>
+> By following the step to upgrade the mongod servers will almost doing 
+> nothing to the data right?
+>
+> Thanks.
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_815_12869752.1347043191613
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<br>Hi Martinus!<br><br>1) When you run the command 'sh.setBalancerState(fa=
+lse)' when attached to one of the 'mongos' processes, it will save the conf=
+iguration changes in all of the configuration servers.&nbsp; This will affe=
+ct the configuration for the entire cluster.&nbsp; <br><br>You can check th=
+is by running 'sh.getBalancerState()' from any 'mongos' process attached to=
+ the cluster -- you'll see the same result from all of them.<br><br>This wo=
+rks the same way, whether you are disabling or enabling the balancer.<br><b=
+r>2) To perform the upgrade, all you have to do is replace the 'mongod' bin=
+aries and point them at the original data files.&nbsp; There are no data fi=
+le modifications required.<br><br>Have a great day!<br><br>&nbsp;-William <=
+br><br><br><br>On Thursday, September 6, 2012 9:41:33 PM UTC-7, Martinus Ma=
+rtinus wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-le=
+ft: 0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">Hi,<div><br></div=
+><div>I'm following this step to upgrade my mongod servers from 2.0.5 to 2.=
+2.0 :&nbsp;<a href=3D"http://docs.mongodb.org/manual/release-notes/2.2/#upg=
+rading" target=3D"_blank">http://docs.mongodb.org/<wbr>manual/release-notes=
+/2.2/#<wbr>upgrading</a>. My configurations is like below :</div>
+<div><br></div><div>ReplicaSet1 :</div><div>- cluster1:10001</div><div>- cl=
+uster1:10002</div><div>- cluster1:10003</div><div>- cluster1:20001 as confi=
+g server</div><div>- cluster1:20002 as config server</div><div><br></div>
+<div>ReplicaSet2:</div><div>- cluster2:10004</div><div>- cluster2:10005</di=
+v><div>- cluster2:10006</div><div>- cluster2:20003 as config server</div><d=
+iv><br></div><div>And many mongos servers connected to cluster1:20001, clus=
+ter1:20002, and cluster2:20003. In the disable the balancer step it's doing=
+&nbsp;<span style=3D"color:rgb(34,34,34);font-size:1.1em;line-height:1.2em"=
+>sh</span><span style=3D"color:rgb(34,34,34);font-size:1.1em;line-height:1.=
+2em">.</span><span style=3D"color:rgb(34,34,34);font-size:1.1em;line-height=
+:1.2em">setBalancerState</span><span style=3D"color:rgb(34,34,34);font-size=
+:1.1em;line-height:1.2em">(</span><span style=3D"font-size:1.1em;line-heigh=
+t:1.2em;color:rgb(0,112,32);font-weight:bold">fals<wbr>e</span><span style=
+=3D"color:rgb(34,34,34);font-size:1.1em;line-height:1.2em">)&nbsp;</span>in=
+ only one of the mongos server will be ok? and connect to any mongos server=
+ to reenable it is also ok?</div>
+<div><br></div><div>By following the step to upgrade the mongod servers wil=
+l almost doing nothing to the data right?</div><div><br></div><div>Thanks.<=
+/div>
+</blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_815_12869752.1347043191613--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347043191</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1985</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: upgrade from 2.0.5 to 2.2.0</string>
+</dict>
+</plist>

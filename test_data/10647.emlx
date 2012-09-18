@@ -1,0 +1,281 @@
+11657     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp267936oef;
+        Fri, 7 Sep 2012 08:01:17 -0700 (PDT)
+Received: by 10.60.171.68 with SMTP id as4mr6480213oec.117.1347030077328;
+        Fri, 07 Sep 2012 08:01:17 -0700 (PDT)
+Return-Path: <mongodb-user+bncCPes4cSDBxC6mKiCBRoE2iSOzQ@googlegroups.com>
+Received: from mail-iy0-f192.google.com (mail-iy0-f192.google.com [209.85.210.192])
+        by mx.google.com with ESMTPS id ue6si7074724obb.34.2012.09.07.08.01.17
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 08:01:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCPes4cSDBxC6mKiCBRoE2iSOzQ@googlegroups.com designates 209.85.210.192 as permitted sender) client-ip=209.85.210.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCPes4cSDBxC6mKiCBRoE2iSOzQ@googlegroups.com designates 209.85.210.192 as permitted sender) smtp.mail=mongodb-user+bncCPes4cSDBxC6mKiCBRoE2iSOzQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iagf6 with SMTP id f6sf2243746iag.29
+        for <multiple recipients>; Fri, 07 Sep 2012 08:01:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=f2rDb3ta26kVatk2mXYhPvNJRdwwn5WvoxoZCR4M+gQ=;
+        b=mne4V0dj5O4RuRChGmDf9a1gSr0jauk6xrXzwp8FrdsgB1082v74/ZAeGlkDhg0Yxp
+         5+KXLnOOF0WP8QjmsaWK0k8rTrqW3n812vFpxMCQLqOv3ojDnUf0Tp222XlPWiw1lUBd
+         hVFoZVmB9oNPOnRnAilTtjeDrOBDdYVp36u1slYjwi7h6HzcwGWNqP+M/XehI04kDdFP
+         CtkRhA9z1rK4CNNdDLI0NKor+0DdzoQalNLRnGy5CDU55M+aPoepy7BOa/nDX864Pu4O
+         8bcJyYAW24iXbG0xdHwnoOuhYDEBSx1O2+YpA45K4KdUHYBSiQKvKYQ9xaPv6+LvPFyE
+         cMlw==
+Received: by 10.52.35.104 with SMTP id g8mr978858vdj.19.1347030076555;
+        Fri, 07 Sep 2012 08:01:16 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.154.17 with SMTP id m17ls572006vcw.1.gmail; Fri, 07 Sep
+ 2012 08:01:14 -0700 (PDT)
+Received: by 10.52.35.84 with SMTP id f20mr1011556vdj.3.1347030074483;
+        Fri, 07 Sep 2012 08:01:14 -0700 (PDT)
+Date: Fri, 7 Sep 2012 08:01:13 -0700 (PDT)
+From: Stephen Lee <stephen.lee@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <03a754a0-7720-4255-b3bd-80575ba41429@googlegroups.com>
+In-Reply-To: <CAGYT-xSSTiFbddPY+z=d9Shr2E-9VvGciOJkdwUr6MMtQZqxrw@mail.gmail.com>
+References: <CAGYT-xSK0wj1Jh9p1VVXTZjPqmJtmJhfcypVPoWzzE_RzOb2uQ@mail.gmail.com>
+ <372463a2-8ee2-4087-a654-9d03393b003b@m3g2000vby.googlegroups.com>
+ <f12e4a51-f27c-413a-b50d-51bd139b97d9@13g2000vbf.googlegroups.com>
+ <CAGYT-xSSTiFbddPY+z=d9Shr2E-9VvGciOJkdwUr6MMtQZqxrw@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: how to do the backup for sharded and
+ replicated mongo
+MIME-Version: 1.0
+X-Original-Sender: stephen.lee@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ stephen.lee@10gen.com designates internal as permitted sender)
+ smtp.mail=stephen.lee@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_103_12924528.1347030074050"
+
+------=_Part_103_12924528.1347030074050
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Martinus Martinus,
+
+Could you try tetlika's suggestions, and let us know if you run into any=20
+issues?
+
+-Stephen
+
+On Friday, September 7, 2012 2:59:28 AM UTC-4, Martinus Martinus wrote:
+>
+> Hi Tetlika,
+>
+> Thanks for your answer, but I don't put my mongo database on amazon EBS. =
+I=20
+> have my mongod servers configurations like below :
+>
+> ReplicaSet1 :
+> - cluster1:10001
+> - cluster1:10002
+> - cluster1:10003
+> - cluster1:20001 as config server
+> - cluster1:20002 as config server
+>
+> ReplicaSet2:
+> - cluster2:10004
+> - cluster2:10005
+> - cluster2:10006
+> - cluster2:20003 as config server
+>
+> Thanks.
+>
+> On Fri, Sep 7, 2012 at 2:33 PM, tetlika <tet...@gmail.com <javascript:>>w=
+rote:
+>
+>> we follow the procedure described in that document, and works
+>> perfectly
+>>
+>> what about replicas :
+>> 1) we are shutting down the slave to let data from memory to travel to
+>> disk,
+>> 2) making the snapshot (we are on amazon ebs),
+>> 3) and then starting slave again
+>>
+>> On 7 =D0=92=D0=B5=D1=80, 09:32, tetlika <tetl...@gmail.com> wrote:
+>> > it's nicely described here:
+>> >
+>> > http://www.mongodb.org/display/DOCS/Backing+Up+Sharded+Cluster
+>> >
+>> > On 7 =D0=92=D0=B5=D1=80, 09:06, Martinus Martinus <martinus...@gmail.c=
+om> wrote:
+>> >
+>> >
+>> >
+>> >
+>> >
+>> >
+>> >
+>> > > Hi,
+>> >
+>> > > As title, would someone be so kindly to explain me the step-by-step=
+=20
+>> process
+>> > > to backup the data on the sharded and replicated mongod servers?
+>> >
+>> > > Thanks.
+>>
+>> --
+>> You received this message because you are subscribed to the Google
+>> Groups "mongodb-user" group.
+>> To post to this group, send email to mongod...@googlegroups.com<javascri=
+pt:>
+>> To unsubscribe from this group, send email to
+>> mongodb-user...@googlegroups.com <javascript:>
+>> See also the IRC channel -- freenode.net#mongodb
+>>
+>
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_103_12924528.1347030074050
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Martinus Martinus,<div><br></div><div>Could you try tetlika's suggestion=
+s, and let us know if you run into any issues?</div><div><br></div><div>-St=
+ephen<br><br>On Friday, September 7, 2012 2:59:28 AM UTC-4, Martinus Martin=
+us wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: =
+0.8ex;border-left: 1px #ccc solid;padding-left: 1ex;">Hi Tetlika,<div><br><=
+/div><div>Thanks for your answer, but I don't put my mongo database on amaz=
+on EBS. I have my mongod servers configurations like below :</div><div><br>=
+<div style=3D"color:rgb(34,34,34);font-family:arial,sans-serif;font-size:13=
+px;background-color:rgb(255,255,255)">
+ReplicaSet1 :</div><div style=3D"color:rgb(34,34,34);font-family:arial,sans=
+-serif;font-size:13px;background-color:rgb(255,255,255)">- cluster1:10001</=
+div><div style=3D"color:rgb(34,34,34);font-family:arial,sans-serif;font-siz=
+e:13px;background-color:rgb(255,255,255)">
+- cluster1:10002</div><div style=3D"color:rgb(34,34,34);font-family:arial,s=
+ans-serif;font-size:13px;background-color:rgb(255,255,255)">- cluster1:1000=
+3</div><div style=3D"color:rgb(34,34,34);font-family:arial,sans-serif;font-=
+size:13px;background-color:rgb(255,255,255)">
+- cluster1:20001 as config server</div><div style=3D"color:rgb(34,34,34);fo=
+nt-family:arial,sans-serif;font-size:13px;background-color:rgb(255,255,255)=
+">- cluster1:20002 as config server</div><div style=3D"color:rgb(34,34,34);=
+font-family:arial,sans-serif;font-size:13px;background-color:rgb(255,255,25=
+5)">
+<br></div><div style=3D"color:rgb(34,34,34);font-family:arial,sans-serif;fo=
+nt-size:13px;background-color:rgb(255,255,255)">ReplicaSet2:</div><div styl=
+e=3D"color:rgb(34,34,34);font-family:arial,sans-serif;font-size:13px;backgr=
+ound-color:rgb(255,255,255)">
+- cluster2:10004</div><div style=3D"color:rgb(34,34,34);font-family:arial,s=
+ans-serif;font-size:13px;background-color:rgb(255,255,255)">- cluster2:1000=
+5</div><div style=3D"color:rgb(34,34,34);font-family:arial,sans-serif;font-=
+size:13px;background-color:rgb(255,255,255)">
+- cluster2:10006</div><div style=3D"color:rgb(34,34,34);font-family:arial,s=
+ans-serif;font-size:13px;background-color:rgb(255,255,255)">- cluster2:2000=
+3 as config server</div><div style=3D"color:rgb(34,34,34);font-family:arial=
+,sans-serif;font-size:13px;background-color:rgb(255,255,255)">
+<br></div><div style=3D"color:rgb(34,34,34);font-family:arial,sans-serif;fo=
+nt-size:13px;background-color:rgb(255,255,255)">Thanks.</div><div style=3D"=
+color:rgb(34,34,34);font-family:arial,sans-serif;font-size:13px;background-=
+color:rgb(255,255,255)">
+<br></div><div class=3D"gmail_quote">On Fri, Sep 7, 2012 at 2:33 PM, tetlik=
+a <span dir=3D"ltr">&lt;<a href=3D"javascript:" target=3D"_blank" gdf-obfus=
+cated-mailto=3D"EcBl6bU0OyMJ">tet...@gmail.com</a>&gt;</span> wrote:<br><bl=
+ockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #=
+ccc solid;padding-left:1ex">
+we follow the procedure described in that document, and works<br>
+perfectly<br>
+<br>
+what about replicas :<br>
+1) we are shutting down the slave to let data from memory to travel to<br>
+disk,<br>
+2) making the snapshot (we are on amazon ebs),<br>
+3) and then starting slave again<br>
+<div><div><br>
+On 7 =D0=92=D0=B5=D1=80, 09:32, tetlika &lt;<a>tetl...@gmail.com</a>&gt; wr=
+ote:<br>
+&gt; it's nicely described here:<br>
+&gt;<br>
+&gt; <a href=3D"http://www.mongodb.org/display/DOCS/Backing+Up+Sharded+Clus=
+ter" target=3D"_blank">http://www.mongodb.org/<wbr>display/DOCS/Backing+Up+=
+<wbr>Sharded+Cluster</a><br>
+&gt;<br>
+&gt; On 7 =D0=92=D0=B5=D1=80, 09:06, Martinus Martinus &lt;<a>martinus...@g=
+mail.com</a>&gt; wrote:<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt; &gt; Hi,<br>
+&gt;<br>
+&gt; &gt; As title, would someone be so kindly to explain me the step-by-st=
+ep process<br>
+&gt; &gt; to backup the data on the sharded and replicated mongod servers?<=
+br>
+&gt;<br>
+&gt; &gt; Thanks.<br>
+<br>
+--<br>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br>
+To post to this group, send email to <a href=3D"javascript:" target=3D"_bla=
+nk" gdf-obfuscated-mailto=3D"EcBl6bU0OyMJ">mongod...@googlegroups.com</a><b=
+r>
+To unsubscribe from this group, send email to<br>
+<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"EcBl6bU0=
+OyMJ">mongodb-user...@<wbr>googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</div></div></blockquote></div><br></div>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_103_12924528.1347030074050--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347030073</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1971</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: how to do the backup for sharded and replicated mongo</string>
+</dict>
+</plist>

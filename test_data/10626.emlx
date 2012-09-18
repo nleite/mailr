@@ -1,0 +1,261 @@
+14276     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp254994oef;
+        Fri, 7 Sep 2012 01:44:09 -0700 (PDT)
+Received: by 10.60.172.236 with SMTP id bf12mr4889443oec.23.1347007449273;
+        Fri, 07 Sep 2012 01:44:09 -0700 (PDT)
+Return-Path: <mongodb-user+bncCI3n8I2DEBDV56aCBRoEmddc3Q@googlegroups.com>
+Received: from mail-oa0-f64.google.com (mail-oa0-f64.google.com [209.85.219.64])
+        by mx.google.com with ESMTPS id px7si5478174obb.198.2012.09.07.01.44.08
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 01:44:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCI3n8I2DEBDV56aCBRoEmddc3Q@googlegroups.com designates 209.85.219.64 as permitted sender) client-ip=209.85.219.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCI3n8I2DEBDV56aCBRoEmddc3Q@googlegroups.com designates 209.85.219.64 as permitted sender) smtp.mail=mongodb-user+bncCI3n8I2DEBDV56aCBRoEmddc3Q@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by oagi10 with SMTP id i10sf66073oag.29
+        for <multiple recipients>; Fri, 07 Sep 2012 01:44:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=MDAE3BfL9VkTC8+rg7IrsUJaO2FhJ2wIFcQSFIjUC9M=;
+        b=k0TzKw1/bH3B9/6vRW36EOZkOwLSujAgiF68ZzuxTvJQ6N5pEo7FJTJj6b68ZZhuVW
+         j5xJAjqlF+X/JXnG+QwbY2P5zPoDjAMeWhqxufrGLBIgiVGQV3l0VV7YR8uOioog+XMz
+         9URkEtYV6w+QgcgL7gsAoSi/Z9zjqUAypMMUG17SDfHY+9HS37xgz0i+P5EhvPbY7tDD
+         YfZ3FZgi7A7UbiDU7dl3DCOkMCTp7gnruyFXFIFW1C1VnMuVQ/W2X6vjVa72WPfKOcW9
+         1ddCRH/RC/lCAelGxW9/bO/GFqZvJKdhmodLQ8AiZcfSE1g1+viYEl2LxwHVXwW3t45w
+         OpMw==
+Received: by 10.50.40.165 with SMTP id y5mr10575580igk.1.1347007447866;
+        Fri, 07 Sep 2012 01:44:07 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.55.155 with SMTP id u27ls570715ibg.8.gmail; Fri, 07 Sep
+ 2012 01:44:04 -0700 (PDT)
+Received: by 10.43.61.141 with SMTP id ww13mr2252971icb.6.1347007444973;
+        Fri, 07 Sep 2012 01:44:04 -0700 (PDT)
+Received: by 10.50.100.229 with SMTP id fb5msigb;
+        Fri, 7 Sep 2012 01:22:07 -0700 (PDT)
+Received: by 10.68.135.103 with SMTP id pr7mr1201557pbb.7.1347006127128;
+        Fri, 07 Sep 2012 01:22:07 -0700 (PDT)
+Date: Fri, 7 Sep 2012 01:22:06 -0700 (PDT)
+From: Binbin liang <liangbinbin425@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <c0bb7e38-bca9-41e7-a7af-ec242acfa15b@googlegroups.com>
+Subject: [mongodb-user] The mongod process turn into D state(uninterruptible sleep)
+MIME-Version: 1.0
+X-Original-Sender: liangbinbin425@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_487_28587701.1347006126643"
+
+------=_Part_487_28587701.1347006126643
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+These days, i need to scale out my single node mongodb service into a=20
+mongodb cluster.
+I use 2 machines to set up a mongodb cluster,  it includes 2 shards(mongod=
+=20
+process), 1 config process and 1 mongs process. The details are as the=20
+follow:
+
+step1.  start config process
+    >bin/mongod --bind_ip 10.163.138.87 --configsvr --fork --dbpath=20
+/data/mongodb/config --logpath /data/mongodb/log/config.log --logappend --p=
+ort=20
+20000
+step2.  start shard services
+    > bin/mongod --bind_ip 10.163.138.87  --fork --shardsvr --port 10000 --=
+dbpath=20
+/data/mongodb/data --logpath /data/mongodb/log/mongod.log --logappend
+    > bin/mongod --bind_ip 10.163.138.88  --fork --shardsvr --port 10000 --=
+dbpath=20
+/data/mongodb/data --logpath /data/mongodb/log/mongod.log --logappend
+step3.  start mongos service
+   > bin/mongos --bind_ip 10.163.138.87 --port 30000 --fork --configdb=20
+10.163.138.87:20000 --logpath /data/mongodb/log/mongos.log --logappend
+step4.  log on the mongos and config shards
+     > bin/mongo 10.163.138.87:30000
+
+mongos>  use admin
+mongos> db.runCommand({addshard:"10.163.138.87:10000"})
+
+mongos> db.runCommand({addshard:"10.163.138.88:10000"})
+
+mongos> db.runCommand({ "enablesharding" : "query"})
+
+mongos> db.runCommand({ "shardcollection" : "query.DailyPcQueryStats",=20
+"key" :{ "d":1, "qpc":1, "ua" : 1}})
+step5: use mongoimport to insert data into the collection "
+query.DailyPcQueryStats".
+But...
+The problem ocurrs. when I inserting into collections, the mongd process=20
+turn into a state of 'uninterruptable sleep', and can not recover. Other=20
+processes accessing the same disk also get into the same state, and I can't=
+=20
+even reboot the system with commands. The ONLY thing I can do is to press=
+=20
+the reboot button.
+
+And i test the 2 machines as stand-alone mongodb service. And i almost=20
+import over 300 million data, it's ok.
+I wonder why the mongodb cluster perform like this?  Where is the problem?
+
+And i test like this: I start all mongodb cluster processes on 1 machine(
+10.163.138.88),  include 2 shards, 1 config, 1 mongos. And I insert data=20
+into it, it is ok!!! Too strange=EF=BC=81
+Single node is ok, multi node has problem?
+
+And i found a similar problem in groups:=20
+https://groups.google.com/forum/?fromgroups=3D#!topic/mongodb-user/ugKiZkHg=
+hwE
+
+Thanks!
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_487_28587701.1347006126643
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div><span style=3D"text-align: -webkit-auto; "><font size=3D"2">These days=
+, i need to scale out my single node mongodb service into a mongodb cluster=
+.</font></span></div><div><span style=3D"text-align: -webkit-auto; "><font =
+size=3D"2">I use 2 machines to set up a mongodb cluster, &nbsp;it includes =
+2 shards(mongod process), 1 config process and 1 mongs process. The details=
+ are as the follow:</font></span></div><div><span style=3D"text-align: -web=
+kit-auto; "><font size=3D"2"><br></font></span></div><div><font size=3D"2">=
+<span style=3D"text-align: -webkit-auto; ">step1.&nbsp;</span><span style=
+=3D"color: rgb(0, 0, 0); font-family: Tahoma; text-align: -webkit-auto; ">&=
+nbsp;start config process</span></font></div><div><div style=3D"color: rgb(=
+0, 0, 0); font-family: Tahoma; text-align: -webkit-auto; "><font size=3D"1"=
+>&nbsp; &nbsp; &gt;bin/mongod --bind_ip 10.163.138.87&nbsp;<span style=3D"f=
+ont-family: Arial; line-height: 26px; ">--configsvr --fork --</span>dbpath =
+/data/mongodb/config&nbsp;<span style=3D"font-family: Arial; line-height: 2=
+6px; ">--logpath&nbsp;</span>/data/mongodb<span style=3D"font-family: Arial=
+; line-height: 26px; ">/log/config.log --logappend&nbsp;</span><span style=
+=3D"font-family: Arial; line-height: 26px; ">--port 20000</span></font></di=
+v></div><div><font size=3D"2">step2. &nbsp;start shard services</font></div=
+><div><font size=3D"1">&nbsp; &nbsp; &gt;&nbsp;<span style=3D"color: rgb(0,=
+ 0, 0); font-family: Arial; line-height: 26px; ">bin/mongod&nbsp;</span><sp=
+an style=3D"color: rgb(0, 0, 0); font-family: Tahoma; text-align: -webkit-a=
+uto; ">--bind_ip 1</span><span style=3D"color: rgb(0, 0, 0); font-family: T=
+ahoma; text-align: -webkit-auto; ">0.163.138.87 &nbsp;--fork --shardsvr --p=
+ort 10000&nbsp;</span><span style=3D"color: rgb(0, 0, 0); font-family: Aria=
+l; line-height: 26px; ">--</span><span style=3D"color: rgb(0, 0, 0); font-f=
+amily: Tahoma; text-align: -webkit-auto; ">dbpath /data/mongodb/data&nbsp;<=
+/span><span style=3D"color: rgb(0, 0, 0); font-family: Arial; line-height: =
+26px; ">--logpath&nbsp;</span><span style=3D"color: rgb(0, 0, 0); font-fami=
+ly: Tahoma; text-align: -webkit-auto; ">/data/mongodb</span><span style=3D"=
+color: rgb(0, 0, 0); font-family: Arial; line-height: 26px; ">/log/mongod.l=
+og --logappend</span></font></div><div><font size=3D"1"><span style=3D"colo=
+r: rgb(0, 0, 0); font-family: Arial; line-height: 26px; ">&nbsp; &nbsp; &gt=
+;&nbsp;</span></font><span style=3D"font-size: x-small; color: rgb(0, 0, 0)=
+; font-family: Arial; line-height: 26px; ">bin/mongod&nbsp;</span><span sty=
+le=3D"font-size: x-small; text-align: -webkit-auto; color: rgb(0, 0, 0); fo=
+nt-family: Tahoma; ">--bind_ip 1</span><span style=3D"font-size: x-small; t=
+ext-align: -webkit-auto; color: rgb(0, 0, 0); font-family: Tahoma; ">0.163.=
+138.88 &nbsp;--fork --shardsvr --port 10000&nbsp;</span><span style=3D"font=
+-size: x-small; color: rgb(0, 0, 0); font-family: Arial; line-height: 26px;=
+ ">--</span><span style=3D"font-size: x-small; text-align: -webkit-auto; co=
+lor: rgb(0, 0, 0); font-family: Tahoma; ">dbpath /data/mongodb/data&nbsp;</=
+span><span style=3D"font-size: x-small; color: rgb(0, 0, 0); font-family: A=
+rial; line-height: 26px; ">--logpath&nbsp;</span><span style=3D"font-size: =
+x-small; text-align: -webkit-auto; color: rgb(0, 0, 0); font-family: Tahoma=
+; ">/data/mongodb</span><span style=3D"font-size: x-small; color: rgb(0, 0,=
+ 0); font-family: Arial; line-height: 26px; ">/log/mongod.log --logappend</=
+span></div><div><span style=3D"font-size: small; ">step3. &nbsp;start mongo=
+s service</span><span style=3D"font-size: x-small; color: rgb(0, 0, 0); fon=
+t-family: Arial; line-height: 26px; "><br></span></div><div><font size=3D"1=
+">&nbsp; &nbsp;&gt;&nbsp;bin/mongos --bind_ip 10.163.138.87 --port 30000 --=
+fork --configdb 10.163.138.87:20000 --logpath /data/mongodb/log/mongos.log =
+--logappend</font></div><div><span style=3D"font-size: small; ">step4. &nbs=
+p;log on the mongos and config shards</span><br></div><div><font size=3D"1"=
+>&nbsp; &nbsp; &nbsp;&gt;&nbsp;<span style=3D"color: rgb(0, 0, 0); font-fam=
+ily: Arial; line-height: 26px; ">bin/mongo&nbsp;10.163.138.87:30000</span><=
+/font></div><div><p style=3D"color: rgb(0, 0, 0); margin-bottom: 0px; font-=
+family: Arial; line-height: 26px; "><font size=3D"1">mongos&gt; &nbsp;use a=
+dmin<br>
+mongos&gt;&nbsp;db.runCommand({addshard:"10.163.138.87:10000"})</font></p><=
+p style=3D"color: rgb(0, 0, 0); margin-bottom: 0px; font-family: Arial; lin=
+e-height: 26px; "><font size=3D"1">mongos&gt;&nbsp;db.runCommand({addshard:=
+"10.163.138.88:10000"})</font></p><p style=3D"color: rgb(0, 0, 0); margin-b=
+ottom: 0px; font-family: Arial; line-height: 26px; "><font size=3D"1">mongo=
+s&gt; db.runCommand({ "enablesharding" : "query"})</font></p><p style=3D"co=
+lor: rgb(0, 0, 0); margin-bottom: 0px; font-family: Arial; line-height: 26p=
+x; "><font size=3D"1">
+mongos&gt; db.runCommand({ "shardcollection" : "query.DailyPcQueryStats", "=
+key" :{ "d":1, "qpc":1, "ua" : 1}})</font></p></div><div><font size=3D"2">s=
+tep5: use mongoimport to insert data into the collection "<span style=3D"co=
+lor: rgb(0, 0, 0); font-family: Arial; line-height: 26px; ">query.DailyPcQu=
+eryStats</span>".</font></div><div><font size=3D"2">But...</font></div><div=
+><span style=3D"text-align: -webkit-auto; "><font size=3D"2">The problem oc=
+urrs. when I inserting into collections, the mongd process turn into a stat=
+e of 'uninterruptable sleep', and can not recover.&nbsp;Other processes acc=
+essing the same disk also get into the same state, and I can't even reboot =
+the system with commands. The ONLY thing I can do is to press the reboot bu=
+tton.</font></span></div><div><span style=3D"text-align: -webkit-auto; "><f=
+ont size=3D"2"><br></font></span></div><div><font size=3D"2">And i test the=
+ 2 machines as stand-alone mongodb service. And i almost import over&nbsp;3=
+00 million data, it's ok.</font></div><div><font size=3D"2">I wonder why th=
+e mongodb cluster perform like this? &nbsp;Where is the problem?</font></di=
+v><div><font size=3D"2"><br></font></div><div><font size=3D"2">And i test l=
+ike this: I start all mongodb cluster processes on 1 machine(</font><span s=
+tyle=3D"color: rgb(0, 0, 0); font-family: Arial; line-height: 26px; "><font=
+ size=3D"2">10.163.138.88</font></span><span style=3D"font-size: small; ">)=
+, &nbsp;include 2 shards, 1 config, 1 mongos. And I insert data into it, it=
+ is ok!!! Too s</span><font size=3D"2">trange=EF=BC=81</font></div><div><fo=
+nt size=3D"2">Single node is ok, multi node has problem?</font></div><div><=
+font size=3D"2"><br></font></div><div><font size=3D"2">And i found a simila=
+r problem in groups:</font><font size=3D"1">&nbsp;<a href=3D"https://groups=
+.google.com/forum/?fromgroups=3D#!topic/mongodb-user/ugKiZkHghwE" style=3D"=
+font-family: Tahoma; text-align: -webkit-auto; ">https://groups.google.com/=
+forum/?fromgroups=3D#!topic/mongodb-user/ugKiZkHghwE</a></font></div><div><=
+font size=3D"2"><br></font></div><div><font size=3D"2">Thanks!</font></div>=
+<div><font size=3D"2"><br></font></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_487_28587701.1347006126643--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347006126</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1950</string>
+	<key>subject</key>
+	<string>[mongodb-user] The mongod process turn into D state(uninterruptible sleep)</string>
+</dict>
+</plist>

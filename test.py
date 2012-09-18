@@ -1,7 +1,8 @@
 from pymongo import Connection
-from mailr import MailBox, load_data, process_charset, CHARSET, CONTENT_TYPE, decode
+from mailr import MailBox, load_data, process_charset, CHARSET, CONTENT_TYPE, decode, main
 from mockito import *
 import base64
+import sys
 
 class TestMailr(object):
 
@@ -9,7 +10,7 @@ class TestMailr(object):
         self.mongo = Connection('localhost')
         self.databasename = 'test'
         self.collectioname = 'mails_test'
-        self.mail_dir = '/var/tmp'
+        self.mail_dir = 'test_data'
         self.part = mock()
 
 
@@ -48,3 +49,8 @@ class TestMailr(object):
 
         actual = decode(encode_type, message)
         assert expected == actual
+
+
+    def test_main(self):
+        sys.argv.append( ['-f', '/var/tmp/', '-d','bitiching', '-c', 'junk'])
+        main()

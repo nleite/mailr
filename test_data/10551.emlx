@@ -1,0 +1,97 @@
+4810      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp236797oef;
+        Thu, 6 Sep 2012 14:33:17 -0700 (PDT)
+Received: by 10.60.170.18 with SMTP id ai18mr3692249oec.125.1346967197682;
+        Thu, 06 Sep 2012 14:33:17 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNGdsPOoCBCWraSCBRoE5aCakw@googlegroups.com>
+Received: from mail-ob0-f192.google.com (mail-ob0-f192.google.com [209.85.214.192])
+        by mx.google.com with ESMTPS id zm6si4190572obb.109.2012.09.06.14.33.17
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 14:33:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNGdsPOoCBCWraSCBRoE5aCakw@googlegroups.com designates 209.85.214.192 as permitted sender) client-ip=209.85.214.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNGdsPOoCBCWraSCBRoE5aCakw@googlegroups.com designates 209.85.214.192 as permitted sender) smtp.mail=mongodb-user+bncCNGdsPOoCBCWraSCBRoE5aCakw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by obbwc18 with SMTP id wc18sf1241300obb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 14:33:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:mime-version:date:in-reply-to:references:user-agent
+         :x-http-useragent:message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=oG6ZEX9aoo+9of3zHw5JjSdqqABYxnLer/L2VqePGRU=;
+        b=b04Sp24SI72Cb6AsmgfhbI2Y3KCR7kK+pQG96tD6zhXwmWuL6M+6G2wTY9Omz5mn2B
+         EzKN3RTHJ4yO7uI4BEMf8Zj55I0FFQDQUqoQJaJVV3ip11iC7+m5DOJWNZfRH0ExQyyZ
+         Y6WyjiJ+sWPoeB9yZ2VuYuTWAmOsw3mBNaSYbOryFWULdqKm2piiUd5GK68K8EfmY+p0
+         Fpbyx1uqI/CVXhISpzAsc0QUqFQ/kLxvVaGNGdwE3dIm0QhUzfOZ21tdSIQd19/N/YmO
+         z5s2mKuxmyUFyaCe0WJEoeVVF3nyRr1JSdKTz1XFnqCWaX1fQeNeZ1naAaLSCb4Bk7Eo
+         DlpA==
+Received: by 10.52.75.36 with SMTP id z4mr710118vdv.14.1346967193459;
+        Thu, 06 Sep 2012 14:33:13 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.89.173 with SMTP id bp13ls6598vdb.9.gmail; Thu, 06 Sep 2012
+ 14:33:10 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.52.91.47 with SMTP id cb15mr716029vdb.11.1346967186890; Thu,
+ 06 Sep 2012 14:33:06 -0700 (PDT)
+Received: by p5g2000vbl.googlegroups.com with HTTP; Thu, 6 Sep 2012 14:33:06
+ -0700 (PDT)
+Date: Thu, 6 Sep 2012 14:33:06 -0700 (PDT)
+In-Reply-To: <befca25f-481a-4b45-98e9-cfa2c7f06366@googlegroups.com>
+References: <b8c401e1-7956-4166-8c59-0726a6488620@cf4g2000vbb.googlegroups.com>
+ <befca25f-481a-4b45-98e9-cfa2c7f06366@googlegroups.com>
+User-Agent: G2/1.0
+X-HTTP-UserAgent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.7 (KHTML, like
+ Gecko) Chrome/16.0.912.77 Safari/535.7,gzip(gfe)
+Message-ID: <e40a0d38-dc45-46ef-8e7e-f2bbc489d6a3@p5g2000vbl.googlegroups.com>
+Subject: [mongodb-user] Re: i cant remove "pushed" array!
+From: aliane abdelouahab <alabdelouahab@gmail.com>
+To: mongodb-user <mongodb-user@googlegroups.com>
+X-Original-Sender: alabdelouahab@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain
+ of alabdelouahab@gmail.com designates internal as permitted sender)
+ smtp.mail=alabdelouahab@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=ISO-8859-1
+
+i just found this:
+"Because of this feature, to use the embedded doc as a match criteria,
+you cannot do exact matches on array elements."
+this scares me! what does this mean!
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346967186</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1875</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: i cant remove "pushed" array!</string>
+</dict>
+</plist>

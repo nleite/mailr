@@ -1,0 +1,127 @@
+6156      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp270469oef;
+        Fri, 7 Sep 2012 09:04:35 -0700 (PDT)
+Received: by 10.236.156.229 with SMTP id m65mr5262694yhk.105.1347033874448;
+        Fri, 07 Sep 2012 09:04:34 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNGdsPOoCBCQtqiCBRoEwpJEOg@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id b29si5097859yhm.23.2012.09.07.09.04.34
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 09:04:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNGdsPOoCBCQtqiCBRoEwpJEOg@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNGdsPOoCBCQtqiCBRoEwpJEOg@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCNGdsPOoCBCQtqiCBRoEwpJEOg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf2314936yhn.29
+        for <multiple recipients>; Fri, 07 Sep 2012 09:04:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:mime-version:date:in-reply-to:references:user-agent
+         :x-http-useragent:message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=VA4CdJNRq5wpyF1J8BI/NIZe+1MoSfDgm67kqeMFg0U=;
+        b=ZZ0yD5AfZY/1F59BdTNvlblGFsEUmSfTSAP3uEQYvdAG4a1vYDosqqNgN3hVX7J1LC
+         /JzJ/6UUMQtlQbJaMVpA71KOLFAh6QrL2lZamRchdsIRCbi9zNRWxHJ5yvs2F3jfuoHH
+         lUACMxG0+IyTVWD+4rIB3qb29NfkNye4nnag2QsHNs3bKFXy1ua7MSE5s1rIM+ThJiJn
+         rbB+wrubEqHqKvp9RaBKH54cEcTDKu4Xw6BFaFL4Hqtc0zO+WOlq+R6U0eqyfXyV1lSE
+         RAliBFhr4Mp12x2Kx9sJ9/Jm1KishmQk4VOyBkK6hOq5SsD5VJwATtnO6Go5VeDJnZPd
+         O90w==
+Received: by 10.52.91.47 with SMTP id cb15mr1058215vdb.11.1347033874114;
+        Fri, 07 Sep 2012 09:04:34 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.149.129 with SMTP id t1ls676277vcv.0.gmail; Fri, 07 Sep
+ 2012 09:04:32 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.52.33.34 with SMTP id o2mr1038486vdi.12.1347033872108; Fri, 07
+ Sep 2012 09:04:32 -0700 (PDT)
+Received: by 13g2000vbf.googlegroups.com with HTTP; Fri, 7 Sep 2012 09:04:32
+ -0700 (PDT)
+Date: Fri, 7 Sep 2012 09:04:32 -0700 (PDT)
+In-Reply-To: <b4e6cb0e-5f2d-42d6-acea-a52fc736b556@googlegroups.com>
+References: <b8ffa3de-fb72-4081-bce0-c4fd52542528@k3g2000vby.googlegroups.com>
+ <10214575-de67-470b-b8c3-94fb8efa6197@r4g2000vbn.googlegroups.com>
+ <74964484-c158-4ab3-b62e-80a46be56b50@r14g2000vbd.googlegroups.com>
+ <CAFqwGExBjqa8XmxfzPkYN8PdXySgu+Eo5wnk3wxG49tu3-eyjA@mail.gmail.com>
+ <fd27f5f0-6f02-42bb-a34e-fa557f44cc16@d7g2000vbv.googlegroups.com>
+ <CAFqwGEwWevz0DJDpVwKHG+N0Rft-aYUaczcM6z-OkXnSy82+Nw@mail.gmail.com>
+ <09a8f5be-5c97-4900-a0fa-85bed17998a0@c19g2000vbb.googlegroups.com>
+ <358a1ba4-642c-4540-a1cb-b28d4c2aaa61@p5g2000vbl.googlegroups.com>
+ <CAFqwGEz4WmsDYyUSj=RWNbpHytCpeKmrs1iUpdxbWgbYeLQ15w@mail.gmail.com>
+ <3184cf0a-0b93-4c3d-9f8f-654f0fb7d775@googlegroups.com> <38c3c188-ff80-417c-88f0-f70f079fb3a7@r14g2000vbd.googlegroups.com>
+ <8a9ad37c-ca03-40aa-b95e-6f2af3bc0e9f@fm12g2000vbb.googlegroups.com> <b4e6cb0e-5f2d-42d6-acea-a52fc736b556@googlegroups.com>
+User-Agent: G2/1.0
+X-HTTP-UserAgent: Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko/20100101 Firefox/11.0,gzip(gfe)
+Message-ID: <6c479296-24c0-4e67-9c56-87dbbc684a43@13g2000vbf.googlegroups.com>
+Subject: [mongodb-user] Re: sorting in PyMongo
+From: aliane abdelouahab <alabdelouahab@gmail.com>
+To: mongodb-user <mongodb-user@googlegroups.com>
+X-Original-Sender: alabdelouahab@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain
+ of alabdelouahab@gmail.com designates internal as permitted sender)
+ smtp.mail=alabdelouahab@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=ISO-8859-1
+
+am sorry, i'll upload the code, am not on the machine where the is the
+code.
+i'll try to sort using python and post the result.
+thank you :)
+
+On 7 sep, 16:55, "A. Jesse Jiryu Davis" <je...@10gen.com> wrote:
+> Aliane, you need to post the exact command you issued to MongoDB and then
+> post the exact error that Mongo reported, otherwise we can't help.
+>
+> However, I recommend that you simply sort the array in Python, not with an
+> aggregate command. Sorting in Python is simpler and faster and will put
+> much less burden on the database server.
+>
+>
+>
+>
+>
+>
+>
+> On Friday, September 7, 2012 10:07:39 AM UTC-4, aliane abdelouahab wrote:
+>
+> > am sorry but it dident work
+> > it give me errors!
+> > in mongo shell it give me error (near id) and in pymongo when using
+> > the "" whith $.. it give me errors too
+> > any ideas?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347033872</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1981</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: sorting in PyMongo</string>
+</dict>
+</plist>

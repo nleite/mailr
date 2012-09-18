@@ -1,0 +1,128 @@
+5839      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp239843oef;
+        Thu, 6 Sep 2012 16:04:53 -0700 (PDT)
+Received: by 10.68.216.136 with SMTP id oq8mr7011792pbc.68.1346972693639;
+        Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNC18KGOFhCS2KSCBRoEt2WV3w@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id iv6si5929888pbc.88.2012.09.06.16.04.53
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNC18KGOFhCS2KSCBRoEt2WV3w@googlegroups.com designates 209.85.210.64 as permitted sender) client-ip=209.85.210.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNC18KGOFhCS2KSCBRoEt2WV3w@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCNC18KGOFhCS2KSCBRoEt2WV3w@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by dadz9 with SMTP id z9sf1718623dad.29
+        for <multiple recipients>; Thu, 06 Sep 2012 16:04:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=PRa40GkKfweLdMiwBXQe6D0AZA6YrIupTQOcZ+76pc8=;
+        b=UPIAQGwRsdZkyeq5iZHVhUeFNzYu3v2JCiD+9tmZwIJX0de7g7v3u3XakjFX9oCq1o
+         XsfNSg4EE5dgTeyVJiWaV+MrD18fa+5phGDnhyN8tMvyHJugaJ9R5dHInwXs9J+Pkunc
+         97ZZZwOC+DDoDd1IZytYxyZbb9ow/GU0Nrrq8o7Jc17ERL8mTx+Oql2GUunlqJeQijfp
+         kjndAIT78hIBs2yXWBC4u0JRoLPMpnBcmJiuYNz1PccM+vw6QWtoLbxk1ub+AIbhngUP
+         CSEY6bBuz+YXT0CRdBwpmLg3Pe86wDgESLxblUNBOnc/CLoAGO68KScKtCjhDmPI5K7V
+         7ZIQ==
+Received: by 10.224.117.133 with SMTP id r5mr1025315qaq.15.1346972692542;
+        Thu, 06 Sep 2012 16:04:52 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.224.218.135 with SMTP id hq7ls25755qab.4.gmail; Thu, 06 Sep
+ 2012 16:04:50 -0700 (PDT)
+Received: by 10.224.181.75 with SMTP id bx11mr2132999qab.7.1346972690781;
+        Thu, 06 Sep 2012 16:04:50 -0700 (PDT)
+Received: by 10.224.18.193 with SMTP id x1msqaa;
+        Thu, 6 Sep 2012 14:56:28 -0700 (PDT)
+Received: by 10.52.156.18 with SMTP id wa18mr742584vdb.9.1346968587893;
+        Thu, 06 Sep 2012 14:56:27 -0700 (PDT)
+Date: Thu, 6 Sep 2012 14:56:27 -0700 (PDT)
+From: Saj <windcliff@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <0cd12221-e735-4d46-bb5a-3d0816c61865@googlegroups.com>
+Subject: [mongodb-user] MongoDB Spidermonkey Driver?
+MIME-Version: 1.0
+X-Original-Sender: windcliff@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_143_25851653.1346968587594"
+
+------=_Part_143_25851653.1346968587594
+Content-Type: text/plain; charset=ISO-8859-1
+
+I have an application that embeds Spidermonkey. I would like to provide my 
+users with access to MongoDB for the purpose of querying and creating 
+collections.
+
+Is there a 'native' Spidermonkey driver for MongoDB?
+
+I understand the mongo shell is a Spidermonkey application. Repurposing 
+that code seems both promising and scary, since that shell is meant for 
+administration.
+
+I could build a wrapper around the Mongo C++ driver, but that seems like 
+duplicating what 10gen and others have already done.
+
+What would be the 'right' thing to do?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_143_25851653.1346968587594
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I have an application that embeds Spidermonkey. I would like to provide my =
+users with access to MongoDB for the purpose of querying and creating colle=
+ctions.<br><br>Is there a 'native' Spidermonkey driver for MongoDB?<br><br>=
+I understand the mongo shell is a Spidermonkey application. Repurposing tha=
+t code seems both promising and scary, since that shell is meant for admini=
+stration.<br><br>I could build a wrapper around the Mongo C++ driver, but t=
+hat seems like duplicating what 10gen and others have already done.<br><br>=
+What would be the 'right' thing to do?<br>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_143_25851653.1346968587594--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346968587</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1885</string>
+	<key>subject</key>
+	<string>[mongodb-user] MongoDB Spidermonkey Driver?</string>
+</dict>
+</plist>

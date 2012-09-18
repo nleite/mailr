@@ -1,0 +1,349 @@
+16039     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp241090oef;
+        Thu, 6 Sep 2012 16:47:10 -0700 (PDT)
+Received: by 10.42.204.68 with SMTP id fl4mr4516397icb.35.1346975230358;
+        Thu, 06 Sep 2012 16:47:10 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOnjlNe4GRD766SCBRoEGJq9Gg@googlegroups.com>
+Received: from mail-iy0-f192.google.com (mail-iy0-f192.google.com [209.85.210.192])
+        by mx.google.com with ESMTPS id b4si5677771igj.44.2012.09.06.16.47.09
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 16:47:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOnjlNe4GRD766SCBRoEGJq9Gg@googlegroups.com designates 209.85.210.192 as permitted sender) client-ip=209.85.210.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOnjlNe4GRD766SCBRoEGJq9Gg@googlegroups.com designates 209.85.210.192 as permitted sender) smtp.mail=mongodb-user+bncCOnjlNe4GRD766SCBRoEGJq9Gg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iagf6 with SMTP id f6sf1717456iag.29
+        for <multiple recipients>; Thu, 06 Sep 2012 16:47:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=TFQzJIOe5HnPFFo74HynhwIm1AIGcb1GtMptopaSr8Y=;
+        b=i/CP9RKomEyGHmvSVg3ScA8IMFMyK5A+5tH4rmpd1bH7G991zJepULw5m7TtlEYhgH
+         P3vm6E+neSuRAT6c89ZBqP+Kl0rU9csGjHZlPCXyGGjtn19g2NtJUeQCpaitIAldble5
+         mTb18iW0IUFHBefs0Wo8UIv/oD3C0RF2Sg9GiOg/bh7TOWcw+0UXqu7g3iaAEobNh4mb
+         jZV7KZHJzXohwr8e19U52q2j1VN+c03RLXNeX/1zFCmANq2XDd9FQkBLSobso/HV8hXI
+         3aW2q7obxRZl396fSjcyPEwQ5CnzWvKrzzub3MxXKw9GcVFTWwWGGo4WWqrlGBc5Y4OB
+         MXDQ==
+Received: by 10.52.94.135 with SMTP id dc7mr764123vdb.4.1346975229295;
+        Thu, 06 Sep 2012 16:47:09 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.141.210 with SMTP id n18ls29054vcu.2.gmail; Thu, 06 Sep
+ 2012 16:47:07 -0700 (PDT)
+Received: by 10.52.34.115 with SMTP id y19mr757027vdi.1.1346975227403;
+        Thu, 06 Sep 2012 16:47:07 -0700 (PDT)
+Date: Thu, 6 Sep 2012 16:47:06 -0700 (PDT)
+From: Rob Moore <robert.allanbank@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <367ef3f4-946f-421c-ba26-dc1890a8364a@googlegroups.com>
+In-Reply-To: <43d0217e-4d0f-413c-a47d-3f23607981ae@googlegroups.com>
+References: <6d69b4a1-d813-4edb-a806-fd054086a244@googlegroups.com>
+ <b784c527-5840-4a31-9b65-2073a4fc1d73@googlegroups.com>
+ <43d0217e-4d0f-413c-a47d-3f23607981ae@googlegroups.com>
+Subject: [mongodb-user] Re: First query speed
+MIME-Version: 1.0
+X-Original-Sender: robert.allanbank@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ robert.allanbank@gmail.com designates internal as permitted sender)
+ smtp.mail=robert.allanbank@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_215_16867960.1346975226965"
+
+------=_Part_215_16867960.1346975226965
+Content-Type: text/plain; charset=KOI8-R
+Content-Transfer-Encoding: quoted-printable
+
+
+Now the first query (or any use of the collection) has to create the=20
+collection on disk....
+
+Rob.
+
+On Thursday, September 6, 2012 2:08:22 AM UTC-4, Sergey Ukolov wrote:
+>
+> No... this is not my problem.
+> I changed code slightly to test this case:
+> <?php
+> $k =3D 0;
+> $time =3D array();
+> while($k < 500){
+>     $k++;
+>     $mtime =3D microtime(true);
+>     $collection =3D md5(rand());
+>     $db->$collection->findOne(array("lnk" =3D> rand()), array());
+>     $time[] =3D microtime(true) - $mtime;
+> }
+> echo "max: " . max($time) . " min: " . min($time) . " avg: " .=20
+> (array_sum($time) / count($time));
+> print_r($time);
+> ?>
+>
+> So, now, every time I do query to different collections (unexisted in thi=
+s=20
+> case). Still same problem:
+>
+> Array
+> (
+>     [0] =3D> 0.2155590057373
+>     [1] =3D> 0.00056004524230957
+>     [2] =3D> 0.00070095062255859
+>     [3] =3D> 0.00066804885864258
+>     [4] =3D> 0.00059890747070312
+> )
+>
+>
+> max: 0.2155590057373 min: 0.00056004524230957 avg: 0.043617391586304=20
+>
+> =DE=C5=D4=D7=C5=D2=C7, 6 =D3=C5=CE=D4=D1=C2=D2=D1 2012 =C7., 0:26:00 UTC+=
+3 =D0=CF=CC=D8=DA=CF=D7=C1=D4=C5=CC=D8 Jenna =CE=C1=D0=C9=D3=C1=CC:
+>>
+>> Hi Sergey,
+>>
+>> The first time you do a query, the necessary indexes or matching=20
+>> documents may not be in RAM.  Once they're paged into memory, however,=
+=20
+>> subsequent queries should be much faster since there's no need to touch=
+=20
+>> disk.
+>>
+>> On Wednesday, September 5, 2012 1:08:32 PM UTC-4, Sergey Ukolov wrote:
+>>>
+>>> Hello all.
+>>>
+>>> I have one problem. Sometimes first query to mongo executes too long=20
+>>> time.
+>>> To test it I created this simple code:
+>>> <?php
+>>> $k =3D 0;
+>>> $time =3D array();
+>>> while($k < 500){
+>>>     $k++;
+>>>     $mtime =3D microtime(true);
+>>>     $db->countries->findOne(array("lnk" =3D> rand()), array());
+>>>     $time[] =3D microtime(true) - $mtime;
+>>> }
+>>> echo "max: " . max($time) . " min: " . min($time) . " avg: " .=20
+>>> (array_sum($time) / count($time));
+>>> print_r($time);
+>>> ?>
+>>>
+>>> 1) I use array("lnk" =3D> rand()) to be sure that problem is not in cac=
+he.
+>>> 2) table countries has only 86 documents...
+>>>
+>>>
+>>> in 30% of cases I see something like this: max: 0.83054900169373 min:=
+=20
+>>> 0.00036191940307617 avg: 0.0054489235877991
+>>> But in other 70% of cases I have something like this: max:=20
+>>> 0.00067591667175293 min: 0.00036501884460449 avg: 0.00048379611968994
+>>>
+>>> And almost everytime 0.8305 will be first or second query...
+>>>
+>>> Array
+>>> (
+>>>     [0] =3D> 0.83054900169373
+>>>     [1] =3D> 0.75357890129089
+>>>     [2] =3D> 0.031786203384399
+>>>     [3] =3D> 0.0037779808044434
+>>>     [4] =3D> 0.00064611434936523
+>>>     [5] =3D> 0.025960922241211
+>>>     [6] =3D> 0.00091791152954102
+>>>     [7] =3D> 0.033257007598877
+>>>     [8] =3D> 0.003023834228516
+>>>     [9] =3D> 0.006215991973877
+>>>     [10] =3D> 0.00193681716919
+>>>     [11] =3D> 0.00064206123352051
+>>>     [12] =3D> 0.0015311241149902
+>>>     [13] =3D> 0.00085592269897461
+>>>
+>>> ........
+>>>
+>>>     [494] =3D> 0.00052499771118164
+>>>     [495] =3D> 0.0005650520324707
+>>>     [496] =3D> 0.00053095817565918
+>>>     [497] =3D> 0.00053906440734863
+>>>     [498] =3D> 0.00055503845214844
+>>>     [499] =3D> 0.00062108039855957
+>>> )
+>>>
+>>>
+>>> Can somebody explain to me why first query executes too long?
+>>>
+>>>
+>>> Thanks.
+>>>
+>>>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_215_16867960.1346975226965
+Content-Type: text/html; charset=KOI8-R
+Content-Transfer-Encoding: quoted-printable
+
+<br>Now the first query (or any use of the collection) has to create the co=
+llection on disk....<br><br>Rob.<br><br>On Thursday, September 6, 2012 2:08=
+:22 AM UTC-4, Sergey Ukolov wrote:<blockquote class=3D"gmail_quote" style=
+=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-left: =
+1ex;">No... this is not my problem.<div>I changed code slightly to test thi=
+s case:</div><div><div><font face=3D"arial, sans-serif" size=3D"2">&lt;?php=
+</font></div><div><div><font face=3D"arial, sans-serif" size=3D"2">$k =3D 0=
+;</font></div><div><font face=3D"arial, sans-serif" size=3D"2">$time =3D ar=
+ray();</font></div><div><font face=3D"arial, sans-serif" size=3D"2">while($=
+k &lt; 500){</font></div><div><font face=3D"arial, sans-serif" size=3D"2">&=
+nbsp; &nbsp; $k++;</font></div><div><font face=3D"arial, sans-serif" size=
+=3D"2">&nbsp; &nbsp; $mtime =3D microtime(true);</font></div><div><font fac=
+e=3D"arial, sans-serif" size=3D"2">&nbsp; &nbsp; $collection =3D md5(rand()=
+);<br></font></div><div><font face=3D"arial, sans-serif" size=3D"2">&nbsp; =
+&nbsp; $db-&gt;</font><span style=3D"font-family:arial,sans-serif;font-size=
+:small">$collection</span><font face=3D"arial, sans-serif" size=3D"2">-&gt;=
+findOne(<wbr>array("lnk" =3D&gt; rand()), array());</font></div><div><font =
+face=3D"arial, sans-serif" size=3D"2">&nbsp; &nbsp; $time[] =3D microtime(t=
+rue) - $mtime;</font></div><div><font face=3D"arial, sans-serif" size=3D"2"=
+>}</font></div><div><font face=3D"arial, sans-serif" size=3D"2">echo "max: =
+" . max($time) . " min: " . min($time) . " avg: " . (array_sum($time) / cou=
+nt($time));<br></font></div></div><div><font face=3D"arial, sans-serif" siz=
+e=3D"2">print_r($time);</font></div><div><font face=3D"arial, sans-serif" s=
+ize=3D"2">?&gt;</font></div><div><font face=3D"arial, sans-serif" size=3D"2=
+"><br></font></div><div><font face=3D"arial, sans-serif" size=3D"2">So, now=
+, every time I do query to different collections (unexisted in this case). =
+Still same problem:</font></div><div><pre style=3D"color:rgb(0,0,0)">Array
+(
+    [0] =3D&gt; 0.2155590057373
+    [1] =3D&gt; 0.00056004524230957
+    [2] =3D&gt; 0.00070095062255859
+    [3] =3D&gt; 0.00066804885864258
+    [4] =3D&gt; 0.00059890747070312
+)
+</pre><br style=3D"color:rgb(0,0,0);font-family:'Times New Roman';font-size=
+:medium"><span style=3D"color:rgb(0,0,0);font-family:'Times New Roman';font=
+-size:medium">max: 0.2155590057373 min: 0.00056004524230957 avg: 0.04361739=
+1586304</span>&nbsp;<font face=3D"arial, sans-serif" size=3D"2"><br></font>=
+</div><br>=DE=C5=D4=D7=C5=D2=C7, 6 =D3=C5=CE=D4=D1=C2=D2=D1 2012&nbsp;=C7.,=
+ 0:26:00 UTC+3 =D0=CF=CC=D8=DA=CF=D7=C1=D4=C5=CC=D8 Jenna =CE=C1=D0=C9=D3=
+=C1=CC:<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8e=
+x;border-left:1px #ccc solid;padding-left:1ex">Hi Sergey,<div><br></div><di=
+v>The first time you do a query, the necessary indexes or matching document=
+s may not be in RAM. &nbsp;Once they're paged into memory, however, subsequ=
+ent queries should be much faster since there's no need to touch disk.<br><=
+br>On Wednesday, September 5, 2012 1:08:32 PM UTC-4, Sergey Ukolov wrote:<b=
+lockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;border-=
+left:1px #ccc solid;padding-left:1ex"><font face=3D"arial, sans-serif" size=
+=3D"2">Hello all.</font><div><font face=3D"arial, sans-serif" size=3D"2"><b=
+r></font></div><div><font face=3D"arial, sans-serif" size=3D"2">I have one =
+problem. Sometimes first query to mongo executes too long time.</font></div=
+><div><font face=3D"arial, sans-serif" size=3D"2">To test it I created this=
+ simple code:</font></div><div><font face=3D"arial, sans-serif" size=3D"2">=
+&lt;?php</font></div><div><div><font face=3D"arial, sans-serif" size=3D"2">=
+$k =3D 0;</font></div><div><font face=3D"arial, sans-serif" size=3D"2">$tim=
+e =3D array();</font></div><div><font face=3D"arial, sans-serif" size=3D"2"=
+>while($k &lt; 500){</font></div><div><font face=3D"arial, sans-serif" size=
+=3D"2">&nbsp; &nbsp; $k++;</font></div><div><font face=3D"arial, sans-serif=
+" size=3D"2">&nbsp; &nbsp; $mtime =3D microtime(true);</font></div><div><fo=
+nt face=3D"arial, sans-serif" size=3D"2">&nbsp; &nbsp; $db-&gt;countries-&g=
+t;findOne(array(<wbr>"lnk" =3D&gt; rand()), array());</font></div><div><fon=
+t face=3D"arial, sans-serif" size=3D"2">&nbsp; &nbsp; $time[] =3D microtime=
+(true) - $mtime;</font></div><div><font face=3D"arial, sans-serif" size=3D"=
+2">}</font></div><div><font face=3D"arial, sans-serif" size=3D"2">echo "max=
+: " . max($time) . " min: " . min($time) . " avg: " . (array_sum($time) / c=
+ount($time));<br></font></div></div><div><font face=3D"arial, sans-serif" s=
+ize=3D"2">print_r($time);</font></div><div><font face=3D"arial, sans-serif"=
+ size=3D"2">?&gt;</font></div><div><font face=3D"arial, sans-serif" size=3D=
+"2"><br></font></div><div><font face=3D"arial, sans-serif" size=3D"2">1) I =
+use&nbsp;array("lnk" =3D&gt; rand()) to be sure that problem is not in cach=
+e.</font></div><div><font face=3D"arial, sans-serif" size=3D"2">2) table&nb=
+sp;countries has only 86 documents...</font></div><div><br></div><div><font=
+ face=3D"arial, sans-serif" size=3D"2"><br></font></div><div><font face=3D"=
+arial, sans-serif" size=3D"2">in 30% of cases I see something like this:&nb=
+sp;<span style=3D"color:rgb(0,0,0)">max: 0.83054900169373 min: 0.0003619194=
+0307617 avg: 0.0054489235877991</span></font></div><div><font face=3D"arial=
+, sans-serif" size=3D"2"><span style=3D"color:rgb(0,0,0)">But in other 70% =
+of cases I have something like this:&nbsp;</span><span style=3D"color:rgb(0=
+,0,0)">max: 0.00067591667175293 min: 0.00036501884460449 avg: 0.00048379611=
+968994</span></font></div><div><span style=3D"color:rgb(0,0,0)"><font face=
+=3D"arial, sans-serif" size=3D"2"><br></font></span></div><div><font face=
+=3D"arial, sans-serif" size=3D"2"><font color=3D"#000000">And almost everyt=
+ime&nbsp;</font><span style=3D"color:rgb(0,0,0)">0.8305</span><span style=
+=3D"color:rgb(0,0,0)">&nbsp;will be first or second query...</span></font><=
+/div><div><pre style=3D"color:rgb(0,0,0)"><font face=3D"arial, sans-serif" =
+size=3D"2">Array
+(
+    [0] =3D&gt; 0.83054900169373
+    [1] =3D&gt; 0.75357890129089
+    [2] =3D&gt; 0.031786203384399
+    [3] =3D&gt; 0.0037779808044434
+    [4] =3D&gt; 0.00064611434936523
+    [5] =3D&gt; 0.025960922241211
+    [6] =3D&gt; 0.00091791152954102
+    [7] =3D&gt; 0.033257007598877
+    [8] =3D&gt; 0.003023834228516
+    [9] =3D&gt; 0.006215991973877
+    [10] =3D&gt; 0.00193681716919
+    [11] =3D&gt; 0.00064206123352051
+    [12] =3D&gt; 0.0015311241149902
+    [13] =3D&gt; 0.00085592269897461</font></pre><pre style=3D"color:rgb(0,=
+0,0)"><font face=3D"arial, sans-serif" size=3D"2">........</font></pre><pre=
+ style=3D"color:rgb(0,0,0)"><font face=3D"arial, sans-serif" size=3D"2">
+</font><pre><font face=3D"arial, sans-serif" size=3D"2">    [494] =3D&gt; 0=
+.00052499771118164
+    [495] =3D&gt; 0.0005650520324707
+    [496] =3D&gt; 0.00053095817565918
+    [497] =3D&gt; 0.00053906440734863
+    [498] =3D&gt; 0.00055503845214844
+    [499] =3D&gt; 0.00062108039855957
+)</font></pre><pre><font face=3D"arial, sans-serif" size=3D"2"><br></font><=
+/pre><pre><font face=3D"arial, sans-serif" size=3D"2">Can somebody explain =
+to me why first query executes too long?</font></pre><pre><font face=3D"ari=
+al, sans-serif" size=3D"2"><br></font></pre><pre><font face=3D"arial, sans-=
+serif" size=3D"2">Thanks.</font></pre>
+</pre></div></blockquote></div></blockquote></div></blockquote>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_215_16867960.1346975226965--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346975226</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1889</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: First query speed</string>
+</dict>
+</plist>

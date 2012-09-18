@@ -1,0 +1,137 @@
+6640      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp276449oef;
+        Fri, 7 Sep 2012 11:48:34 -0700 (PDT)
+Received: by 10.236.75.132 with SMTP id z4mr5725074yhd.25.1347043714335;
+        Fri, 07 Sep 2012 11:48:34 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKz97Ln3DxD_gqmCBRoEdRXctQ@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id k67si5439366yhj.110.2012.09.07.11.48.34
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 11:48:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKz97Ln3DxD_gqmCBRoEdRXctQ@googlegroups.com designates 209.85.160.192 as permitted sender) client-ip=209.85.160.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKz97Ln3DxD_gqmCBRoEdRXctQ@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCKz97Ln3DxD_gqmCBRoEdRXctQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ghrr13 with SMTP id r13sf495064ghr.29
+        for <multiple recipients>; Fri, 07 Sep 2012 11:48:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=RAzFL8yXft/fw/fGzFAnTU1jv0TSVOpZWmAKmvcolUY=;
+        b=A9qHHk3BkExPxSSWS+qwdjnWTmzgtaGpEnYq2afnF3V6kzktgIjXkGyImpSPMgYeCT
+         b+V2Q8BojYnQWlyRHWnznRqRLm3CnuE0Chc47VRXRQw5OiDk1gtMDWR/I/B4i8TGRAP2
+         lQTm3Kulvh1E96D6DvV/UuOxoc4nKgUr60ZvTfXbPQKSJGIpjigNduxsjwr47Yya8eXT
+         FwTXbVLib2Jw2RWZh5jriU02E1Lhbo39jfhDdZGUwnXyEwSvUKxos9gFUs31+rowSgiQ
+         D8ZVijKnSxRQlhnCSJeITlwKagTTxe1nzSah4S/+zePt1mDIppbsXPnH9a8A+KloCYF/
+         X77A==
+Received: by 10.68.211.6 with SMTP id my6mr1688290pbc.15.1347043713815;
+        Fri, 07 Sep 2012 11:48:33 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.222.39 with SMTP id qj7ls2768283pbc.2.gmail; Fri, 07 Sep
+ 2012 11:48:31 -0700 (PDT)
+Received: by 10.68.233.104 with SMTP id tv8mr1706201pbc.5.1347043711289;
+        Fri, 07 Sep 2012 11:48:31 -0700 (PDT)
+Date: Fri, 7 Sep 2012 11:48:30 -0700 (PDT)
+From: dhsieh <dhsieh4@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <88ba60d3-bd26-4fc6-9bc2-041a7fe9d456@googlegroups.com>
+Subject: [mongodb-user] fsync question
+MIME-Version: 1.0
+X-Original-Sender: dhsieh4@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ dhsieh4@gmail.com designates internal as permitted sender)
+ smtp.mail=dhsieh4@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_402_6590594.1347043710843"
+
+------=_Part_402_6590594.1347043710843
+Content-Type: text/plain; charset=ISO-8859-1
+
+According to http://docs.mongodb.org/manual/reference/command/fsync/:
+
+The fsync <http://docs.mongodb.org/manual/reference/commands/#fsync>command forces the 
+mongod process to flush all pending writes to the storage layer. mongod is 
+always writing data to the storage layer as applications write more data to 
+the database. MongoDB guarantees that it will write all data to disk within 
+the syncdelay<http://docs.mongodb.org/manual/reference/configuration-options/#syncdelay>interval, which is 60 seconds by default.
+
+Is it true that with default 60 sec setting, there is absolutely nothing 
+being written to disk including Oplog and other in-memory writes?
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_402_6590594.1347043710843
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+According to&nbsp;http://docs.mongodb.org/manual/reference/command/fsync/:<=
+div><br></div><div><p>The <a class=3D"reference internal" title=3D"fsync" h=
+ref=3D"http://docs.mongodb.org/manual/reference/commands/#fsync"><tt class=
+=3D"xref mongodb mongodb-dbcommand docutils literal"><span class=3D"pre">fs=
+ync</span></tt></a> command forces the <tt class=3D"xref mongodb mongodb-pr=
+ogram docutils literal"><span class=3D"pre">mongod</span></tt> process to f=
+lush all pending writes to the storage=20
+layer. <tt class=3D"xref mongodb mongodb-program docutils literal"><span cl=
+ass=3D"pre">mongod</span></tt> is always writing data to the storage layer =
+as=20
+applications write more data to the database. MongoDB guarantees that it wi=
+ll=20
+write all data to disk within the <a class=3D"reference internal" title=3D"=
+syncdelay" href=3D"http://docs.mongodb.org/manual/reference/configuration-o=
+ptions/#syncdelay"><tt class=3D"xref mongodb mongodb-setting docutils liter=
+al"><span class=3D"pre">syncdelay</span></tt></a> interval, which is 60 sec=
+onds by=20
+default.</p><p>Is it true that with default 60 sec setting, there is absolu=
+tely nothing being written to disk including Oplog and other in-memory writ=
+es?</p><div><br></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_402_6590594.1347043710843--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347043710</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1987</string>
+	<key>subject</key>
+	<string>[mongodb-user] fsync question</string>
+</dict>
+</plist>

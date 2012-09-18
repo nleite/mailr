@@ -1,0 +1,394 @@
+14162     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp252749oef;
+        Fri, 7 Sep 2012 00:21:09 -0700 (PDT)
+Received: by 10.43.106.147 with SMTP id du19mr5655443icc.56.1347002468684;
+        Fri, 07 Sep 2012 00:21:08 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJidnPO5FBDhwKaCBRoEWVdMiw@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id ce9si7254126igb.35.2012.09.07.00.21.08
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 00:21:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJidnPO5FBDhwKaCBRoEWVdMiw@googlegroups.com designates 209.85.223.192 as permitted sender) client-ip=209.85.223.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJidnPO5FBDhwKaCBRoEWVdMiw@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCJidnPO5FBDhwKaCBRoEWVdMiw@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by iebc12 with SMTP id c12sf1292578ieb.29
+        for <multiple recipients>; Fri, 07 Sep 2012 00:21:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:mime-version:date:in-reply-to:references:user-agent
+         :x-http-useragent:message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type
+         :content-transfer-encoding;
+        bh=U6xs2nLZ9kve5JfOOo1TGshkcHAUlKT6v/PXt0l5CTo=;
+        b=hsjGWQPES9ug7XO7ZFVbWySBpWxIB+Vq6g20ObFa4SOl9BBhXxUkzveZQ3ojHF5Z9Y
+         KHO40AmIFCMLXV/dTbgRdYOGAZOJETrY0sXN92rPIlkcaf42L+/OUCmtfFGyXG0r9yQd
+         FPycFvlLxh3iO7N9KQqqRd/pDKzCWY54uH8IEEqVVBfc6mWgkam+Up+cC40HUIKpPtfL
+         sOvsBEO9PKRqRbYfroZKnpUKo+qgWXaGYdE1QON1hXII5aKdmaCQTy3lo19IekmXErA/
+         lBs6IKWG7IOcH86dvQNgFefYQu1lSZ3WiqyBZ1F84bWqiyD4JeCw/AUz6B3NZxuAyusX
+         +fgg==
+Received: by 10.52.156.115 with SMTP id wd19mr844886vdb.2.1347002467682;
+        Fri, 07 Sep 2012 00:21:07 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.147.138 with SMTP id l10ls227205vcv.7.gmail; Fri, 07 Sep
+ 2012 00:21:05 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.52.156.18 with SMTP id wa18mr844862vdb.9.1347002465697; Fri,
+ 07 Sep 2012 00:21:05 -0700 (PDT)
+Received: by s5g2000vbj.googlegroups.com with HTTP; Fri, 7 Sep 2012 00:21:05
+ -0700 (PDT)
+Date: Fri, 7 Sep 2012 00:21:05 -0700 (PDT)
+In-Reply-To: <f985371b-3f17-4ab9-8997-c9f871113221@googlegroups.com>
+References: <dd2aee93-5e3f-4a82-a527-f4c7d11bb2ae@c9g2000vbv.googlegroups.com>
+ <303eff4c-ec23-4e86-bcee-de29deee24be@c19g2000vbb.googlegroups.com>
+ <ded6461d-ff85-41bf-a17d-f02c43d20494@e29g2000vbm.googlegroups.com>
+ <2cbceac4-c2f8-4d91-9c4a-dda3011327cd@googlegroups.com> <88afbe24-ceeb-4471-96b8-6262189b70ca@googlegroups.com>
+ <3d113d77-a63c-4793-9836-c7b89454dd98@d9g2000vbf.googlegroups.com>
+ <0ffd9575-606a-4a07-b654-d3cc1cb9db53@googlegroups.com> <eb893d8d-73c1-4208-a603-1c58a2b96927@ft6g2000vbb.googlegroups.com>
+ <6c5a30be-e323-404f-9242-04fba9fbe488@googlegroups.com> <3544dd22-f8b4-4b5b-8edd-fbb71843b0e9@e29g2000vbm.googlegroups.com>
+ <f6dd5191-b82c-4ce5-a0ab-4ef62cae83c7@googlegroups.com> <81d24eef-985a-47a4-bc9d-1131f69d401f@m3g2000vby.googlegroups.com>
+ <f985371b-3f17-4ab9-8997-c9f871113221@googlegroups.com>
+User-Agent: G2/1.0
+X-HTTP-UserAgent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like
+ Gecko) Chrome/21.0.1180.89 Safari/537.1,gzip(gfe)
+Message-ID: <6405dd8a-7113-43a2-9b69-4b758661ae06@s5g2000vbj.googlegroups.com>
+Subject: [mongodb-user] Re: mongo failover
+From: tetlika <tetlika@gmail.com>
+To: mongodb-user <mongodb-user@googlegroups.com>
+X-Original-Sender: tetlika@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain
+ of tetlika@gmail.com designates internal as permitted sender)
+ smtp.mail=tetlika@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=KOI8-U
+Content-Transfer-Encoding: quoted-printable
+
+Thanks for head up Jesse!
+
+We'll dive more deeply with dev team into that situation.
+
+On 6 =F7=C5=D2, 23:32, "A. Jesse Jiryu Davis" <je...@10gen.com> wrote:
+> Do you create a single Connection instance for the lifetime of the
+> application, or more frequently than that? Can you provide a complete tes=
+t
+> script please?
+>
+>
+>
+>
+>
+>
+>
+> On Thursday, September 6, 2012 4:00:11 PM UTC-4, tetlika wrote:
+>
+> > very weird, before submitting I've reproduced it 4 times: once we
+> > faced that on production, and 3 times in staging envirinment
+> > mongod is 2.0.6
+>
+> > could you please try with the exact same connection:
+>
+> > mongokit.connection.Connection(settings.MONGODB[db_id]
+> > ['master'][0],settings.MONGODB[db_id]['master'][1])
+>
+> > On 6 =F7=C5=D2, 22:54, "A. Jesse Jiryu Davis" <je...@10gen.com> wrote:
+> > > I can't reproduce your issue. In EC2 I set up two instances, one with=
+ a
+> > > mongod which I forced to be primary, and one with a secondary and an
+> > > arbiter. With PyMongo 2.1.1:
+>
+> > > >>> c =3D Connection(['ec2-176-34-219-188.eu-west-1.compute.amazonaws=
+.com',
+>
+> > > 'ec2-54-247-137-15.eu-west-1.compute.amazonaws.com'])>>> c.host # Whi=
+ch
+> > instance has the primary right now?
+>
+> > > u'ec2-54-247-137-15.eu-west-1.compute.amazonaws.com'
+>
+> > > >>> c.test.test.find_one()
+>
+> > > {u'_id': ObjectId('5048f365923450f553000000')}
+>
+> > > >>> # In AWS console, I stop the instance with the primary. The insta=
+nce
+> > > with secondary
+> > > >>> # and arbiter is still up, so secondary becomes new primary.
+> > > >>> c.test.test.find_one() # Expect first try to fail
+>
+> > > Traceback (most recent call last)
+> > > =9A pymongo/collection.py in find_one(self, spec_or_id, *args, **kwar=
+gs)
+> > > =9A pymongo/cursor.py in next(self)
+> > > =9A pymongo/cursor.py in _refresh(self)
+> > > =9A pymongo/cursor.py in __send_message(self, message)
+> > > =9A pymongo/connection.py in _send_message_with_response(self, messag=
+e,
+> > > _must_use_master, **kwargs)
+> > > =9A pymongo/connection.py in __socket(self)
+> > > =9A pymongo/connection.py in get_socket(self, host, port)
+> > > =9A pymongo/connection.py in connect(self, host, port)
+>
+> > /System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/=
+sock
+> > et.pyc
+> > > in meth(name, self, *args)
+> > > timeout: timed out
+>
+> > > >>> c.test.test.find_one() # Second try works as expected
+>
+> > > {u'_id': ObjectId('5048f365923450f553000000')}
+>
+> > > >>> c.host # New primary's instance
+>
+> > > u'ec2-176-34-219-188.eu-west-1.compute.amazonaws.com'
+>
+> > > After PyMongo throws a timeout error, it reconnects and detects the n=
+ew
+> > > primary during the next operation. So we expect only one timeout afte=
+r
+> > you
+> > > stop an instance in EC2.
+>
+> > > On Thursday, September 6, 2012 2:33:35 PM UTC-4, tetlika wrote:
+>
+> > > > on ec2
+>
+> > > > On 6 =F7=C5=D2, 21:33, "A. Jesse Jiryu Davis" <je...@10gen.com> wro=
+te:
+> > > > > OK, I need to test a theory; stay tuned. Are your machines in EC2=
+ or
+> > > > your
+> > > > > own data center or what?
+>
+> > > > > On Thursday, September 6, 2012 2:27:52 PM UTC-4, tetlika wrote:
+>
+> > > > > > single
+>
+> > > > > > On 6 =F7=C5=D2, 21:26, "A. Jesse Jiryu Davis" <je...@10gen.com>=
+ wrote:
+> > > > > > > I might understand the problem. Is your application
+> > single-threaded
+> > > > or
+> > > > > > > multi-threaded?
+>
+> > > > > > > On Thursday, September 6, 2012 2:18:05 PM UTC-4, tetlika wrot=
+e:
+>
+> > > > > > > > yes, that's correct
+>
+> > > > > > > > On 6 =F7=C5=D2, 21:16, "A. Jesse Jiryu Davis" <je...@10gen.=
+com>
+> > wrote:
+> > > > > > > > > OK, thanks. So your code is equivalent to this?:
+>
+> > > > > > > > > mongokit.connection.Connection(['replaqueue.internal.com'=
+,
+> > > > > > > > > 'replbqueue.internal.com'], 27017)
+>
+> > > > > > > > > On Thursday, September 6, 2012 2:05:28 PM UTC-4, A. Jesse
+> > Jiryu
+> > > > > > Davis
+> > > > > > > > wrote:
+>
+> > > > > > > > > > Thanks, and what are the values of
+> > > > > > > > settings.MONGODB[db_id]['master'][0]and
+> > > > > > > > > > settings.MONGODB[db_id]['master'][1]? Are you configuri=
+ng
+> > any
+> > > > > > timeouts
+> > > > > > > > in
+> > > > > > > > > > PyMongo or MongoKit, or using the default timeouts?
+>
+> > > > > > > > > > On Thursday, September 6, 2012 1:55:20 PM UTC-4, tetlik=
+a
+> > > > wrote:
+>
+> > > > > > > > > >> sorry, previous was a bit wrongly formatted
+>
+> > > > =D3onnection=3Dmongokit.connection.Connection(settings.MONGODB[db_i=
+d]
+> > > > > > > > > >> ['master'][0],settings.MONGODB[db_id]['master'][1])
+>
+> > > > > > > > > >> while =9A['master'][0] are =9A['master'][1] defined in=
+ config
+> > as
+> > > > > > slave
+> > > > > > > > and
+> > > > > > > > > >> master hosts of replica
+>
+> > > > > > > > > >> On 6 =F7=C5=D2, 20:51, tetlika <tetl...@gmail.com> wro=
+te:
+> > > > > > > > > >> > =9A connection =3D
+> > > > > > > > mongokit.connection.Connection(settings.MONGODB[db_id]
+> > > > > > > > > >> > ['master'][0],
+>
+> > > > > > > > settings.MONGODB[db_id]
+> > > > > > > > > >> > ['master'][1])
+>
+> > > > > > > > > >> > On 6 =F7=C5=D2, 20:49, tetlika <tetl...@gmail.com> w=
+rote:
+>
+> > > > > > > > > >> > > centOS 5.6 x64 everywhere
+> > > > > > > > > >> > > python 2.7.3
+>
+> > > > > > > > > >> > > wait a bit - I will provide the code , I hope
+>
+> > > > > > > > > >> > > On 6 =F7=C5=D2, 20:42, "A. Jesse Jiryu Davis" <
+> > je...@10gen.com>
+>
+> > > > > > wrote:
+>
+> > > > > > > > > >> > > > What operating system are you using on the clien=
+t
+> > > > (where
+> > > > > > Python
+> > > > > > > > > >> runs) and
+> > > > > > > > > >> > > > on the MongoDB servers? What Python version? Can
+> > you
+> > > > > > provide
+> > > > > > > > the
+> > > > > > > > > >> exact code
+> > > > > > > > > >> > > > you use to create the PyMongo ReplicaSetConnecti=
+on?
+> > I
+> > > > need
+> > > > > > to
+> > > > > > > > see
+> > > > > > > > > >> precisely
+> > > > > > > > > >> > > > what options you pass to ReplicaSetConnection.
+>
+> > > > > > > > > >> > > > Thanks.
+>
+> > > > > > > > > >> > > > On Wednesday, September 5, 2012 12:14:33 PM UTC-=
+4,
+> > > > tetlika
+> > > > > > > > wrote:
+>
+> > > > > > > > > >> > > > > can anyone help me on that?
+>
+> > > > > > > > > >> > > > > On 5 =F7=C5=D2, 18:08, tetlika <tetl...@gmail.=
+com>
+> > wrote:
+> > > > > > > > > >> > > > > > in second scenario of course the fail over i=
+s
+> > not
+> > > > > > happening
+> > > > > > > > > >> > > > > > immediately, - it takes 10-15 seconds or so
+>
+> > > > > > > > > >> > > > > > but in scenario 1 - the fail over is not
+> > happening
+> > > > at
+> > > > > > least
+> > > > > > > > for
+> > > > > > > > > >> 30-40
+> > > > > > > > > >> > > > > > minutes
+>
+> > > > > > > > > >> > > > > > On 5 =F7=C5=D2, 18:05, Stephan <
+> > sboeseb...@googlemail.com>
+>
+> > > > > > > > wrote:
+>
+> > > > > > > > > >> > > > > > > Actually, in Java I always see the first
+> > > > behavior, no
+> > > > > > > > matter
+> > > > > > > > > >> if host
+> > > > > > > > > >> > > > > is
+> > > > > > > > > >> > > > > > > really down, or only the mongod.
+> > > > > > > > > >> > > > > > > If there is a write access during the
+> > fail-over
+> > > > time
+> > > > > > (a
+> > > > > > > > > >> couple of
+> > > > > > > > > >> > > > > seconds),
+> > > > > > > > > >> > > > > > > there is an error "can't find master". Aft=
+er
+> > > > that, it
+> > > > > > > > works
+> > > > > > > > > >> here...
+>
+> > > > > > > > > >> > > > > > > Strange, that you see a different behavior=
+...
+>
+> > > > > > > > > >> > > > > > > Am Mittwoch, 5. September 2012 15:13:06 UT=
+C+2
+> > > > schrieb
+> > > > > > > > > >> tetlika:
+>
+> > > > > > > > > >> > > > > > > > we use pymongo 2.1.1, I've noticed such
+> > > > behavior in
+> > > > > > > > replica
+> > > > > > > > > >> set (can
+> > > > > > > > > >> > > > > > > > be easy reproduced):
+>
+> > > > > > > > > >> > > > > > > > scenario 1:
+>
+> > > > > > > > > >> > > > > > > > 1) master host is shutted down by "shutd=
+own
+> > -r
+> > > > now"
+> > > > > > > > > >> command, or
+> > > > > > > > > >> > > > > > > > hardware failure
+> > > > > > > > > >> > > > > > > > 2) slave becomes master
+> > > > > > > > > >> > > > > > > > 3) application fails saying it cant
+> > establish
+> > > > > > > > connection to
+> > > > > > > > > >> the db
+> > > > > > > > > >> > > > > > > > 4) when the host with master's IP appear=
+s
+> > on
+> > > > the
+> > > > > > > > network
+> > > > > > > > > >> and is
+> > > > > > > > > >> > > > > > > > pingable (even without mongod on it),
+> > things
+> > > > become
+> > > > > > ok
+>
+> > > > > > > > > >> > > > > > > > scenario 2:
+>
+> > > > > > > > > >> > > > > > > > 1) just mongod is shutted down on master
+> > host
+> > > > > > > > > >> > > > > > > > 2) slave becomes master
+> > > > > > > > > >> > > > > > > > 3) application handles failover and thin=
+gs
+> > are
+> > > > fine
+>
+> > > > > > > > > >> > > > > > > > is that normal behavior?
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347002465</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1942</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo failover</string>
+</dict>
+</plist>

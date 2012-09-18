@@ -1,0 +1,363 @@
+20917     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp276259oef;
+        Fri, 7 Sep 2012 11:44:55 -0700 (PDT)
+Received: by 10.236.155.10 with SMTP id i10mr5825012yhk.91.1347043493313;
+        Fri, 07 Sep 2012 11:44:53 -0700 (PDT)
+Return-Path: <mongodb-user+bncCN3l9O2AAhCjgamCBRoEyW7wBg@googlegroups.com>
+Received: from mail-gh0-f192.google.com (mail-gh0-f192.google.com [209.85.160.192])
+        by mx.google.com with ESMTPS id a5si2383572anj.153.2012.09.07.11.44.53
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 11:44:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCN3l9O2AAhCjgamCBRoEyW7wBg@googlegroups.com designates 209.85.160.192 as permitted sender) client-ip=209.85.160.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCN3l9O2AAhCjgamCBRoEyW7wBg@googlegroups.com designates 209.85.160.192 as permitted sender) smtp.mail=mongodb-user+bncCN3l9O2AAhCjgamCBRoEyW7wBg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by ghrr13 with SMTP id r13sf493228ghr.29
+        for <multiple recipients>; Fri, 07 Sep 2012 11:44:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=j9jq3PDdZivUgwq4z5wOJ7B/FLvCEa9HqiWL7qji+to=;
+        b=mWB61AKBthxxdHgvcGGg6mGjigU4b1R7qS/ve18bmik4jJV4VVSpIzmrR7y8qlq8iy
+         x2yadZr+miNzm3FnDiu/F9Lf2a7uvX5O3BUfk0xmb/39GFOosn5xG98n3AmBCs2/UzfF
+         GcsaZw6xz1OQ/ckocHa1Lb30CihHl5y5+UEeFxkJfRlgpfX/tAalMEnUHIlxPR+307/B
+         hEMrSzWpgsNw90y+GeCvWGU8pV64J2eQQd848CO3AN+f3E+C9CNPyMSLvzXbXwndWwR0
+         GxKJ8GzKbNte1JHBOzwhuOtYSjvqESFOoJqngPScjKajoti4fS92ZyJFIMhqEGVEYh92
+         Zdfw==
+Received: by 10.52.156.18 with SMTP id wa18mr1167763vdb.9.1347043492873;
+        Fri, 07 Sep 2012 11:44:52 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.156.112 with SMTP id wd16ls865143vdb.6.gmail; Fri, 07 Sep
+ 2012 11:44:50 -0700 (PDT)
+Received: by 10.52.72.16 with SMTP id z16mr1167391vdu.15.1347043490860;
+        Fri, 07 Sep 2012 11:44:50 -0700 (PDT)
+Date: Fri, 7 Sep 2012 11:44:50 -0700 (PDT)
+From: Osmar Olivo <oz@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <cba894e8-c6bf-4b9f-bd3f-3a5f52b8c10c@googlegroups.com>
+In-Reply-To: <713484df-37f2-4cf2-84b7-4d64801474ec@googlegroups.com>
+References: <b773f53c-4325-4af1-85e8-a464b6645cb9@googlegroups.com>
+ <3856e716-6820-4da4-b0d3-d18d88d59724@googlegroups.com>
+ <141f4c2c-c157-494b-bb13-0d3ab6c6381b@googlegroups.com>
+ <3ed70bd6-3c46-40be-aaf3-e0bc2133b98e@googlegroups.com>
+ <713484df-37f2-4cf2-84b7-4d64801474ec@googlegroups.com>
+Subject: [mongodb-user] Re: Using new aggregation framework to fetch daily average
+MIME-Version: 1.0
+X-Original-Sender: oz@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ oz@10gen.com designates internal as permitted sender)
+ smtp.mail=oz@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_646_5351940.1347043490477"
+
+------=_Part_646_5351940.1347043490477
+Content-Type: text/plain; charset=ISO-8859-1
+
+Ah! Upon closer inspection, it seems you missed a step when porting from 
+your mapreduce to the aggregation framework. 
+
+
+Notably: 
+
+emit(this._id - (this._id % 86400000), { aggregate:0, count:1, sum: this[
+'threadCount'] } );
+
+This explains why you are looking at a bigger subset of id's in your 
+search, and hence why grouping takes longer. 
+
+Hope this helps.
+
+
+On Friday, September 7, 2012 5:22:38 AM UTC-4, Rhys Keepence wrote:
+>
+> Yes, the stats given earlier were taken from the third run of each query. 
+> The results are consistent regardless of order, I've just double checked 
+> this.
+>
+> Thanks
+> Rhys
+>
+>
+> On Thursday, 6 September 2012 16:55:55 UTC+1, Osmar Olivo wrote:
+>>
+>> Just to be sure. You tried running these queries multiple times back to 
+>> back to make sure the results are consistant correct? 
+>>
+>> If your running the aggregate function first every time, then its 
+>> possible that it goes to disk and loads all of the data in RAM causing the 
+>> initial query to be slow but then the subsequent mapreduce to be fast since 
+>> all of the data is already in RAM. Did you try switching up the order or 
+>> pre-warming the cache? 
+>>
+>> If that's not the case then it might be some underlying issue.
+>>
+>> P.S.
+>>
+>> If you are running 2.2, then you are running the most up-to-date version 
+>> and the command you are running looks ok.
+>>
+>> On Thursday, September 6, 2012 7:08:47 AM UTC-4, Rhys Keepence wrote:
+>>>
+>>> Thanks very much for responding.
+>>>
+>>> Where are you getting these stats from for the two queries? Is this part 
+>>>> of the explain output?
+>>>>
+>>>
+>>> These stats appeared in the server log.
+>>>
+>>> If not, try running the two queries with .explain() appended to them. 
+>>>> This will give us information regarding the query that can be helpful in 
+>>>> analyzing why it is slower. More information on explain and what values to 
+>>>> look for can be found here: [ 
+>>>> http://www.mongodb.org/display/DOCS/Explain ]
+>>>>
+>>>
+>>> OK, I couldn't quite get explain() to work using map reduce, I think 
+>>> because I'm using the 2.2 release version. I could upgrade to a dev version 
+>>> if that would help with diagnosis?
+>>>
+>>> However, here is as much output as I can gather: 
+>>> The top half is the aggregation query output then the output in the 
+>>> profile collection.
+>>> The second half is the map reduce query output and the output in the 
+>>> profile collection.
+>>>
+>>> https://gist.github.com/3653338
+>>>
+>>> I'm not sure if I'm reading it correctly, but it looks like the query 
+>>> part of both queries is fast, but the grouping in the aggregation query is 
+>>> the bottleneck.
+>>>
+>>> Thanks again
+>>> Rhys
+>>>
+>>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_646_5351940.1347043490477
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Ah! Upon closer inspection, it seems you missed a step when porting from yo=
+ur mapreduce to the aggregation framework.&nbsp;<div><br></div><div><br></d=
+iv><div>Notably:&nbsp;<div><br><span class=3D"nx" style=3D"line-height: 16.=
+78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mo=
+no', Courier, monospace; font-size: 12px; white-space: pre; ">emit</span><s=
+pan class=3D"p" style=3D"line-height: 16.78333282470703px; color: rgb(0, 0,=
+ 0); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; font-size=
+: 12px; white-space: pre; ">(</span><span style=3D"background-color: rgb(25=
+5, 255, 0);"><span class=3D"k" style=3D"line-height: 16.78333282470703px; f=
+ont-weight: bold; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mo=
+no', Courier, monospace; font-size: 12px; white-space: pre; ">this</span><s=
+pan class=3D"p" style=3D"line-height: 16.78333282470703px; color: rgb(0, 0,=
+ 0); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; font-size=
+: 12px; white-space: pre; ">.</span><span class=3D"nx" style=3D"line-height=
+: 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sa=
+ns Mono', Courier, monospace; font-size: 12px; white-space: pre; ">_id</spa=
+n><span style=3D"color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mon=
+o', Courier, monospace; font-size: 12px; line-height: 16.78333282470703px; =
+white-space: pre; "> </span><span class=3D"o" style=3D"line-height: 16.7833=
+3282470703px; font-weight: bold; color: rgb(0, 0, 0); font-family: 'Bitstre=
+am Vera Sans Mono', Courier, monospace; font-size: 12px; white-space: pre; =
+">-</span><span style=3D"color: rgb(0, 0, 0); font-family: 'Bitstream Vera =
+Sans Mono', Courier, monospace; font-size: 12px; line-height: 16.7833328247=
+0703px; white-space: pre; "> </span><span class=3D"p" style=3D"line-height:=
+ 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera San=
+s Mono', Courier, monospace; font-size: 12px; white-space: pre; ">(</span><=
+span class=3D"k" style=3D"line-height: 16.78333282470703px; font-weight: bo=
+ld; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, =
+monospace; font-size: 12px; white-space: pre; ">this</span><span class=3D"p=
+" style=3D"line-height: 16.78333282470703px; color: rgb(0, 0, 0); font-fami=
+ly: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; white-=
+space: pre; ">.</span><span class=3D"nx" style=3D"line-height: 16.783332824=
+70703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Cour=
+ier, monospace; font-size: 12px; white-space: pre; ">_id</span><span style=
+=3D"color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, =
+monospace; font-size: 12px; line-height: 16.78333282470703px; white-space: =
+pre; "> </span><span class=3D"o" style=3D"line-height: 16.78333282470703px;=
+ font-weight: bold; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans =
+Mono', Courier, monospace; font-size: 12px; white-space: pre; ">%</span><sp=
+an style=3D"color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', C=
+ourier, monospace; font-size: 12px; line-height: 16.78333282470703px; white=
+-space: pre; "> </span><span class=3D"mi" style=3D"line-height: 16.78333282=
+470703px; color: rgb(0, 153, 153); font-family: 'Bitstream Vera Sans Mono',=
+ Courier, monospace; font-size: 12px; white-space: pre; ">86400000</span></=
+span><span class=3D"p" style=3D"line-height: 16.78333282470703px; color: rg=
+b(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; fo=
+nt-size: 12px; white-space: pre; "><span style=3D"background-color: rgb(255=
+, 255, 0);">)</span>,</span><span style=3D"color: rgb(0, 0, 0); font-family=
+: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; line-hei=
+ght: 16.78333282470703px; white-space: pre; "> </span><span class=3D"p" sty=
+le=3D"line-height: 16.78333282470703px; color: rgb(0, 0, 0); font-family: '=
+Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; white-space=
+: pre; ">{</span><span style=3D"color: rgb(0, 0, 0); font-family: 'Bitstrea=
+m Vera Sans Mono', Courier, monospace; font-size: 12px; line-height: 16.783=
+33282470703px; white-space: pre; "> </span><span class=3D"nx" style=3D"line=
+-height: 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream =
+Vera Sans Mono', Courier, monospace; font-size: 12px; white-space: pre; ">a=
+ggregate</span><span class=3D"o" style=3D"line-height: 16.78333282470703px;=
+ font-weight: bold; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans =
+Mono', Courier, monospace; font-size: 12px; white-space: pre; ">:</span><sp=
+an class=3D"mi" style=3D"line-height: 16.78333282470703px; color: rgb(0, 15=
+3, 153); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; font-=
+size: 12px; white-space: pre; ">0</span><span class=3D"p" style=3D"line-hei=
+ght: 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera=
+ Sans Mono', Courier, monospace; font-size: 12px; white-space: pre; ">,</sp=
+an><span style=3D"color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mo=
+no', Courier, monospace; font-size: 12px; line-height: 16.78333282470703px;=
+ white-space: pre; "> </span><span class=3D"nx" style=3D"line-height: 16.78=
+333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono=
+', Courier, monospace; font-size: 12px; white-space: pre; ">count</span><sp=
+an class=3D"o" style=3D"line-height: 16.78333282470703px; font-weight: bold=
+; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, mo=
+nospace; font-size: 12px; white-space: pre; ">:</span><span class=3D"mi" st=
+yle=3D"line-height: 16.78333282470703px; color: rgb(0, 153, 153); font-fami=
+ly: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; white-=
+space: pre; ">1</span><span class=3D"p" style=3D"line-height: 16.7833328247=
+0703px; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Couri=
+er, monospace; font-size: 12px; white-space: pre; ">,</span><span style=3D"=
+color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, mono=
+space; font-size: 12px; line-height: 16.78333282470703px; white-space: pre;=
+ "> </span><span class=3D"nx" style=3D"line-height: 16.78333282470703px; co=
+lor: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, monosp=
+ace; font-size: 12px; white-space: pre; ">sum</span><span class=3D"o" style=
+=3D"line-height: 16.78333282470703px; font-weight: bold; color: rgb(0, 0, 0=
+); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: =
+12px; white-space: pre; ">:</span><span style=3D"color: rgb(0, 0, 0); font-=
+family: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; li=
+ne-height: 16.78333282470703px; white-space: pre; "> </span><span class=3D"=
+k" style=3D"line-height: 16.78333282470703px; font-weight: bold; color: rgb=
+(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; fon=
+t-size: 12px; white-space: pre; ">this</span><span class=3D"p" style=3D"lin=
+e-height: 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream=
+ Vera Sans Mono', Courier, monospace; font-size: 12px; white-space: pre; ">=
+[</span><span class=3D"s1" style=3D"line-height: 16.78333282470703px; color=
+: rgb(221, 17, 68); font-family: 'Bitstream Vera Sans Mono', Courier, monos=
+pace; font-size: 12px; white-space: pre; ">'threadCount'</span><span class=
+=3D"p" style=3D"line-height: 16.78333282470703px; color: rgb(0, 0, 0); font=
+-family: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; w=
+hite-space: pre; ">]</span><span style=3D"color: rgb(0, 0, 0); font-family:=
+ 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; line-heig=
+ht: 16.78333282470703px; white-space: pre; "> </span><span class=3D"p" styl=
+e=3D"line-height: 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'B=
+itstream Vera Sans Mono', Courier, monospace; font-size: 12px; white-space:=
+ pre; ">}</span><span style=3D"color: rgb(0, 0, 0); font-family: 'Bitstream=
+ Vera Sans Mono', Courier, monospace; font-size: 12px; line-height: 16.7833=
+3282470703px; white-space: pre; "> </span><span class=3D"p" style=3D"line-h=
+eight: 16.78333282470703px; color: rgb(0, 0, 0); font-family: 'Bitstream Ve=
+ra Sans Mono', Courier, monospace; font-size: 12px; white-space: pre; ">);<=
+/span></div><div><span class=3D"p" style=3D"line-height: 16.78333282470703p=
+x; color: rgb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, m=
+onospace; font-size: 12px; white-space: pre; "><br></span></div><div><span =
+class=3D"p" style=3D"line-height: 16.78333282470703px; color: rgb(0, 0, 0);=
+ font-family: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12=
+px; white-space: pre; ">This explains why you are looking at a bigger subse=
+t of id's in your search, and hence why grouping takes longer. </span></div=
+><div><span class=3D"p" style=3D"line-height: 16.78333282470703px; color: r=
+gb(0, 0, 0); font-family: 'Bitstream Vera Sans Mono', Courier, monospace; f=
+ont-size: 12px; white-space: pre; "><br></span></div><div><span class=3D"p"=
+ style=3D"line-height: 16.78333282470703px; color: rgb(0, 0, 0); font-famil=
+y: 'Bitstream Vera Sans Mono', Courier, monospace; font-size: 12px; white-s=
+pace: pre; ">Hope this helps.</span></div><div><font color=3D"#000000" face=
+=3D"Bitstream Vera Sans Mono, Courier, monospace"><span style=3D"font-size:=
+ 12px; line-height: 16.78333282470703px; white-space: pre;"><br></span></fo=
+nt></div><div><font color=3D"#000000" face=3D"Bitstream Vera Sans Mono, Cou=
+rier, monospace"><span style=3D"font-size: 12px; line-height: 16.7833328247=
+0703px; white-space: pre;"><br></span></font>On Friday, September 7, 2012 5=
+:22:38 AM UTC-4, Rhys Keepence wrote:<blockquote class=3D"gmail_quote" styl=
+e=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-left:=
+ 1ex;">Yes, the stats given earlier were taken from the third run of each q=
+uery.&nbsp;<div>The results are consistent regardless of order, I've just d=
+ouble checked this.<div><br></div><div>Thanks</div><div>Rhys</div><div><br>=
+</div><div><br>On Thursday, 6 September 2012 16:55:55 UTC+1, Osmar Olivo  w=
+rote:<blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8ex;=
+border-left:1px #ccc solid;padding-left:1ex">Just to be sure. You tried run=
+ning these queries multiple times back to back to make sure the results are=
+ consistant correct?&nbsp;<div><br></div><div>If your running the aggregate=
+ function first every time, then its possible that it goes to disk and load=
+s all of the data in RAM causing the initial query to be slow but then the =
+subsequent mapreduce to be fast since all of the data is already in RAM. Di=
+d you try switching up the order or pre-warming the cache?&nbsp;</div><div>=
+<br></div><div>If that's not the case then it might be some underlying issu=
+e.</div><div><br></div><div>P.S.</div><div><br></div><div>If you are runnin=
+g 2.2, then you are running the most up-to-date version and the command you=
+ are running looks ok.<br><br>On Thursday, September 6, 2012 7:08:47 AM UTC=
+-4, Rhys Keepence wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0=
+;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">Thanks very=
+ much for responding.<br><br><blockquote class=3D"gmail_quote" style=3D"mar=
+gin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex"><div>W=
+here are you getting these stats from for the two queries? Is this part of =
+the explain output?</div></blockquote><div><br></div><div>These stats appea=
+red in the server log.</div><div><br></div><blockquote class=3D"gmail_quote=
+" style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-le=
+ft:1ex"><div>If not, try running the two queries with .explain() appended t=
+o them. This will give us information regarding the query that can be helpf=
+ul in analyzing why it is slower. More information on explain and what valu=
+es to look for can be found here: [ <a href=3D"http://www.mongodb.org/displ=
+ay/DOCS/Explain" target=3D"_blank">http://www.mongodb.org/<wbr>display/DOCS=
+/Explain</a> ]<br></div></blockquote><div><br></div><div>OK, I couldn't qui=
+te get explain() to work using map reduce, I think because I'm using the 2.=
+2 release version. I could upgrade to a dev version if that would help with=
+ diagnosis?</div><div><br></div><div>However, here is as much output as I c=
+an gather:&nbsp;</div><div><div>The top half is the aggregation query outpu=
+t then the&nbsp;output in the profile collection.</div><div>The second half=
+ is the map reduce query output and the output in the profile collection.</=
+div></div><div><br></div><div><a href=3D"https://gist.github.com/3653338" t=
+arget=3D"_blank">https://gist.github.com/<wbr>3653338</a><br></div><div><br=
+></div><div>I'm not sure if I'm reading it correctly, but it looks like the=
+ query part of both queries is fast, but the grouping in the aggregation qu=
+ery is the bottleneck.</div><div><br></div><div>Thanks again</div><div>Rhys=
+</div></blockquote></div></blockquote></div></div></blockquote></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_646_5351940.1347043490477--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347043490</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1986</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Using new aggregation framework to fetch daily average</string>
+</dict>
+</plist>

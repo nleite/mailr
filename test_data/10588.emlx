@@ -1,0 +1,135 @@
+5916      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp248646oef;
+        Thu, 6 Sep 2012 21:52:21 -0700 (PDT)
+Received: by 10.68.227.233 with SMTP id sd9mr8435881pbc.48.1346993541282;
+        Thu, 06 Sep 2012 21:52:21 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJfx78O1BRCC-6WCBRoEAKbdJA@googlegroups.com>
+Received: from mail-pz0-f64.google.com (mail-pz0-f64.google.com [209.85.210.64])
+        by mx.google.com with ESMTPS id nr4si1301051pbc.6.2012.09.06.21.52.20
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 21:52:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJfx78O1BRCC-6WCBRoEAKbdJA@googlegroups.com designates 209.85.210.64 as permitted sender) client-ip=209.85.210.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJfx78O1BRCC-6WCBRoEAKbdJA@googlegroups.com designates 209.85.210.64 as permitted sender) smtp.mail=mongodb-user+bncCJfx78O1BRCC-6WCBRoEAKbdJA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by dadz9 with SMTP id z9sf1815348dad.29
+        for <multiple recipients>; Thu, 06 Sep 2012 21:52:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=EsqtGBq9F9sJcbGBZLrh6WqYlzFsRU26X0rYvjyKKlE=;
+        b=abM+hBte7nxnsGZtWAkruq3bTT3LNl8JqtdE3+bWmFPIVMKiSm3mLxAbQmQMAGfs4o
+         cCHR1O7rBChDLn/KcVcyrc332dEA4hDRYTUI5gL9GDH6VF5jK+JR0L8v/bF5aJMHZj9P
+         bSIWW6L35bEvugHt7AiUEyg1xllQyMi7qcrFXkN7OpDFfgpPDQVlr2TgR1x5zFAojYhC
+         A4FxEHpf1/fAY2nKUnncwLPpTFfcAdRy5v8e1J8yXYeMKZuEehrppvlrifUBGJVrJTNX
+         P/RCMbDfbIn/9ejuKkNwX0bMeAT7QWba2pKbnM1UuMOyPOcIbXS2pBkNwHPLtBVvWPfU
+         yXcA==
+Received: by 10.68.136.7 with SMTP id pw7mr1112766pbb.1.1346993540735;
+        Thu, 06 Sep 2012 21:52:20 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.197.72 with SMTP id is8ls658332pbc.5.gmail; Thu, 06 Sep
+ 2012 21:52:18 -0700 (PDT)
+Received: by 10.68.189.202 with SMTP id gk10mr1103560pbc.11.1346993538788;
+        Thu, 06 Sep 2012 21:52:18 -0700 (PDT)
+Date: Thu, 6 Sep 2012 21:52:18 -0700 (PDT)
+From: Stephen Steneker <stephen.steneker@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <a1b3c7d2-ff68-41d1-b6cc-4d6613c97f10@googlegroups.com>
+In-Reply-To: <2ff40d45-0293-454b-a401-415919dd188e@googlegroups.com>
+References: <bd56f8d7-e906-4f3e-a497-a7297ac49f87@googlegroups.com>
+ <13e3fb30-937f-4849-b6e6-78f7ea7a4f26@googlegroups.com>
+ <2ff40d45-0293-454b-a401-415919dd188e@googlegroups.com>
+Subject: [mongodb-user] Re: mongodb problem
+MIME-Version: 1.0
+X-Original-Sender: stephen.steneker@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ stephen.steneker@10gen.com designates internal as permitted sender)
+ smtp.mail=stephen.steneker@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_330_4496653.1346993538461"
+
+------=_Part_330_4496653.1346993538461
+Content-Type: text/plain; charset=ISO-8859-1
+
+
+>
+> help to establish the previous version 2.0.7 from repository
+
+
+Hi Pavel,
+
+What version are you looking for?  You can download previous versions via 
+the "Archived versions" link on:
+ http://www.mongodb.org/downloads
+
+eg. for 64-bit Linux:
+ http://dl.mongodb.org/dl/linux/x86_64
+
+Cheers,
+Stephen
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_330_4496653.1346993538461
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;bor=
+der-left: 1px #ccc solid;padding-left: 1ex;">help to establish the previous=
+ version 2.0.7 from repository</blockquote><div><br></div><div>Hi Pavel,</d=
+iv><div><br></div><div>What version are you looking for? &nbsp;You can down=
+load previous versions via the "Archived versions" link on:<br>&nbsp;http:/=
+/www.mongodb.org/downloads</div><div><br></div><div>eg. for 64-bit Linux:<b=
+r>&nbsp;http://dl.mongodb.org/dl/linux/x86_64</div><div><br></div><div>Chee=
+rs,</div><div>Stephen</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_330_4496653.1346993538461--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346993538</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1912</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongodb problem</string>
+</dict>
+</plist>

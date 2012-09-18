@@ -1,0 +1,275 @@
+15231     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp254950oef;
+        Fri, 7 Sep 2012 01:43:04 -0700 (PDT)
+Received: by 10.236.200.168 with SMTP id z28mr4301124yhn.34.1347007384533;
+        Fri, 07 Sep 2012 01:43:04 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKKHquftAxCW56aCBRoENkGgEA@googlegroups.com>
+Received: from mail-yx0-f192.google.com (mail-yx0-f192.google.com [209.85.213.192])
+        by mx.google.com with ESMTPS id j49si4126727yhl.120.2012.09.07.01.43.04
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 01:43:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKKHquftAxCW56aCBRoENkGgEA@googlegroups.com designates 209.85.213.192 as permitted sender) client-ip=209.85.213.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKKHquftAxCW56aCBRoENkGgEA@googlegroups.com designates 209.85.213.192 as permitted sender) smtp.mail=mongodb-user+bncCKKHquftAxCW56aCBRoENkGgEA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yenl1 with SMTP id l1sf1974485yen.29
+        for <multiple recipients>; Fri, 07 Sep 2012 01:43:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=kz+AWSa6danhPyCZMpYACZiFrqMvgKvF4mveqr9eIyk=;
+        b=uz30Pv/6tAd8fzFf8GnHn7tIRKQNMsVtLFUr6edfgJeQSF8LmqCeXPULs/Gcl2UwDB
+         UPxK5eL3ES6SrpV/qos4lmgQVywniX8OTbzYoq+Xm/+8VK3H0Mo6GH+TXLQyj7LlaNgV
+         jucu3KAmqtNAiUcc053ZZWHAmr/vD7JykNO6A9r8iYU/zVvFA2xs4AvGRbFJ5WAjHLQD
+         vwa87mPKFC1t42u09IggHUYyjHKm+U6sBLb+MYeJdFn8l7KdMpMUtBQJOho18JCmgg4V
+         xCcgDD7oM1P9lGL/mzPyHXoHVGYCTjF39UkAQK3kJarnnDq3mbnRZiUIG5f5SXemtn8i
+         084A==
+Received: by 10.52.28.83 with SMTP id z19mr852069vdg.20.1347007384111;
+        Fri, 07 Sep 2012 01:43:04 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.52.92.207 with SMTP id co15ls257987vdb.5.gmail; Fri, 07 Sep
+ 2012 01:43:01 -0700 (PDT)
+Received: by 10.52.65.74 with SMTP id v10mr834367vds.18.1347007381921;
+        Fri, 07 Sep 2012 01:43:01 -0700 (PDT)
+Date: Fri, 7 Sep 2012 01:43:01 -0700 (PDT)
+From: Hanson Lu <hansonl@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <7a94600f-8ca6-4fa6-8e13-6c88b3030aad@googlegroups.com>
+Subject: [mongodb-user] How to resolve the $or  sort not using index problem
+MIME-Version: 1.0
+X-Original-Sender: hansonl@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ hansonl@gmail.com designates internal as permitted sender)
+ smtp.mail=hansonl@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_518_8589330.1347007381589"
+
+------=_Part_518_8589330.1347007381589
+Content-Type: text/plain; charset=ISO-8859-1
+
+My app has a collection like this 
+{ 
+  sender:'1000', 
+  receiver:'9999',
+  type:'text',
+  content:' this is content' ,
+  sentDate:ISODate("2011-10-12T14:54:02.069Z)
+}
+
+The collection records number > 50M. 
+
+There is a requirement to query records *between *sender 'X' and receiver 
+'Y' in short time. 
+
+First, i create index, {sender:1, receiver:1, sentDate:-1}, use query 
+
+  db.msgs.find({$or:[{sender:'1000',receiver:'9999'}, { sender:'9999', 
+receiver:'1000'}]}).sort(sentDate:-1}, 
+
+but this query will not use the above index, it do scan full table.  The 
+problem is known as 
+https://jira.mongodb.org/browse/SERVER-1205
+
+Next, I change the structure of the collection like this 
+{ 
+  sender:'1000', 
+  receiver:'9999',
+  type:'text',
+  both:['1000','9999']
+  content:' this is content' ,
+  sentDate:ISODate("2011-10-12T14:54:02.069Z)
+}
+
+add a new field named 'both' to store 'sender' and 'receiver' , and use 
+query 
+
+db.msgs.find({both:{$all:['1000','9999']}).sort(sendDate:-1},.
+
+The query do hit index, but if  sender '1000'  has large number of 
+records(>100000), 
+
+the query become very slow, i saw lots page fault from mongostat.
+
+It seems MongoDB will load all documents for indexed for {both:'1000'}, 
+ and compare whether the 'both' contents is exactly['1000','9999'].
+is it right? 
+
+I have no idea how to resolve the problem. Can you give me some suggestion.
+
+Regards.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_518_8589330.1347007381589
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+My app has a collection like this&nbsp;<div><div style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; =
+padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-widt=
+h: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-widt=
+h: 0px; border-style: initial; border-color: initial; vertical-align: basel=
+ine; ">{&nbsp;<br></div><div style=3D"margin-top: 0px; margin-right: 0px; m=
+argin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; =
+padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right=
+-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style=
+: initial; border-color: initial; vertical-align: baseline; ">&nbsp;&nbsp;s=
+ender:'1000',&nbsp;<br></div><div style=3D"margin-top: 0px; margin-right: 0=
+px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: =
+0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-=
+right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-=
+style: initial; border-color: initial; vertical-align: baseline; ">&nbsp;&n=
+bsp;receiver:'9999',</div><div style=3D"margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px=
+; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-rig=
+ht-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-sty=
+le: initial; border-color: initial; vertical-align: baseline; ">&nbsp;&nbsp=
+;type:'text',</div><div style=3D"margin-top: 0px; margin-right: 0px; margin=
+-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; paddi=
+ng-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-widt=
+h: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: ini=
+tial; border-color: initial; vertical-align: baseline; ">&nbsp;&nbsp;conten=
+t:' this is content' ,<br></div><div style=3D"margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-righ=
+t: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; bord=
+er-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; bord=
+er-style: initial; border-color: initial; vertical-align: baseline; ">&nbsp=
+;&nbsp;sentDate:ISODate(<span style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-righ=
+t-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-styl=
+e: initial; border-color: initial; vertical-align: baseline; font-family: a=
+rial, sans-serif; line-height: 16px; font-size: small; ">"2011-10-<wbr>12T1=
+4:54:02.069Z)</span></div><div style=3D"margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px=
+; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-rig=
+ht-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-sty=
+le: initial; border-color: initial; vertical-align: baseline; ">}<br></div>=
+</div><div><br></div><div><div style=3D"margin-top: 0px; margin-right: 0px;=
+ margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px=
+; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-rig=
+ht-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-sty=
+le: initial; border-color: initial; vertical-align: baseline; ">The collect=
+ion records number &gt; 50M.&nbsp;<br></div></div><div><br></div><div>There=
+ is a requirement to query records <b>between </b>sender 'X' and receiver '=
+Y' in short time.&nbsp;</div><div><br></div><div>First, i create index, {se=
+nder:1, receiver:1, sentDate:-1}, use query&nbsp;</div><div><br></div><div>=
+&nbsp;&nbsp;db.msgs.find({$or:[{sender:'1000',receiver:'9999'}, { sender:'9=
+999', receiver:'1000'}]}).sort(sentDate:-1},&nbsp;</div><div><br></div><div=
+>but this query will not use the above index, it do scan full table. &nbsp;=
+The problem is known as&nbsp;<br></div><div><a href=3D"https://jira.mongodb=
+.org/browse/SERVER-1205">https://jira.mongodb.org/browse/SERVER-1205</a><br=
+></div><div><br></div><div>Next, I change the structure of the collection l=
+ike this&nbsp;</div><div><div style=3D"margin-top: 0px; margin-right: 0px; =
+margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px;=
+ padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-righ=
+t-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-styl=
+e: initial; border-color: initial; vertical-align: baseline; border-style: =
+initial; border-color: initial; ">{&nbsp;<br></div><div style=3D"margin-top=
+: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top=
+: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-t=
+op-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-le=
+ft-width: 0px; border-style: initial; border-color: initial; vertical-align=
+: baseline; border-style: initial; border-color: initial; ">&nbsp;&nbsp;sen=
+der:'1000',&nbsp;<br></div><div style=3D"margin-top: 0px; margin-right: 0px=
+; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0p=
+x; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-ri=
+ght-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-st=
+yle: initial; border-color: initial; vertical-align: baseline; border-style=
+: initial; border-color: initial; ">&nbsp;&nbsp;receiver:'9999',</div><div =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-lef=
+t: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-=
+left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-wi=
+dth: 0px; border-left-width: 0px; border-style: initial; border-color: init=
+ial; vertical-align: baseline; border-style: initial; border-color: initial=
+; ">&nbsp;&nbsp;type:'text',</div><div style=3D"margin-top: 0px; margin-rig=
+ht: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-ri=
+ght: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; bo=
+rder-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; bo=
+rder-style: initial; border-color: initial; vertical-align: baseline; borde=
+r-style: initial; border-color: initial; ">&nbsp;&nbsp;both:['1000','9999']=
+</div><div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px;=
+ margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0p=
+x; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; borde=
+r-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-=
+color: initial; vertical-align: baseline; border-style: initial; border-col=
+or: initial; ">&nbsp;&nbsp;content:' this is content' ,<br></div><div style=
+=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0p=
+x; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:=
+ 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: =
+0px; border-left-width: 0px; border-style: initial; border-color: initial; =
+vertical-align: baseline; border-style: initial; border-color: initial; ">&=
+nbsp;&nbsp;sentDate:ISODate(<span style=3D"margin-top: 0px; margin-right: 0=
+px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: =
+0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-=
+right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-=
+style: initial; border-color: initial; vertical-align: baseline; border-sty=
+le: initial; border-color: initial; font-family: arial, sans-serif; line-he=
+ight: 16px; font-size: small; ">"2011-10-<wbr>12T14:54:02.069Z)</span></div=
+><div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; marg=
+in-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; pa=
+dding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bot=
+tom-width: 0px; border-left-width: 0px; border-style: initial; border-color=
+: initial; vertical-align: baseline; border-style: initial; border-color: i=
+nitial; ">}</div></div><div><br></div><div>add a new field named 'both' to =
+store 'sender' and 'receiver' , and use query&nbsp;</div><div><br></div><di=
+v>db.msgs.find({both:{$all:['1000','9999']}).sort(sendDate:-1},.</div><div>=
+<br></div><div>The query do hit index, but if&nbsp;&nbsp;sender '1000' &nbs=
+p;has large number of records(&gt;100000),&nbsp;</div><div><br></div><div>t=
+he query become very slow, i saw lots page fault from mongostat.</div><div>=
+<br></div><div>It seems MongoDB will load all documents for&nbsp;indexed fo=
+r {both:'1000'}, &nbsp;and compare whether the 'both' contents is exactly['=
+1000','9999'].</div><div>is it right?&nbsp;<br></div><div><br></div><div>I =
+have no idea how to resolve the problem.&nbsp;Can you give me some suggesti=
+on.</div><div><br></div><div>Regards.<br></div><div><br></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_518_8589330.1347007381589--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347007381</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1948</string>
+	<key>subject</key>
+	<string>[mongodb-user] How to resolve the $or  sort not using index problem</string>
+</dict>
+</plist>

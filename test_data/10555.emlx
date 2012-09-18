@@ -1,0 +1,645 @@
+26038     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp238136oef;
+        Thu, 6 Sep 2012 15:09:01 -0700 (PDT)
+Received: by 10.66.78.69 with SMTP id z5mr5400855paw.14.1346969341214;
+        Thu, 06 Sep 2012 15:09:01 -0700 (PDT)
+Return-Path: <mongodb-user+bncCM36zLKbHBD5vaSCBRoEJX0zJQ@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id rt1si5683926pbc.285.2012.09.06.15.09.00
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 15:09:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCM36zLKbHBD5vaSCBRoEJX0zJQ@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCM36zLKbHBD5vaSCBRoEJX0zJQ@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCM36zLKbHBD5vaSCBRoEJX0zJQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1748448pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 15:09:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=VXZ+HMyoEJ+MDcH4rR2Rd2yGl2WqOuqhTrP/v4JWG7M=;
+        b=U3CHIuC/HN4InF+Fvh4aYCR51f4EubnQ7VN2zCBP9Vo5PXlfi4x1UiGXUOU5dnuJCL
+         qkRvsGarrn8+bTzcskd/ufook4UmQ7FCwy35Asm736aYf2Sl+CuWU4zIGnOUrmQdDAl9
+         pRTqdboztOOirhXK57EMTTFDy8+Tub8ZLdF65e7YIPFgMfNWdAHw7B7zx/2PY9a41bmk
+         4+sSU7keUCd1sqbMk3upkJofz7PdvLZ6dzbNxRZa7SqgM4PsFNxqhupMwQMpfWCQ2Ncw
+         C4e6Kg4QEeoTN99oXp/NKQyJ8Nqe7MZMm8Shd3KrvEkDf6KLQqcXL6De78a4Gp7WSMdH
+         CJ9Q==
+Received: by 10.236.192.164 with SMTP id i24mr551930yhn.14.1346969339917;
+        Thu, 06 Sep 2012 15:08:59 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.78.164 with SMTP id g24ls33401yhe.6.gmail; Thu, 06 Sep
+ 2012 15:08:56 -0700 (PDT)
+Received: by 10.236.175.1 with SMTP id y1mr564463yhl.9.1346969336723;
+        Thu, 06 Sep 2012 15:08:56 -0700 (PDT)
+Date: Thu, 6 Sep 2012 15:08:56 -0700 (PDT)
+From: "A. Jesse Jiryu Davis" <jesse@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <916848a6-8582-4bf6-8f29-dabc638163e9@googlegroups.com>
+In-Reply-To: <CAO+R_P9VpVUVLPMe=yCLk7EaLuC5YgfZmxJTjBTckro4BUQQ+Q@mail.gmail.com>
+References: <CAO+R_P8=wzh5kbPU2-Hv=2i_sdYp6Jm+phxh+qLSN8n1VqTi_w@mail.gmail.com>
+ <CAO+R_P_FfM8Fx=6OjQRHFue07fuqxdLHc+OEkBQtnVPhERYf6g@mail.gmail.com> <d0d1eb71-33d7-4004-b4c9-90c4e76fe6ef@googlegroups.com>
+ <CAO+R_P9VpVUVLPMe=yCLk7EaLuC5YgfZmxJTjBTckro4BUQQ+Q@mail.gmail.com>
+Subject: Re: [mongodb-user] Re: [pymongo-motor] OperationFailure on insert
+MIME-Version: 1.0
+X-Original-Sender: jesse@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ jesse@10gen.com designates internal as permitted sender)
+ smtp.mail=jesse@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_152_4174476.1346969336085"
+
+------=_Part_152_4174476.1346969336085
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I see. Does that work with a regular PyMongo Connection?:
+
+db =3D pymongo.Connection('mongodb://user:pass@xxxxx.
+mongolab.com:xxxxx/dbname?safe=3Dtrue').dbname
+db.my_collection.insert({}, safe=3DTrue)
+
+
+On Thursday, September 6, 2012 6:02:36 PM UTC-4, Jorge Puente Sarr=EDn wrot=
+e:
+>
+> Hi Jesse,
+>
+> I have tried to run your snippet and I think that the problem is=20
+> Connection, because for create it, I'm using a Uri such as:
+>
+> db =3D=20
+> motor.MotorConnection('mongodb://user:pass@xxxxx.mongolab.com:xxxxx/dbnam=
+e?safe=3Dtrue').open_sync().dbname
+>
+> This is the traceback,
+>
+> ERROR:root:Exception in callback=20
+> <tornado.stack_context._StackContextWrapper object at 0x7fc5af09bd08>
+> Traceback (most recent call last):
+>   File "/usr/local/lib/python2.7/dist-packages/tornado/ioloop.py", line=
+=20
+> 421, in _run_callback
+>     callback()
+>   File "/usr/local/lib/python2.7/dist-packages/tornado/stack_context.py",=
+=20
+> line 229, in wrapped
+>     callback(*args, **kwargs)
+>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 382,=
+=20
+> in inner
+>     self.set_result(key, result)
+>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 315,=
+=20
+> in set_result
+>     self.run()
+>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 343,=
+=20
+> in run
+>     yielded =3D self.gen.throw(*exc_info)
+>   File "<stdin>", line 4, in go
+>   File "/usr/local/lib/python2.7/dist-packages/tornado/gen.py", line 335,=
+=20
+> in run
+>     next =3D self.yield_point.get_result()
+>   File "/usr/local/lib/python2.7/dist-packages/motor/__init__.py", line=
+=20
+> 1365, in get_result
+>     raise error
+> OperationFailure: db assertion failure, assertion: 'unauthorized=20
+> db:my_database ns:my_database lock type:1 client:190.41.238.178',=20
+> assertionCode: 10057
+>
+> Does PyMongo invoke to authenticate method when a uri have a=20
+> user/password? Or Does PyMongo ignored it, when uri have a db name?
+>
+> 2012/9/6 A. Jesse Jiryu Davis <je...@10gen.com <javascript:>>
+>
+>> In that case it seems that you are, perhaps, logged in as a read-only=20
+>> user, and you're mistaken that your document was correctly inserted? Try=
+=20
+>> this:
+>>
+>> import datetime
+>> from tornado.ioloop import IOLoop
+>> from tornado import gen
+>> import motor
+>>
+>> db =3D motor.MotorConnection().open_sync().my_database
+>> loop =3D IOLoop.instance()
+>>
+>> @gen.engine
+>> def go():
+>>     print 'dropping my_collection'
+>>     yield motor.Op(db.drop_collection, 'my_collection')
+>>     count =3D yield motor.Op(db.my_collection.count)
+>>     print 'count is', count
+>>
+>>     content =3D {'title': 'title',
+>>                'content': 'content',
+>>                'slug': 'slug',
+>>                'date': datetime.datetime.now()}
+>>     yield motor.Op(db.my_collection.insert, content)
+>>     count =3D yield motor.Op(db.my_collection.count)
+>>     print 'count is', count
+>>     loop.stop()
+>>
+>> go()
+>> loop.start()
+>>
+>> Replace "my_database" with the database you're using, and run this=20
+>> script, please. Be aware that this script drops a collection called=20
+>> "my_collection."
+>>
+>> On Thursday, September 6, 2012 3:57:53 PM UTC-4, Jorge Puente Sarr=EDn=
+=20
+>> wrote:
+>>
+>>> I have reviewed the DB and the document is inserted correctly, but I=20
+>>> don't understand why raise this exception.
+>>>
+>>> Regards.
+>>>
+>>> 2012/9/6 Jorge Puente Sarr=EDn <puente...@gmail.com>
+>>>
+>>> Hi, I'm following the Motor examples<http://emptysquare.net/motor/pymon=
+go/api/motor/examples.html#using-tornado-s-generator-interface>,=20
+>>>> but my code raise a exception when insert a document using yield opera=
+tor=20
+>>>> and motor Op/Task.
+>>>>
+>>>> Here my code:
+>>>>
+>>>> class ContentHandler(**MotorSampleHandler):
+>>>>
+>>>>      @tornado.web.asynchronous
+>>>>     @tornado.gen.engine
+>>>>     def post(self):
+>>>>         title =3D self.get_argument('title')
+>>>>         slug =3D stringhelper.get_slug(title)
+>>>>         content =3D {'title': title,
+>>>>             'content': self.get_argument('content'),
+>>>>             'slug': slug,
+>>>>             'date': datetime.datetime.now()}
+>>>>         *yield motor.Op(self.db.contents.insert, content)*
+>>>>         self.redirect('/%s' % slug)
+>>>>
+>>>> This is the traceback:
+>>>>
+>>>>     Traceback (most recent call last):
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/web.py",=
+=20
+>>>> line 1000, in _stack_context_handle_**exception
+>>>>         raise_exc_info((type, value, traceback))
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/stack_**c=
+ontext.py",=20
+>>>> line 256, in _nested
+>>>>         yield vars
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/stack_**c=
+ontext.py",=20
+>>>> line 226, in wrapped
+>>>>         callback(*args, **kwargs)
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/gen.py",=
+=20
+>>>> line 382, in inner
+>>>>         self.set_result(key, result)
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/gen.py",=
+=20
+>>>> line 315, in set_result
+>>>>         self.run()
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/gen.py",=
+=20
+>>>> line 343, in run
+>>>>         yielded =3D self.gen.throw(*exc_info)
+>>>> *      File "/home/puentesarrin/projects/motor-sample/motor-sample/han=
+dlers.py",=20
+>>>> line 111, in post*
+>>>> *        yield motor.Op(self.db.contents.insert, content)*
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/tornado/gen.py",=
+=20
+>>>> line 335, in run
+>>>>         next =3D self.yield_point.get_result()
+>>>>       File "/usr/local/lib/python2.7/**dist-packages/motor/__init__.**=
+py",=20
+>>>> line 1365, in get_result
+>>>>         raise error
+>>>>     OperationFailure: need to login
+>>>>
+>>>> I think that it's not about instance PyMongo Connection because, all o=
+f=20
+>>>> queries (find/find_one) results is ok.
+>>>>
+>>>> Python version: 2.7.3
+>>>> Tornado version: 2.3
+>>>> PyMongo version: 2.2
+>>>>
+>>>> --=20
+>>>> Atte.
+>>>> Jorge Puente Sarr=EDn.
+>>>> =20
+>>>
+>>>
+>>>
+>>> --=20
+>>> Atte.
+>>> Jorge Puente Sarr=EDn.
+>>> =20
+>>  --=20
+>> You received this message because you are subscribed to the Google
+>> Groups "mongodb-user" group.
+>> To post to this group, send email to mongod...@googlegroups.com<javascri=
+pt:>
+>> To unsubscribe from this group, send email to
+>> mongodb-user...@googlegroups.com <javascript:>
+>> See also the IRC channel -- freenode.net#mongodb
+>>
+>
+>
+>
+> --=20
+> Atte.
+> Jorge Puente Sarr=EDn.
+>
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_152_4174476.1346969336085
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+I see. Does that work with a regular PyMongo Connection?:<div><br></div><di=
+v><span style=3D"font-family: 'courier new', monospace; ">db =3D pymongo.Co=
+nnection('</span><wbr style=3D"font-family: 'courier new', monospace; "><sp=
+an style=3D"font-family: 'courier new', monospace; ">mongodb://user:pass@xx=
+xxx.</span><wbr style=3D"font-family: 'courier new', monospace; "><span sty=
+le=3D"font-family: 'courier new', monospace; ">mongolab.com:xxxxx/dbname?</=
+span><wbr style=3D"font-family: 'courier new', monospace; "><span style=3D"=
+font-family: 'courier new', monospace; ">safe=3Dtrue').dbname</span></div><=
+div><font face=3D"courier new, monospace">db.my_collection.insert({}, safe=
+=3DTrue)</font></div><div><font face=3D"courier new, monospace"><br></font>=
+<br>On Thursday, September 6, 2012 6:02:36 PM UTC-4, Jorge Puente Sarr=EDn =
+wrote:<blockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8=
+ex;border-left: 1px #ccc solid;padding-left: 1ex;"><div>Hi Jesse,</div><div=
+><br>I have tried to run your snippet and I think that the problem is Conne=
+ction, because for create it, I'm using a Uri such as:</div><div><br></div>=
+<div><span style=3D"font-family:'courier new',monospace">db =3D motor.Motor=
+Connection('<wbr>mongodb://user:pass@xxxxx.<wbr>mongolab.com:xxxxx/dbname?<=
+wbr>safe=3Dtrue').open_sync().dbname</span></div>
+
+<div><br></div><div>This is the traceback,</div><div><br></div><div><div><f=
+ont face=3D"'courier new', monospace">ERROR:root:Exception in callback &lt;=
+tornado.stack_context._<wbr>StackContextWrapper object at 0x7fc5af09bd08&gt=
+;</font></div>
+
+<div><font face=3D"'courier new', monospace">Traceback (most recent call la=
+st):</font></div><div><font face=3D"'courier new', monospace">&nbsp; File "=
+/usr/local/lib/python2.7/<wbr>dist-packages/tornado/ioloop.<wbr>py", line 4=
+21, in _run_callback</font></div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; callback()</font=
+></div><div><font face=3D"'courier new', monospace">&nbsp; File "/usr/local=
+/lib/python2.7/<wbr>dist-packages/tornado/stack_<wbr>context.py", line 229,=
+ in wrapped</font></div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; callback(*args, =
+**kwargs)</font></div><div><font face=3D"'courier new', monospace">&nbsp; F=
+ile "/usr/local/lib/python2.7/<wbr>dist-packages/tornado/gen.py", line 382,=
+ in inner</font></div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; self.set_result(=
+key, result)</font></div><div><font face=3D"'courier new', monospace">&nbsp=
+; File "/usr/local/lib/python2.7/<wbr>dist-packages/tornado/gen.py", line 3=
+15, in set_result</font></div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; self.run()</font=
+></div><div><font face=3D"'courier new', monospace">&nbsp; File "/usr/local=
+/lib/python2.7/<wbr>dist-packages/tornado/gen.py", line 343, in run</font><=
+/div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; yielded =3D self=
+.gen.throw(*exc_info)</font></div><div><font face=3D"'courier new', monospa=
+ce">&nbsp; File "&lt;stdin&gt;", line 4, in go</font></div><div><font face=
+=3D"'courier new', monospace">&nbsp; File "/usr/local/lib/python2.7/<wbr>di=
+st-packages/tornado/gen.py", line 335, in run</font></div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; next =3D self.yi=
+eld_point.get_result()</font></div><div><font face=3D"'courier new', monosp=
+ace">&nbsp; File "/usr/local/lib/python2.7/<wbr>dist-packages/motor/__init_=
+_.<wbr>py", line 1365, in get_result</font></div>
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; raise error</fon=
+t></div><div><font face=3D"'courier new', monospace">OperationFailure: db a=
+ssertion failure, assertion: 'unauthorized db:my_database ns:my_database lo=
+ck type:1 client:190.41.238.178', assertionCode: 10057</font></div>
+
+</div><div><br></div>Does PyMongo invoke to&nbsp;<font face=3D"'courier new=
+', monospace">authenticate</font>&nbsp;method when a uri have a user/passwo=
+rd? Or Does PyMongo ignored it, when uri have a db name?<br><br><div class=
+=3D"gmail_quote">
+
+2012/9/6 A. Jesse Jiryu Davis <span dir=3D"ltr">&lt;<a href=3D"javascript:"=
+ target=3D"_blank" gdf-obfuscated-mailto=3D"mlGYP96zBHIJ">je...@10gen.com</=
+a>&gt;</span><br><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8=
+ex;border-left:1px #ccc solid;padding-left:1ex">
+
+In that case it seems that you are, perhaps, logged in as a read-only user,=
+ and you're mistaken that your document was correctly inserted? Try this:<d=
+iv><br></div><div><div><font face=3D"courier new, monospace">import datetim=
+e</font></div>
+
+<div><font face=3D"courier new, monospace">from tornado.ioloop import IOLoo=
+p</font></div><div><font face=3D"courier new, monospace">from tornado impor=
+t gen</font></div><div><font face=3D"courier new, monospace">import motor</=
+font></div>
+
+<div><font face=3D"courier new, monospace"><br></font></div><div><font face=
+=3D"courier new, monospace">db =3D motor.MotorConnection().open_<wbr>sync()=
+.my_database</font></div><div><font face=3D"courier new, monospace">loop =
+=3D IOLoop.instance()</font></div>
+
+<div><font face=3D"courier new, monospace"><br></font></div><div><font face=
+=3D"courier new, monospace">@gen.engine</font></div><div><font face=3D"cour=
+ier new, monospace">def go():</font></div><div><font face=3D"courier new, m=
+onospace">&nbsp; &nbsp; print 'dropping my_collection'</font></div>
+
+<div><font face=3D"courier new, monospace">&nbsp; &nbsp; yield motor.Op(db.=
+drop_collection, 'my_collection')</font></div><div><font face=3D"courier ne=
+w, monospace">&nbsp; &nbsp; count =3D yield motor.Op(db.my_collection.<wbr>=
+count)</font></div>
+
+<div><font face=3D"courier new, monospace">&nbsp; &nbsp; print 'count is', =
+count</font></div><div><font face=3D"courier new, monospace"><br></font></d=
+iv><div><font face=3D"courier new, monospace">&nbsp; &nbsp; content =3D {'t=
+itle': 'title',</font></div>
+
+<div><font face=3D"courier new, monospace">&nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp;'content': 'content',</font></div><div><font face=3D=
+"courier new, monospace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp;'slug': 'slug',</font></div><div><font face=3D"courier new, monospace"=
+>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'date': datetime.da=
+tetime.now()}</font></div>
+
+<div><font face=3D"courier new, monospace">&nbsp; &nbsp; yield motor.Op(db.=
+my_collection.<wbr>insert, content)</font></div><div><font face=3D"courier =
+new, monospace">&nbsp; &nbsp; count =3D yield motor.Op(db.my_collection.<wb=
+r>count)</font></div><div><font face=3D"courier new, monospace">&nbsp; &nbs=
+p; print 'count is', count</font></div>
+
+<div><font face=3D"courier new, monospace">&nbsp; &nbsp; loop.stop()</font>=
+</div><div><font face=3D"courier new, monospace"><br></font></div><div><fon=
+t face=3D"courier new, monospace">go()</font></div><div><font face=3D"couri=
+er new, monospace">loop.start()</font></div>
+
+<div><br></div><div>Replace "my_database" with the database you're using, a=
+nd run this script, please. Be aware that this script drops a collection ca=
+lled "my_collection."</div><div><br>
+
+On Thursday, September 6, 2012 3:57:53 PM UTC-4, Jorge Puente Sarr=EDn wrot=
+e:</div><blockquote class=3D"gmail_quote" style=3D"margin:0;margin-left:0.8=
+ex;border-left:1px #ccc solid;padding-left:1ex"><div>I have reviewed the DB=
+ and the document is inserted correctly, but I don't understand why raise t=
+his exception.<div>
+
+<br></div></div><div>Regards.<br><br><div class=3D"gmail_quote">2012/9/6 Jo=
+rge Puente Sarr=EDn <span dir=3D"ltr">&lt;<a>puente...@gmail.com</a>&gt;</s=
+pan><div><div><br>
+
+
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hi, I'm following the&nbsp;<a href=3D"http:/=
+/emptysquare.net/motor/pymongo/api/motor/examples.html#using-tornado-s-gene=
+rator-interface" target=3D"_blank">Motor examples</a>, but my code raise a =
+exception when insert a document using yield operator and motor Op/Task.<di=
+v>
+
+
+
+
+
+<br></div><div>Here my code:</div><div><br></div><div><div><font face=3D"'c=
+ourier new', monospace">class ContentHandler(<u></u>MotorSampleHand<wbr>ler=
+):</font></div><div><font face=3D"'courier new', monospace"><br>
+
+</font></div>
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; @tornado.web.asy=
+nchronous</font></div><div><font face=3D"'courier new', monospace">&nbsp; &=
+nbsp; @tornado.gen.engine</font></div><div><font face=3D"'courier new', mon=
+ospace">&nbsp; &nbsp; def post(self):</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; &nbsp;&nb=
+sp;</font><span style=3D"font-family:'courier new',monospace">title =3D&nbs=
+p;</span><span style=3D"font-family:'courier new',monospace">self.get_argum=
+ent('title')</span></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; &nbsp; sl=
+ug =3D stringhelper.get_slug(title)</font></div><div><font face=3D"'courier=
+ new', monospace">&nbsp; &nbsp; &nbsp; &nbsp; content =3D {'title': title,<=
+/font></div><div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; '</font><span style=3D"font-family:'courier new',mo=
+nospace">content': self.get_argument('content'),</span></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; 'slug': slug,</font></div><div><font face=3D"'courier new', mon=
+ospace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'date': datetime.datetime=
+.now()}</font></div><div><font face=3D"'courier new', monospace">&nbsp; &nb=
+sp; &nbsp; &nbsp;&nbsp;</font><span style=3D"font-family:'courier new',mono=
+space"><b>yield motor.Op(self.db.contents.<u></u>inse<wbr>rt, content)</b><=
+/span></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; &nbsp; se=
+lf.redirect('/%s' % slug)</font></div></div><div><br></div><div>This is the=
+ traceback:<br clear=3D"all"><div><br></div><div><div><font face=3D"'courie=
+r new', monospace">&nbsp; &nbsp; Traceback (most recent call last):</font><=
+/div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/web.py", line 1000,=
+ in _stack_context_handle_<u></u>exceptio<wbr>n</font></div><div><font face=
+=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; &nbsp; raise_exc_info((t=
+ype, value, traceback))</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/stack_<u></u>contex=
+<wbr>t.py", line 256, in _nested</font></div><div><font face=3D"'courier ne=
+w', monospace">&nbsp; &nbsp; &nbsp; &nbsp; yield vars</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/stack_<u></u>contex=
+<wbr>t.py", line 226, in wrapped</font></div><div><font face=3D"'courier ne=
+w', monospace">&nbsp; &nbsp; &nbsp; &nbsp; callback(*args, **kwargs)</font>=
+</div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/gen.py", line 382, =
+in inner</font></div><div><font face=3D"'courier new', monospace">&nbsp; &n=
+bsp; &nbsp; &nbsp; self.set_result(key, result)</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/gen.py", line 315, =
+in set_result</font></div><div><font face=3D"'courier new', monospace">&nbs=
+p; &nbsp; &nbsp; &nbsp; self.run()</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/gen.py", line 343, =
+in run</font></div><div><font face=3D"'courier new', monospace">&nbsp; &nbs=
+p; &nbsp; &nbsp; yielded =3D self.gen.throw(*exc_info)</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace"><b>&nbsp; &nbsp; &nbsp; File "=
+/home/puentesarrin/projects/<u></u>m<wbr>otor-sample/motor-sample/<u></u>ha=
+ndl<wbr>ers.py", line 111, in post</b></font></div><div><font face=3D"'cour=
+ier new', monospace"><b>&nbsp; &nbsp; &nbsp; &nbsp; yield motor.Op(self.db.=
+contents.<u></u>inse<wbr>rt, content)</b></font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/tornado/gen.py", line 335, =
+in run</font></div><div><font face=3D"'courier new', monospace">&nbsp; &nbs=
+p; &nbsp; &nbsp; next =3D self.yield_point.get_result()</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; &nbsp; File "/us=
+r/local/lib/python2.7/<u></u>dist<wbr>-packages/motor/__init__.<u></u>py", =
+line 1365, in get_result</font></div><div><font face=3D"'courier new', mono=
+space">&nbsp; &nbsp; &nbsp; &nbsp; raise error</font></div>
+
+
+
+
+
+<div><font face=3D"'courier new', monospace">&nbsp; &nbsp; OperationFailure=
+: need to login</font></div></div><div><br></div><div>I think that it's not=
+ about instance PyMongo Connection because, all of queries (find/find_one) =
+results is ok.</div>
+
+
+
+
+
+<div><br></div><div>Python version: 2.7.3</div><div>Tornado version: 2.3</d=
+iv><div>PyMongo version: 2.2</div><span><font color=3D"#888888"><div><br></=
+div>-- <br>Atte.<br>Jorge Puente Sarr=EDn.<br>
+</font></span></div>
+</blockquote></div></div></div><div><div><br><br clear=3D"all"><div><br></d=
+iv>-- <br>Atte.<br>Jorge Puente Sarr=EDn.<br>
+</div></div></div><span><font color=3D"#888888">
+</font></span></blockquote></div><span><font color=3D"#888888">
+
+<p></p>
+
+-- <br>
+You received this message because you are subscribed to the Google<br>
+Groups "mongodb-user" group.<br>
+To post to this group, send email to <a href=3D"javascript:" target=3D"_bla=
+nk" gdf-obfuscated-mailto=3D"mlGYP96zBHIJ">mongod...@googlegroups.com</a><b=
+r>
+To unsubscribe from this group, send email to<br>
+<a href=3D"javascript:" target=3D"_blank" gdf-obfuscated-mailto=3D"mlGYP96z=
+BHIJ">mongodb-user...@<wbr>googlegroups.com</a><br>
+See also the IRC channel -- <a href=3D"http://freenode.net#mongodb" target=
+=3D"_blank">freenode.net#mongodb</a><br>
+</font></span></blockquote></div><br><br clear=3D"all"><div><br></div>-- <b=
+r>Atte.<br>Jorge Puente Sarr=EDn.<br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_152_4174476.1346969336085--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346969336</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1879</string>
+	<key>subject</key>
+	<string>Re: [mongodb-user] Re: [pymongo-motor] OperationFailure on insert</string>
+</dict>
+</plist>

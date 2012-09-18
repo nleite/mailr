@@ -1,0 +1,147 @@
+7042      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp244372oef;
+        Thu, 6 Sep 2012 18:46:48 -0700 (PDT)
+Received: by 10.68.234.41 with SMTP id ub9mr5769801pbc.21.1346982407790;
+        Thu, 06 Sep 2012 18:46:47 -0700 (PDT)
+Return-Path: <mongodb-user+bncCKvvmfrHHRCEpKWCBRoEvqRqeA@googlegroups.com>
+Received: from mail-pb0-f64.google.com (mail-pb0-f64.google.com [209.85.160.64])
+        by mx.google.com with ESMTPS id gk6si6459297pbc.95.2012.09.06.18.46.47
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 18:46:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCKvvmfrHHRCEpKWCBRoEvqRqeA@googlegroups.com designates 209.85.160.64 as permitted sender) client-ip=209.85.160.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCKvvmfrHHRCEpKWCBRoEvqRqeA@googlegroups.com designates 209.85.160.64 as permitted sender) smtp.mail=mongodb-user+bncCKvvmfrHHRCEpKWCBRoEvqRqeA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by pbbro12 with SMTP id ro12sf1809037pbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 18:46:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=sOifzjGB00pOn8basERwGBaCvkKEU+Wqo8SXjl24Dqc=;
+        b=AAuxS1mEUIH9/8NldGh9rj7xgmBNKZ+H7ww+lowc6RiGQ14bmKAVlI4Yy4F1DNYVW1
+         eI2XA6BMdBTIHkN4swX7FZKpmoX0vz5GG8P0BEPWzbi7ygX9dLeDVoZdth0eEZX14zrJ
+         17oBXYV0rOjZIs9N1M1qoBOwsvP5OUjfifRyHONuH6iKFpqX2NJuEJFXu7z+RHIPx2ht
+         mUcpuBa1xIoxjinQV3zxPeXAgKRmb1866+lJJZRU55qrde3jc8vbEM4NOSSmj0T1y/JW
+         E3IeVzhFO0d054VvH3IxfS2iUclnRm2D+69DJD7ZyYOTD/NB6hVCMXk1ZmTMnjFPjDjC
+         aXlg==
+Received: by 10.68.136.7 with SMTP id pw7mr1058180pbb.1.1346982406976;
+        Thu, 06 Sep 2012 18:46:46 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.68.136.233 with SMTP id qd9ls322336pbb.4.gmail; Thu, 06 Sep
+ 2012 18:46:43 -0700 (PDT)
+Received: by 10.68.189.202 with SMTP id gk10mr1048650pbc.11.1346982403928;
+        Thu, 06 Sep 2012 18:46:43 -0700 (PDT)
+Date: Thu, 6 Sep 2012 18:46:43 -0700 (PDT)
+From: Abhishek kumar <abhishekiitg10@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <8abb932e-3745-45b5-a48f-869627c889f5@googlegroups.com>
+Subject: [mongodb-user] mongod process/server becoming unresponsive
+MIME-Version: 1.0
+X-Original-Sender: abhishekiitg10@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ abhishekiitg10@gmail.com designates internal as permitted sender)
+ smtp.mail=abhishekiitg10@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_167_30861371.1346982403380"
+
+------=_Part_167_30861371.1346982403380
+Content-Type: text/plain; charset=ISO-8859-1
+
+version : 2.0.5
+Replica set (slaveOk = disabled)
+
+This is the primary log, where we can clearly see, that suddenly the read 
+queries stopped coming(logging).  
+http://pastebin.com/VLciscv7
+
+At the same time, mongo-java-client reporting timeOut exception : 
+http://pastebin.com/CB7hEced
+Also this is not the fact that queries took more time. The queries hardly 
+take 100 ms. Also total number of open_sockets in that mongod server box 
+bounces from 20-600 because the process is not responding.
+
+
+Also, I was not allowed to login to this mongo via the mongo-shell. The 
+process running was totally unresponsive. I was not able to normally stop 
+the process. Ultimately I have to do kill -9.
+This had happened some 5-6 times with different servers(sometimes on 
+primaries and secondary) last 1 week. And at that time I just have to force 
+kill that process and then restart.
+
+Please someone explain me the reason.
+Let me know if some more log information is required.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_167_30861371.1346982403380
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+version : 2.0.5<div>Replica set (slaveOk =3D disabled)</div><div><br></div>=
+<div>This is the primary log, where we can clearly see, that suddenly the r=
+ead queries stopped coming(logging). &nbsp;</div><div><a href=3D"http://pas=
+tebin.com/VLciscv7">http://pastebin.com/VLciscv7</a><br></div><div><br></di=
+v><div>At the same time, mongo-java-client reporting timeOut exception :&nb=
+sp;<a href=3D"http://pastebin.com/CB7hEced">http://pastebin.com/CB7hEced</a=
+></div><div>Also this is not the fact that queries took more time. The quer=
+ies hardly take 100 ms. Also total number of open_sockets in that mongod se=
+rver box bounces from 20-600 because the process is not responding.</div><d=
+iv><br></div><div><br></div><div><div>Also, I was not allowed to login to t=
+his mongo via the mongo-shell. The process running was totally unresponsive=
+. I was not able to normally stop the process. Ultimately I have to do kill=
+ -9.</div></div><div>This had happened some 5-6 times with different server=
+s(sometimes on primaries and secondary) last 1 week. And at that time I jus=
+t have to force kill that process and then restart.</div><div><br></div><di=
+v>Please someone explain me the reason.</div><div><div>Let me know if some =
+more log information is required.</div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_167_30861371.1346982403380--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346982403</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1902</string>
+	<key>subject</key>
+	<string>[mongodb-user] mongod process/server becoming unresponsive</string>
+</dict>
+</plist>

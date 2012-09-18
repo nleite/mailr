@@ -1,0 +1,184 @@
+8007      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp236765oef;
+        Thu, 6 Sep 2012 14:31:52 -0700 (PDT)
+Received: by 10.236.183.168 with SMTP id q28mr3225942yhm.45.1346967112695;
+        Thu, 06 Sep 2012 14:31:52 -0700 (PDT)
+Return-Path: <mongodb-user+bncCNGdsPOoCBDGrKSCBRoEJZiShQ@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id c29si3035133yhe.0.2012.09.06.14.31.52
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 14:31:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCNGdsPOoCBDGrKSCBRoEJZiShQ@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCNGdsPOoCBDGrKSCBRoEJZiShQ@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCNGdsPOoCBDGrKSCBRoEJZiShQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf1679586yhn.29
+        for <multiple recipients>; Thu, 06 Sep 2012 14:31:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:mime-version:date:in-reply-to:references:user-agent
+         :x-http-useragent:message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type
+         :content-transfer-encoding;
+        bh=XQ87xyjlHvlQvBEFQZV2XV2EzdnW2cdIXiKbce2Qxi4=;
+        b=HIQ1NhucbsHcnz5DDdf6PyFWrpbkgNP3P0EEeIuX0shRP7bgS+Kb/UMnSzHjBcUH3D
+         graPL2WOaHR6oF3eTtSsYYuOJzkViA8SV4N3RyUZwOclM4818FLdj4d1p8bHPTw++ex/
+         UsenGuCMfJwiSLXLNchXN/c5/j7yiC3PxgOkvwUSumwol4ji1zxsHkpnX7p1TUVmdJhv
+         7LNv2aTldN2JR7wRi4JLy/K7h7ykVdS22+YRsO/oZeqdcwVdUHSS5UMs4mDUflQb5KFA
+         OuYheXCzr9H8ly+vqaj0MjUuS2fblN3ey6zoTHWY+mR0xw90jFq4mO8E8Q3qRbErvIOI
+         pOyQ==
+Received: by 10.182.121.66 with SMTP id li2mr250666obb.16.1346967112086;
+        Thu, 06 Sep 2012 14:31:52 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.182.117.8 with SMTP id ka8ls10498obb.4.gmail; Thu, 06 Sep 2012
+ 14:31:50 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.182.37.103 with SMTP id x7mr244670obj.5.1346967110021; Thu, 06
+ Sep 2012 14:31:50 -0700 (PDT)
+Received: by e29g2000vbm.googlegroups.com with HTTP; Thu, 6 Sep 2012 14:31:49
+ -0700 (PDT)
+Date: Thu, 6 Sep 2012 14:31:49 -0700 (PDT)
+In-Reply-To: <befca25f-481a-4b45-98e9-cfa2c7f06366@googlegroups.com>
+References: <b8c401e1-7956-4166-8c59-0726a6488620@cf4g2000vbb.googlegroups.com>
+ <befca25f-481a-4b45-98e9-cfa2c7f06366@googlegroups.com>
+User-Agent: G2/1.0
+X-HTTP-UserAgent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.7 (KHTML, like
+ Gecko) Chrome/16.0.912.77 Safari/535.7,gzip(gfe)
+Message-ID: <dd4dc5d7-e292-4a3b-bb5b-6a8d90218b54@e29g2000vbm.googlegroups.com>
+Subject: [mongodb-user] Re: i cant remove "pushed" array!
+From: aliane abdelouahab <alabdelouahab@gmail.com>
+To: mongodb-user <mongodb-user@googlegroups.com>
+X-Original-Sender: alabdelouahab@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain
+ of alabdelouahab@gmail.com designates internal as permitted sender)
+ smtp.mail=alabdelouahab@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+thank you
+it is was i want to make:
+the document have no the "produit_up" in the beginning, so when a user
+adds a product, it is pushed and updated, and then, if he want to
+delete it, then, it dont work!
+i've did as in the mongodb tutorial but dident work.
+
+On 6 sep, 21:42, Andrew Emil <andrew.e...@10gen.com> wrote:
+> Hi Aliane,
+>
+> If I correctly understand your operations you are trying to pull all the
+> elements in produit_up that have a prix value of 4100. =A0The main issue =
+with
+> this is that the main field used in a pull command must be an array
+> (seehttp://www.mongodb.org/display/DOCS/Updating#Updating-%24pullfor more
+> info).
+>
+> Additionally, I am not sure if this is what you are trying to do, but it
+> would be good to note it is not currently possible to pull fields out of
+> documents in the array, your only option is to pull the entire document
+> from the array. =A0A possible workaround might be to pull the entire
+> document, remove the field from that document, and push it back into the
+> array.
+>
+> If you just want to pull the entire document, this could be done by placi=
+ng
+> an expression inside of your pull as described in the doc I linked above.
+> =A0If I misunderstood your question or did not get you a useful answer, j=
+ust
+> respond back and I will definitely try to get back to you and try and
+> resolve this.
+>
+>
+>
+>
+>
+>
+>
+> On Thursday, September 6, 2012 12:12:04 PM UTC-7, aliane abdelouahab wrot=
+e:
+>
+> > hi
+> > why cant i remove nested document?
+> > here is the original document:
+>
+> > list(db.users.find({"pseudo":"alucaard"}, {"produit_up":1, "_id":0}))
+> > Out[1]:
+> > [{u'produit_up': [{u'avctype': u'image/jpeg',
+> > =A0 =A0 u'date': u'2012-09-06',
+> > =A0 =A0 u'description': u'samiiiiiiiiiiiiiiiiiiiiiing',
+> > =A0 =A0 u'id': u'alucaard134695511544',
+> > =A0 =A0 u'namep': u'samsung e250',
+> > =A0 =A0 u'orientation': u'portrait',
+> > =A0 =A0 u'photo': ObjectId('5048e76b3a5f3a0a5c199d41'),
+> > =A0 =A0 u'prix': 410,
+> > =A0 =A0 u'vendu': False},
+> > =A0 =A0{u'avctype': u'image/jpeg',
+> > =A0 =A0 u'date': u'2012-09-06',
+> > =A0 =A0 u'description': u'samifgfdgfdgfdgfdg',
+> > =A0 =A0 u'id': u'alucaard13469551377',
+> > =A0 =A0 u'namep': u'nokia 3310',
+> > =A0 =A0 u'orientation': u'portrait',
+> > =A0 =A0 u'photo': ObjectId('5048e7813a5f3a0a5c199d43'),
+> > =A0 =A0 u'prix': 4100,
+> > =A0 =A0 u'vendu': False}]}]
+>
+> > db.users.update({"pseudo":"alucaard"}, {"$pull":{"produit_up.prix":
+> > 4100}})
+>
+> > list(db.users.find({"pseudo":"alucaard"}, {"produit_up":1, "_id":0}))
+> > Out[1]:
+> > [{u'produit_up': [{u'avctype': u'image/jpeg',
+> > =A0 =A0 u'date': u'2012-09-06',
+> > =A0 =A0 u'description': u'samiiiiiiiiiiiiiiiiiiiiiing',
+> > =A0 =A0 u'id': u'alucaard134695511544',
+> > =A0 =A0 u'namep': u'samsung e250',
+> > =A0 =A0 u'orientation': u'portrait',
+> > =A0 =A0 u'photo': ObjectId('5048e76b3a5f3a0a5c199d41'),
+> > =A0 =A0 u'prix': 410,
+> > =A0 =A0 u'vendu': False},
+> > =A0 =A0{u'avctype': u'image/jpeg',
+> > =A0 =A0 u'date': u'2012-09-06',
+> > =A0 =A0 u'description': u'samifgfdgfdgfdgfdg',
+> > =A0 =A0 u'id': u'alucaard13469551377',
+> > =A0 =A0 u'namep': u'nokia 3310',
+> > =A0 =A0 u'orientation': u'portrait',
+> > =A0 =A0 u'photo': ObjectId('5048e7813a5f3a0a5c199d43'),
+> > =A0 =A0 u'prix': 4100,
+> > =A0 =A0 u'vendu': False}]}]
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346967109</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1874</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: i cant remove "pushed" array!</string>
+</dict>
+</plist>

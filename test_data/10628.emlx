@@ -1,0 +1,217 @@
+10515     
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp256039oef;
+        Fri, 7 Sep 2012 02:22:42 -0700 (PDT)
+Received: by 10.236.200.232 with SMTP id z68mr4346581yhn.46.1347009761999;
+        Fri, 07 Sep 2012 02:22:41 -0700 (PDT)
+Return-Path: <mongodb-user+bncCLH5k_yAGhDf-aaCBRoEHg16bA@googlegroups.com>
+Received: from mail-yw0-f64.google.com (mail-yw0-f64.google.com [209.85.213.64])
+        by mx.google.com with ESMTPS id d45si4225667yhe.27.2012.09.07.02.22.41
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 02:22:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCLH5k_yAGhDf-aaCBRoEHg16bA@googlegroups.com designates 209.85.213.64 as permitted sender) client-ip=209.85.213.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCLH5k_yAGhDf-aaCBRoEHg16bA@googlegroups.com designates 209.85.213.64 as permitted sender) smtp.mail=mongodb-user+bncCLH5k_yAGhDf-aaCBRoEHg16bA@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by yhnn12 with SMTP id n12sf2026210yhn.29
+        for <multiple recipients>; Fri, 07 Sep 2012 02:22:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=vB440aa+rewycYhhSvGhkQwDusjipME4/UQZe5i2vjc=;
+        b=dlB7kxMFtgxrura/0B3fcRDFmSgOfBk4YLpvjhezlsOGNxbVMOzRDYL6NDI7HoQQQ/
+         FVKGZ6CJy4b/oeHUfEUtTKow99uGJZFjqiywRQQWHhls2+/ZqRGSg5KxSJXaJ916wujj
+         FBf6UTqWg1IjobsJJLl8LCShWuPo5sL8NwBx5qvsvYPGDDekYjdKkEbWE7jSJ2aqy5df
+         NNIKkdSQEdj7wZ7OAF4tBX1+JUWKMHjJlqnJIdLxmPmuy7o9aJBoJc7iWQ1MChz/DqEx
+         B0Gpphg7hdt78JbCk6XzQUL2xywnKEGcdiiritx8UCFlpMQ8b88ArI0Tt13G7roIhqU5
+         hpwA==
+Received: by 10.236.185.130 with SMTP id u2mr693911yhm.0.1347009761554;
+        Fri, 07 Sep 2012 02:22:41 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.236.124.176 with SMTP id x36ls444618yhh.1.gmail; Fri, 07 Sep
+ 2012 02:22:39 -0700 (PDT)
+Received: by 10.236.170.7 with SMTP id o7mr685195yhl.3.1347009759498;
+        Fri, 07 Sep 2012 02:22:39 -0700 (PDT)
+Date: Fri, 7 Sep 2012 02:22:38 -0700 (PDT)
+From: Rhys Keepence <rhyskeepence@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <713484df-37f2-4cf2-84b7-4d64801474ec@googlegroups.com>
+In-Reply-To: <3ed70bd6-3c46-40be-aaf3-e0bc2133b98e@googlegroups.com>
+References: <b773f53c-4325-4af1-85e8-a464b6645cb9@googlegroups.com>
+ <3856e716-6820-4da4-b0d3-d18d88d59724@googlegroups.com>
+ <141f4c2c-c157-494b-bb13-0d3ab6c6381b@googlegroups.com>
+ <3ed70bd6-3c46-40be-aaf3-e0bc2133b98e@googlegroups.com>
+Subject: [mongodb-user] Re: Using new aggregation framework to fetch daily average
+MIME-Version: 1.0
+X-Original-Sender: rhyskeepence@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ rhyskeepence@gmail.com designates internal as permitted sender)
+ smtp.mail=rhyskeepence@gmail.com; dkim=pass
+ header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_472_14308270.1347009758958"
+
+------=_Part_472_14308270.1347009758958
+Content-Type: text/plain; charset=ISO-8859-1
+
+Yes, the stats given earlier were taken from the third run of each query. 
+The results are consistent regardless of order, I've just double checked 
+this.
+
+Thanks
+Rhys
+
+
+On Thursday, 6 September 2012 16:55:55 UTC+1, Osmar Olivo wrote:
+>
+> Just to be sure. You tried running these queries multiple times back to 
+> back to make sure the results are consistant correct? 
+>
+> If your running the aggregate function first every time, then its possible 
+> that it goes to disk and loads all of the data in RAM causing the initial 
+> query to be slow but then the subsequent mapreduce to be fast since all of 
+> the data is already in RAM. Did you try switching up the order or 
+> pre-warming the cache? 
+>
+> If that's not the case then it might be some underlying issue.
+>
+> P.S.
+>
+> If you are running 2.2, then you are running the most up-to-date version 
+> and the command you are running looks ok.
+>
+> On Thursday, September 6, 2012 7:08:47 AM UTC-4, Rhys Keepence wrote:
+>>
+>> Thanks very much for responding.
+>>
+>> Where are you getting these stats from for the two queries? Is this part 
+>>> of the explain output?
+>>>
+>>
+>> These stats appeared in the server log.
+>>
+>> If not, try running the two queries with .explain() appended to them. 
+>>> This will give us information regarding the query that can be helpful in 
+>>> analyzing why it is slower. More information on explain and what values to 
+>>> look for can be found here: [ 
+>>> http://www.mongodb.org/display/DOCS/Explain ]
+>>>
+>>
+>> OK, I couldn't quite get explain() to work using map reduce, I think 
+>> because I'm using the 2.2 release version. I could upgrade to a dev version 
+>> if that would help with diagnosis?
+>>
+>> However, here is as much output as I can gather: 
+>> The top half is the aggregation query output then the output in the 
+>> profile collection.
+>> The second half is the map reduce query output and the output in the 
+>> profile collection.
+>>
+>> https://gist.github.com/3653338
+>>
+>> I'm not sure if I'm reading it correctly, but it looks like the query 
+>> part of both queries is fast, but the grouping in the aggregation query is 
+>> the bottleneck.
+>>
+>> Thanks again
+>> Rhys
+>>
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_472_14308270.1347009758958
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Yes, the stats given earlier were taken from the third run of each query.&n=
+bsp;<div>The results are consistent regardless of order, I've just double c=
+hecked this.<div><br></div><div>Thanks</div><div>Rhys</div><div><br></div><=
+div><br>On Thursday, 6 September 2012 16:55:55 UTC+1, Osmar Olivo  wrote:<b=
+lockquote class=3D"gmail_quote" style=3D"margin: 0;margin-left: 0.8ex;borde=
+r-left: 1px #ccc solid;padding-left: 1ex;">Just to be sure. You tried runni=
+ng these queries multiple times back to back to make sure the results are c=
+onsistant correct?&nbsp;<div><br></div><div>If your running the aggregate f=
+unction first every time, then its possible that it goes to disk and loads =
+all of the data in RAM causing the initial query to be slow but then the su=
+bsequent mapreduce to be fast since all of the data is already in RAM. Did =
+you try switching up the order or pre-warming the cache?&nbsp;</div><div><b=
+r></div><div>If that's not the case then it might be some underlying issue.=
+</div><div><br></div><div>P.S.</div><div><br></div><div>If you are running =
+2.2, then you are running the most up-to-date version and the command you a=
+re running looks ok.<br><br>On Thursday, September 6, 2012 7:08:47 AM UTC-4=
+, Rhys Keepence wrote:<blockquote class=3D"gmail_quote" style=3D"margin:0;m=
+argin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex">Thanks very m=
+uch for responding.<br><br><blockquote class=3D"gmail_quote" style=3D"margi=
+n:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left:1ex"><div>Whe=
+re are you getting these stats from for the two queries? Is this part of th=
+e explain output?</div></blockquote><div><br></div><div>These stats appeare=
+d in the server log.</div><div><br></div><blockquote class=3D"gmail_quote" =
+style=3D"margin:0;margin-left:0.8ex;border-left:1px #ccc solid;padding-left=
+:1ex"><div>If not, try running the two queries with .explain() appended to =
+them. This will give us information regarding the query that can be helpful=
+ in analyzing why it is slower. More information on explain and what values=
+ to look for can be found here: [ <a href=3D"http://www.mongodb.org/display=
+/DOCS/Explain" target=3D"_blank">http://www.mongodb.org/<wbr>display/DOCS/E=
+xplain</a> ]<br></div></blockquote><div><br></div><div>OK, I couldn't quite=
+ get explain() to work using map reduce, I think because I'm using the 2.2 =
+release version. I could upgrade to a dev version if that would help with d=
+iagnosis?</div><div><br></div><div>However, here is as much output as I can=
+ gather:&nbsp;</div><div><div>The top half is the aggregation query output =
+then the&nbsp;output in the profile collection.</div><div>The second half i=
+s the map reduce query output and the output in the profile collection.</di=
+v></div><div><br></div><div><a href=3D"https://gist.github.com/3653338" tar=
+get=3D"_blank">https://gist.github.com/<wbr>3653338</a><br></div><div><br><=
+/div><div>I'm not sure if I'm reading it correctly, but it looks like the q=
+uery part of both queries is fast, but the grouping in the aggregation quer=
+y is the bottleneck.</div><div><br></div><div>Thanks again</div><div>Rhys</=
+div></blockquote></div></blockquote></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_472_14308270.1347009758958--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347009758</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1952</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Using new aggregation framework to fetch daily average</string>
+</dict>
+</plist>

@@ -1,0 +1,123 @@
+5931      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp250451oef;
+        Thu, 6 Sep 2012 23:06:43 -0700 (PDT)
+Received: by 10.52.35.104 with SMTP id g8mr4795845vdj.20.1346998002780;
+        Thu, 06 Sep 2012 23:06:42 -0700 (PDT)
+Return-Path: <mongodb-user+bncCOq4m5T4HxDunaaCBRoEaZo48g@googlegroups.com>
+Received: from mail-vb0-f64.google.com (mail-vb0-f64.google.com [209.85.212.64])
+        by mx.google.com with ESMTPS id l9si4035325vdv.17.2012.09.06.23.06.42
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 23:06:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCOq4m5T4HxDunaaCBRoEaZo48g@googlegroups.com designates 209.85.212.64 as permitted sender) client-ip=209.85.212.64;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCOq4m5T4HxDunaaCBRoEaZo48g@googlegroups.com designates 209.85.212.64 as permitted sender) smtp.mail=mongodb-user+bncCOq4m5T4HxDunaaCBRoEaZo48g@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by vbbff1 with SMTP id ff1sf1851649vbb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 23:06:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:received-spf:mime-version:date:message-id:subject:from
+         :to:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-google-group-id:list-post
+         :list-help:list-archive:sender:list-subscribe:list-unsubscribe
+         :content-type;
+        bh=a+DfzPTcFTEWuAN2867mHN+eAhF97GDrMrLGPnp1LGk=;
+        b=lBr96507eNOjb70t7zOT9Dqp3KrMyJIeC3OzvNrYUzTqL0OliUydyjT/YSTL4CN/Ft
+         izth/ZHb1IbN4qtDx9usEZWMsLILHBrXkaI3vPVxgi+E81oQtxFrMUGeOFEr/PmS62zy
+         0WwsIBv+ERIbtd5wQ1boFOLoctT/mdgFQbaYdQE9ojG+dz0d7mp7xI3rh/aCoHU4d7bO
+         MP/uO2nD3vbvrGCDovI8tdcV7nNnksCWQ5dun18wM20RcuPPW2C0lVuY+HEhlfkf6QY2
+         c7CoE7206P7lQcSGSRAZagkwbskuW/Kc2PnKfaQsUDdbVVGJ3MT4wFfYZdVW18pbsJW/
+         mlLA==
+Received: by 10.50.37.141 with SMTP id y13mr182252igj.1.1346998001831;
+        Thu, 06 Sep 2012 23:06:41 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.231.82.148 with SMTP id b20ls374535ibl.9.gmail; Thu, 06 Sep
+ 2012 23:06:38 -0700 (PDT)
+Received: by 10.50.197.137 with SMTP id iu9mr12382025igc.1.1346997998419;
+        Thu, 06 Sep 2012 23:06:38 -0700 (PDT)
+Received: by 10.50.197.137 with SMTP id iu9mr12382023igc.1.1346997998406;
+        Thu, 06 Sep 2012 23:06:38 -0700 (PDT)
+Received: from mail-iy0-f175.google.com (mail-iy0-f175.google.com [209.85.210.175])
+        by gmr-mx.google.com with ESMTPS id ba5si1665371igb.3.2012.09.06.23.06.38
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 23:06:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of martinus787@gmail.com designates 209.85.210.175 as permitted sender) client-ip=209.85.210.175;
+Received: by iaky10 with SMTP id y10so3012112iak.34
+        for <mongodb-user@googlegroups.com>; Thu, 06 Sep 2012 23:06:38 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.50.207.39 with SMTP id lt7mr6600723igc.39.1346997998291; Thu,
+ 06 Sep 2012 23:06:38 -0700 (PDT)
+Received: by 10.43.89.196 with HTTP; Thu, 6 Sep 2012 23:06:38 -0700 (PDT)
+Date: Fri, 7 Sep 2012 14:06:38 +0800
+Message-ID: <CAGYT-xSK0wj1Jh9p1VVXTZjPqmJtmJhfcypVPoWzzE_RzOb2uQ@mail.gmail.com>
+Subject: [mongodb-user] how to do the backup for sharded and replicated mongo
+From: Martinus Martinus <martinus787@gmail.com>
+To: mongodb-user@googlegroups.com
+X-Original-Sender: martinus787@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of martinus787@gmail.com designates 209.85.210.175 as permitted
+ sender) smtp.mail=martinus787@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; boundary=14dae9341077338c7404c91669fb
+
+--14dae9341077338c7404c91669fb
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi,
+
+As title, would someone be so kindly to explain me the step-by-step process
+to backup the data on the sharded and replicated mongod servers?
+
+Thanks.
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+--14dae9341077338c7404c91669fb
+Content-Type: text/html; charset=ISO-8859-1
+
+Hi,<div><br></div><div>As title, would someone be so kindly to explain me the step-by-step process to backup the data on the sharded and replicated mongod servers?</div><div><br></div><div>Thanks.</div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+--14dae9341077338c7404c91669fb--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346997998</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1925</string>
+	<key>subject</key>
+	<string>[mongodb-user] how to do the backup for sharded and replicated mongo</string>
+</dict>
+</plist>

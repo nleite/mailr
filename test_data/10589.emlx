@@ -1,0 +1,152 @@
+6547      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp248763oef;
+        Thu, 6 Sep 2012 21:58:43 -0700 (PDT)
+Received: by 10.224.179.210 with SMTP id br18mr2671926qab.31.1346993922912;
+        Thu, 06 Sep 2012 21:58:42 -0700 (PDT)
+Return-Path: <mongodb-user+bncCJidnPO5FBCA_qWCBRoEKJ-qgg@googlegroups.com>
+Received: from mail-qc0-f192.google.com (mail-qc0-f192.google.com [209.85.216.192])
+        by mx.google.com with ESMTPS id 9si3997816qaf.83.2012.09.06.21.58.42
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 21:58:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCJidnPO5FBCA_qWCBRoEKJ-qgg@googlegroups.com designates 209.85.216.192 as permitted sender) client-ip=209.85.216.192;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCJidnPO5FBCA_qWCBRoEKJ-qgg@googlegroups.com designates 209.85.216.192 as permitted sender) smtp.mail=mongodb-user+bncCJidnPO5FBCA_qWCBRoEKJ-qgg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by qcon41 with SMTP id n41sf1353093qco.29
+        for <multiple recipients>; Thu, 06 Sep 2012 21:58:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:mime-version:date:in-reply-to:references:user-agent
+         :x-http-useragent:message-id:subject:from:to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type
+         :content-transfer-encoding;
+        bh=05WqkcpXxWTTMtqo0jVtHNdHOnLElHi2vI+ejes/uW0=;
+        b=tQpblUPjfy1DGzZmwMvNVch/7gEg5FoHbWkkiD7RtnLIQZOQus24coKNmrwTjG91QR
+         iLpjKqwWaGsuw+bJxJuzuOagtIPO0l0i3sQ6JI+RQ56BgZLjg68ifVMydQjOiWR70Xf6
+         fGya9zZBu8GOJFDHdeECGvufF7jk4E3AwagBYBv5mcUyoIOnKhmBjCRrwJ1Z981RPFC6
+         a7M3GhuhRzp6ZUPSF/GS583sbIOLrL6BUerTb8Lz/ZjkFDtKfllSpo+WRUC9K1r0jHIz
+         PesL6i7q2LF3deamOCD1xHczER2DlI+0swW6hgIs4qLo0knEY4zYDIvb5UXa/dKieRiA
+         MapA==
+Received: by 10.52.28.83 with SMTP id z19mr812709vdg.20.1346993922122;
+        Thu, 06 Sep 2012 21:58:42 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.141.4 with SMTP id k4ls160560vcu.8.gmail; Thu, 06 Sep 2012
+ 21:58:40 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.52.99.8 with SMTP id em8mr798022vdb.16.1346993920206; Thu, 06
+ Sep 2012 21:58:40 -0700 (PDT)
+Received: by m3g2000vby.googlegroups.com with HTTP; Thu, 6 Sep 2012 21:58:40
+ -0700 (PDT)
+Date: Thu, 6 Sep 2012 21:58:40 -0700 (PDT)
+In-Reply-To: <CAMNCBP6k182ULpLBU49hLrWkqjwQM2umn4EkR1_LeMDhqBBtMA@mail.gmail.com>
+References: <5bd33a8b-c7ed-4216-9567-1f9a5e4fed04@z4g2000vby.googlegroups.com>
+ <e0b39e6a-980e-41ae-b0a8-a774247fb1f0@v22g2000vbu.googlegroups.com> <CAMNCBP6k182ULpLBU49hLrWkqjwQM2umn4EkR1_LeMDhqBBtMA@mail.gmail.com>
+User-Agent: G2/1.0
+X-HTTP-UserAgent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like
+ Gecko) Chrome/21.0.1180.89 Safari/537.1,gzip(gfe)
+Message-ID: <13068984-6a79-4849-a129-157f88c85fa0@m3g2000vby.googlegroups.com>
+Subject: [mongodb-user] Re: mongo iowait
+From: tetlika <tetlika@gmail.com>
+To: mongodb-user <mongodb-user@googlegroups.com>
+X-Original-Sender: tetlika@gmail.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain
+ of tetlika@gmail.com designates internal as permitted sender)
+ smtp.mail=tetlika@gmail.com; dkim=pass header.i=@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+thanks, nice video
+
+but looks in our specific case there are no random ebs io problems
+
+On 7 =D0=92=D0=B5=D1=80, 00:34, Samuel Garc=C3=ADa Mart=C3=ADnez <samuelgma=
+rti...@gmail.com>
+wrote:
+> Maybe is not resident size related. This can give you a hint:http://www.1=
+0gen.com/presentations/MongoNYC-2012/MongoDB-at-foursquare
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> On Thu, Sep 6, 2012 at 4:49 PM, tetlika <tetl...@gmail.com> wrote:
+> > forgot to say that it is not happening every time the res is reached
+> > to that value, the shard can "live" for weeks with that res but than
+> > suddenly starts that behavior, sometimes the shard "lives" just a
+> > couple of days with that res, and than starts iowaiting
+>
+> > On 6 =D0=92=D0=B5=D1=80, 17:44, tetlika <tetl...@gmail.com> wrote:
+> > > hi!
+>
+> > > we are on amazon ec2 m2.4xlarge instances and on sharding with mongo
+> > > 2.0.6, with 4x disks in RAID0, index size on every shard is less than
+> > > 50Gb
+>
+> > > m2.4xlarge are 69GB of RAM
+>
+> > > we've noticed such weird behavior of mongod:
+>
+> > > 1) as soon as "res" value is around 55-60Gb on any of our shards, we
+> > > are monitoring high unexplainable iowait on that shard master,
+> > > application slows down extremely
+>
+> > > 2) we are doing stepdown and things are normal again until the res
+> > > reaches the value of 55-60Gb (after month or so)
+>
+> > > such behavior looks very weird, any thoughts what it can be?
+>
+> > > thanks
+>
+> > --
+> > You received this message because you are subscribed to the Google
+> > Groups "mongodb-user" group.
+> > To post to this group, send email to mongodb-user@googlegroups.com
+> > To unsubscribe from this group, send email to
+> > mongodb-user+unsubscribe@googlegroups.com
+> > See also the IRC channel -- freenode.net#mongodb
+>
+> --
+> Un saludo,
+> Samuel Garc=C3=ADa.
+
+--=20
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346993920</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1913</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: mongo iowait</string>
+</dict>
+</plist>

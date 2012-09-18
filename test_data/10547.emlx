@@ -1,0 +1,169 @@
+8088      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp236268oef;
+        Thu, 6 Sep 2012 14:17:40 -0700 (PDT)
+Received: by 10.50.202.73 with SMTP id kg9mr5183601igc.42.1346966259918;
+        Thu, 06 Sep 2012 14:17:39 -0700 (PDT)
+Return-Path: <mongodb-user+bncCM36zLKbHBDwpaSCBRoES0Sssg@googlegroups.com>
+Received: from mail-ie0-f192.google.com (mail-ie0-f192.google.com [209.85.223.192])
+        by mx.google.com with ESMTPS id cw2si5205475icc.61.2012.09.06.14.17.39
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Thu, 06 Sep 2012 14:17:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCM36zLKbHBDwpaSCBRoES0Sssg@googlegroups.com designates 209.85.223.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCM36zLKbHBDwpaSCBRoES0Sssg@googlegroups.com designates 209.85.223.192 as permitted sender) smtp.mail=mongodb-user+bncCM36zLKbHBDwpaSCBRoES0Sssg@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-ie0-f192.google.com with SMTP id c12sf1111790ieb.29
+        for <multiple recipients>; Thu, 06 Sep 2012 14:17:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-google-group-id
+         :list-post:list-help:list-archive:sender:list-subscribe
+         :list-unsubscribe:content-type;
+        bh=AiS40HYPCQ1/gx90xcYDIPOftRcZhpa1t8OFk9ql9KM=;
+        b=Fg8+dH8gKcZz1OLA76ekRqWkuOmtg1RN5OKJ0O/oRzAuPyw11yicMPRJ96Xz3zZ1Kh
+         8TUxyiFHdYLbEk4sP1r51zrnAhxxXyjPXaU5ecAv1maPzCii8LHohbbzOIVcErGtvywT
+         TEMd2T7aw4eCmo583SeCoTU5SGRM07l6u9DMoBvDoidhUimt5JMtpIG+AR3hovIpYe5T
+         C8BwnccTYOyNqZ6lYyu8JBiWY2UcNVppMp2dbdAT5PgZEOuTf0aOJUOdtsOhXcR9RR57
+         k4VqXSGOUFngUopacY2czuc4pGM+B7HXzXK+QDcoa6mVEFuk57xWEN4KpehJOd+VEFdS
+         bMJA==
+Received: by 10.52.91.47 with SMTP id cb15mr702512vdb.11.1346966258608;
+        Thu, 06 Sep 2012 14:17:38 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.220.155.6 with SMTP id q6ls1267454vcw.3.gmail; Thu, 06 Sep
+ 2012 14:17:36 -0700 (PDT)
+Received: by 10.52.75.36 with SMTP id z4mr694189vdv.14.1346966256566;
+        Thu, 06 Sep 2012 14:17:36 -0700 (PDT)
+Date: Thu, 6 Sep 2012 14:17:36 -0700 (PDT)
+From: "A. Jesse Jiryu Davis" <jesse@10gen.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <f5de44ab-85d3-4826-8a4f-ef40e90e1d71@googlegroups.com>
+In-Reply-To: <d52c63ea-8f8b-4ad4-abbb-8f3669d7ed78@googlegroups.com>
+References: <e243df1f-d2b9-4dc3-a58c-6179a91152e4@googlegroups.com>
+ <08490b9d-fe66-4d6b-a18f-ff3411a0d561@googlegroups.com>
+ <4b06e617-c14a-4d04-a170-8299e267c5ca@googlegroups.com>
+ <77f0b239-f05d-433f-b6e6-3357bcbe672a@googlegroups.com>
+ <c707945f-9bbd-4203-a383-0af629c877ad@googlegroups.com>
+ <d52c63ea-8f8b-4ad4-abbb-8f3669d7ed78@googlegroups.com>
+Subject: [mongodb-user] Re: Creating an efficient system for analytic
+ statistics with sharding
+MIME-Version: 1.0
+X-Original-Sender: jesse@10gen.com
+X-Original-Authentication-Results: ls.google.com; spf=pass (google.com: domain of
+ jesse@10gen.com designates internal as permitted sender)
+ smtp.mail=jesse@10gen.com; dkim=pass
+ header.i=@10gen.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_105_7652154.1346966256194"
+
+------=_Part_105_7652154.1346966256194
+Content-Type: text/plain; charset=ISO-8859-1
+
+Michael, the benefits of adding a random part to the key are documented 
+here:
+
+http://www.mongodb.org/display/DOCS/Choosing+a+Shard+Key
+
+If you choose a shard key that strictly increases in value, then all your 
+writes will go to the top chunk, which is hosted on a single server, and 
+that server will have to take the full write load. user + eventType doesn't 
+sound like it's going to be sufficiently varied as a shard-key suffix to 
+spread out your load; you want a coarsely-increasing prefix and a random, 
+high-cardinality suffix.
+
+Read about "Sample Strategy 3: Combo Plate" here, too:
+
+http://www.kchodorow.com/blog/2011/01/04/how-to-choose-a-shard-key-the-card-game/
+
+And:
+
+http://docs.mongodb.org/manual/core/sharding-internals/#write-scaling
+
+On Thursday, September 6, 2012 3:54:54 PM UTC-4, Mark wrote:
+>
+> Not a mongo expert on this yet, but in general, I would crunch the data 
+> into hours (or even minutes if need be) and leave the data static once you 
+> create it. 
+> Then crunch the hours into a day file, week file, month file, yearly file 
+> depending on that time ranges you want. 
+>
+> It a toss up whether you want to count as the data is coming in or count 
+> it once for each hour. 
+>
+> If you crunch, use a secondary. 
+>
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_105_7652154.1346966256194
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Michael,&nbsp;the benefits of adding a random part to the key are documente=
+d here:<div><br></div><div>http://www.mongodb.org/display/DOCS/Choosing+a+S=
+hard+Key</div><div><br></div><div>If you choose a shard key that strictly i=
+ncreases in value, then all your writes will go to the top chunk, which is =
+hosted on a single server, and that server will have to take the full write=
+ load. user + eventType doesn't sound like it's going to be sufficiently va=
+ried as a shard-key suffix to spread out your load; you want a coarsely-inc=
+reasing prefix and a random, high-cardinality suffix.</div><br>Read about "=
+Sample Strategy 3: Combo Plate" here, too:<div><br></div><div>http://www.kc=
+hodorow.com/blog/2011/01/04/how-to-choose-a-shard-key-the-card-game/</div><=
+div><br></div><div>And:</div><div><br></div><div>http://docs.mongodb.org/ma=
+nual/core/sharding-internals/#write-scaling<br><div><br>On Thursday, Septem=
+ber 6, 2012 3:54:54 PM UTC-4, Mark wrote:<blockquote class=3D"gmail_quote" =
+style=3D"margin: 0;margin-left: 0.8ex;border-left: 1px #ccc solid;padding-l=
+eft: 1ex;">Not a mongo expert on this yet, but in general, I would crunch t=
+he data into hours (or even minutes if need be) and leave the data static o=
+nce you create it.&nbsp;<div>Then crunch the hours into a day file, week fi=
+le, month file, yearly file depending on that time ranges you want.&nbsp;</=
+div><div><br></div><div>It a toss up whether you want to count as the data =
+is coming in or count it once for each hour.&nbsp;</div><div><br></div><div=
+>If you crunch, use a secondary.&nbsp;</div></blockquote></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_105_7652154.1346966256194--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1346966256</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1871</string>
+	<key>subject</key>
+	<string>[mongodb-user] Re: Creating an efficient system for analytic statistics with sharding</string>
+</dict>
+</plist>

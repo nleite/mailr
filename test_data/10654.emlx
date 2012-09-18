@@ -1,0 +1,140 @@
+6260      
+Delivered-To: norberto@10gen.com
+Received: by 10.60.24.70 with SMTP id s6csp270042oef;
+        Fri, 7 Sep 2012 08:54:20 -0700 (PDT)
+Received: by 10.236.116.226 with SMTP id g62mr5390338yhh.100.1347033260360;
+        Fri, 07 Sep 2012 08:54:20 -0700 (PDT)
+Return-Path: <mongodb-user+bncCODhyrGYExCpsaiCBRoE_LruuQ@googlegroups.com>
+Received: from mail-gg0-f192.google.com (mail-gg0-f192.google.com [209.85.161.192])
+        by mx.google.com with ESMTPS id d19si2219153ang.92.2012.09.07.08.54.20
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Fri, 07 Sep 2012 08:54:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mongodb-user+bncCODhyrGYExCpsaiCBRoE_LruuQ@googlegroups.com designates 209.85.161.192 as permitted sender)
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of mongodb-user+bncCODhyrGYExCpsaiCBRoE_LruuQ@googlegroups.com designates 209.85.161.192 as permitted sender) smtp.mail=mongodb-user+bncCODhyrGYExCpsaiCBRoE_LruuQ@googlegroups.com; dkim=pass header.i=@googlegroups.com
+Received: by mail-gg0-f192.google.com with SMTP id h1sf2286402ggn.29
+        for <multiple recipients>; Fri, 07 Sep 2012 08:54:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20120806;
+        h=x-beenthere:date:from:to:message-id:subject:mime-version
+         :x-original-sender:reply-to:precedence:mailing-list:list-id
+         :x-google-group-id:list-post:list-help:list-archive:sender
+         :list-subscribe:list-unsubscribe:content-type;
+        bh=WscVP6Y/igplWp0KnM0vuYk96hrJVg44fwsgbrHbcYo=;
+        b=eBHopTHLRVcwBYVQgmrw0IFY+RWYEYJZy+LcVTzgIk6tRkAUvBJM5CW//LE1HSKZLi
+         y9t6cwGenaE1ftrEFF2Pg1WHy2K/yzxBlIbj8uktgZeuGIZw7LtQdIwhhCN9SoakcFbx
+         XQnTf1ml/RkNM24lIuupFEx+SpnQ3cufJsZ8h1nYUiIZgvEAzRitP9y/J2ICHvlkPwjB
+         1AWi65qr0hPEMgH7nufkuJyBoyl4W45JejD8NbkgD29D6H7Q8p2w48shl+2UtbeSxLUo
+         cFSZDAJpnRHLgoHwvfiqkpf0B9+87iWhXDZ0Zu6cKxN7OQ47s3T8stVHSkTlbFO7kA16
+         NDbg==
+Received: by 10.224.180.198 with SMTP id bv6mr1353526qab.14.1347033260005;
+        Fri, 07 Sep 2012 08:54:20 -0700 (PDT)
+X-BeenThere: mongodb-user@googlegroups.com
+Received: by 10.229.175.169 with SMTP id ba41ls569044qcb.5.gmail; Fri, 07 Sep
+ 2012 08:54:17 -0700 (PDT)
+Received: by 10.224.27.14 with SMTP id g14mr2955730qac.1.1347033257622;
+        Fri, 07 Sep 2012 08:54:17 -0700 (PDT)
+Received: by 10.224.18.193 with SMTP id x1msqaa;
+        Fri, 7 Sep 2012 08:53:27 -0700 (PDT)
+Received: by 10.52.33.34 with SMTP id o2mr1034509vdi.12.1347033206967;
+        Fri, 07 Sep 2012 08:53:26 -0700 (PDT)
+Date: Fri, 7 Sep 2012 08:53:26 -0700 (PDT)
+From: Mooyaga Mooyagic <mooyaga@gmail.com>
+To: mongodb-user@googlegroups.com
+Message-Id: <a34c6343-468f-4b15-9b2f-62b1df771ba8@googlegroups.com>
+Subject: [mongodb-user] C#; "No serializer found for type" for a member that
+ is an interface and null
+MIME-Version: 1.0
+X-Original-Sender: mooyaga@gmail.com
+Reply-To: mongodb-user@googlegroups.com
+Precedence: list
+Mailing-list: list mongodb-user@googlegroups.com; contact mongodb-user+owners@googlegroups.com
+List-ID: <mongodb-user.googlegroups.com>
+X-Google-Group-Id: 1044811755470
+List-Post: <http://groups.google.com/group/mongodb-user/post?hl=en_US>, <mailto:mongodb-user@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:mongodb-user+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/mongodb-user?hl=en_US>
+Sender: mongodb-user@googlegroups.com
+List-Subscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:mongodb-user+subscribe@googlegroups.com>
+List-Unsubscribe: <http://groups.google.com/group/mongodb-user/subscribe?hl=en_US>,
+ <mailto:googlegroups-manage+1044811755470+unsubscribe@googlegroups.com>
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_942_13594491.1347033206474"
+
+------=_Part_942_13594491.1347033206474
+Content-Type: text/plain; charset=ISO-8859-1
+
+Hi,
+
+This code fails with "No serializer found for type IWhatever":
+
+  interface IWhatever { }
+  class Whatever : IWhatever{}
+  class Person
+    {
+        public IWhatever Whatever { get; set; }
+    }
+
+  var p = new Person();
+  p.ToBsonDocument(); // or ToBson();
+
+I spent at least an hour trying to figure out what's wrong with that code. 
+It turns out that there is no exception if p.Whatever is not null, so I can 
+make the test code work by calling SetIgnoreIfNull(true) for that member.
+
+Please tell me there's a better way and that I don't have to do that for 
+each property.
+
+
+-- 
+You received this message because you are subscribed to the Google
+Groups "mongodb-user" group.
+To post to this group, send email to mongodb-user@googlegroups.com
+To unsubscribe from this group, send email to
+mongodb-user+unsubscribe@googlegroups.com
+See also the IRC channel -- freenode.net#mongodb
+
+------=_Part_942_13594491.1347033206474
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi,<div><br><div>This code&nbsp;fails with "No serializer found for type IW=
+hatever":</div><div><br></div><div><div>&nbsp; interface IWhatever { }</div=
+><div>&nbsp; class Whatever : IWhatever{}</div><div>&nbsp; class Person</di=
+v><div>&nbsp; &nbsp; {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; public IWhatev=
+er Whatever { get; set; }</div><div>&nbsp; &nbsp; }</div></div><div><div><b=
+r></div><div>&nbsp; var p =3D new Person();</div><div>&nbsp; p.ToBsonDocume=
+nt(); // or ToBson();</div></div><div><br></div><div>I spent at least an ho=
+ur trying to figure out what's wrong with that code. It turns out that ther=
+e is no exception if p.Whatever is not null, so I can make the test code wo=
+rk by calling SetIgnoreIfNull(true) for that member.</div><div><br></div><d=
+iv>Please tell me there's a better way and that I don't have to do that for=
+ each property.</div><div><br></div><div><br></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google<br />
+Groups &quot;mongodb-user&quot; group.<br />
+To post to this group, send email to mongodb-user@googlegroups.com<br />
+To unsubscribe from this group, send email to<br />
+mongodb-user+unsubscribe@googlegroups.com<br />
+See also the IRC channel -- freenode.net#mongodb<br />
+
+------=_Part_942_13594491.1347033206474--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>date-sent</key>
+	<real>1347033206</real>
+	<key>flags</key>
+	<integer>8590195712</integer>
+	<key>original-mailbox</key>
+	<string>imap://norberto%4010gen.com@imap.gmail.com/mongodb-user</string>
+	<key>remote-id</key>
+	<string>1978</string>
+	<key>subject</key>
+	<string>[mongodb-user] C#; "No serializer found for type" for a member that is an interface and null</string>
+</dict>
+</plist>
